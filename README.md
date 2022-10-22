@@ -8,4 +8,13 @@
 **掰掰**
 > hello
 1. heeko
-2. gg
+2. `gg`
+
+```
+git status
+git pull
+git add 
+git commit -m ""
+git push
+```
+
