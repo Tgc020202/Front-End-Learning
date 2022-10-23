@@ -3,9 +3,37 @@
 
 <head>
     <title>Practice</title>
+
     <style type = "text/css">
+        
+        /*w3school.com.cn*/
+
         a{
-            color:red;
+            text-decoration: none;
+            color: black;
+
+        }
+
+        /*未访问的链接，和a{}相同并且同时存在时会覆盖a{}*/
+        a:link{
+            color:darkblue;
+        }
+
+        /*鼠标一抖到超链接上时*/
+        a:hover{
+            text-decoration: underline;
+            color: darkred;
+        }
+
+        /*被选定的超链接*/
+        a:active{
+            text-decoration: underline;
+            color: yellow;
+        }
+
+        /*已经访问的超链接*/
+        a:visited{
+            color: lightblue;
         }
     </style>    
 </head>
@@ -13,7 +41,7 @@
 <body>
 <h1>Delicious Food</h1>
 <p>This is a local food in my hometown, and i love it so much.</p>
-<p>Delicious Food<a href = "another folder/legal.html" target = "_blank"> Legal</a></p>
+<p>Delicious Food<a href = "legal.html" target = "_blank"> Legal</a></p>
 
 <h3>Lists of the apparatus and materials</h3>
 <ul>
@@ -43,15 +71,6 @@
     <li><a href = "suggest.html">Suggestions</a></li>
 </ul>
 
-
-<div>
-    <img src = "panda.jpg" alt = "panda is so cute" title = "download from online" />
-</div>
-<ol type = "i">
-    <li>有序列表一</li>
-    <li>有序列表二</li>
-    <li>有序列表三</li>
- </ol>
  <!-- 这就是一的p标签的写法 -->
 </body>
 
