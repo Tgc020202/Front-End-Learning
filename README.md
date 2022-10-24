@@ -5,6 +5,7 @@
 | ---------- | ---------------------------------------------------------------|
 | Day1       | [html 基础语法](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2001%20html%20basic%20syntax/Day%2001.md)                            |
 | Day2       | [html Doc Format](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2002%20html%20doc%20format/Day%2002.md)                 |
+| Day3       | [html 基础语法 II](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2003%20html%20syntax%20II/html%20syntax%20II.md)                 |
 
 **掰掰**
 > hello
