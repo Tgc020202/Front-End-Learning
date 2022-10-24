@@ -54,6 +54,29 @@
 
 ## 1-8 企业命名规范
 
+## 2-0 HTML 标签属性
++ 通用属性标签：所有标签都拥有的属性例如：
+> + id：整个 HTML 文档当中唯一的 标识 不可重复 相当于身份证
+> + class：用户指定元素类别的名称 可以通过使用 class 元素给同一个文档中的多个元素进行归类
+> + style：用于给元素设定样式【内部样式或者行内样式】
+> + title：显示省略的内容，当光标移动到此元素区域上面的时候 才显示
 
+Example:
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "utf-8">
+    <meta name = "viewpoint" content = "width=device-width,initial-scale=1">
+    <tilte> HTML 通用属性代码展示 </title>
+  </head>
+  <body>
+    <div id = "maindiv" style = "background:red;width:300px;height:100px;" title = "鼠标悬停可以显示">
+      这是一个div通用属性的展示      
+    </div>
+    <img src = "" id = "img" style = "width:400px;height:400px">
+  </body>
+</html>
+```
 
 
