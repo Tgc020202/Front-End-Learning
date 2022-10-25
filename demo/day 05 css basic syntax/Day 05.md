@@ -102,3 +102,84 @@ Example:
   </body>
 </html>
 ```
+
+#### 1-1 CSS 颜色
++ 十六进制色(Hexadecimal colors)
+> + 每个十六进制颜色由三部分组成
+> + 前面两个字符代表红色的多少
+> + 中间两个字符代表绿色的多少
+> + 最后两个代表蓝色的多少
+> 红 绿 蓝 这三种颜色，每一部分的取值范围都可以从16进制的 00 - FF，或者从十进制的 0 - 255
+
++ 十进制数的分解
+> + 十进制数个位数字的取值范围是 0 - 9
+
++ 十六进制数的分解
+> + 有时我们需要把十六进制数转化为十进制数
+> + 只需要乘以十六power位数，位数从0开始慢慢增加从个位(16 power 0)到十位(16 power 1)，再到百位(16 power 2)，以此类推
+> + 比如 23(十六进制) ，2 为十位数(16 power 1 = 16)，3 为个位数(16 power 0 = 1),2 x 16 + 3 x 1 = 35(十进制)
+> + 十六进制数个位数字的取值范围是 0 - 15，但是 9 以上的数字用字母表示A(10) B(11) C(12) D(13) E(14) F(15)
+> 例子: #030923，红 = (0 x 16 + 3 x 1) = 3 ，绿 = (0 x 16 + 9 x 1) = 9，蓝 = (2 x 16 + 3 x 1) = 35， 所以颜色的 CSS 十进制表示法是: rgb(3,9,35)
+
+Example:
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        /*关键字颜色*/
+        h1{
+            color:black;
+        }
+        /*十六进制颜色*/
+        h2{
+            color:#000000;
+        }
+        /*十进制颜色*/
+        h3{
+            color:rgb(0,0,0);
+        }
+    </style>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+#### css 颜色实用的功能
+Example(origin):
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type = "text/css">
+        h1{
+            color:#79B1A3;
+        }
+        h2{
+            color:#79B1A3;
+        }
+        h3{
+            color:#79B1A3;
+        }
+    </style>
+  </head>
+  <body>
+  </body>
+</html>
+```
+Example(shotcut):
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <style type = "text/css">
+        h1,h2,h3{
+            color:#79B1A3;
+        }
+    </style>
+  </head>
+  <body>
+  </body>
+</html>
+```
