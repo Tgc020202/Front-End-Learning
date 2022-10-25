@@ -9,7 +9,7 @@
 >  + cellpadding:设置单元格间距
 >  + cellspacing:设置像素间隙
 
-Example:
+Example(Test1.html):
 ```
 <!DOCTYPE html>
 <html>
@@ -47,7 +47,7 @@ Example:
 ```
 
 #### 3-2 rowspan 跨行合并/colpan 跨列合并
-Example:
+Example(Test2.html):
 ```
 <!DOCTYPE html>
 <html>
@@ -119,7 +119,7 @@ td{vertical-align:bottom;}
 > + 设置奇数项: table tr:nth-child(odd){}
 > + 设置偶数项: table tr:nth-child(even){}
 
-Example:
+Example(Test3.html):
 ```
 <!DOCTYPE html>
 <html>
@@ -255,7 +255,7 @@ Example:
 > + *placeholder* 表示输入框内的默认值，用户直接输入内容，默认内容会消失。value 属性也可以有默认字体，但是用户需要删除字体才能填写
 > + input 也是行内元素，需要转换为块级元素才可以设置宽高
 
-Example:
+Example(Test4.html):
 ```
 <!DOCTYPE html>
 <html>
@@ -295,3 +295,117 @@ Example:
     </body>
 </html>
 ```
+
++ Textarea 标签
+> + 定义多行的文本输入控件
+> + textarea 标签属性
+> + rows: 规定文本区内的可见行数
+> + cols: 规定文本区内的可见宽度
+
++ button 标签
+> + 定义一个按钮，根据不同的 type 属性展示不同的按钮类型
+> + button 标签 type 属性值:
+>> + button: 定义普通按钮
+>> + reset: 定义重置按钮
+>> + submit: 定义提交按钮
+
++ select 标签
+> + 定义可单选或多选下拉菜单，包含若干隔可选项(<option>)
+> + select 标签属性:
+>> + size: 规定下拉列表中选项的数目
+>> + multiple: 规定可选择多个选项
+    
+Example(Test5.html):
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Form 表单元素_2</title>
+    </head>
+    <body>
+        <textarea style = "resize:none;overflow:hidden;width:200px;height:200px">
+        </textarea>
+        <!-- resize 表示输入框是否可以自动放大or缩小 -->
+
+        <hr>
+        地址:
+        <select multiple = "multiple" size = 2>
+            <option value = "1">雪兰莪</option>
+            <option value = "2">吉隆坡</option>
+            <option>霹雳</option>
+            <option>马六甲</option>
+        </select>
+        <br>
+        爱好:
+        <select><!-- multiple = "multiple" size = 2 -->
+            <option>羽毛球</option>
+            <option>篮球</option>
+            <option>足球</option>
+            <option>排球</option>
+        </select>
+    </body>
+</html>
+```
+    
++ 表单通用属性:
+> + name 属性: 规定输入字段名称
+> + value 属性: 规定输入字段的初始值
+> + readonly 属性: 规定输入字段为只读
+> + disabled 属性: 规定输入字段是禁用的
+    
+Example(Test6.html):
+```
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>The input disabled attribute</h1>
+        <p>The disabled attribute specifies that an input field should be disabled(unusable and un-clickable)</p>
+
+        <form action = "#" name = "表单">
+            <p>First Name: <br> 
+                <input type = "text" name = "username" value = "John" disabled>
+            </p>
+            <p>Last Name: <br>
+                <input type = "text" name = "username" >
+            </p>
+            <p>Full Name: <br>
+                <input type = "text" name = "username" value = "John" readonly>
+            </p>
+        </form>
+    </body>
+</html>
+```
+    
+#### 4-1 iframe 框架标签
++ iframe 框架标签不利于搜索引擎的优化，尽量不要在前端使用，后端 designer 自己用可以
++ frame 元素会创建包含另外一个文档的内联框架，也是镶嵌在一个网页中的另一个网页。
++ 相当于网页中又嵌套了一个窗口
++ iframe 框架标签属性:
+> + src 属性: 在框架中显示的文档的 URL
+> + name 属性: 规定在框架的名称
+> + width 属性: iframe 设置宽度
+> + height 属性: iframe 设置高度
+> + frameborder 属性: 设置框架边框
+> + scrolling 属性: 设置滚动条
+    
+ Example(Test7.html)
+ ```
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title>iframe 框架标签</title>
+    </head>
+    <body>
+        <!-- 
+            iframe 标签
+            width = "30%"
+            可以为百分比 也可以为具体数值 不需要跟单位 
+        -->
+        <iframe 
+            src = "http://www.jd.com" scrolling = "no" width = "800" height = "500" frameborder = "0">
+        </iframe>
+    </body>
+</html>
+ ```
