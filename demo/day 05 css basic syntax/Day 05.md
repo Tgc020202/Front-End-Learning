@@ -60,6 +60,31 @@ Example:
 | length | 把 font-size 设置为一个固定的值 |
 | % | 把 font-size 设置为基于父元素的一个百分比值 |
 | inherit | 规定应该从父元素继承字体尺寸 |
+
+#### CSS 文本属性(Text)
+
+| 属性 | 描述 |
+|------|------|
+| color | 设置文本的颜色 
+| direction | 规定文本的方向、书写方向 |
+| letter-spacing | 设置字符间距 |
+| line-height | 设置行高 |
+| text-align | 规定文本的水平对齐的方式 |
+| text-decoration | 规定添加到文本的装饰效果 |
+| text-indent | 规定文本块首行的缩进 |
+| text-shadow | 规定添加到文本的阴影效果 |
+| text-transform | 控制文本的大小写 |
+| unicode-bidi | 设置文本的方向 |
+| white-space | 规定如何处理元素中的空白 |
+| word-spacing | 设置单调间距 |
+| hanging-punctuation | 规定标点字符是否位于线框之外 |
+| punctuation-trim | 规定是否对标点字符进行修剪 |
+| text-align-last | 设置如何对齐最后一行或紧挨着强制换行符之前的行 |
+| text-emphasis | 向元素的文本应用重点标记以及重点标记的前景色 |
+| text-justify | 规定当 text-align 设置为 “justify” 时所使用的对齐方法 |
+| text-outline | 规定文本的轮廓 |
+| text-overflow | 规定当文本溢出包含元素时发生的事情 |
+
 + 改变 p 里面的首字母(比如改变大小，改变颜色等)
 Example:
 ```
