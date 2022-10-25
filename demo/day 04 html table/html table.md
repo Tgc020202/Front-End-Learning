@@ -379,4 +379,33 @@ Example(Test6.html):
 ```
     
 #### 4-1 iframe 框架标签
++ iframe 框架标签不利于搜索引擎的优化，尽量不要在前端使用，后端 designer 自己用可以
++ frame 元素会创建包含另外一个文档的内联框架，也是镶嵌在一个网页中的另一个网页。
++ 相当于网页中又嵌套了一个窗口
++ iframe 框架标签属性:
+> + src 属性: 在框架中显示的文档的 URL
+> + name 属性: 规定在框架的名称
+> + width 属性: iframe 设置宽度
+> + height 属性: iframe 设置高度
+> + frameborder 属性: 设置框架边框
+> + scrolling 属性: 设置滚动条
     
+ Example(Test7.html)
+ ```
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title>iframe 框架标签</title>
+    </head>
+    <body>
+        <!-- 
+            iframe 标签
+            width = "30%"
+            可以为百分比 也可以为具体数值 不需要跟单位 
+        -->
+        <iframe 
+            src = "http://www.jd.com" scrolling = "no" width = "800" height = "500" frameborder = "0">
+        </iframe>
+    </body>
+</html>
+ ```
