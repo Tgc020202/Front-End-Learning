@@ -65,17 +65,17 @@ Example:
 ```
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset = "utf-8">
     <meta name = "viewpoint" content = "width=device-width,initial-scale=1">
     <tilte> HTML 通用属性代码展示 </title>
-  </head>
-  <body>
-    <div id = "maindiv" style = "background:red;width:300px;height:100px;" title = "鼠标悬停可以显示">
-      这是一个div通用属性的展示      
+</head>
+<body>
+    <div id = "maindiv" style = "background:red;width: 300px;height: 100px;" title = "鼠标悬停可以显示">
+        这是一个div通用属性的展示      
     </div>
-    <img src = "" id = "img" style = "width:400px;height:400px">
-  </body>
+    <img src = "image 9.jpg" id = "img" style = "width: 400px; height: 400px;">
+</body>
 </html>
 ```
 
