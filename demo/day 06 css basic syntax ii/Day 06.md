@@ -78,7 +78,27 @@ h1{
 Example(Shortcut):
 ```
 h1{
-    border:6px solid #030923;
+    border:20px solid #030923;
 }
 ···
 
+##### 1-2-4-3 margin
+Example(Test4.html):
+```
+h1{
+    margin-top:6px;
+    margin-right:6px;
+    margin-bottom:0;
+    margin-left:0;
+}
+```
+
+Example(Shortcut):
+```
+h2{
+margin:10px 10px 0 0;
+}
+/*margin:上 右 下 左*/
+```
+
+##### 1-2-4-4 
