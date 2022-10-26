@@ -101,4 +101,15 @@ margin:10px 10px 0 0;
 /*margin:上 右 下 左*/
 ```
 
-##### 1-2-4-4 
+##### 1-2-4-4 浏览器的样式
++ 每个浏览器都有自己的默认浏览器样式
++ 重置浏览器样式方法:
+Example(Test5.html):
+```
+html,body,h1,h2,h3,p,ol,ul,li,a{
+    padding:0;
+    border:0;
+    margin:0;
+}
+```
+
