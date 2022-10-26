@@ -80,7 +80,7 @@ Example(Shortcut):
 h1{
     border:20px solid #030923;
 }
-···
+```
 
 ##### 1-2-4-3 margin
 Example(Test4.html):
