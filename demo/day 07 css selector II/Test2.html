@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>使用类选择器</title>
+        <style type = "text/css">
+        /*查找 nav 这个类名所在标签的子孙标签，并且这些子孙标签的名字是 a */
+            .nav a{
+                color:#54a5d4;
+                text-decoration: none;
+            }
+
+        /*将已经命名为 nav 的类 设置成内联标签*/
+            .nav li{
+                display:inline;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 取一个类名 -->
+        <ul class = "nav">
+            <li><a href = "home.html">内联标签例子一</li>
+            <li><a href = "recipes.html">内联标签例子二</li>
+            <li><a href = "suggest.html">内联标签例子三</li>
+        </ul>
+        <ul>
+            <li><a href = "home.html">没内联标签例子一</li>
+            <li><a href = "recipes.html">没内联标签例子二</li>
+            <li><a href = "suggest.html">没内联标签例子三</li>
+        </ul>
+
+    </body>
+</html>
