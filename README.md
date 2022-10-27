@@ -9,7 +9,7 @@
 | Day4       | [html Table](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2004%20html%20table/Day%2004.md)                                      |
 | Day5       | [css 基础语法](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2005%20css%20basic%20syntax/Day%2005.md)                             |
 | Day6       | [css 基础语法 II](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2006%20css%20basic%20syntax%20ii/Day%2006.md)                     |
-| Day7       | [css ](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2007%20css/Day%2007.md)                                                     |
+| Day7       | [css 选择器 II](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2007%20css%20selector%20II/Day%2007.md)                                                     |
 
 **新手**
 > 大家好，一起学习吧
