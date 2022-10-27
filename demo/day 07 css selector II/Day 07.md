@@ -74,3 +74,43 @@ Example(Test2.html):
 + 编辑需要跟改的部分
 + 可通过类名将特定的文本变成自己想要设计的样式
 + 开发工具快捷键(ctrl + shift + i)
+
+#### 1-3-4 把 css 放在独立的文件中
++ 创建一个独立的文件，扩展名是 .css ，把所有的 css 规则都放在这个文件里
+Example:
+```
+<html>
+    <head>
+        <style type = "text/css">
+            a{
+                color:red;
+            }
+            /*所有其他样式*/
+        </style>
+    </head>
+    <body>
+    </body>
+</html>
+```
++ 转移去 main.css 并将所有的选择器和 css 样式规则移动到 css 文件中，不包括<style> 标签
+Example(main.css):
+```
+a{
+    color:red
+}
+```
+
+#### 1-3-5 link 标签
++ 在 HTML 文件中使用 link 标签链接独立的 css 文件
++ link 标签是空标签，只写开始标签，不写结束标签
+Example(Test4.html):
+```
+<html>
+ <head>
+    <link type = "text/css" rel = "stylesheet" href = "main.css">
+ </head>
+ <body>
+ </body>
+</html>
+```
++ 过后就可以在 main.css 文件里调整 html 里文档的样式了
