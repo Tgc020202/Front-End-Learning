@@ -1,6 +1,6 @@
-# html基本语法笔记
+# 1-1 html 基础语法
 
-#### 1-1-1 基本语法(Basic syntax)
+#### 1-1-1 基础语法(Basic syntax)
 ```
 <!DOCTYPE html> //指明版本信息
 
