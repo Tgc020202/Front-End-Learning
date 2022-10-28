@@ -62,10 +62,26 @@ ol {
     padding:20px;
     border:1px solid #dddddd;
     margin:30px auto 0 auto;
-    width:500px;
+    width: 670px;
 
 }
 
+.logo{
+    text-align: center;
+}
+
+.logo img{
+    width: 184px;
+    height: 140px;
+}
+
+.photos li{
+    display: inline;
+}
+
+.photos{
+padding:0;
+}
 /*页面导航条*/
 .nav {
     padding:0 25px;
