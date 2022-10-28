@@ -40,4 +40,22 @@ Example(Test1.html):
 + div 的快捷键输入: div.(类名一) + div.(类名二) 以此类推
 
 #### 1-4-2 内容居中
+1. 将块标签中的内容居中
 + 设置块标签 text-align 的值为 center
+Example(css):
+```
+h1{
+    text-align:center;
+}
+```
+
+2. 将块标签本身居中，并且这个块标签有固定的宽度
++ 设置块标签左右 margin 的值为 auto
+Example(css):
+```
+.main-content{
+    width:500px;
+    margin 30px auto 0 auto;
+}
+```
+
