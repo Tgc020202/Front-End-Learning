@@ -203,3 +203,73 @@ Example
 </body>
 </html>
 ```
+
+#### 2.2 后代选择器
++ 在 day 08 的时候有示范过了
+```
+div p{设置属性}
+```
++ 设置 div 里面的 p 的属性
++ 也可以用类来使用后代选择器
+
+Example
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 后代选择器 */
+        div p{
+            background-color: yellow;
+        }
+        /* 类别 */
+        .mydiv p {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <p>这是没有经过后代选择器的</p>
+    <p>这是没有经过后代选择器的</p>
+    <p>这是没有经过后代选择器的</p>
+
+    <div>
+        <p>这是经过后代选择器的</p>
+        <p>这是经过后代选择器的</p>
+        <p>这是经过后代选择器的</p>
+    </div>
+
+    <div class="mydiv">
+        <p>这是经过后代选择器的,且有类别的</p>
+        <p>这是经过后代选择器的,且有类别的</p>
+        <p>这是经过后代选择器的,且有类别的</p>
+    </div>
+</body>
+</html>
+```
++ 更精准的选择需要的元素
++ 越精准的指定，权重越高
+Example:
+```
+div p{
+    background-color: yellow;
+}
+div {
+    background-color: green;
+}
+```
++ div p 会被使用，因为它更精准
+
++ 如果里面有很多不同的 类(class)名，然后想要把全部都设置一样的属性
+```
+.类名1,.类名2,.类名3{设置属性}
+```
++ 甚至可以不同的种类一起用
+Example:
+```
+.类名1,#id1,#id2,.类名2,div p,div p{设置属性}
+```
