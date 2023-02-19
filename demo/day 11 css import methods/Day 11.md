@@ -167,3 +167,39 @@ Example (内链式比较靠近 <div>)
     </body>
     
     ## 代码永远都是从上往下执行，可以理解为上面的代码已经运行过了，如何就接下去运行下面的代码，所以上面的代码的颜色被刷掉了。
+
+
+#### 2.1 id 选择器
++ 跟之前学的 <div class=""> 大同小异
++ id 选择器是唯一(unique)的，id 的权重最高
++ 相对来说类(class)比较常用
++ #id{设置属性}
++ .class{设置属性}
++ 权重等级: id > class > 其他标签
+
+Example
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            width: 200px;height: 200px;background-color: yellow;
+        }
+        #abc{
+            width: 200px;height:200px;background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="abc"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
+```
