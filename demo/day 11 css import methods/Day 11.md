@@ -150,23 +150,23 @@ Example (内链式比较靠近 <div>)
 ```
 ```
 <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link type = "text/css" rel = "stylesheet" href = "test.css">
-        <style type="text/css">
-            div{
-                width: 200px;height: 200px;background-color: black;
-            }
-        </style>
-    </head>
-    <body>
-        <div>
-        </div>
-    </body>
-    
-    ## 代码永远都是从上往下执行，可以理解为上面的代码已经运行过了，如何就接下去运行下面的代码，所以上面的代码的颜色被刷掉了。
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link type = "text/css" rel = "stylesheet" href = "test.css">
+    <style type="text/css">
+    div{
+         width: 200px;height: 200px;background-color: black;
+    }
+    </style>
+</head>
+<body>
+    <div>
+    </div>
+</body>
+```
+## 代码永远都是从上往下执行，可以理解为上面的代码已经运行过了，如何就接下去运行下面的代码，所以上面的代码的颜色被刷掉了。
 
 
 #### 2.1 id 选择器
