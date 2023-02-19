@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 后代选择器 */
+        div p{
+            background-color: yellow;
+        }
+        /* 类别 */
+        .mydiv p {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <p>这是没有经过后代选择器的</p>
+    <p>这是没有经过后代选择器的</p>
+    <p>这是没有经过后代选择器的</p>
+
+    <div>
+        <p>这是经过后代选择器的</p>
+        <p>这是经过后代选择器的</p>
+        <p>这是经过后代选择器的</p>
+    </div>
+
+    <div class="mydiv">
+        <p>这是经过后代选择器的,且有类别的</p>
+        <p>这是经过后代选择器的,且有类别的</p>
+        <p>这是经过后代选择器的,且有类别的</p>
+    </div>
+</body>
+</html>
