@@ -58,3 +58,112 @@ testcss.html
   </body>
 </html>
 ```
+
+#### 1.3 行内式选择器
++ 直接写在 html 的标签的属性值里
+
+Example 3(test_one_line.html):
+```
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <div style="width: 200px;height: 200px;background-color: blue;">
+        </div>
+        >
+    </body>
+</html>
+```
+
+## 这三种方式的级别不同
++ 外链式 一般来说优先使用这个
++ 层级: 行内式 > 内嵌式 or 外链式
+
+Example 4(Test_Stage.html):
+```
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style type="text/css">
+            div{
+                width: 200px;height: 200px;background-color: black;
+            }
+        </style>
+        <link type = "text/css" rel = "stylesheet" href = "test.css">
+    </head>
+    <body>
+        <div style="width: 200px;height: 200px;background-color: blue;">
+        </div>
+    </body>
+</html>
+```
++ 一开始出现的颜色是蓝色，当我们删了 
+```
+<div style="width: 200px;height: 200px;background-color: blue;">
+</div>
+```
++ 就变成红色或者变成黑色，取决于哪一个 code 更加靠近 <div>
+
+Example (外链式比较靠近 <div>)
++ 呈现红色因为 text.css 里面设定红色
++ 代码:
+```
+<link type = "text/css" rel = "stylesheet" href = "test.css">
+```
+```
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style type="text/css">
+            div{
+                width: 200px;height: 200px;background-color: black;
+            }
+        </style>
+        <link type = "text/css" rel = "stylesheet" href = "test.css">
+    </head>
+    <body>
+        <div>
+        </div>
+    </body>
+```
+
+Example (内链式比较靠近 <div>)
++ 呈现黑色
++ 代码:
+```
+<style type="text/css">
+    div{
+        width: 200px;height: 200px;background-color: black;
+    }
+</style>
+```
+```
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link type = "text/css" rel = "stylesheet" href = "test.css">
+        <style type="text/css">
+            div{
+                width: 200px;height: 200px;background-color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+        </div>
+    </body>
+    
+    ## 代码永远都是从上往下执行，可以理解为上面的代码已经运行过了，如何就接下去运行下面的代码，所以上面的代码的颜色被刷掉了。
