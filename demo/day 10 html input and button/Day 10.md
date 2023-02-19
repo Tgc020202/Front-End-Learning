@@ -64,6 +64,7 @@ Example 1:
 ```
 
 Example 2(也可以用 input 来建立一个 button):
+```
 <html>
   <body>
     <div>
@@ -72,3 +73,4 @@ Example 2(也可以用 input 来建立一个 button):
     </div>
   </body>
 </html>
+```
