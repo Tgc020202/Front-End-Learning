@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float 的用法</title>
+    <style type="text/css">
+        /*设置属性*/
+        div {
+            width: 200px;height: 200px;background-color: blue;
+        }
+
+        /*float:right 倾向左边*/
+        .same_row_left {
+            float:left;
+        }
+        
+        /*float:right 倾向右边*/
+        .same_row_right {
+            float:right;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- default 的话是直排的 -->
+    <div>
+        <p>哈哈哈 我是default蓝色</p>
+    </div>
+    <div style="width: 200px;height: 200px;background-color: yellow;">我是default黄色</div>
+
+    <!-- 使用 float:right 就是靠右横排 -->
+    <div class="same_row_right">
+        <p>哈哈哈 我是right蓝色</p>
+    </div>
+    <div class="same_row_right" style="width: 200px;height: 200px;background-color: yellow;">我是right黄色</div>
+
+    <div style="background-color: white;">
+        我是空格
+    </div>
+    <!-- 使用 float:left 就是靠左横排 -->
+    <div class="same_row_left">
+        <p>哈哈哈 我是left蓝色</p>
+    </div>
+    <div class="same_row_left" style="width: 200px;height: 200px;background-color: yellow;">我是left黄色</div>
+
+</body>
+</html>
