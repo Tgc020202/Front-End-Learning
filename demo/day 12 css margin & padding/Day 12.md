@@ -96,7 +96,46 @@ margin-top:数值;
 margin-bottom:数值;
 ```
 
-#### css padding 内边框
+#### css padding 内边距
++ 就是从元素内的边距进行调整
 
+Example:
+```
+/*四个值缩写法*/
+padding:top,right,bottom,left;
 
+/*
+三个值缩写法
+条件是左右的数值要一样
+*/
+padding:top,leftright,bottom;
+
+/*
+二个值缩写法
+条件是左右的数值要一样，同时上下的数值要一样
+*/
+padding:topbottom,leftright;
+
+/*
+一个值缩写法
+条件是全部的数值都要一样
+*/
+padding:topleftrightbottom;
+
+/*左*/
+padding-left:数值;
+
+/*右*/
+padding-right:数值;
+
+/*上*/
+padding-top:数值;
+
+/*下*/
+padding-bottom:数值;
+```
+
++ 可以利用 margin.html 和 padding.html 进行比较
++ margin 和 padding 的差别是 
++ margin 原来的元素的大小不变，而 padding 的元素会改变
 
