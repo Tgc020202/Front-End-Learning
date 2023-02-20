@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing</title>
+    <style>
+        .myDiv {
+            width: 600px;
+            height: 600px;
+            background-color: #e6e042;
+            background-image: url(panda.jpg);
+            background-repeat: repeat-x;
+            background-position: center;
+
+        }
+        .myDiv1 {
+            width: 600px;
+            height: 600px;
+            background:url(panda.jpg) #e6e042 repeat-x center;
+        }
+    </style>
+</head>
+<body>
+    <p>两张图并没有差异</p>
+    <div class="myDiv">这是非缩写</div>
+    <div class="myDiv1">这是缩写</div>
+</body>
+</html>
