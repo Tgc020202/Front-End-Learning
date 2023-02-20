@@ -1,5 +1,4 @@
 # front-end-test
-## 二号标题
 
 | 日期       | 学习内容（进度）                                                                 |
 | ---------- | -------------------------------------------------------------------------------|
@@ -12,12 +11,15 @@
 | Day7       | [css 选择器 II](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2007%20css%20selector%20II/Day%2007.md)                           |
 | Day8       | [css div 布局入门](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2008%20css%20div%20layout/Day%2008.md)                         |
 | Day9       | [css 添加网页图片](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2009%20css%20insert%20web%20picture/Day%2009.md)                  |
+|Day 10|[html input 和 button](https://github.com/Tgc020202/Front-End-Learning/tree/main/demo/day%2010%20html%20input%20and%20button)|
+
 
 **新手**
 > 大家好，一起学习吧
-1. good try
-2. `gg`
+1. Let's start
+2. `https://github.com/Tgc020202`
 
+###### 小工具
 ```
 git status
 git pull
