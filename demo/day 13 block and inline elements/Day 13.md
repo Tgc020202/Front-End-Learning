@@ -5,6 +5,7 @@
 > + 比如 div 最基本的块状元素
 > + 它支持宽高 margin，padding
 > + width 默认是 100 %，当没有设置宽的数值，且独占一行
+> + 块元素可以随意嵌套
 
 Example (block.html):
 ```
@@ -42,6 +43,7 @@ Example (block.html):
 > + 宽高会随着内容变化而变化
 > + 不支持宽高，但是支持 margin，padding
 > + 不独占一行
+> + 行内元素只可以嵌套行内元素
 
 
 Example (inline.html):
@@ -96,3 +98,4 @@ Example (inline.html):
     <input type="button" value="没有东西">
 </body>
 ```
+
