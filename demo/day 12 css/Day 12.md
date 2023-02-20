@@ -61,7 +61,7 @@ Example:
 + 调用方法: margin-left/margin-right/margin-top/margin-bottom
 
 Example：
-···
+```
 /*四个值缩写法*/
 margin:top,right,bottom,left;
 
@@ -94,7 +94,7 @@ margin-top:数值;
 
 /*下*/
 margin-bottom:数值;
-···
+```
 
 #### css padding 内边框
 
