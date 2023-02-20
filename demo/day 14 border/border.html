@@ -5,8 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>border</title>
+    <style>
+        /*没有border*/
+        .noborderNode {
+            width: 200px; height: 200px;background-color: #17b978;
+        }
+        /*有border 实线*/
+        .borderNode {
+            width: 200px; height: 200px;background-color: #17b978;
+            border:10px solid black;
+        }
+        /*有border 虚线*/
+        .dotborderNode {
+            width: 200px; height: 200px;background-color: #17b978;
+            border:10px  dotted black;
+        }
+        .dashborderNode {
+            width: 200px; height: 200px;background-color: #17b978;
+            border:10px  dashed black;
+        }
+
+        /*有border 实线 颜色*/
+        .bordercolor1 {
+            width: 200px; height: 200px;background-color: #17b978;
+            border:10px solid rgb(22, 134, 214);
+        }
+        .bordercolor2 {
+            width: 200px; height: 200px;background-color: #17b978;
+            border:10px solid #05bd20;
+        }
+        
+        /*有border 实线 颜色 非缩写*/
+        .borderDefault {
+            width: 200px; height: 200px;background-color: #17b978;
+            border-width: 20px;
+            border-color: aquamarine;
+            border-style: solid;
+
+            /*也可以更准确的设置属性*/
+            border-top-width: 40px;
+            border-top-color: red;
+
+            border-right-width: 80px;
+            border-right-color: orange;
+
+            border-bottom-width: 120px;
+            border-bottom-color: green;
+
+            border-left-width: 160px;
+            border-left-color: lightskyblue;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="noborderNode">没有border</div>
+    <div class="borderNode">有border 实线</div>
+    <div class="dotborderNode">有border 虚线</div>
+    <div class="dashborderNode">有border 虚线</div>
+    <div class="bordercolor1">有border 实线 rgb 颜色</div>
+    <div class="bordercolor2">有border 实线 hex 颜色</div>
+    <div class="borderDefault">有border 实线 非缩写</div>
 </body>
 </html>
