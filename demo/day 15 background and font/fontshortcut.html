@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Font 的缩减</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+
+        <style>
+            .p1{
+                font-size: 15px;
+                line-height: 30px;
+                font-family: fantasy;
+                font-weight: bold;
+                font-style: italic;
+                font-variant: small-caps;
+            }
+            .p2{
+                font: italic bold small-caps 15px/30px fantasy;
+            }
+        </style>
+    </head>
+    <body>
+        <p class="p1">我不是缩减</p>
+        <p class="p2">我是缩减</p>
+    </body>
+</html>
