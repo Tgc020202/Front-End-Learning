@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>块状元素与行内元素</title>
+    <style type="text/css">
+        /* 默认宽(width) 为 100%，当我们没有设置宽的数值*/
+        .myDiv {
+            height: 100px;background-color: green;
+        }
+        span {
+            height: 100px;width:100px;color: red;
+        }
+        .color1{
+            color:rgb(15, 187, 101);
+        }
+        .color2{
+            color:#bc3c90;
+        }
+    </style>
+</head>
+<body>
+    <div class="myDiv">
+        与下一个元素做对比
+        <p>我的名字是<div>tgc</div></p>
+    </div>
+
+    <div class="myDiv" style="background-color: lightblue;">
+        将元素并列在同一行
+        <p>我的名字是<span>tgc</span></p>
+    </div>
+
+    <div class="myDiv" style="background-color: lightblue;">
+        证明字体是可以通过 rgb code 换色的
+        <p>我的名字是<span class="color1">tgc</span></p>
+    </div>
+
+    <div class="myDiv" style="background-color: lightblue;">
+        证明字体是可以通过 HEX code 换色的
+        <p>我的名字是<span class="color2">tgc</span></p>
+    </div>
+</body>
+</html>
