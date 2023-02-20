@@ -138,4 +138,7 @@ padding-bottom:数值;
 + 可以利用 margin.html 和 padding.html 进行比较
 + margin 和 padding 的差别是 
 + margin 原来的元素的大小不变，而 padding 的元素会改变
-
+### 可以使用这个指令将其他的空间清空: 
+```
+html,body{padding: 0;margin: 0;}
+```
