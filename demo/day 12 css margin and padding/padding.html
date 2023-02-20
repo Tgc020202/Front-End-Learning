@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padding</title>
+    <style type="text/css">
+        div {
+            background-color: yellow;
+            width: 200px;
+            height: 200px;
+        }
+
+        .test1 {
+            /*四个值缩写法*/
+            padding:20px,40px,60px,80px;
+        }
+
+        .test2 {
+            /*
+            三个值缩写法
+            条件是左右的数值要一样
+            */
+            padding:100px,20px,100px;
+        }
+
+        .test3 {
+            /*
+            二个值缩写法
+            条件是左右的数值要一样，同时上下的数值要一样
+            */
+            padding:400px,20px;
+        }
+
+        .test4 {
+            /*
+            一个值缩写法
+            条件是全部的数值都要一样
+            */
+            padding:50px;
+        }
+
+        .testleft {
+            /*左*/
+            padding-left:20px;
+        }
+        .testright {
+            /*右*/
+            padding-right:20px;
+        }
+        .testtop {
+            /*上*/
+            padding-top:20px;
+        }
+        .testbottom {
+            /*下*/
+            padding-bottom:20px;
+        }
+        </style>
+</head>
+<body>
+    <div class="test1">这个是四个值的缩写法</div>
+    <div style="background-color: white;">空</div>
+
+    <div class="test2">这个是三个值的缩写法</div>
+    <div style="background-color: white;">空</div>
+    
+    <div class="test3">这个是二个值的缩写法</div>
+    <div style="background-color: white;">空</div>
+
+    <div class="test4">这个是一个值的缩写法</div>
+    <div style="background-color: white;">空</div>
+    
+    <div class="testleft">这个是只输入左边值</div>
+    <div style="background-color: white;">空</div>
+
+    <div class="testright">这个是只输入右边值</div>
+    <div style="background-color: white;">空</div>
+    
+    <div class="testtop">这个是只输入上边值</div>
+    <div style="background-color: white;">空</div>
+    
+    <div class="testbottom">这个是只输入下边值</div>
+    <div style="background-color: white;">空</div>
+    
+</body>
+</html>
