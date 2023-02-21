@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Relative Position 相对定位</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style type="text/css">
+            *{margin: 0;padding: 0;}
+            .myDiv1 {
+                width: 200px;
+                height: 200px;
+                background:red;
+                float: left;
+                position: relative;
+                left: 220px;
+                top: 200px;
+            }
+            .myDiv2 {
+                width: 200px;
+                height: 200px;
+                background:green;
+                float: left;
+                position: relative;
+                left: 20px;
+                z-index: 1;
+            }
+            .myDiv3 {
+                width: 100px;
+                height: 100px;
+                background:blue;
+                float: left;
+                position: relative;
+                right: 180px;
+                z-index: 2; /*可自行调节数值 看看差别*/
+            }
+        </style>
+    </head>
+    <body>
+        <div class="myDiv1"></div>
+        <div class="myDiv2">
+            <div class="myDiv3"></div>
+        </div>
+    </body>
+</html>

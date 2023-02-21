@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inherit and Static Positions 继承定位和默认定位</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+
+        /* 可以在 myDiv1 里的position进行替换 并理解 */
+        .myDiv1{
+            width: 200px;height: 200px;background: red;
+            position: static;
+            left: 0;top: 0;
+        }
+
+        .myDiv2{
+            width: 100px;height: 100px;
+            background: green;
+            position: inherit;
+            left: 200px;
+            top:0;
+            float: left;
+        }
+        .myDiv3{
+            width: 100px;height: 100px;
+            background: black;
+            float: left;
+        }
+    </style>
+</head>
+<body style="height: 3000px;">
+    <div class="myDiv1">
+        <div class="myDiv2"></div>
+        <div class="myDiv3"></div>
+    </div>
+</body>
+</html>

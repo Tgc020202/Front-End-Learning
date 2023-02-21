@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Position 窗口定位</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+        .myDiv1 {
+            width: 200px;height: 200px;
+            background: rgb(133, 220, 12);
+            position: absolute;
+            left: 300px;top: 300px;
+        }
+        .myDiv2 {
+            width: 200px;height: 200px;
+            background: rgb(6, 160, 183);
+            position: fixed;
+            left: 300px;top: 300px;
+        }
+        .myDiv3 {
+            width: 200px;height: 200px;
+            position: relative;
+            margin: 100px;
+            background: black;
+        }
+        .myDiv4{
+            width: 200px;height: 500px;
+            position: fixed;
+            background: red;
+            right:0;
+            bottom: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="myDiv3">
+        <div class="myDiv1"></div>
+        <div class="myDiv2"></div>
+    </div>
+
+    <div class="myDiv4">我是广告</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute Position 绝对定位的特性</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+
+        /* myDiv1 没有定位 */
+        .myDiv1{
+            width: 200px; height: 200px;
+            background: red;
+            float: left;
+            margin-top: 300px;
+            margin-left: 200px;
+        }
+
+        /* myDiv2 有定位 */
+        .myDiv2{
+            position: absolute;
+            width: 100px; height: 100px;
+            background: rgb(11, 166, 197);
+            float: left;
+            top: 0;left: 0;
+        }
+
+        /* myDiv3 有定位 */
+        .myDiv3{
+            position: absolute;
+            width: 400px; height: 400px;
+            background: rgb(38, 216, 62);
+            float: left;
+            top: 100px;left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    myDiv2 没有跟着 myDiv1 的而调位
+    却跟着myDiv3 而调位 
+    因为 myDiv1 没有绝对定位
+    -->
+    <div class="myDiv3">
+        <div class="myDiv1">
+            <div class="myDiv2"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Absolute Position 绝对定位</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style type="text/css">
+            *{padding: 0;margin: 0;}
+            .myDiv1 {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                background: red;
+                float: left;
+
+                left: 300px;
+                top: 0;
+            }
+            .myDiv2 {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                background: rgb(13, 237, 110);
+                float: left;
+                
+                left: 0;
+                top: 0;
+            }
+            .myDiv3 {
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background: rgb(15, 166, 221);
+                float: left;
+                
+                left: 200px;
+                top: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- myDiv3 会根据 myDiv1 的位置来进行调位 -->
+        <div class="myDiv1">
+            <div class="myDiv3"></div>
+        </div>
+        <div class="myDiv2"></div>
+    </body>
+</html>
