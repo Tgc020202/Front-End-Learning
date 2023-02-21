@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百分比单位 %</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+
+        /* 
+        要设置 html 或者 body 的大小否则不能显示使用百分比显示的元素
+        可以把下面一行的代码删了 并观察
+        */
+        html,body{height: 100%;}
+        .myDiv1{
+            width: 50%;height: 50%;
+            background-color: red;
+        }
+        .myDiv2{
+            width: 50%;height:50%;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="myDiv1">
+        <div class="myDiv2"></div>
+    </div>
+</body>
+</html>
