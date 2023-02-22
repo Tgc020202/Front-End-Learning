@@ -18,7 +18,7 @@
 > + height 高
 
 + 可以选择不同的背景 这里有五个种类的背景
-+ ![创建文件的页面](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2018%20Photoshop/p1.PNG)
++ ![创建文件的页面](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2018%20Photoshop/p2.PNG)
 > + 白
 > + 黑
 > + 自选颜色
