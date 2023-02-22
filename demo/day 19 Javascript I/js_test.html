@@ -1,4 +1,13 @@
 <script>
-    var a = 1, b = 2;
-    alert(a),alert(b);
+    console.log(a); // undefined
+    var a = 30;
+    console.log(a); // 30
+    var a = 40;
+    console.log(a); // 40
+    function b(){
+        console.log(a);
+        var a = 20;
+    };
+    b();    // undefined
+    console.log(a); // 40
 </script>
