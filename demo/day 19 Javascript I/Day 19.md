@@ -142,7 +142,7 @@ Example:
     adadas#adsa$()
 </script>
 ```
-![错误 1]()
+![错误 1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/p1.PNG)
 
 ###### 1.4.2 Runtime/Reference Error 运行错误
 + 之前的都执行，就是报错的那一句和那一句之后的都不执行了
@@ -156,4 +156,4 @@ Example:
     alert(1);
 </script>
 ```
-![错误 2]()
+![错误 2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/p2.PNG)
