@@ -27,7 +27,6 @@ Example(alert):
 </script>
 ```
 + console.log() - 在 console 里打印内容
-+ ![例子](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/p4.PNG)
 
 Example:
 ```
@@ -36,6 +35,7 @@ Example:
     console.log(a);
 </script>
 ```
++ ![例子](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/p4.PNG)
 
 #### 1.3 js 的数据类型
 + js 的核心名为 ECMAScript -> ES
