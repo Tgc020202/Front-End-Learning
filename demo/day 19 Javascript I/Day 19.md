@@ -18,12 +18,22 @@ Example:
 + 用法: var 变量名称 = 赋值;
 + 弹出警告窗: alert(内容)
 
-Example:
+Example(alert):
 ```
 <script>
     var 筱筱 = 1;
     var 筱筱 = 2;
     alert(筱筱)
+</script>
+```
++ console.log() - 在 console 里打印内容
++ ![例子](p4)
+
+Example:
+```
+<script>
+    var a = '你好丫 我在这里';
+    console.log(a);
 </script>
 ```
 
@@ -119,11 +129,12 @@ Example:
 > + output: object
 > + 计算机认为这是一个'空'的对象
 
-#### 1.4 报错类型和符号
+#### 1.4 js 的报错类型和符号
 
 ###### 1.4.0 Symbol 符号
 + ; 符号说明这一句说完了，相当于句号
 + ，符号说明这一句话还没说完，还要继续说，相当于逗号
++ / 符号代表注释
 
 Example:
 ```
@@ -157,3 +168,68 @@ Example:
 </script>
 ```
 ![错误 2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/p2.PNG)
+
+
+#### 1.5 js 的作用域与Function(函数)
++ 作用域就是作用在一定的区域，出了这块区，就不好使了
++ <script> 也是一个作用域
++ 每个 function 都是一个作用域
++ 用法:
+> function 名字(){};
+> 名字();
+
+Example:
+```
+<script>
+    function tgc(){
+        alert(1);
+    };
+    tgc();
+</script>
+```
++ 简单理解: 就是设立一个功能，并给予名称，当要使用这个功能的时候，就使用这个名称，它就会执行自己的功能
+
+Example (错误示范):
+```
+<script>
+    function tgc(){
+        b = 10;
+    };
+    alert(b);
+</script>
+
+```
++ ![错误示范](p3)
++ 报错，因为 b 的变量是属于 tgc函数的，所以无法直接调出来使用
+
+#### 1.6 js 的解析
++ js 会解析代码两次，第一次是预解析，第二次是正常解析
++ 如果第一次有发现语法错误，js 就不干了
+
+###### 1.6.1 第一次解析(预解析)
++ 预解析就是预先再解析
++ 预解析可能会发生两个东西:
+> 1. 报错
+> 2. 变量提升
+> > + 就是把变量提到最上面
+> > + 变量的赋值不会提升
+> > + Example
+> > ```
+> > <script>
+> >     alert(a);
+> >     var a = 10;
+> > </script>
+> > ```
+> > + 所以 output 会出 undefined 而不是 error，因为 var a; 这个变量会被提升，但是它的赋值不会被带上去
+> > + 只有有作用域的位置才会发生变量提升
+
++ 特别事件
+Example：
+
+
+
+
+
+
+
+
