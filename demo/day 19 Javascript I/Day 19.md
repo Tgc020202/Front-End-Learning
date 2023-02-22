@@ -224,11 +224,38 @@ Example (错误示范):
 > > + 只有有作用域的位置才会发生变量提升
 
 + 特别事件
-Example：
+Example 1：
+```
+<script>
+    var a = '你好丫 大聪明';
+    function tgc(){
+        // 这个位置会自动生成一个 var a;
+        // 用来刷新变量
+        var a = '你好丫 大呆呆';
+        console.log(a);
+    };
+    tgc();
+</script>
+```
++ 因为在函数(function)里面，计算变量的名称相同，但是一旦进入新的函数就会被刷新
++ 比如，a 一开始是 '你好丫 大聪明'，一旦进入 tgc 函数，a 就会变成 '你好丫 大呆呆'
 
-
-
-
+## JavaScript I 的小测试
+```
+<script>
+    console.log(a); // undefined
+    var a = 30;
+    console.log(a); // 30
+    var a = 40;
+    console.log(a); // 40
+    function b(){
+        console.log(a);
+        var a = 20;
+    };
+    b();    // undefined
+    console.log(a); // 40
+</script>
+```
 
 
 
