@@ -13,18 +13,18 @@
 #### 使用 Photoshop
 ###### 创建文件
 + 这里有几个属性可以调试
+> + ![创建文件的页面](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2018%20Photoshop/p1.PNG)
 > + width 宽
 > + height 高
-![创建文件的页面](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2018%20Photoshop/p1.PNG)
 
 + 可以选择不同的背景 这里有五个种类的背景
++ ![创建文件的页面](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2018%20Photoshop/p1.PNG)
 > + 白
 > + 黑
 > + 自选颜色
 > + 透明
 > + 自定义
 + Photoshop 支持 copy and paste 将图片带入文件里
-
 + 可以通过 ctrl-c 复制, ctrl-n 新建文件, ctrl-v 粘贴快捷键 来截取图片的部分 并且另开一个文件夹
 
 ###### 保存图片
