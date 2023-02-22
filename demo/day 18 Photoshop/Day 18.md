@@ -12,6 +12,11 @@
 
 #### 使用 Photoshop
 ###### 创建文件
++ 这里有几个属性可以调试
+> + width 宽
+> + height 高
+![创建文件的页面(https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2018%20Photoshop/p1.PNG)]
+
 + 可以选择不同的背景 这里有五个种类的背景
 > + 白
 > + 黑
