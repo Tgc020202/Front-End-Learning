@@ -27,7 +27,7 @@ Example(alert):
 </script>
 ```
 + console.log() - 在 console 里打印内容
-+ ![例子](p4)
++ ![例子](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/p4.PNG)
 
 Example:
 ```
@@ -199,7 +199,7 @@ Example (错误示范):
 </script>
 
 ```
-+ ![错误示范](p3)
++ ![错误示范](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/p3.PNG)
 + 报错，因为 b 的变量是属于 tgc函数的，所以无法直接调出来使用
 
 #### 1.6 js 的解析
