@@ -1,0 +1,19 @@
+<script>
+    /*
+    1. 
+    使用延时定时器模拟轮循定时器
+    且不允许使用数字类型
+    让一个变量的值从0
+    每秒加 1
+    */
+    var number = false;
+    
+    function a(){
+        setTimeout(function(){
+            console.log(number + 0);
+            number = number + true;
+            a();
+        },1000);
+    }
+    a();
+</script>
