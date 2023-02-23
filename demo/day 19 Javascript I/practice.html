@@ -1,0 +1,42 @@
+<script>
+    /* 
+    使用2次注释让其结果相等于注释的值
+    不更改原代码的顺序
+    题目:
+    var a = 20;
+    console.log(a); // undefined
+    var a = 35;
+    function a(){
+        console.log(a); // 50
+    };
+    a();
+    console.log(a); //35
+    */
+
+   // 第一解:
+    console.log('第一解');
+    // var a = 20;
+    console.log(a); // undefined
+    var a = 35;
+    /* 
+    function a(){
+        console.log(a); // 50
+    };
+    */
+    // a();
+    console.log(a); //35
+
+
+    // 第二解:
+    console.log('第二解');
+    var b = 20;
+    // console.log(b); // undefined
+    var b = 35;
+    /*
+    function b(){
+        console.log(b); // 50
+    };
+    b();
+    */
+    console.log(b); //35
+</script>

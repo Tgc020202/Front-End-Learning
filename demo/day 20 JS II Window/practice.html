@@ -1,0 +1,23 @@
+<script>
+    /*
+    1. 使用延时定时器模拟出轮循定时器的效果
+    2. 使用定时器不断获取距离屏幕左边和上面的距离
+    */
+
+    // 第一题
+    function a(){
+        setTimeout(function(){
+            console.log(1);
+            a();
+        },5000);
+    };
+    a();
+    // 在 a 函数里面调用自己
+
+
+    // 第二题
+    window.setInterval(function(){
+        console.log(window.screenLeft,window.screenTop);
+    },2000);
+    
+</script>

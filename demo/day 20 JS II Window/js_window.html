@@ -1,3 +1,81 @@
 <script>
-    window.window.window.alert(1);
+    //window.alert(1);
+
+    /*
+    function a(){
+        window.c = 10;
+    };
+    function b(){
+        console.log(window.c);
+    };
+    a();
+    b();
+    */
+
+    // console.log(window.innerWidth);
+
+    // console.log(window.innerHeight);
+
+    // console.log(window.screenLeft);
+
+    // console.log(window.screenTop);
+
+    /*
+    window.setTimeout(
+        function(){
+            console.log('我在一秒后执行')
+        },1000)
+        
+    */
+
+    // 原本字符串内容将在一秒(1000)后打印
+    // 但是被指令在半秒(500)前就直接暂停了
+    /*
+    var timer = window.setTimeout(
+        function(){
+            console.log('我在一秒后执行')
+        },1000)
+
+        window.setTimeout(function(){
+            window.clearTimeout(timer);
+        },500);
+
+    */
+
+    /*
+    window.setInterval(
+        function(){
+            console.log('我在一秒后执行')
+        },1000)
+    */
+
+    // 原本字符串内容将在每个半秒(500)后打印一次
+    // 但是被指令在 1.2 秒(1200)后直接暂停了整个循环
+    /*
+    var timer = window.setInterval(
+        function(){
+            console.log('我在半秒后执行')
+        },500)
+
+        window.setTimeout(function(){
+            window.clearInterval(timer);
+        },1200);
+    */
+
+    // 打开youtube
+    // window.open('https://www.youtube.com/')
+
+    // 关闭
+    // window.close('close.html')
+
+    // window.window.window.alert(1);
+
+    /*
+    console.log(this == window);
+    console.log(self == window);
+    console.log(top == window);
+    // output 显示 true
+    */
+
+    
 </script>
