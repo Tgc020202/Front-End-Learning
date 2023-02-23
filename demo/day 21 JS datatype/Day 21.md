@@ -157,6 +157,7 @@ Example:
     console.log('123' / 1); //123
     console.log('123' / undefined); // NaN
 </script>
+```
 
 ###### 1.2.2 下标
 + 可以在 string 里使用下标 -> string[位置]
