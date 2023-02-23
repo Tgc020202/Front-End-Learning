@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方形消失术</title>
+
+    <!-- CSS -->
+    <style type="text/css">
+        #myDiv{
+            width: 100px;height: 100px;
+            background-color: black;
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById('btn'),
+            myDiv = document.getElementById('myDiv');
+
+            btn.onclick = function(){
+                myDiv.style.display = "none";
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+    <div id="myDiv"></div>
+    <button id="btn">按钮</button>
+</body>
+</html>

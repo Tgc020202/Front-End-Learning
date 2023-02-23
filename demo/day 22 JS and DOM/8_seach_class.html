@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>className</title>
+    <style>
+        .a2{
+            width: 200px;height: 200px;background-color: red;color: green;
+        }
+        .a1{
+            width: 200px;height: 200px;background-color: yellow;color: green;
+        }
+        .a3{
+            width: 200px;height: 200px;background-color: green;color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="a1">1</div>
+    <div class="a1">2</div>
+    <div class="a1">3</div>
+
+    <!-- JavaScript -->
+    <script>
+        var aDiv = document.getElementsByClassName('a1');
+        
+        aDiv[0].className = 'a1 a3';
+        // console.log(aDiv[0].className);
+    </script>
+</body>
+</html>

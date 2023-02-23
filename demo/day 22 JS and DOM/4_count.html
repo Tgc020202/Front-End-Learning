@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加计算方式</title>
+
+    <!-- CSS -->
+    <style type="text/css">
+        #myDiv{
+            width: 100px;height: 100px;
+            background-color: black;
+        }
+    </style>
+
+    <!-- JavaScript -->
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById('btn'),
+            myDiv = document.getElementById('myDiv'),
+            num = 0;
+
+            btn.onclick = function(){
+                num = num + 1;
+                console.log(num);
+
+                // num 是单数就消失
+                if(num %  2 == 1){
+                    myDiv.style.display = 'none';
+                }
+                // num 是双数就出现
+                else{
+                    myDiv.style.display = 'block';
+                }
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+    <div id="myDiv"></div>
+    <button id="btn">按钮</button>
+</body>
+</html>
