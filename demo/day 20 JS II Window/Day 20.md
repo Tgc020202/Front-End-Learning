@@ -28,7 +28,7 @@
 Example:
 ```
 <script>
-    console.log(window.innerWidth):
+    console.log(window.innerWidth);
 </script>
 ```
 
@@ -155,8 +155,27 @@ Example:
 
 #### 1.5 window 的特征
 
-###### 1.5.1 window 里面的嵌套
-+ window.window.window.alert(1);
+###### 1.5.1 window 里的 window
++ window 里面还有 window，且可以无限的去嵌套，也不影响结果
+Example:
+```
+<script>
+    window.window.window.alert(1);
+</script>
+```
+
+###### 1.5.2 js 的 this/self/top 的用法
++ 在 <script> 的作用域里 this = self = top = window
+Example:
+```
+<script>
+    console.log(this == window);
+    console.log(self == window);
+    console.log(top == window);
+    // output 显示 true
+</script>
+```
+
 
 
 
