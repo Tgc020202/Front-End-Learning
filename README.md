@@ -20,7 +20,7 @@
 |Day 16      | [css 定位 (position)](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2016%20css%20position/Day%2016.md)                          |
 |Day 17      | [css display](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2017%20css%20display/Day%2017.md)                                   |
 |Day 18      | [Photoshop](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2018%20Photoshop/Day%2018.md)                                         |
-|Day 19      | [JavaScript I](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/Day%2019.md)                                 |
+|Day 19      | [JavaScript](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript/Day%2019.md)                                 |
 
 
 
