@@ -390,7 +390,7 @@ Example (8_search_class.html):
     </script>
 </body>
 ```
-> aDiv[0] 会优先持有 a1 的属性值，因为 a1 离它最近
+> aDiv[0] 会优先持有 a3 的属性值，因为 a3 离它最近
 
 ###### onmouse
 + 鼠标移动就会触发
