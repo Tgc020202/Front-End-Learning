@@ -325,7 +325,7 @@ Example:
 > output 会显示 className: a1
 
 + 可以使用 className 改变 class 的名字
-> 变量.className = 'className';
+> 变量.className = '另一个类名';
 
 Example:
 ```
@@ -355,8 +355,8 @@ Example:
 ```
 
 + 一个变量可以同时拥有很多个 className
-> 但是变量会优先选择离自己最近的 className
-> 变量.className = 'className1 className2';
+> + 但是变量会优先选择离自己最近的 className
+> + 变量.className = 'className1 className2';
 
 Example (8_search_class.html):
 ```
