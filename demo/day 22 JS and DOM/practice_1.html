@@ -14,6 +14,9 @@
     -->
 
     <style type="text/css">
+
+        *{margin: 0;padding: 0;}
+
         /* 给 myDiv 添加基本属性 */
         #myDiv{
             width: 200px;height: 200px;
@@ -26,11 +29,31 @@
     <div id="myDiv"></div>
 
     <script>
-        var myDiv = document.getElementById('myDiv');
-        var width = myDiv.style.maxWidth;
-        var height = myDiv.style.height;
-        myDiv.onclick = function(
-        );
+        var myDiv = document.getElementById('myDiv'),
+        width = 200,
+        height = 200,
+        timer = null;   // declare
+
+
+        myDiv.onclick = function(){
+            // 避免重复点击 会导致 setInterval 的使用重叠
+            clearInterval(timer);
+
+            timer = setInterval(function(){
+                if(width != innerWidth){
+                    width = width + 1;
+                }
+                if(height != innerHeight){
+                    height = height + 1;
+                }
+                myDiv.style.width = width + 'px';
+                myDiv.style.height = height + 'px';
+                console.log(width);
+                console.log(height);
+            },300);
+
+        }
+
     </script>
 </body>
 </html>
