@@ -10,9 +10,9 @@
 + JS 与 CSS 与 html 之间的配合例子
 > 1. JS -> 选取 html 的元素
 > 2. JS -> 改动 css 样式
-> 如果要在 ```<head>``` 标签里头写 JS 代码，一定要使用 onload 函数
-> 不然的话，还是安安稳稳的在 ```<body>``` 标签里面写 JS 代码吧
-> 但是切记要放 <script> 标签
+> + 如果要在 ```<head>``` 标签里头写 JS 代码，一定要使用 onload 函数
+> + 不然的话，还是安安稳稳的在 ```<body>``` 标签里面写 JS 代码吧
+> + 但是切记要放 <script> 标签
 
 Example (1_rectangle.html):
 ```
