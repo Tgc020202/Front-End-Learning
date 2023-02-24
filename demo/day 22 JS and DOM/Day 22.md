@@ -78,6 +78,7 @@ Example:
 + 交互事件 
 > 鼠标点击: onclick
 > JS 其实跟中文一样 . 代表'的'，函数就是要做的事
+
 Example (2_color.html):
 ```
 <head>
@@ -115,6 +116,7 @@ Example (2_color.html):
 
 + 添加按钮元素
 > <button> 标签
+
 Example (3_disappear.html):
 ```
 <head>
@@ -346,6 +348,7 @@ Example:
 + 一个变量可以同时拥有很多个 className
 > 但是变量会优先选择离自己最近的 className
 > 变量.className = 'className1 className2';
+
 Example (8_search_class.html):
 ```
 <head>
