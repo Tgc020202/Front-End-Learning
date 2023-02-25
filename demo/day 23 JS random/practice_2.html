@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 2</title>
+    <!--
+        屏幕上显示一个永远触碰不到的元素
+
+        思路：
+        - 一张图片
+        - onmouseover
+        - random
+        - setInterval
+    -->
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+
+        #panda {
+            width: 50px;
+            height: 50px;
+        }
+
+        #myDiv {
+            position: absolute;
+            left: 0;top: 0;
+            width: 50px;height: 50px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv">
+        <img id="panda" src="panda.jpg" alt="大熊猫">
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        var myDiv = document.getElementById('myDiv');
+
+
+        myDiv.onmouseover = a;
+
+        function a(){
+            myDiv.style.top = Math.random() * innerHeight - 50 + 'px';
+            myDiv.style.left = Math.random() * innerWidth - 50 + 'px';
+        }
+    </script>
+</body>
+</html>

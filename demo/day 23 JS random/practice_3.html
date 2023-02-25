@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 3</title>
+    <!-- 
+        随机抖动
+
+        思路:
+        - random
+        - 一张图片
+        - onclick
+        - setInterval
+        - button
+    -->
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+
+        #panda{
+            width: 500px;height: 500px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <img id="panda" src="panda.jpg" alt="大熊猫">
+
+    <button id="btn">大熊猫动起来</button>
+    <!-- JavaScript -->
+    <script>
+        var panda = document.getElementById('panda'),
+        btn = document.getElementById('btn'),
+        timer = null;
+
+        btn.onclick = a;
+
+        function a(){
+            var num = 0;
+            clearInterval(timer);
+
+            timer = setInterval(b,50);
+
+            function b(){
+                panda.style.left = Math.random() * -20 + 10 + 'px';
+                panda.style.top = Math.random() * -20 + 10 + 'px';
+                num ++;
+                if(num == 50){
+                    panda.style.left = '0px';
+                    panda.style.top = '0px';
+                    clearInterval(timer);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

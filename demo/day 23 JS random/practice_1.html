@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 1</title>
+    <!--
+        浏览器拉伸的时候
+        浏览器会随机换色
+
+        思路:
+        - random
+        - onresize
+        - 一个 body
+        - background 属性
+    -->
+
+    <style type="text/css">
+        #myBody{
+            background: black;
+        }
+    </style>
+</head>
+<body id="myBody">
+
+    <!-- JavaScript -->
+    <script>
+        // 方法 1 (hex)
+        /*
+        var myBody = document.getElementById('myBody'),
+        number = Math.random();
+
+        myBody.onresize = a;
+
+        function a(){
+            number = Math.random();
+            color = '#' + (number*100000000000000000) % 1000000;
+            myBody.style.background = color;
+            console.log(color);
+        }
+        */
+
+
+        // 方法 2 (rgb)
+        /*
+        var myBody = document.getElementById('myBody');
+
+        myBody.onresize = a;
+
+        function color_code(){
+            // 取 0 至 1 之间的数值乘 256(因为 255 也是一个素材) 并把数字变为字符串类型
+            number = Math.random() * 256 + '';
+            // 如何取得整数
+            // 先找出 . 的位置
+            b = number.indexOf('.');
+            return code = number.substring(0,b);
+        }
+
+        function a(){
+            myBody.style.background = 'rgb('+color_code()+','+color_code()+','+color_code()+')';
+        }
+        */
+
+
+        // 方法 3 (rgb)
+        /*
+        var myBody = document.getElementById('myBody');
+
+        myBody.onresize = a;
+
+        function color_code(){
+            // 取 0 至 1 之间的数值乘 256(因为 255 也是一个素材)
+            number = Math.random() * 256;
+            // 如何取得整数
+            return parseInt(number);
+        }
+
+        function a(){
+            myBody.style.background = 'rgb('+color_code()+','+color_code()+','+color_code()+')';
+        }
+        */
+
+
+        // 方法 4 (hex)
+        var myBody = document.getElementById('myBody');
+
+        myBody.onresize = a;
+
+        function color_code(){
+            // 取 0 至 1 之间的数值乘 1000000 (取 6 个数位）
+            number = Math.random() * 1000000;
+            // 如何取得整数
+            return parseInt(number);
+        }
+
+        function a(){
+            myBody.style.background = '#'+color_code();
+        }
+        
+    </script>
+</body>
+</html>
