@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>逻辑判断常用语句</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+
+    <!-- JavaScript -->
+    <script>
+        var allDiv = document.getElementsByTagName('div');
+
+        for(var i = 0;i<allDiv.length;i++){
+
+            /*
+            // 当 i 相等于 2 的时候，颜色保持不变
+            if(i  == 2){
+                continue;   // 跳过当前循环
+            }
+            
+
+            // 使偶数的 i 的颜色保持不变
+            if(i % 2 == 0){
+                continue;   // 跳过当前循环
+            }
+            */
+
+            // 当 i 相等于 2 的时候，循环中断
+            if(i == 2){
+                break;
+            }
+            allDiv[i].style.background = 'red';
+        }
+
+    </script>
+
+</body>
+</html>
