@@ -19,10 +19,12 @@
 |Day 15      | [css 背景和字体 (background and font)](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2015%20css%20background%20and%20font/Day%2015.md)             |
 |Day 16      | [css 定位 (position)](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2016%20css%20position/Day%2016.md)                          |
 |Day 17      | [css display](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2017%20css%20display/Day%2017.md)                                   |
-|Day 18      | [Photoshop](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2018%20Photoshop/Day%2018.md)                                         |
-|Day 19      | [JavaScript](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript/Day%2019.md)                                 |
-
-
+|Day 19      | [JavaScript](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript/Day%2019.md)                                       |
+|Day 20      | [JS 窗口 (Window)](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2020%20JS%20Window/Day%2020.md)                                  |
+|Day 21      | [JS 数据类型 (Datatype)](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2021%20JS%20datatype/Day%2021.md)                           |
+|Day 22      | [JS & DOM](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2022%20JS%20and%20DOM/Day%2022.md)                                     |
+|Day 23      | [JS 闭包](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2023%20JS%20random/Day%2023.md)                                         | 
+|Day 24      | [JS 事件对象 (Event)](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2023%20JS%20random/Day%2023.md)                               |
 
 
 
