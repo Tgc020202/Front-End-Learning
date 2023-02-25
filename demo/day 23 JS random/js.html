@@ -1,0 +1,93 @@
+<script>
+    // 闭包
+    /*
+    function a(){
+        // c 是在 a 里的局部变量 所以外面拿不到 c 数据
+        var c = 10;
+
+        function b(){
+            // f 是 b 函数的局部变量
+            var f = 20;
+            console.log(c);
+
+            function d(){
+                console.log(c);
+            }
+            d();    // d 函数是 b 的子函数，所以可以调用父函数继承下来的局部变量
+        }
+        b();    // a 函数可以启用自己的子函数
+
+        console.log(f); // a 是父函数 不能使用子函数的局部变量
+    }
+    a();
+    
+
+
+    // 生命周期
+    // a 出生了
+    var a = 10; // 如果没有人用到它，这个变量就死了
+
+    // 当 a 被使用完后，js 就又把它回收了
+    alert(a);
+    // 这里就会收了
+
+    
+    // 延长生命周期
+    function a(){
+        var b = 20; // 这里 b 会被死掉
+
+        function c(){
+            var f = b;  // 但是 f 需要 b，所以 b 的生命周期被延长了
+            console.log(f);
+        }
+        c();
+    }
+    
+
+    // 永恒的
+    function a(){
+        var b = 20;
+
+        function c(){
+            window.f = b;   // window 是永远存在的，所以 b 就被永恒了
+            console.log(f);
+        }
+        c();
+    }   
+    a();
+    
+
+    
+    // 回收机制
+    var a = 10;
+
+    a = null;   // 被回收了
+    
+
+    var a = 10;
+    if(a == 9){
+        alert(1);
+    }
+    // 可以放无限个 else if
+    else if(a == 10){
+        alert(2);
+    }
+    else{
+        alert(3);
+    }
+    // 打印 2
+    
+
+    function a(){
+        alert(1);
+    }
+    console.log(a);
+
+    // 简单操作
+    setTimeout(a,1000);
+    
+
+    // 随机数
+    console.log(Math.random());
+    */
+</script>
