@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 3</title>
+    <!-- 
+        编写一个增加或减少的按钮
+        中间数值为 0 
+        点击增加数值 就加 1
+        点击减少数值 就减 1
+        数值不可等于 0
+
+        思路:
+        - innerHTML
+        - onclick
+        - 两个 button
+        - 一个 span
+    -->
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+
+        body{
+            padding-left: 100px;
+        }
+
+        #btn_add{
+            width: 50px;height: 50px;
+        }
+
+        #btn_minus{
+            width: 50px;height: 50px;
+        }
+
+        #mySpan{
+            padding: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <button id="btn_minus">-</button>
+
+    <span id='mySpan'>0</span>
+
+    <button id="btn_add">+</button>
+
+
+    <!-- JavaScript -->
+    <script>
+        var btn_add = document.getElementById('btn_add'),
+        btn_minus = document.getElementById('btn_minus'),
+        mySpan = document.getElementById('mySpan'),
+        num = 0;
+
+        // 当点击 + 符号 就会加 1
+        btn_add.onclick = function(){
+            num = num + 1;
+            mySpan.innerHTML = num;
+        }
+
+        // 当点击 - 符号 就会减 1
+        btn_minus.onclick = function(){
+            // 不能低于 0
+            if(num != 0){
+                num = num - 1;
+            }
+            mySpan.innerHTML = num;
+        }
+
+    </script>
+</body>
+</html>
