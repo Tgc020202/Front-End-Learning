@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For 循环</title>
+</head>
+<body>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+        for(初始化条件;判断条件;迭代语句){
+            脚本
+        }
+
+
+        for(var i = 0 ; i < 5 ; i ++){
+            console.log(i);
+        }
+        */
+
+        var allDiv = document.getElementsByTagName('div');
+        console.log(allDiv.length);
+
+        for(var i = 0 ; i < allDiv.length ; i ++){
+            allDiv[i].style.width = '200px';
+            allDiv[i].style.height = '200px';
+            allDiv[i].style.background = 'black';
+        }
+    </script>
+</body>
+</html>

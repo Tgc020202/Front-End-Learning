@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyBoard Event - Anti-English Letter</title>
+</head>
+<body>
+<input id="ipt" type="text">
+
+    <!-- JavaScript -->
+    <script>
+
+        var ipt = document.getElementById("ipt");
+
+        ipt.onkeydown = function(event){
+            // ASCII code a:65,z=90
+            if(event.keyCode >= 65 && event.keyCode <= 90){
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

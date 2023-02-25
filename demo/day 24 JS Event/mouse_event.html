@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Mouse Event</title>
+</head>
+<body>
+
+    <!-- <div id="myDiv">12345567763453634535</div> -->
+
+    <input id="ipt" type="password">
+
+    <!-- JavaScript -->
+    <script>
+        /*
+        onclick = function(){
+            alert(1);
+        }
+        
+
+        onclick = function(event){
+            console.log(event);
+        }
+
+        onmousemove = function(){
+            console.log('1');
+        }
+        
+
+        var oS = document.getElementById('mySpan');
+        onmousemove = function(event){
+            oS.innerHTML = event.clientX+','+event.clientY;
+        }
+        
+
+        onmousedown = function(){
+            console.log('鼠标按下');
+        }
+        onmouseup = function(){
+            console.log('鼠标抬起');
+        }
+        
+
+        var myDiv = document.getElementById('myDiv');
+
+        myDiv.onmousedown = function(){
+            return false;
+        }
+
+        oncontextmenu = function(){
+            alert('1');
+        }
+
+        
+        var myDiv = document.getElementById('myDiv');
+
+        myDiv.oncontextmenu = function(){
+            return false;
+        }
+*/
+
+        var ipt = document.getElementById('ipt');
+
+        ipt.onmousedown = function(){
+            return false;
+        }
+
+    </script>
+</body>
+</html>

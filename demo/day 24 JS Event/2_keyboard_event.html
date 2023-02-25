@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KeyBoard Event - Movement</title>
+        <style type="text/css">
+            body,html{height: 100%;}
+    
+            #myDiv{
+                width: 100px;height: 100px;
+                background: red;
+                position: absolute;
+                left: 300px;
+                top: 300px;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="myDiv"></div>
+    
+        <!-- JavaScript -->
+        <script>
+            var l = 300,t = 300,
+            myDiv = document.getElementById("myDiv");
+    
+            onkeydown = function(event){
+                if(event.key == 'a'){
+                    l = l - 10;
+                }
+                if(event.key == 'w'){
+                    t = t - 10;
+                }
+                if(event.key == 's'){
+                    t = t + 10;
+                }
+                if(event.key == 'd'){
+                    l = l + 10;
+                }
+                myDiv.style.left = l + 'px';
+                myDiv. style.top = t + 'px';
+            }
+        </script>
+    </body>
+</html>
