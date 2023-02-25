@@ -10,9 +10,9 @@
 + JS 与 CSS 与 html 之间的配合例子
 > 1. JS -> 选取 html 的元素
 > 2. JS -> 改动 css 样式
-> 如果要在 <head> 标签里头写 JS 代码，一定要使用 onload 函数
-> 不然的话，还是安安稳稳的在 <body> 标签里面写 JS 代码吧
-> 切记要放 <script> 标签
+> + 如果要在 ```<head>``` 标签里头写 JS 代码，一定要使用 onload 函数
+> + 不然的话，还是安安稳稳的在 ```<body>``` 标签里面写 JS 代码吧
+> + 但是切记要放 <script> 标签
 
 Example (1_rectangle.html):
 ```
@@ -50,6 +50,7 @@ Example (1_rectangle.html):
 
 ###### JS 条件
 + if-else
+
 Example:
 ```
 <script>
@@ -78,6 +79,7 @@ Example:
 + 交互事件 
 > 鼠标点击: onclick
 > JS 其实跟中文一样 . 代表'的'，函数就是要做的事
+
 Example (2_color.html):
 ```
 <head>
@@ -115,6 +117,7 @@ Example (2_color.html):
 
 + 添加按钮元素
 > <button> 标签
+
 Example (3_disappear.html):
 ```
 <head>
@@ -153,6 +156,7 @@ Example (3_disappear.html):
 > 当一点击按钮，黑色正方形就会直接消失
 
 + 可以使用计算数值的方式，添加一些操作
+
 Example (4_count.html):
 ```
 <head>
@@ -204,6 +208,7 @@ Example (4_count.html):
 #### JS 选取的方式
 ##### 1. id
 + document.getElementById('id');
+
 Example:
 ```
 <body>
@@ -219,6 +224,7 @@ Example:
 ##### 2. tagName
 + 标签名是复数，要记得放下标
 + document.getElementsByTagName('tagname');
+
 Example (5_tagnames.html):
 ```
 <body>
@@ -239,6 +245,7 @@ Example (5_tagnames.html):
 ##### 3. class 类
 + 使用类名
 + document.getElementsByClassName('className');
+
 Example (6_class.html):
 ```
 <body>
@@ -257,6 +264,7 @@ Example (6_class.html):
 
 ###### cssText 
 + 可以像 css 的样式写在 JS
+
 Example (7_css_in_js.html):
 ```
 <body>
@@ -274,6 +282,7 @@ Example (7_css_in_js.html):
 
 ###### innerHTML 
 + 可以用来改变 html 里面的内容
+
 Example (7_css_in_js.html):
 ```
 <body>
@@ -297,6 +306,7 @@ Example (7_css_in_js.html):
 
 ###### className 类名
 + 可以返回元素标签上的 class 的内容
+
 Example:
 ```
 <body>
@@ -315,7 +325,8 @@ Example:
 > output 会显示 className: a1
 
 + 可以使用 className 改变 class 的名字
-> 变量.className = 'className';
+> 变量.className = '另一个类名';
+
 Example:
 ```
 <head>
@@ -344,8 +355,9 @@ Example:
 ```
 
 + 一个变量可以同时拥有很多个 className
-> 但是变量会优先选择离自己最近的 className
-> 变量.className = 'className1 className2';
+> + 但是变量会优先选择离自己最近的 className
+> + 变量.className = 'className1 className2';
+
 Example (8_search_class.html):
 ```
 <head>
@@ -378,12 +390,13 @@ Example (8_search_class.html):
     </script>
 </body>
 ```
-> aDiv[0] 会优先持有 a1 的属性值，因为 a1 离它最近
+> aDiv[0] 会优先持有 a3 的属性值，因为 a3 离它最近
 
 ###### onmouse
 + 鼠标移动就会触发
 1. onmouseover 鼠标移入
 2. onmouseout 鼠标移出
+
 Example:
 ```
 <head>
@@ -421,6 +434,7 @@ Example:
 
 ###### window.onresize
 + 浏览器大小发生了改变，就会触发
+
 Example:
 ```
 <!DOCTYPE html>
