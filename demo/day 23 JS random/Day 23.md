@@ -19,6 +19,9 @@ Example:
     a();
 </script>
 ```
+> 图文解析:
+![解析](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2023%20JS%20random/p1.PNG)
+
 > 这就是闭包
 
 + 父函数 不能使用 子函数的局部变量
