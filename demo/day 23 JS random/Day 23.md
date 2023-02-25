@@ -184,11 +184,11 @@ Example:
 ```
 
 + parseInt(要转换的数据) 可以把小数或字符串变为整数
-···
+```
 <script>
     console.log(parseInt(Math.random()));
 </script>
-···
+```
 
 
 
