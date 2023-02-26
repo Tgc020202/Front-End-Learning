@@ -537,3 +537,47 @@ Example:
 > + a(2) -> 当调用的时候有传参
 
 
+## Practice 新知识
+
+#### Practice 1:
+
+###### createElement
++ 从一个标签里分解出子元素，并加入父元素里面
++ 可以在一个父元素里面创建/创造许多的子元素
++ 当需要在一个时间内创建大数量的元素的时候，可以使用
++ 就像题目要求的，创建 400 个 div 标签
+
+Example(practice_1.html):
+```
+<script>
+    // 父元素
+    var myDiv = document.getElementById('myDiv');
+        
+    // 生成 400 个 div 元素
+    for(var i = 0;i < 400; i++){
+
+        // 创建子元素
+        var childDiv = document.createElement('div');
+
+        // 设置子元素的属性
+        childDiv.style.background = 'white';
+        childDiv.style.width = '20px';
+        childDiv.style.height = '20px';
+        childDiv.style.float = 'left';
+
+        // 将子元素从后面慢慢加入父元素里
+        myDiv.appendChild(childDiv);
+    }
+</script>
+```
+> + 我在一个 div 标签(父元素)里面创建了 400 个小 div 标签(子元素)在父元素里
+
+#### Practice 2
+###### value
++ 用来提取 input 标签里面的元素
++ 用来提取用户的答复
+
+Example(practice_2.html):
+```
+[Practice 2](https://www.youtube.com/)
+```
