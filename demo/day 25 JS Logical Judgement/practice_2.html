@@ -11,8 +11,173 @@
         那么弹出正确
         不然就弹出至少一个错误
     -->
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+
+        body{
+            margin: 10px;
+        }
+        button{
+            width: 20px;height: 20px;
+            margin-top: 20px;
+        }
+
+        button#btn_detect{
+            width: 100px;height: 50px;
+            margin-top: 40px;
+        }
+
+        input{
+            width: 100px; height: 20px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div>
+        <input type="number" id="num1">
+        <button id="btn1">+</button>
+        <input type="number" id="num2">
+        <button>=</button>
+        <input type="number" id="num3">
+    </div>
+
+    <div>
+        <input type="number" id="num4">
+        <button id="btn2">+</button>
+        <input type="number" id="num5">
+        <button>=</button>
+        <input type="number" id="num6">
+    </div>
+
+    <button id="btn_detect">判断结果</button>
+
+    <!-- JavaScript -->
+    <script>
+        // Input number
+        var num1 = document.getElementById('num1'),
+        num2 = document.getElementById('num2'),
+        num3 = document.getElementById('num3'),
+        num4 = document.getElementById('num4'),
+        num5 = document.getElementById('num5'),
+        num6 = document.getElementById('num6');
+
+        // True False
+        var up = true,down = true;
+
+
+        // Button
+        var btn_detect = document.getElementById('btn_detect'),
+        btn1 = document.getElementById('btn1'),
+        btn2 = document.getElementById('btn2');
+
+
+        // Count
+        var btn1_count = 3,btn2_count = 3;
+
+        btn_detect.onclick = detect;
+        btn1.onclick = operator;
+        btn2.onclick = operator;
+
+        function detect(){
+            // 先 default 是加法
+            // btn1
+            switch (btn1_count % 4){
+                case 0:
+                    // 当 btn1_count 是 0(-) 的时候
+                    up = (Number(num1.value) - Number(num2.value) == Number(num3.value));
+                    break;
+                case 1:
+                    // 当 btn1_count 是 1(*) 的时候
+                    up = (Number(num1.value) * Number(num2.value) == Number(num3.value));
+                    break;
+                case 2:
+                    // 当 btn1_count 是 2(/) 的时候
+                    up = (Number(num1.value) / Number(num2.value) == Number(num3.value));
+                    break;
+                case 3:
+                    // 当 btn1_count 是 3(+) 的时候
+                    up = (Number(num1.value) + Number(num2.value) == Number(num3.value));
+                    break;
+            }
+
+            // btn2
+            switch (btn2_count % 4){
+                case 0:
+                    // 当 btn2_count 是 0(-) 的时候
+                    down = (Number(num4.value) - Number(num5.value) == Number(num6.value));
+                    break;
+                case 1:
+                    // 当 btn2_count 是 1(*) 的时候
+                    down = (Number(num4.value) * Number(num5.value) == Number(num6.value));
+                    break;
+                case 2:
+                    // 当 btn2_count 是 2(/) 的时候
+                    down = (Number(num4.value) / Number(num5.value) == Number(num6.value));
+                    break;
+                case 3:
+                    // 当 btn2_count 是 3(+) 的时候
+                    down = (Number(num4.value) + Number(num5.value) == Number(num6.value));
+                    break;
+            }
+
+            if(num1.value == '' || num2.value == '' || num3.value == '' || num4.value == '' || num5.value == '' || num6.value == ''){
+                alert('输入框不能有空，一定要有数字');
+            }
+            else{
+                if(up && down){
+                    alert('两个都是正确的');
+                }
+                else if(!up && !down){
+                    alert('两个都是错的');
+                }
+                else if(!up){
+                    alert('上面的是错的');
+                }
+                else{
+                    alert('下面的是错的');
+                }
+            }
+        }
+
+        function operator(){
+            if(this == btn1){
+                btn1_count ++;
+                switch (btn1_count % 4){
+                    case 0:
+                        this.innerHTML = '-';
+                        break;
+                    case 1:
+                        this.innerHTML = '*';
+                        break;
+                    case 2:
+                        this.innerHTML = '/';
+                        break;
+                    case 3:
+                        this.innerHTML = '+';
+                        break;
+                }
+            }
+            else if(this == btn2){
+                btn2_count ++;
+                switch (btn2_count % 4){
+                    case 0:
+                        this.innerHTML = '-';
+                        console.log(btn2_count);
+                        break;
+                    case 1:
+                        this.innerHTML = '*';
+                        break;
+                    case 2:
+                        this.innerHTML = '/';
+                        break;
+                    case 3:
+                        this.innerHTML = '+';
+                        break;
+                }
+            }
+        }
+
+    </script>
 </body>
 </html>

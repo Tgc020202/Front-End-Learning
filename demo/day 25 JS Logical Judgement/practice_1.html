@@ -35,8 +35,6 @@
             position: absolute;
             left: 0; top: 0;
         }
-
-        #myDiv > {float: left;}
     </style>
 </head>
 <body>
@@ -100,11 +98,17 @@
         
         btn_clean.onclick = clean;
         
+        // 恢复成以前的样子
         function clean(){
             for(var i = 1;i <= 400; i++){
                 allDiv[i].style.background = 'white';
             }
             count_click = 0;
+
+            // 一秒后显示已清空
+            setTimeout(function(){
+                alert('已清空');
+            },1000);
         }
 
     </script>
