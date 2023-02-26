@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>混合应用</title>
+    <style>
+        div{
+            width: 100px;height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="小按钮" name="" id="ipt">
+
+    <div id="outNode"></div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+        var oInput = document.createElement('input');
+
+        console.log(oInput);
+
+        // 插入元素到子级的最后方
+        document.body.appendChild(oInput);
+        */
+
+
+        var i = 0;
+        // 当点击小按钮就会生成 div
+        ipt.onclick = function(){
+            var oDiv = document.createElement('div');
+            oDiv.innerHTML = i;
+            outNode.appendChild(oDiv);
+            i++;
+        }
+
+    </script>
+</body>
+</html>

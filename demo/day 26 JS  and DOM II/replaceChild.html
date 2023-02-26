@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReplaceChild 修改元素</title>
+</head>
+<body>
+    <div id="outNode">
+        <span>11111</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 把 outNode 里的 span 标签变为 input 标签
+        var oInp = document.createElement('input');
+        // outNode.replaceChild(oInp,outNode.children[0]);
+
+        // 更清晰
+        onclick = function(){
+            outNode.replaceChild(oInp,outNode.children[0]);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Remove 删除自己的元素</title>
+</head>
+<body>
+    <div id="outNode">
+        <span>11111</span>
+        <span>22222</span>
+        <span id="oSpan">33333</span>
+    </div>
+
+    
+    <!-- JavaScript -->
+    <script>
+        // 直接删了有 id (oSpan) 的标签
+        // oSpan.remove();
+
+        // outNode.children[0].remove();
+
+        // 删了父级，子级也会消失
+        outNode.remove();
+    </script>
+</body>
+</html>

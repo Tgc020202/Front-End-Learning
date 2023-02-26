@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove 删除元素</title>
+</head>
+<body>
+    <div id="outNode">
+        <span>11111</span>
+        <span>22222</span>
+        <span id="oSpan">33333</span>
+    </div>
+
+    
+    <!-- JavaScript -->
+    <script>
+        allSpan = document.getElementsByTagName('span');
+        console.log(allSpan);
+
+        // 下面这个 for 循环会出 bug
+        // 因为一旦第一个子元素被删，下一个子元素会顶替第一个元素的位置
+        /*
+        for(var i = 0;i < 2;i ++){
+            outNode.removeChild(allSpan[i]);
+        }
+        */
+
+        // 解决方法
+        /*
+        for(var i = 0;i < 2;i ++){
+            outNode.removeChild(allSpan[0]);    // 把 i 改为 0
+        }
+        */
+
+        // outNode.remove(allSpan);    // 可以直接删完
+
+        // 不知道父级的情况下删了自己
+        oSpan.parentNode.removeChild(oSpan);
+
+
+    </script>
+</body>
+</html>

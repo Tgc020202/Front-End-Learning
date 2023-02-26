@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnerHTML 返回或设置元素的内容</title>
+    <style></style>
+</head>
+<body>
+    <div id="div1">
+        <span></span>
+        <p></p>
+        <div id="div2">2</div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 可以查看里面的内容
+        /*
+        console.log(div1.innerHTML);
+
+        div1.innerHTML = '<span>123</span>'
+        
+        console.log(div1.innerHTML);
+
+        div2.onclick = function(){
+            alert(123);
+        }
+        */
+
+        div2.onclick = function(){
+            alert(123);
+        }
+
+        // 赋值了以后 div2.onclick 就没有用处了
+        div1.innerHTML = div1.innerHTML + '<span>123</span>';
+    </script>
+</body>
+</html>

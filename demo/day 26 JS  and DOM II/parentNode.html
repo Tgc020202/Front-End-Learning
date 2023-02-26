@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParentNode 父级</title>
+
+    <style>
+        *{padding: 0;margin: 0;}
+    </style>
+</head>
+<body>
+    <div>
+        <div id="div1"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // console.log(div1);
+        div1.style.width = '100px';
+        div1.style.height = '100px';
+        div1.style.background = 'red';
+
+        // 选取父级 -> 选取外层
+        div1.parentNode.style.width = '200px';
+        div1.parentNode.style.height = '200px';
+        div1.parentNode.style.background = 'yellow';
+
+        // 选取 div1 的父级的父级
+        div1.parentNode.parentNode.style.width = '300px';
+        div1.parentNode.parentNode.style.height = '300px';
+        div1.parentNode.parentNode.style.background = 'green';
+
+    </script>
+
+</body>
+</html>
