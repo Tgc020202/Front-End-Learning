@@ -420,6 +420,18 @@ Example(if-else 与 || 的搭配):
 > + 只要条件不满足 就不往后看了
 > + 但是条件满足 就会一直往后看 直到全部条件都满足
 
+Example:
+```
+<script>
+    if(i == 1 && j == 0 && k == 0){
+        alert(true);
+    }
+    else{
+        alert(false);
+    }
+</script>
+```
+
 + 或 || 只要满足其中一个条件，就是正确
 > + 只要满足一个条件 就不往后看了
 > + 条件不满足就会一直往后看 直到全部都不满足为止
@@ -437,5 +449,91 @@ Example:
     }
 </script>
 ```
+
++ 混合 and or
+
+Example:
+```
+<script>
+    var i = 0,j = 0,k = 0;
+
+    if(i == 1 || j == 0 && k == 0 || 2 < 1){
+        alert(true);
+    }
+    else{
+        alert(false);
+    }
+</script>
+```
+> + i == 1 || j == 0 -> i 不等于 1，不满足，所以要继续往后走
+> + j == 0 && k == 0 -> j 等于 0，满足，所以也必须往后走
+> + k == 0 || 2 < 1 -> k 等于 0，满足，所以在这里就停止了，就算是 2 小于 1 是错的，也不关他的事了
+
++ 技巧一(&&)
+> + if 跟 and 的关系
+
+Example:
+```
+<script>
+    var a = 0;
+
+    if(a == 0){
+        alert(1);
+    }
+    a == 0 && alert(1);
+</script>
+```
+> + 上面的 if 语句和 and 语句的用法都是一样的
+> + if 语句: 如果 a 相等于 0 就跳出弹窗
+> + and 语句: 如果 a 相等于 0 就继续往后走，所以弹窗弹出来了
+
+
++ 技巧二(&&)
+> + and 可以写一个或以上的执行语句
+
+Example:
+```
+<script>
+    var a = 0;
+
+    a == 0 && alert(1),alert(2);
+</script>
+```
+> + 条件 && 执行语句1,执行语句2;
+
+
++ 技巧三(&&)
+> + and 也可以跟脚本进行联系
+> + 条件 && (脚本);
+
+Example:
+```
+<script>
+    var a = 0;
+
+    // 错误
+    // a == 0 && document.body.style.background = 'red';   // 系统检测觉得不是函数
+    
+    // 正确
+    a == 0 && (document.body.style.background = 'red');     // 可以放挂号()
+</script>
+```
+
+
++ 技巧四(||)
+> + or 与函数的用法
+
+Example:
+```
+<script>
+    function a(b){
+        b || alert('没有传参');
+        b && alert('有传参了');
+    }
+    a();
+</script>
+```
+> + a() -> 当调用的时候没有传参
+> + a(2) -> 当调用的时候有传参
 
 
