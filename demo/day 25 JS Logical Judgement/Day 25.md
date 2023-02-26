@@ -578,6 +578,4 @@ Example(practice_1.html):
 + 用来提取用户的答复
 
 Example(practice_2.html):
-```
-|[Practice 2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2025%20JS%20Logical%20Judgement/practice_2.html)|
-```
+[Practice 2 传送](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2025%20JS%20Logical%20Judgement/practice_2.html)
