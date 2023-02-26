@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>And Or 运用</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        var i = 0,j = 0,k = 0;
+    
+        /*
+        // or
+        if(i == 0 || j == 1 || k == 2){
+            alert(true);
+        }
+        else{
+            alert(false);
+        }
+        
+    
+        // and
+        if(i == 1 && j == 0 && k == 0){
+            alert(true);
+        }
+        else{
+            alert(false);
+        }
+        
+    
+        if(i == 1 || j == 0 && k == 0 || 2 < 1){
+            alert(true);
+        }
+        else{
+            alert(false);
+        }
+        */
+    
+        //var a = 0;
+    
+        /*
+        if(a == 0){
+            alert(1);
+        }
+    
+        a == 0 && alert(1);
+        
+    
+        a == 0 && alert(1),alert(2);
+        */
+    
+        // 错误
+        // a == 0 && document.body.style.background = 'red';   // 系统检测觉得不是函数
+        
+        // 正确
+        //a == 0 && (document.body.style.background = 'red');
+        
+        function a(b){
+            b || alert('没有传参');
+            b && alert('有传参了');
+        }
+        a();
+
+    </script>
+</body>
+</html>

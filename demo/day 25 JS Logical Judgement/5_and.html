@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>And && 符号</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+
+        div{
+            width: 200px;height: 200px;
+            background-color: black;
+            float: left;
+            margin: 30px;
+        }
+
+        #btn{
+            width: 100px;height: 50px;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">1</div>
+    <div id="div2">2</div>
+
+    <button id="btn">判断按钮</button>
+    <!-- JavaScript -->
+    <script>
+        /*
+        var i = 0,j = 1;
+
+        if(i == 0 && j == 1){
+            alert('True');
+        }
+        */
+
+        var div1 = document.getElementById('div1'),
+        div2 = document.getElementById('div2'),
+        btn = document.getElementById('btn');
+
+        btn.onclick = a;
+        div1.onclick = b;
+        div2.onclick = b;
+
+        function a(){
+            if(div1.style.background == 'red' && div2.style.background == 'red'){
+                alert('他们都是红色');
+            }
+            else{
+                alert('至少有一个不是红色');
+            }
+        }
+
+        function b(){
+            this.style.background = 'red';
+        }
+    </script>
+</body>
+</html>

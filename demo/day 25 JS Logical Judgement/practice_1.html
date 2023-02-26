@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 1</title>
+    <!--
+        已知目前里面有 400 个 div 元素
+        点击按钮第奇数(odd)次
+        奇数的div变黑
+        偶数的div变红
+        点击按钮第偶数(even)次
+        奇数的div变红
+        偶数的div变黑
+
+        思路:
+        - 一个按钮
+        - 401 个div
+        - for
+        - if
+    -->
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+
+        button{
+            width: 200px;height: 50px;
+            margin: 30px;
+        }
+
+        #myDiv{
+            width: 400px;height: 400px;
+            margin: 200px;
+            border: 2px solid black;
+            position: absolute;
+            left: 0; top: 0;
+        }
+
+        #myDiv > {float: left;}
+    </style>
+</head>
+<body>
+    <button id="btn">点击按钮</button>
+    <button id="btn_clean">恢复按钮</button>
+
+    <div id="myDiv"></div>
+    <!-- JavaScript -->
+    <script>
+        var myDiv = document.getElementById('myDiv');
+        
+        // 生成 400 个 div 元素
+        for(var i = 0;i < 400; i++){
+
+            // 创建小元素
+            var childDiv = document.createElement('div');
+
+            childDiv.style.background = 'white';
+            childDiv.style.width = '20px';
+            childDiv.style.height = '20px';
+            childDiv.style.float = 'left';
+
+            // 将小元素从后面加入大元素里
+            myDiv.appendChild(childDiv);
+        }
+
+        // 点击按钮的操作
+        var count_click = 0,
+        btn = document.getElementById("btn"),
+        allDiv = document.getElementsByTagName('div');
+
+        btn.onclick = a;
+
+        function a(){
+            // 点击按钮第奇数(odd)次
+            if (count_click % 2 == 1){
+                // 奇数的div变黑
+                // 偶数的div变红
+                for(var i = 1;i <= 400; i++){
+                    i % 2 != 0 && (allDiv[i].style.background = 'black');
+                    i % 2 == 0 && (allDiv[i].style.background = 'red');
+                }
+            }
+            else{
+                // 点击按钮第偶数(even)次
+                // 奇数的div变红
+                // 偶数的div变黑
+                for(var i = 1;i <= 400; i++){
+                    i % 2 != 0 && (allDiv[i].style.background = 'red');
+                    i % 2 == 0 && (allDiv[i].style.background = 'black');
+                }
+            }
+
+            console.log(count_click);
+            count_click == 2 && (count_click = 0);
+            count_click ++;
+        }
+
+
+        var btn_clean = document.getElementById('btn_clean');
+        
+        btn_clean.onclick = clean;
+        
+        function clean(){
+            for(var i = 1;i <= 400; i++){
+                allDiv[i].style.background = 'white';
+            }
+            count_click = 0;
+        }
+
+    </script>
+</body>
+</html>

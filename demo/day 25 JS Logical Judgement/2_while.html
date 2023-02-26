@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While 循环</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        div{
+            width: 200px; height: 200px;
+            background-color: red;
+            float: left;    margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+
+    <!-- JavaScript -->
+    <script>
+        var i = 0,
+        allDiv = document.getElementsByTagName('div');
+
+        document.onclick = a;
+
+        function a (){
+            while(i < 3){
+                if(i == 2){
+                    break;
+                }
+                else{
+                    console.log(i);
+                    allDiv[i].style.background = 'yellow';
+                }
+                i++;
+            }
+        }
+    </script>
+</body>
+</html>
