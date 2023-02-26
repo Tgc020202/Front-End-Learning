@@ -579,5 +579,5 @@ Example(practice_1.html):
 
 Example(practice_2.html):
 ```
-[Practice 2](https://www.youtube.com/)
+|[Practice 2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2025%20JS%20Logical%20Judgement/practice_2.html)|
 ```
