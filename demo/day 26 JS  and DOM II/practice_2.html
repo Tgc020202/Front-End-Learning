@@ -6,12 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice 2</title>
     <!--
-        -> 生成一个 id 的 box 的元素
+        -> 在 JS 里生成一个 id 的 box 的元素
         -> 使用 div 填满 box 的内部
         -> 并且所有 div 元素不能和隔壁的颜色相同
     -->
+    <style>
+        #box{
+            width: 400px; height: 400px;
+            position: absolute;
+            left: 50%; top: 50%;
+            margin: -200px 0 0 -200px;
+            border: 1px solid black;
+        }
+
+        #box div{
+            width: 20px;height: 20px;float: left;
+        }
+    </style>
 </head>
 <body>
-    
+    <!-- JavaScript -->
+    <script>
+        // 生成一个 id 的 box 的元素
+        var obox = document.createElement('div');
+        obox.id = 'box';
+        document.body.appendChild(obox);
+
+        onclick = a;
+        
+        function a(){
+            // 控制 row 横排
+            for(var i = 0 ; i < 20 ; i ++){
+                // 控制 column 直列
+                for(var j = 0 ; j < 20 ; j ++){
+                    var oDiv = document.createElement('div');
+                    // 偶数 row 排
+                    if(i % 2 == 0){
+                        // 控制 column 列的元素
+                        // 偶数 column 列
+                        if(j % 2 == 0){
+                            oDiv.style.background = 'red';
+                        }
+                        // 奇数 column 列
+                        else{
+                            oDiv.style.background = 'black';
+                        }
+                    }
+                    // 奇数 row 排
+                    // 颜色的位置需要互换
+                    else{
+                        if(j % 2 == 0){
+                            oDiv.style.background = 'black';
+                        }
+                        else{
+                            oDiv.style.background = 'red';
+                        }
+                    }
+                    obox.appendChild(oDiv);
+                }
+            }
+        }
+        
+    </script>
 </body>
 </html>

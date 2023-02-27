@@ -11,8 +11,99 @@
         -> 如果还没登记名字就直接点发送，就会提示没有登记名字
         -> 名字，消息内容
     -->
+    <style>
+        *{padding: 0;margin: 0;}
+
+        button{
+            width: 60px;height: 50px;
+            margin: 10px;
+            float: inline;
+        }
+
+        #myDiv{
+            width: 400px;height: 400px;
+            border: 2px solid black;
+            margin: 10px;
+            background-color:rgb(205, 110, 162);
+            float: inline;
+        }
+
+        input{
+            width: 200px; height: 50px;
+            margin: 10px;
+            text-align: center;
+            background-color:rgba(220,38,38,0.2);
+            float: inline;
+        }
+    </style>
 </head>
 <body>
-    
+    <input type="text" name="" value='姓名' id="iptName">
+
+    <button id="btn1">确认</button>
+
+
+    <div id="myDiv"></div>
+
+
+    <input type="text" name="" value='信息' id="oIpt">
+
+    <button id="btn2">确认发送</button>
+
+    <button id="btn3">返回</button>
+
+
+    <!-- JavaScript -->
+    <script>
+        var name = '',username = '';
+
+        // 设置 input 不能为空
+        btn1.onclick = function(){
+            // 如果还没登记名字就直接点发送，就会提示没有登记名字
+            if(iptName.value == ''){
+                alert('请填入姓名');
+            }
+            else{
+                // 登记名字后，名字的元素消失
+                username = iptName.value;
+                iptName.style.display = 'none';
+                btn1.style.display = 'none';
+            }
+        }
+
+        var divchild = document.createElement('div'),
+        length = 0;
+
+
+        btn2.onclick = function(){
+            // 输入名字，消息内容
+            if(oIpt.value == ''){
+                alert('信息不能为空');
+            }
+            else{
+                if(name == ''){
+                    name = username;
+                    divchild.innerHTML = '<div>' + name + '</div>' + divchild.innerHTML + '<div>' + oIpt.value + '</div>' ;
+                }
+                else{
+                    length ++;
+                    divchild.innerHTML = divchild.innerHTML + '<div>' + oIpt.value + '</div>' ;
+                }
+                divchild.style.margin = '10px';
+                myDiv.appendChild(divchild);
+            }
+        }
+
+        btn3.onclick = function(){
+            if(length == -1){
+                alert('名字不能删除');
+            }
+            else{
+                divchild.children[length + 1].remove();
+                length --;
+            }
+        }
+        
+    </script>  
 </body>
 </html>
