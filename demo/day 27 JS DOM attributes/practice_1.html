@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratice 1</title>
+    <!--
+        做一个可以输入内容，并且保存的系统
+        有两个按钮:
+        -> 一个用来保存内容
+        -> 另一个用来取消保存内容
+
+    -->
+    <style>
+        *{padding: 0;margin: 0;}
+        div{
+            width: 300px;height: 25px;
+            margin: 10px;
+            display: inline-block;
+            background-color: rgb(218, 218, 218);
+            border: 2px solid black;
+            border-radius: 5%;
+        }
+
+        #panda{
+            width: 25px;height: 25px;
+            float: inline;
+            position: relative;
+            float: right;
+        }
+
+        input{
+            width: 300px;height: 50px;
+            float: inline;
+            display: none;
+        }
+
+        button{
+            width: 100px;height: 50px;
+            margin: 10px;
+            float:inline;
+            display: none;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <img src="panda.jpg" alt="允许修改" id="panda">
+    </div>
+    <input type="text" name="" value="空" id="myInput">
+
+    <button class="save">保存</button>
+    <button class="cancel">取消</button>
+
+    <!-- JavaScript -->
+    <script>
+        
+        // 点击照片 出现输入框和按钮
+        panda.onclick = function(){
+            myInput.style.display = 'inline-block';
+            save.style.display = 'inline-block';
+            cancel.style.display = 'inline-block';
+        }
+    </script>
+</body>
+</html>
