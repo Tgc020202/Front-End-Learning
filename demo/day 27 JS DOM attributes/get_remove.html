@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get and remove 获取与删除属性</title>
+</head>
+<body>
+    <a href="" id="myA">链接</a>
+    <a href="https://www.youtube.com/" id="myB">链接</a>
+    <div id="div1" tgc></div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+        // 基本属性的获取
+        myA.href = 'https://www.youtube.com/';
+        console.log(myA.href);
+
+        // 自定义属性的获取
+        myA.setAttribute('tgc',10);
+        console.log(myA.tgc);   // 会获取不到(undefined)
+
+        // getAttribute 可获取自定义属性和基本属性
+        console.log(myA.getAttribute('tgc'));
+        console.log(myA.getAttribute('href'));
+
+        */
+
+        // 把自己的 id 删了
+        myB.removeAttribute('id');
+        
+        // 把自定义的属性删了
+        div1.removeAttribute('tgc');
+
+
+    </script>
+</body>
+</html>

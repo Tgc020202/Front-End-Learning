@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassList</title>
+    <style>
+        .box1{
+            width: 200px;height: 200px;
+            background-color: black;
+            transition: .3s;
+        }
+        .box2{
+            background-color: red;
+        }
+        .box3{
+            box-shadow: 0 0 10px black;
+        }
+    </style>
+</head>
+<body>
+    <!-- div 里的 classname : box1 box2 box3-->
+    <div id="div1" class="box1 box2 box3"></div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+        // 条件语句创建 toggle
+        div1.onclick = function(){
+            if(div1.classList.contains('box3')){
+                div1.classList.remove('box3');
+            }
+            else{
+                div1.classList.add('box3');
+            }
+        }
+        */
+
+        // 使用 classList.toggle
+        div1.onclick = function(){
+            div1.classList.toggle('box3');
+        }
+        
+    </script>
+</body>
+</html>

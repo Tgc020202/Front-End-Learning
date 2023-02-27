@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setAttribute 设置属性</title>
+</head>
+<body>
+    <div  id="div1" class="div2" tgc="div3"></div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+        // 检测 id 和 classname 属性
+        console.log(div1.id,div1.className);
+
+        // 检测自定义属性
+        console.log(div1.tgc);  // 不可行
+
+        // 自定义元素
+        div1.setAttribute('wxx',10);    // 有给予数值
+        console.log(div1);
+
+        // 不赋予数值 - 错误
+        div1.setAttribute('wxx');   // 会出 bug
+        console.log(div1);
+
+        */
+        // 不赋予数值 - 正确
+        div1.setAttribute('wxx','');   // 可以放置 '' 符号
+        console.log(div1);
+    </script>
+</body>
+</html>

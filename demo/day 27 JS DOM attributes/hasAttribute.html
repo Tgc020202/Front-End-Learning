@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hasAttribute 判断有无属性</title>
+    <style>
+        #div1{
+            width: 100px;height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="div2" tgc="10"></div>
+    <a href="https://www.youtube.com/" id="myA">链接</a>
+    <!-- JavaScript -->
+    <script>
+        // 检测是否有基本属性
+        console.log(div1.hasAttribute('class'));
+
+        // 检测是否有自定义属性(有)
+        console.log(div1.hasAttribute('tgc'));
+
+        // 检测是否有自定义属性(无)
+        console.log(div1.hasAttribute('wxx'));
+
+        
+        // 一点击 div 就会判断有没有 tgc 属性
+        // 如果没有就会创建一个 tgc = 18
+        // 如果有就修改 tgc = 20
+        div1.onclick = function(){
+            if(div1.hasAttribute('tgc')){
+                div1.setAttribute('tgc',20);
+            }
+            else{
+                div1.setAttribute('tgc',18);
+            }
+            console.log(div1);
+        }
+    
+    </script>
+</body>
+</html>
