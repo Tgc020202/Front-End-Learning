@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History 历史</title>
+</head>
+<body>
+    <div>
+        <button id="btn1">回撤</button>
+    </div>
+    <div>
+        <button id="btn2">向前</button>
+    </div>
+
+    <input type="text" name="" id="myInput">
+    <button id="btn3">指定</button>
+
+    <!-- JavaScript -->
+    <script>
+        btn3.style.float = 'left';
+        btn1.onclick = function(){
+            history.back();
+        }
+
+        btn2.onclick = function(){
+            history.forward();
+        }
+
+        var content = '';
+        content = myInput.value;
+        btn3.onclick = function(){
+            if(content != ''){
+                history.go(content);
+            } 
+            else{
+                alert('请输入返回或前进的数值');
+            }
+        }
+    </script>
+</body>
+</html>

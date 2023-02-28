@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alert</title>
+</head>
+<body>
+    <div id="div1">go</div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+        // alert - confirm
+        div1.onclick = function(){
+            alert(confirm('small small 最漂亮?'));
+        }
+        */
+
+        /*
+        // 制作一个强迫对方点确定的弹窗
+        div1.onclick = to;
+        function to(){
+            if(confirm('small small 最漂亮?')){
+                alert('对对对');
+            }
+            else{
+                to();
+            }
+        }
+        */
+
+        // prompt 输入框
+        // window.prompt('请输入密码');
+
+        div1.onclick = function(){
+            if(prompt('世界上漂亮的小姐姐是谁？') == 'small small'){
+                alert('对对对');
+            }
+            else{
+                alert('没眼光');
+            }
+        }
+
+    </script>
+</body>
+</html>
