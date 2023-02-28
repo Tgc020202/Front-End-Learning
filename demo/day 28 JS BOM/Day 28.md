@@ -189,13 +189,13 @@ Example:
 + 电脑的显示器的宽度
 + screen.width
 
-###### 5.3 avaiHeight
+###### 5.3 availHeight
 + 除了信息栏的高度
-+ screen.height
++ screen.availheight
 
 ###### 5.4 availWidth 
 + 除了信息栏的宽度
-+ screen.width
++ screen.availwidth
 
 Example:
 ```
