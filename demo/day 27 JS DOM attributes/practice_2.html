@@ -4,14 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratice 2</title>
+    <title>Pratice 2 控制类</title>
+    <!-- 
+        控制该元素的 class
+        点击 input 每一次添加一个类 从 div1 至 div5
+        点击 第六次的时候删除 class
+        然后重复循环
+    -->
     <style>
-        
+        div{
+            width: 100px;height: 100px;
+            background-color: black;
+            transition: .3s;
+        }
+
+        .div1{width: 200px;}
+        .div2{height: 250px;}
+        .div3{background-color: red;}
+        .div4{box-shadow: 0 0 10px black;}
+        .div5{border-radius: 50%;}
+
     </style>
 </head>
 <body>
 
+    <input type="button" name="" value="go" id="input">
+    <div id="myDiv">
+
+    </div>
     <!-- JavaScript -->
-    <script></script>
+    <script>
+
+        var count = 1;
+
+        input.onclick = function(){
+            if(count == 6){
+                count = 1;
+                myDiv.removeAttribute('class');
+            }
+            else{
+                myDiv.classList.add('div'+count);
+                count++;
+            }
+        }
+    </script>
 </body>
 </html>

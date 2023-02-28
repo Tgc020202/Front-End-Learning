@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pratice 1</title>
+    <title>Pratice 1 输入框</title>
     <!--
         做一个可以输入内容，并且保存的系统
         有两个按钮:
@@ -14,56 +14,165 @@
     -->
     <style>
         *{padding: 0;margin: 0;}
+        
         div{
-            width: 300px;height: 25px;
-            margin: 10px;
-            display: inline-block;
-            background-color: rgb(218, 218, 218);
-            border: 2px solid black;
-            border-radius: 5%;
+            width: 569px;
         }
 
-        #panda{
-            width: 25px;height: 25px;
-            float: inline;
-            position: relative;
-            float: right;
+        h2{
+            background-color: #6BA542;
+            color: white;
+            font-size: 16px;
+            line-height: 30px;
+            font-weight: bold;
+            vertical-align: middle;
+            text-indent: 20px;
+            margin: 0;
+        }
+
+        li{
+            text-decoration: none;
+            border-bottom: 1px solid #eee;
+            line-height: 40px;
+        }
+
+        li p{
+            display: inline-block;
+            text-indent: 20px;
+            padding-right: 5px;
+            font-size: 16px;
+            color: grey;
+            line-height: 40px;
+            margin: 0;
+        }
+
+        li span{
+            color: #6BA542;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 0 3px;
+            cursor: pointer;
+        }
+
+        img{
+            width: 16px;height: 16px;
+            cursor: pointer;
         }
 
         input{
-            width: 300px;height: 50px;
-            float: inline;
-            display: none;
+            margin-left: 16px;
+            line-height: 22px;
+            vertical-align: middle;
+            font-size: 16px;
+            padding: 0 2px;
         }
 
-        button{
-            width: 100px;height: 50px;
-            margin: 10px;
-            float:inline;
+        .hide{
             display: none;
         }
-
-
     </style>
 </head>
 <body>
-    <div id="div1">
-        <img src="panda.jpg" alt="允许修改" id="panda">
-    </div>
-    <input type="text" name="" value="空" id="myInput">
 
-    <button class="save">保存</button>
-    <button class="cancel">取消</button>
+    <div>
+        <h2>分类名称</h2>
+
+        <ul>
+            <li>
+                <p>small cutee</p>
+                <img src="panda.jpg" alt="panda">
+                <input type="text" name="" id="">
+                <span class="save">保存</span>
+                <span class="cancel">取消</span>
+            </li>
+            <li>
+                <p>small cutee</p>
+                <img src="panda.jpg" alt="panda">
+                <input type="text" name="" id="">
+                <span class="save">保存</span>
+                <span class="cancel">取消</span>
+            </li>
+        </ul>
+    </div>
 
     <!-- JavaScript -->
     <script>
-        
-        // 点击照片 出现输入框和按钮
-        panda.onclick = function(){
-            myInput.style.display = 'inline-block';
-            save.style.display = 'inline-block';
-            cancel.style.display = 'inline-block';
+        // input
+        // 先选取全部的 input 和 span 和 img 和 p 标签
+        var allInput = document.getElementsByTagName('input');
+        var allSpan = document.getElementsByTagName('span');
+        var allImage = document.getElementsByTagName('img');
+        var allP = document.getElementsByTagName('p');
+
+        // 选取全部 save 和 cancel 类
+        var allSave = document.getElementsByClassName('save');
+        var allCancel = document.getElementsByClassName('cancel');
+
+        // 给所有的 input 标签赋予类名
+        for(var i = 0; i < allInput.length; i++){
+            allInput[i].classList.add('hide');
         }
+
+        // 给所有的 span 标签赋予类名
+        for(var i = 0; i < allSpan.length; i++){
+            allSpan[i].classList.add('hide');
+        }
+
+        // 给予点击事件
+        for(var i = 0; i < allImage.length; i++){
+            allImage[i].onclick = function(){
+                // 把所有的 img 和 p 标签隐藏
+                this.classList.add('hide'); // image 标签
+                this.parentNode.children[0].classList.add('hide');
+
+
+                // 把所有的 span 和 input 标签展现出来
+                this.parentNode.children[2].classList.remove('hide');
+                this.parentNode.children[3].classList.remove('hide');
+                this.parentNode.children[4].classList.remove('hide');
+
+                // 把 p 标签里的值，放进 input 里
+                this.parentNode.children[2].value = this.parentNode.children[0].innerHTML;
+
+            }
+        }
+
+        // 点击保存按钮时保存
+        // 需要使用循环，这样才能找出被点击的按钮是哪一个按钮
+        // 通过循环来查找全部按钮是否匹配
+        for(var i = 0; i < allSave.length; i++){
+            allSave[i].onclick = function(){
+                // 把所有的 span 和 input 标签隐藏
+                this.classList.add('hide'); // span = 保存按钮
+                this.parentNode.children[2].classList.add('hide');  // input
+                this.parentNode.children[4].classList.add('hide');  // span = 取消按钮
+
+
+                // 把所有的 p 和 img 标签展现出来
+                this.parentNode.children[0].classList.remove('hide');   // p
+                this.parentNode.children[1].classList.remove('hide');   // img
+
+                // 把 input 标签里的值，放进 p 里
+                this.parentNode.children[0].innerHTML = this.parentNode.children[2].value;
+            }
+        }
+
+        // 点击取消按钮时退回
+        for(var i = 0; i < allCancel.length; i++){
+            allCancel[i].onclick = function(){
+                // 把所有的 span 和 input 标签隐藏
+                this.classList.add('hide'); // span = 保存按钮
+                this.parentNode.children[2].classList.add('hide');  // input
+                this.parentNode.children[3].classList.add('hide');  // span = 取消按钮
+
+
+                // 把所有的 p 和 img 标签展现出来
+                this.parentNode.children[0].classList.remove('hide');   // p
+                this.parentNode.children[1].classList.remove('hide');   // img
+
+            }
+        }
+        
     </script>
 </body>
 </html>
