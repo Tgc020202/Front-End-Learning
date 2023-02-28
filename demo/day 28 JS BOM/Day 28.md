@@ -26,7 +26,7 @@ Example:
 ###### 1.1 href
 + 返回或者设置 url 地址
 + 搜寻地址: location.href;
-![p1]()
+![p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2028%20JS%20BOM/p1.PNG)
 
 + 设置地址: location.href = '地址';
 
@@ -157,7 +157,7 @@ Example:
 + 可以返回浏览器信息，但是兼容性很差
 + navigator
 
-![p2]()
+![p3](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2028%20JS%20BOM/p3.PNG)
 
 ###### 4.1 userAgent
 + 用户信息
@@ -169,7 +169,7 @@ Example:
 > + ie MS IE
 + navigator.userAgent
 
-![p2]()
+![p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2028%20JS%20BOM/p2.PNG)
 
 
 ##### 5.0 screen 对象
@@ -177,7 +177,7 @@ Example:
 + 返回屏幕属性的一个对象
 + 不同的浏览器，属性的种类的数量也会有所不同
 
-![p4]()
+![p4](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2028%20JS%20BOM/p4.PNG)
 
 ###### 5.1 height
 + 电脑的显示器的高度
