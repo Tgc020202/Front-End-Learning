@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 2</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        /*
+            通过字符串 indexOf
+            已知 indexOf 字符串的方法
+
+            如果找到参数字符串则返回相应位置
+            找不到就返回 -1
+
+            例如：
+            'abc'.indexOf('a') 返回 0
+            'abc'.indexOf('d') 返回 -1
+
+
+            让谷歌浏览器 打开页面是红的 文字为我是谷歌
+            让火狐浏览器 打开页面是黑的 文字为我是火狐
+            让IE 7浏览器 打开页面是黄的 文字为 我是IE 7
+            让其他浏览器 打开页面是粉的 无文字
+        */
+
+        var nv = navigator.userAgent;
+        console.log(nv);
+
+        if(nv.indexOf('Chrome') != -1){
+            document.body.style.background = 'red';
+            document.body.innerHTML ='我是谷歌';
+            alert('这是谷歌浏览器');
+        }
+        else if(nv.indexOf('Firefox') != -1){
+            document.body.style.background = 'black';
+            document.body.innerHTML ='我是火狐';
+            alert('这是火狐浏览器');
+        }
+        else if(nv.indexOf('MSIE 7.0') != -1){
+            document.body.style.background = 'yellow';
+            document.body.innerHTML ='我是IE 7';
+            alert('这是 IE 7浏览器');
+        }
+        else{
+            document.body.style.background = 'pink';
+            alert('这是其他浏览器');
+        }
+    </script>
+</body>
+</html>

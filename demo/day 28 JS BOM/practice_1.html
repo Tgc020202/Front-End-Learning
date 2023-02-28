@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice 1</title>
+    <!--  
+        检测浏览器四周与屏幕四边的距离
+    -->
+</head>
+<body>
+    <div id="myDiv">
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+
+        var timer = null;
+
+        setInterval(a,30);
+        function a(){
+            myDiv.innerHTML = '<div>浏览器距离左边的像素为' + screenX + '</div>' + '<div>浏览器距离上面的像素为' + screenY + '</div>' + '<div>浏览器距离下面的像素为' + (screen.height - outerHeight - screenY)+ '</div>' +'<div>浏览器距离右边的像素为' + (screen.width - outerWidth - screenX)+ '</div>';
+        }
+
+        console.log(myDiv);
+    </script>
+</body>
+</html>
