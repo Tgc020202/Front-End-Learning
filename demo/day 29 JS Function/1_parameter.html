@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parameter</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        // 感觉像死的 = 死板板没有任何改变
+        function a(){
+            console.log('small small');
+        }
+        a();
+
+        // 可以任意更换打印内容，可以发送很多的变化
+        function b(text){
+            console.log(text);
+        }
+        b(123);
+
+        // 可是一旦函数里面重新定义了参数，就会使用函数里的
+        function c(text2){
+            var text = '呆呆';
+            console.log(text);
+        }
+        c(123);
+
+        // 如果调用的时候没有定义参数，也不影响
+        function d(text){
+            console.log(text);  // undefined
+        }
+        d();
+
+        // 很多的参数也没问题
+        function e(node,text,color,width,height){
+            var oNode = document.createElement(node);
+            oNode.innerHTML = text;
+            oNode.style.background = color;
+            oNode.style.width = width;
+            oNode.style.height = height;
+            document.body.appendChild(oNode);
+        }
+        e('div','我是 div','red','100px','100px');
+        e('span','我是 span','green','200px','200px');
+
+
+        // 用数组 array 当参数
+        function f(arr){
+            var oNode = document.createElement(arr[0]);
+            oNode.innerHTML = arr[1];
+            oNode.style.background = arr[2];
+            oNode.style.width = arr[3];
+            oNode.style.height = arr[4];
+            document.body.appendChild(oNode);
+        }
+        f(['div','我是一个数组','yellow','300px','300px']);
+
+
+        // 
+
+    </script>
+</body>
+</html>
