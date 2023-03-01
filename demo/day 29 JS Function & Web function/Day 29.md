@@ -341,18 +341,34 @@ Example:
 ###### 选项卡
 
 Example:
++ [封装的例子](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2029%20JS%20Function/6_testImplemented.html)
+
+
+## 小插曲 - 浏览器的技术应用
+
+#### 提取网页图片
++ 打开网页，打开控制面板
++ 点击查找 application > frames > top > images ; 可以拿出此网页的所有图片
+
+[p1]()
+
+
+#### 提取网页音乐
++ 用于示范的网址：
 ```
-
+https://www.joox.com/my-en/album/JybIwUl8ew9kHPUgxxXp3g==
 ```
++ 接着打开控制页面(inspect)
++ network > media > 找音乐的文件夹; 就可以安装了
 
 
-
-
-
-
-
-
-
+#### 提取网页视频(to be continue)
++ 用于示范的网址：
+```
+https://www.youtube.com/watch?v=VfZuvrEDcWI&list=RDMMVFe8u5BR7Wk&index=3
+```
++ 接着打开控制页面(inspect)
++ element > ctrl + f  > 输入 video 标签 > 找音乐的文件夹; 就可以安装了
 
 
 
