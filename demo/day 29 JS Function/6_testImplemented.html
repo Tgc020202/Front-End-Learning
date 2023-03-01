@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>封装的例子</title>
+    <style>
+        .outNode div{width: 200px;height: 200px;background-color: #ccc; display: none;text-align: center;}
+
+        span{cursor: pointer;margin-left: 10px;}
+
+        .toActive{cursor: pointer;margin-left: 10px;background-color: red;}
+
+        div.show{display: block;}
+
+    </style>
+</head>
+<body>
+    <!-- 
+    <input type="button" name="" id="" value="aa" class="active">
+    <input type="button" name="" id="" value="bb">
+    <input type="button" name="" id="" value="cc">
+    <div class="show">我是一号 div</div>
+    <div>我是二号 div</div>
+    <div>我是三号 div</div> 
+    -->
+
+    <!-- JavaScript-->
+    <script>
+        // 设定 input
+        var allInput = document.getElementsByTagName('input');
+
+        // 设定 div
+        var allDiv = document.getElementsByTagName('div');
+
+
+        function CreateTab(obj){
+            var outNode = document.createElement('div');
+            outNode.className = 'outNode';
+            document.body.appendChild(outNode);
+
+            // console.log(obj);
+            for(var i=0;i < obj.topValue.length; i++){
+                var topNode = document.createElement(obj.topNode);
+
+                if(i == 0){
+                    topNode.className = obj.topClass;
+                }
+                
+                if(topNode == 'input'){
+                    topNode.type = 'button';
+                    topNode.value = obj.topValue[i];
+                }
+                topNode.innerHTML = obj.topValue[i];
+
+                outNode.appendChild(topNode);
+            }
+
+            for(var i=0;i < obj.bottomValue.length; i++){
+                var bottomNode = document.createElement(obj.bottomNode);
+
+                bottomNode.innerHTML = obj.bottomValue[i];
+
+                outNode.appendChild(bottomNode);
+            }
+
+            var allTop = outNode.getElementsByTagName(obj.topNode);
+            var allBottom = outNode.getElementsByTagName(obj.bottomNode);
+
+            for(var i=0; i<allTop.length;i++){
+                allTop[i].index = i;
+                
+                allTop[i].onclick = function(){
+                    for(var j = 0; j< allTop.length; j++){
+                        allTop[j].className = '';
+                        allBottom[j].className = '';
+                    }
+                    this.className = obj.topClass;
+                    allBottom[this.index].className = obj.bottomClass;
+
+                }
+            }
+        }
+
+        CreateTab({
+            topNode:'span',
+            bottomNode:'div',
+            topValue:['昨天','今天','明天','后天'],
+            bottomValue:['昨天心情不好','今天还不错','希望明天心情不错','后天不开心'],
+            topClass:'toActive',
+            bottomClass:'show'
+        })
+
+        
+        /*
+        // 函数名称Create Tab(){
+            topNode:'input' //标签名字  String
+            bottomNode:'div'   //标签名字   String
+            topValue:['aa','bb','cc']   Array
+            bottomValue:['我是一号','我是二号','我是三号']  Array
+            topClass:'active'   String
+            bottomClass:'show'  String
+        }
+        */
+
+
+
+
+
+
+        /*
+        for(var i=0;i < allInput.length; i++){
+
+            // allInput[i].setAttribute('index',i);
+
+            allInput[i].index = i;
+
+            allInput[i].onclick = function(){
+                for(var j = 0;j<allInput.length;j++){
+                    allInput[j].className = '';
+                    allDiv[j].className = '';
+                }
+                this.className = 'active';
+                // allDiv[this.getAttribute('index')].className = 'show';
+                
+                allDiv[this.index].className = 'show';
+            }
+        }
+        */
+
+    </script>
+</body>
+</html>

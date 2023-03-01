@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursion 递归</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        /*
+        // 如果没有限制或者缓冲，就会显示 error
+        function a(){
+            a();
+        }
+        a();
+        */
+
+
+        /*
+        // 使用 setTimeout 给系统缓冲的时间，就没问题了
+        var i = 0;
+        function b(){
+            i++;
+            console.log(i);
+            setTimeout(b,10);
+        }
+        b();
+        */
+
+        /*
+        // 使用数组制作递归
+        var arr = [1,2,3] , 
+        i = 0;
+
+        function c(){
+            if(i == arr.length){
+                return; // return 代表元素的返回
+            }
+            console.log(arr[i]);
+            i++;
+            c();
+        }
+        c();
+        */
+
+        /*
+        // 使用递归互相调用彼此
+        function d(){
+            document.body.style.background = 'red';
+            setTimeout(e,100);
+        }
+        function e(){
+            document.body.style.background = 'yellow';
+            setTimeout(d,100);
+        }
+        d();
+        */
+
+        /*
+        // 递归搭配条件语句
+        var i = 0;
+        function f(){
+            if(i % 2 == 1){
+                document.body.style.background = 'red';
+            }
+            else{
+                document.body.style.background = 'yellow';
+            }
+            i++;
+            setTimeout(f,100);
+        }
+        f();
+        */
+
+    </script>
+</body>
+</html>

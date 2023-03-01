@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return 返回语句</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        // 如果没有设置任何的行动，就会 return undefined
+        function a(){
+
+        }
+        console.log(a());   // undefined
+        
+
+        // return 可以返回任何想要返回的值
+        function b(){
+            return 10;
+        }
+        console.log(b());   // 10
+
+
+        // 一旦执行 return，就不往后执行了
+        function c(){
+            return '呆呆';
+            console.log('哇哈哈');
+        }
+        console.log(c());   // 呆呆
+
+
+        // 可用于递归终止的条件语句
+        var i = 0;
+        function d(){
+            if(i < 3){
+                console.log(i)
+            }
+            else{
+                return ;
+            }
+            i++;
+            d();
+        }
+        d();
+
+
+        function e(){
+            return alert(1);
+        }
+        var f = e();
+        console.log(f); // undefined，因为 alert 不属于值
+
+    </script>
+</body>
+</html>

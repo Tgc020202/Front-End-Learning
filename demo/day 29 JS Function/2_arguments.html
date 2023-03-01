@@ -9,11 +9,50 @@
 <body>
     <!-- JavaScript -->
     <script>
+        /*
         // 任何函数里都有 arguments
+        // 当没有放入参数，就会自动默认为 arguments
         function a(){
             console.log(arguments);
+
+            // 使用下标从 arguments 中取值，如果没有值，就会显示 undefined
+            console.log(arguments[0]);
+
+            console.log(arguments[3]);
         }
+        // 接受任何数据种类的混合使用
         a('1',2,3);
+        */
+
+        /*
+        // 数组的功能 - push
+        var arr = [1,2,3];
+        arr.push(10);
+
+        console.log(arr);
+
+        function b(){
+            // 无法使用数组的功能，比如 push
+            // arguments.push(10);  // 会出 bug
+            console.log(arguments[2]);
+        }
+        // 将创建的数组放入 b 函数里进行调用
+        b(arr); // undefined
+        */
+
+
+        function c(){
+            var oNode = document.createElement(arguments[0]);
+            oNode.innerHTML = arguments[1];
+            oNode.style.background = arguments[2];
+            oNode.style.width = arguments[3];
+            oNode.style.height = arguments[4];
+            document.body.appendChild(oNode);
+        }
+        c('div','我现在用的是 arguments','red','500px','300px');
+        // 当调用函数用的不定参的数量不足于函数里运行的不定参，就会默认为 undefined
+        c('span','我现在用的是 arguments','green');
+        c('p','我现在用的是 arguments','blue','300px','300px');
     </script>
 </body>
 </html>
