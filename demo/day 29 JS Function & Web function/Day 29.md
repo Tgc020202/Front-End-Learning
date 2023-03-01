@@ -350,7 +350,7 @@ Example:
 + 打开网页，打开控制面板
 + 点击查找 application > frames > top > images ; 可以拿出此网页的所有图片
 
-[p1]()
+![p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2029%20JS%20Function%20%26%20Web%20function/p1.PNG)
 
 
 #### 提取网页音乐
