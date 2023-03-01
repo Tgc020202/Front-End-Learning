@@ -94,22 +94,256 @@ Example:
 #### 函数的不定参 arguments
 + arguments 对象不是一个数组(array)
 + 类似数组，但除了 length 属性和索引元素外，没有任何 数组的属性
++ 创建函数时，没有放入参数，就会自动默认为不定参
+
+1. 证明:
++ 创建函数时，没有放入参数 parameter，就会自动默认为不定参 arguments
++ 可以使用下标从 arguments 中取值，如果没值，等于 undefined
++ 接受任何数据种类的混合使用
+
+Example:
+```
+<!-- JavaScript -->
+<script>
+  // 任何函数里都有 arguments
+  // 当没有放入参数在创建函数，就会自动默认为 arguments
+  function a(){
+    console.log(arguments);
+
+    // 使用下标从 arguments 中取值，如果没有值，就会显示 undefined
+    console.log(arguments[0]);
+
+    console.log(arguments[3]);
+  }
+  // 接受任何数据种类的混合使用
+  a('1',2,3);
+</script>
+```
+
+2. 证明:
++ 数组与不定参 是两个不同的东西
++ 不定参不能使用数组的功能
++ 在不定参的函数里调用数组，数组在函数来就会没有功能
+
+Example:
+```
+<script>
+  // 数组的功能 - push
+  var arr = [1,2,3];
+  arr.push(10);
+
+  console.log(arr);
+
+  function b(){
+    // 无法使用数组的功能，比如 push
+    // arguments.push(10);  // 会出 bug
+    console.log(arguments[2]);
+  }
+  // 将创建的数组放入 b 函数里进行调用
+  b(arr); // undefined
+  
+</script>
+```
+
+3. 证明:
++ 当调用函数用的不定参的数量不足于函数里运行的不定参，就会默认为 undefined
++ 不会导致系统发生故障
+
+Example:
+```
+<script>
+  function c(){
+    var oNode = document.createElement(arguments[0]);
+    oNode.innerHTML = arguments[1];
+    oNode.style.background = arguments[2];
+    oNode.style.width = arguments[3];
+    oNode.style.height = arguments[4];
+    document.body.appendChild(oNode);
+  }
+  c('div','我现在用的是 arguments','red','500px','300px');
+  
+  // 当调用函数用的不定参的数量不足于函数里运行的不定参，就会默认为 undefined
+  // 不会导致系统发生故障
+  c('span','我现在用的是 arguments','green');
+</script>
+```
 
 
+#### 函数 - 递归 recursion
++ 递归是函数自己间接调用自己的使用方式
+
+1. 使用递归需要有限制或者给系统缓冲的时间，否则会显示 error
+Example:
+```
+<script>
+  // 如果没有限制或者缓冲，就会显示 error
+  function a(){
+    a();
+  }
+  a();
+</script>
+```
+
+2. 递归搭配 setTimeout，给予系统缓冲的时间
+
+Example：
+```
+<script>
+  // 使用 setTimeout 给系统缓冲的时间，就没问题了
+  var i = 0;
+  function b(){
+    i++;
+    console.log(i);
+    setTimeout(b,10); // 每 10 毫秒调用一次 b 函数
+  }
+  b();
+</script>
+```
+
+3. 递归与数组的搭配
+
+ Example:
+ ```
+<script>
+  // 使用数组制作递归
+  var arr = [1,2,3] , 
+  i = 0;
+
+  function c(){
+    if(i == arr.length){
+      return; // return 代表元素的返回
+    }
+    console.log(arr[i]);
+    i++;
+    c();
+  }
+  c();
+</script>
+```
+
+4. 递归与两个函数的互相调用
+
+Example:
+```
+<script>
+  // 使用递归互相调用彼此
+  function d(){
+    document.body.style.background = 'red';
+    setTimeout(e,100);
+  }
+  function e(){
+    document.body.style.background = 'yellow';
+    setTimeout(d,100);
+  }
+  d();
+</script>
+```
+
+5. 递归与条件语句的搭配
+
+Example:
+```
+<script>
+  // 递归搭配条件语句
+  var i = 0;
+  function f(){
+    if(i % 2 == 1){
+      document.body.style.background = 'red';
+    }
+    else{
+      document.body.style.background = 'yellow';
+    }
+    i++;
+    setTimeout(f,100); 
+  }
+  f();
+</script>
+```
 
 
+#### 函数 - 返回 return
++ return 语句会终止函数的执行，并返回函数的值
+
+1. 没有设置任何的行动，就会 return undefined
+
+Example:
+```
+<script>
+  // 如果没有设置任何的行动，就会 return undefined
+  function a(){}
+  console.log(a());   // undefined
+</script>
+```
+
+2. return 可以返回任何想要返回的值
+
+Example:
+```
+<script>
+  function b(){
+    return 10;
+  }
+  console.log(b());   // 10
+</script>
+```
+
+3. 一旦执行 return，就不往后执行了
+
+Example:
+```
+<script>
+  function c(){
+    return '呆呆';
+    console.log('哇哈哈');
+  }
+  console.log(c());   // 呆呆
+</script>
+```
+
+4. 可用于递归终止的条件语句
+
+Example:
+```
+<script>
+  // 可用于递归终止的条件语句
+  var i = 0;
+  function d(){
+    if(i < 3){
+      console.log(i)
+    }
+    else{
+      return ;
+    }
+    i++;
+    d();
+  }
+  d();
+</script>
+```
+
+5. 使用变量操作
+
+Example:
+```
+<script>
+  function e(){
+    return alert(1);
+  }
+  var f = e();
+  console.log(f); // undefined，因为 alert 不属于值
+</script>
+```
 
 
+#### 函数 - 封装
++ 封装一个选项卡，并且传递参数
 
+###### 选项卡
 
+Example:
+```
 
-
-
-
-
-
-
-
+```
 
 
 
