@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>removeEventListener 解除事件监听</title>
+</head>
+<body>
+    <input type="button" name="" value="add" id="ipt">
+
+    <!-- JavaScript -->
+    <script>
+
+        /*
+        ipt.onclick = function(){
+            alert(1);
+        }
+        // 如果是 onclick 事件的话，可以通过重新赋值的方式解除
+        // ipt.onclick = null;
+        // ipt.onclick = function(){}
+        */
+
+
+        // 创建函数
+        function a (){
+            alert(1);
+        }
+
+        function b (){
+            alert(2);
+        }
+
+        ipt.addEventListener('click',a);
+        ipt.addEventListener('click',b);
+
+        // 移出事件 - 精准解除
+        ipt.removeEventListener('click',a); // 把 a 函数移出
+        
+
+    </script>
+</body>
+</html>

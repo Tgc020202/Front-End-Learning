@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onkeydown</title>
+</head>
+<body>
+    <input type="text" name="" id="ipt">
+    <!-- JavaScript -->
+    <script>
+
+        // onkeydown = function(){
+        //     // console.log(1);
+
+        //     console.log(event);
+        // }
+
+        // // 设置只能输入数字
+        // // 0 -> 48   9 -> 57
+        // ipt.onkeydown = function(){
+        //     if(event.keyCode < 48 || event.keyCode > 57){
+        //         return false;
+        //     }
+        // }
+
+        // 设置不能输入英文
+        // a -> 65  z -> 90
+        ipt.onkeydown = function(){
+            if(event.keyCode >= 65 && event.keyCode <= 90){
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

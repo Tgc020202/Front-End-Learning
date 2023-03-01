@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onkeyup and onkeydown 的配合</title>
+    <style>
+        *{padding: 0;margin: 0;}
+        #div1{
+            width: 200px;height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 0;top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <!-- JavaScript -->
+    <script>
+
+        // 做一个装置，一点击 d 键，方形就会往右移动
+        // 一放开 d 键，方形就会停止不动
+        // d -> 68  a -> 65
+
+        var l = 0, timer = null;
+
+        // 点击
+        document.onkeydown = function(){
+            // console.log(event);
+            if(event.key == 'd'){
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    l += 3;
+                    div1.style.left = l + 'px';
+                },30);
+            }
+        }
+
+        // 放开
+        document.onkeyup = function(){
+            clearInterval(timer);
+        }
+
+
+    </script>
+</body>
+</html>

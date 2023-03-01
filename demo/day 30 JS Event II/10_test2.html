@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的委托 - 拖拽</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        .drag{
+            width: 100px;height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="drag"></div>
+    <div class="drag"></div>
+    <div class="drag"></div>
+    <div class="drag"></div>
+    <div class="drag"></div>
+    
+    <!-- JavaScript -->
+    <script>
+
+        document.documentElement.onmousedown = function(e){
+            var ev = e || event;
+            var iTarget = event.target || event.srcElement;
+
+            if(iTarget.className == 'drag'){
+                iTarget.style.background = 'green';
+                var l = ev.clientX - iTarget.offsetLeft;
+                var t = ev.clientY - iTarget.offsetTop;
+            
+                document.onmousemove = function(e){
+                    var ev = e|| event;
+                    var needX = ev.clientX - l;
+                    var needY = ev.clientY - t;
+
+                    if(needX < 0) needX = 0;
+                    if(needX > innerWidth - iTarget.offsetWidth) needX = innerWidth - iTarget.offsetWidth;
+                    if(needY < 0) needY = 0;
+                    if(needY > innerHeight - iTarget.offsetHeight) needY = innerHeight - iTarget.offsetHeight;
+
+                    iTarget.style.left = needX + 'px';
+                    iTarget.style.top = needY + 'px';
+                }
+
+                document.onmouseup = function(e){
+                    this.onmousemove =
+                    this.onmouseup = null;
+                }
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

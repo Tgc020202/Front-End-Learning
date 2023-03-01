@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offset</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        #div1{
+            width: 100px;height: 100px;
+            background-color: #ccc;
+        }
+
+        #div2{
+            width: 100px;height: 100px;
+            background-color: #ccc;
+            padding: 50px 50px;
+        }
+
+        #div3{
+            width: 100px;height: 100px;
+            background-color: #ccc;
+            padding: 50px 50px;
+            margin: 50px 50px;
+        }
+
+        #div4{
+            width: 100px;height: 100px;
+            background-color: #ccc;
+            padding: 50px 50px;
+            margin: 50px 50px;
+            border: 25px solid black;
+        }
+
+        #div5{
+            width: 100px;height: 100px;
+            background-color: #ccc;
+            padding: 50px 50px;
+            margin: 50px 50px;
+            border: 25px solid black;
+        }
+
+        #div6{
+            width: 500px;height: 500px;
+            background-color: #ccc;
+            padding: 50px 50px;
+            margin: 50px 50px;
+            border: 25px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="div1"></div> -->
+    <!-- <div id="div2"></div> -->
+    <!-- <div id="div3"></div> -->
+    <!-- <div id="div4"></div> -->
+    <!-- <div id="div5">11111111111111111111111111111111111111111111111111111111111111111111111</div> -->
+    <div id="div5">
+        <div id="div6"></div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // offset = width/height
+        // console.log(div1.offsetWidth);  // 100
+        // console.log(div1.offsetHeight); // 100
+
+        // 加 padding
+        // 会乘 2，因为宽度左边和右边，高度上面和下面
+        // // offset = width/height + padding * 2
+        // console.log(div2.offsetWidth);  // 200
+        // console.log(div2.offsetHeight); // 200
+
+        // 加 margin
+        // offset = width/height + padding * 2
+        // console.log(div3.offsetWidth);  // 200
+        // console.log(div3.offsetHeight); // 200
+
+        // 加 border
+        // 会乘 2，因为宽度左边和右边，高度上面和下面
+        // offset = width/height + padding * 2 + border * 2
+        // console.log(div4.offsetWidth);  // 250
+        // console.log(div4.offsetHeight); // 250
+
+        // 文字
+        // 文字的长度不会影响
+        // offset = width/height + padding * 2 + border * 2
+        // console.log(div5.offsetWidth);  // 250
+        // console.log(div5.offsetHeight); // 250
+
+        // 超大型子类
+        // 不会影响
+        // offset = width/height + padding * 2 + border * 2
+        console.log(div5.offsetWidth);  // 250
+        console.log(div5.offsetHeight); // 250
+    </script>
+</body>
+</html>

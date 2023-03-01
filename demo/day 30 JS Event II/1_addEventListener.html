@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener 添加事件监听</title>
+</head>
+<body>
+    <input type="button" name="" value="add" id="ipt">
+
+    <!-- JavaScript -->
+    <script>
+        /*
+        // 如果重新赋于新事件的话，之前的事件会被覆盖
+        ipt.onclick = function(){
+            alert(1);
+        }
+
+        ipt.onclick = function(){
+            alert(2);
+        }
+        // 弹出 2
+        */
+
+
+        /*
+        // 不会被覆盖
+        ipt.addEventListener('click',function(){
+            alert(3);
+        });
+        ipt.addEventListener('click',function(){
+            alert(4);
+        });
+        // 3 和 4 都有弹出
+        */
+
+        // 鼠标移到 input 标签，就会触发
+        ipt.addEventListener('mouseover',function(){
+            alert(4);
+        });
+
+    </script>
+</body>
+</html>

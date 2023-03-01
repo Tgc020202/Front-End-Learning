@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托或者代理</title>
+    <style>
+        *{padding: 0;margin: 0;}
+        #div1{
+            width: 200px;height: 200px;background-color: black;
+        }
+
+        .div2{
+            width: 200px;height: 200px;background-color: black;
+            float: left;margin: 10px;
+        }
+
+        .div3{
+            width: 250px;height: 250px;background-color: black;
+            float: left;margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+
+        /*
+        // 先调用 div 标签，再创建 div 标签 -> 出 error
+        div.onclick = function(){
+            alert(1)
+        }
+
+        var oDiv = document.createElement('div');
+        oDiv.id = 'div1';
+        document.body.appendChild(oDiv);
+        */
+
+        /*
+        document.documentElement.onclick = function(){
+            // alert(1);
+            // console.log(event.target)
+            // console.log(event.target.nodeName)
+
+            if(event.target.id == 'div1'){
+                alert(1);
+            }
+        }
+
+        var oDiv = document.createElement('div');
+        oDiv.id = 'div1';
+        document.body.appendChild(oDiv);
+        */
+
+        /*
+        // 当点击 div 就会返回红色
+        document.documentElement.onclick = function(){
+            if(event.target.className == 'div2'){
+                event.target.style.background = 'red';
+            }
+        }
+
+        for(var i = 0; i < 10; i ++){
+            var oDiv = document.createElement('div');
+            oDiv.className = 'div2';
+            document.body.appendChild(oDiv);
+        }
+        */
+
+
+        // 当点击小的 div 就会返回红色，大的 div 就会返回绿色
+        document.documentElement.onclick = function(){
+            if(event.target.className == 'div2'){
+                event.target.style.background = 'red';
+            }
+            else{
+                event.target.style.background = 'green';
+            }
+        }
+
+        for(var i = 0; i < 10; i ++){
+            var oDiv = document.createElement('div');
+            if(i < 5){
+                oDiv.className = 'div2';
+            }
+            else{
+                oDiv.className = 'div3';
+            }
+            document.body.appendChild(oDiv);
+        }
+
+
+
+    </script>
+</body>
+</html>
