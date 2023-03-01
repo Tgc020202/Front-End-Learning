@@ -341,7 +341,7 @@ Example:
 ###### 选项卡
 
 Example:
-![Example](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2029%20JS%20Function/6_testImplemented.html)
++ [封装的例子](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2029%20JS%20Function/6_testImplemented.html)
 
 
 
