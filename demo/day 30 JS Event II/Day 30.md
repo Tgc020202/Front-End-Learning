@@ -546,9 +546,144 @@ Example:
 
 #### 元素的拖拽和原理
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        *{
+            padding: 0;margin: 0;list-style: none;
+        }
+
+        #div1{
+            width: 100px;height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // 拖拽的封装
+
+        // 点击鼠标，启动函数
+        div1.onmousedown = function(){
+            /*
+                event.clientX -> 鼠标的 X 坐标
+                div1.offsetLeft -> div1 与浏览器左边的距离
+                event.clientY -> 鼠标的 Y 坐标
+                div1.offsetTop -> div1 与浏览器上面的距离
+            */
+            // 指定鼠标在 div1 上面的位置
+            var l = event.clientX - div1.offsetLeft;    // 指定 div1 的 X 轴，鼠标至 div1 的左边的距离
+            var t = event.clientY - div1.offsetTop;     // 指定 div1 的 Y 轴，鼠标至 div1 的上面的距离
+
+            // 鼠标移动
+            document.onmousemove = function(){
+                // 指定鼠标移动时，div1 以刚刚指定鼠标在 div1 上面的位置为准，跟随鼠标移动的
+                var needX = event.clientX - l;  // div1 往左靠 l 值
+                var needY = event.clientY - t;  // div1 往上靠 t 值
+                
+                // 避免 div1 出浏览器
+                if(needX < 0) needX = 0;
+                if(needX > innerWidth - div1.offsetWidth) needX = innerWidth - div1.offsetWidth;
+                if(needY < 0) needY = 0;
+                if(needY > innerHeight - div1.offsetHeight) needY = innerHeight - div1.offsetHeight;
+                
+                div1.style.left = needX + 'px';
+                div1.style.top = needY + 'px';
+            }
+            
+            // 鼠标放开时
+            document.onmouseup = function(){
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+            
+            return false;   // 避免鼠标自动选中文字 
+        }
+    </script>
+</body>
+</html>
+```
 
 
+#### 事件的委托与拖拽
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的委托 - 拖拽</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        .drag{
+            width: 100px;height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="drag"></div>
+    <div class="drag"></div>
+    <div class="drag"></div>
+    <div class="drag"></div>
+    <div class="drag"></div>
+    
+    <!-- JavaScript -->
+    <script>
+
+        document.documentElement.onmousedown = function(e){
+            var ev = e || event;
+            var iTarget = event.target || event.srcElement;
+
+            if(iTarget.className == 'drag'){
+                iTarget.style.background = 'green';
+                var l = ev.clientX - iTarget.offsetLeft;
+                var t = ev.clientY - iTarget.offsetTop;
+            
+                document.onmousemove = function(e){
+                    var ev = e|| event;
+                    var needX = ev.clientX - l;
+                    var needY = ev.clientY - t;
+
+                    if(needX < 0) needX = 0;
+                    if(needX > innerWidth - iTarget.offsetWidth) needX = innerWidth - iTarget.offsetWidth;
+                    if(needY < 0) needY = 0;
+                    if(needY > innerHeight - iTarget.offsetHeight) needY = innerHeight - iTarget.offsetHeight;
+
+                    iTarget.style.left = needX + 'px';
+                    iTarget.style.top = needY + 'px';
+                }
+
+                document.onmouseup = function(e){
+                    this.onmousemove =
+                    this.onmouseup = null;
+                }
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
+```
 
 
 
