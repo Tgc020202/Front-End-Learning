@@ -121,3 +121,12 @@ html,body,h1,h2,h3,p,ol,ul,li,a{
 }
 ```
 
+Example(shortcut):
+```
+*{
+    padding:0;
+    border:0;
+    margin:0;
+}
+```
+
