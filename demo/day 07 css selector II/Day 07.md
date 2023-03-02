@@ -2,6 +2,7 @@
 
 #### 1-3-1 使用类选择器
 + 给 HTML 标签增加一个 class 属性，然后给 class 属性填写一个值，这个值叫做类名
+
 Example(Test1.html):
 ```
 <!DOCTYPE html>
@@ -31,9 +32,11 @@ Example(Test1.html):
     </body>
 </html>
 ```
+> + 可以通过添加类名更改它的属性
 
 #### 1-3-2 在派生选择器中使用类
 + 类选择器和派生选择器可以同时使用
+
 Example(Test2.html):
 ```
 <!DOCTYPE html>
@@ -77,6 +80,7 @@ Example(Test2.html):
 
 #### 1-3-4 把 css 放在独立的文件中
 + 创建一个独立的文件，扩展名是 .css ，把所有的 css 规则都放在这个文件里
+
 Example:
 ```
 <html>
@@ -92,7 +96,9 @@ Example:
     </body>
 </html>
 ```
+
 + 转移去 main.css 并将所有的选择器和 css 样式规则移动到 css 文件中，不包括<style> 标签
+
 Example(main.css):
 ```
 a{
@@ -103,6 +109,7 @@ a{
 #### 1-3-5 link 标签
 + 在 HTML 文件中使用 link 标签链接独立的 css 文件
 + link 标签是空标签，只写开始标签，不写结束标签
+
 Example(Test4.html):
 ```
 <html>

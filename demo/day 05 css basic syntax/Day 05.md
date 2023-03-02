@@ -1,10 +1,13 @@
 # css 基础语法
 #### 1-0 基础语法
+
++ a 标签的属性
+
 Example:
 ```
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
     <style type = "text/css">
         a{
             text-decoration: none;
@@ -19,7 +22,7 @@ Example:
         /*鼠标移动到超链接上时*/
         a:hover{
             text-decoration: underline;
-            color:darkred;
+            color:green;
         }
         /*被选定的超链接*/
         a:active{
@@ -27,15 +30,28 @@ Example:
             color: yellow;
         }
         /*已访问的超链接*/
-        a:visited{
+        /* a:visited{
             color: lightblue;
-        }
+        } */
     </style>
-  </head>
-  <body>
-  </body>
+    </head>
+    <body>
+        <div>
+            <a href="https://www.youtube.com/" target="_blank">Youtube</a>
+        </div>
+    </body>
 </html>
 ```
+> 1. link - 未访问的链接
+> > ![p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2005%20css%20basic%20syntax/p1.PNG)
+> > + 如果 History 没有这个链接就代表还未访问链接，所以就会触发
+> 2. hover - 鼠标在链接上面的时候
+> 3. active - 点击鼠标的时候
+> 4. visited - 已访问过的链接
+> > ![p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2005%20css%20basic%20syntax/p2.PNG)
+> > + 如果 History 有了这个链接就代表已经访问了，然后就会触发
+
+
 
 #### CSS 字体属性
 
