@@ -2,6 +2,7 @@
 
 #### 1-3-1 使用类选择器
 + 给 HTML 标签增加一个 class 属性，然后给 class 属性填写一个值，这个值叫做类名
+
 Example(Test1.html):
 ```
 <!DOCTYPE html>
@@ -31,9 +32,11 @@ Example(Test1.html):
     </body>
 </html>
 ```
+> + 可以通过添加类名更改它的属性
 
 #### 1-3-2 在派生选择器中使用类
 + 类选择器和派生选择器可以同时使用
+
 Example(Test2.html):
 ```
 <!DOCTYPE html>
