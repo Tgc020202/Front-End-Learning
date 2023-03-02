@@ -50,8 +50,16 @@ Example(Test1.html):
 > + tfoot - 页脚，通常用于填入一些与主题相关的信息
 > + tr - 用于控制行，但是 thead，tbody，tfoot 都自带 tr 的属性，所以当使用这些标签元素的时候，可以不用加 tr
 
+[p2]()
+
 
 #### 3-2 rowspan 跨行合并/colpan 跨列合并
++ rowspan 跨行合并
+> + <td rowspan = "合并的行的数量">值</td>
+
++ colpan 跨列合并
+> + <td colspan = "合并的列的数量">值</td>
+
 Example(Test2.html):
 ```
 <!DOCTYPE html>
@@ -72,7 +80,7 @@ Example(Test2.html):
                     <td colspan = "5">合并了5列</td>
                 </tr>
                 <tr>
-                    <td rowspan = "3">2</td>
+                    <td rowspan = "3">合并了3行</td>
                     <td>2</td>
                     <td>2</td>
                     <td>2</td>
@@ -95,6 +103,7 @@ Example(Test2.html):
     </body>
 </html>
 ```
+[p1]()
 
 #### 3-3 Table 样式
 + 表格边框：为了使边框出现边框(基于样式)，可以添加如下样式
