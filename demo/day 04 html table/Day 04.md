@@ -251,6 +251,7 @@ Example(Test3.html):
 > + button
 > + select
 
+
 | input type 属性值 | 表现形式 |
 | type | 单行输入文本 |
 | password | 单行输入文本 |
@@ -263,6 +264,7 @@ Example(Test3.html):
 | file | 文本选择框 |
 | hidden | 隐藏输入框 |
 | date | 日期输入框 可以选择日期 |
+
 
 + input 根据不同的 type 属性，可以变化为多种状态输入方式:
 + input 标签 type 属性值:
