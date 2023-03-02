@@ -124,17 +124,32 @@ table,th,td{border: 1px solid blue}
 
 Example:
 ```
-/* css */
-/* 右对齐 */
-td{text-align:right;}
-vertical-align: 设置垂直方向对齐方式
-top: 垂直方向顶端对齐
-middle: 垂直方向中部对齐
-bottom: 垂直方向底端对齐
-
-/* 底端对齐 */
-td{vertical-align:bottom;}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>对齐</title>
+        <style>
+            /* 文本对齐 */
+            div{width: 200px;height: 200px;border: 2px solid;margin: 5px;float: left; }
+            /* 默认对齐 */
+            #div0{text-align: none;}
+            /* 左对齐 */
+            #div1{text-align:left;}
+            /* 正中对齐 */
+            #div2{text-align:center;}
+            /* 右对齐 */
+            #div3{text-align:right;}
+        </style>
+    </head>
+    <body>
+        <div id="div0">我是默认</div>
+        <div id="div1">我是左对齐</div>
+        <div id="div2">我是正中对齐</div>
+        <div id="div3">我是右对齐</div>
+    </body>
+</html>
 ```
+
 > + 消除边框用: border-collapse:collapse;
 > + 设置奇数项: table tr:nth-child(odd){}
 > + 设置偶数项: table tr:nth-child(even){}
