@@ -1,7 +1,10 @@
 # html 有用的标签
 
 #### 1.1 input 标签
-+ 可以使用 input 插件让用户与网页互动，比如填写资料，选项以及颜色等。
++ 可以使用 input 插件让用户与网页互动，比如填写资料，选项以及颜色等
++ ```<input type="种类" name="" placeholder="">```
++ input 标签有很多种类型，可通过更改种类(type)使用不同的类型
++ 相关资讯可以点击传送看会之前的笔记[传送](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2004%20html%20table/Day%2004.md)，4.0 的 Form 表单的部分有介绍 input 的各种种类
 
 Example:
 ```
