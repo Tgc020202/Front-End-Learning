@@ -19,12 +19,14 @@
 + <img> 是空标签，所以他没有结束标签
 + `<img src = "图名.jpg">`，当图片存放在同一个文件夹里
 + `<img src = "图片路径.jpg">`，当图片存放在不同的文件夹
+
 Example:
 ```
 <img src = "panda.jpg">
 ```
 
 + alt 属性: 填写对这张图片的简单描述
+
 Example:
 ```
 <img src = "panda.jpg" alt = "大熊猫">
