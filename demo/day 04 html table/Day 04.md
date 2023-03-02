@@ -111,12 +111,14 @@ Example(Test2.html):
 
 Example:
 ```
-<!-- 同时选择 table,th,td 标签，可以放置 (,) 在各个标签之间 -->
+/* 同时选择 table,th,td 标签，可以放置 (,) 在各个标签之间 */
 table,th,td{border: 1px solid blue}
 ```
+
 + 表格文本对齐针对表格文本，可以对其设置对齐方式:
 > + text-align:设置水平方向对齐方式
-> + vertical-align:设置垂直方向对齐 left : 默认值，水平方向向左对齐
+> + vertical-align:设置垂直方向对齐 
+> + left : 默认值，水平方向向左对齐
 > + center:水平方居中对齐
 > + right:水平方向右对齐
 
