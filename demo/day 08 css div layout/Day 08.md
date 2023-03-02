@@ -4,6 +4,7 @@
 + div: division 分区
 + 他是一个块标签
 + 要想区分每个 div, 常用的做法是给每个 div 添加一个 class 属性
+
 Example(Test1.html):
 ```
 <!DOCTYPE html>
@@ -42,6 +43,7 @@ Example(Test1.html):
 #### 1-4-2 内容居中
 1. 将块标签中的内容居中
 + 设置块标签 text-align 的值为 center
+
 Example(css):
 ```
 h1{
@@ -51,6 +53,7 @@ h1{
 
 2. 将块标签本身居中，并且这个块标签有固定的宽度
 + 设置块标签左右 margin 的值为 auto
+
 Example(css):
 ```
 .main-content{
