@@ -108,8 +108,10 @@ Example(Test2.html):
 
 #### 3-3 Table 样式
 + 表格边框：为了使边框出现边框(基于样式)，可以添加如下样式
+
 Example:
 ```
+<!-- 同时选择 table,th,td 标签，可以放置 (,) 在各个标签之间 -->
 table,th,td{border: 1px solid blue}
 ```
 + 表格文本对齐针对表格文本，可以对其设置对齐方式:
@@ -117,6 +119,7 @@ table,th,td{border: 1px solid blue}
 > + vertical-align:设置垂直方向对齐 left : 默认值，水平方向向左对齐
 > + center:水平方居中对齐
 > + right:水平方向右对齐
+
 Example:
 ```
 /* css */
