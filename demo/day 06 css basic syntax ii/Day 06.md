@@ -5,7 +5,7 @@
 #### 1-2-1 页面中的标签
 #### 块级别的标签(Block-level Tag)
 + 块标签占据了容器的整个宽度
-+ 容器指的是 <body> 标签
++ 容器指的是 ```<body>``` 标签
 + 每个块标签所在的盒都尽可能的占据页面的整个宽度
 + 例如: hx p ul ol li
 
@@ -16,6 +16,7 @@
 #### 1-2-3 将块标签转换成内联标签
 + 有时候，你想把块标签转换成内联标签，需要设置 CSS 的 display 属性
 + 例如: 把导航栏现在的垂直显示修改为水平显示
+
 Example(Test1.html):
 ```
 <!DOCTYPE html>
@@ -48,6 +49,7 @@ Example(Test1.html):
 | 边距 | margin | margin 包围在 border 的上 右 下 左四个边缘 |
 
 ##### 1-2-4-1 padding
+
 Example(Test2.html):
 ```
 h1{
@@ -67,6 +69,7 @@ padding:2px 2px 0 0;
 ```
 
 ##### 1-2-4-2 border
+
 Example(Test3.html):
 ```
 h1{
@@ -84,6 +87,7 @@ h1{
 ```
 
 ##### 1-2-4-3 margin
+
 Example(Test4.html):
 ```
 h1{
@@ -105,6 +109,7 @@ margin:10px 10px 0 0;
 ##### 1-2-4-4 浏览器的样式
 + 每个浏览器都有自己的默认浏览器样式
 + 重置浏览器样式方法:
+
 Example(Test5.html):
 ```
 html,body,h1,h2,h3,p,ol,ul,li,a{
