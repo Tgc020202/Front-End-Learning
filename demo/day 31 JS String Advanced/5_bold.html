@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bold</title>
+    <style>
+        #div1{
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <!-- div -->
+    <!-- <div>我是 div 标签</div> -->
+
+    <!-- b -->
+    <!-- <b>我是 b 标签</b> -->
+
+    <div id="tgc">
+        我是 tgc
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        // console.log('abc'.bold());  // 后面的参数没有作用
+
+        // tgc.innerHTML =  tgc.innerHTML.bold();
+
+        
+        // 把 tgc 里的 t 变粗体而已
+        // innerHTML 里包含了空格和隔层，\n\t
+        // innerText 可以只提取字体
+        tgc.innerHTML =  tgc.innerText.at(0).bold() + tgc.innerText.substring(1);
+    </script>
+</body>
+</html>

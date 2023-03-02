@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>charCodeAt</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        console.log('城'.charCodeAt());
+
+        console.log('abc'.charCodeAt());    //   默认下标是 0
+        console.log('abc'.charCodeAt(0));
+        console.log('abc'.charCodeAt(1));
+        console.log('abc'.charCodeAt(2));
+        console.log('abc'.charCodeAt(10));  // NaN
+
+        // 转为 16 进制
+        console.log('abc'.charCodeAt(2).toString(16));
+
+        // 转为 2 进制
+        console.log('abc'.charCodeAt(2).toString(2));
+    </script>
+</body>
+</html>

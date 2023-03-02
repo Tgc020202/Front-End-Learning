@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>codePointAt</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+
+        console.log('a'.length);    // 一个码元，例子 1000
+
+        // 🥺
+        // 😈
+        // 🐼
+
+        console.log('✔'.length);   // 两个码元，例子1000 1000
+        console.log('😈'.length);
+        console.log('🐼'.length);
+
+        console.log('a'.charCodeAt(0));
+
+        console.log('🐼'.charCodeAt());     // 只检测第一个码元
+        console.log('🐼'.codePointAt());    // 检测两个码元
+
+        // 检测过长
+        console.log('🐼'.charCodeAt(10));     // NaN
+        console.log('🐼'.codePointAt(10));    // undefined
+    </script>
+</body>
+</html>

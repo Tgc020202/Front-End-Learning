@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>endsWith</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        console.log('abcd'.endsWith('d'));  // true
+        console.log('abcd'.endsWith('e'));  // false
+
+        // 只看一位，默认为字符串的长度
+        console.log('abcd'.endsWith('a',1));    // true
+
+        // 不指定判断任何字符，就会默认判断 字符串种类
+        console.log('abcd'.endsWith(''));   // true
+        console.log('abcd'.endsWith(' '));   // true
+
+    </script>
+</body>
+</html>

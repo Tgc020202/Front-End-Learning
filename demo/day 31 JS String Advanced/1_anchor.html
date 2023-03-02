@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anchor</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        console.log(''.anchor());   // name = undefined
+
+        console.log('abc'.anchor());   // name = undefined , value = abc
+
+        console.log('abc'.anchor('111'));   // name = 111 , value = abc
+
+        console.log('abc'.anchor('111','222'));   // name = 111 , value = abc
+
+        document.body.innerHTML = ''.anchor('youtube');
+        document.getElementsByName('youtube')[0].href = 'https://www.youtube.com/';
+        document.getElementsByName('youtube')[0].innerHTML = '链接';
+
+    </script>
+</body>
+</html>

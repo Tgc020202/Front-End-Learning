@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>at</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        // 普通的索引
+        console.log('abcde'[3]);    // d
+        console.log('abcde'[10]);    // undefined
+
+        // 使用 at
+        console.log('abcde'.at(3)); // d
+        console.log('abcde'.at(10)); // undefined
+        // 支持反向索引
+        console.log('abcde'.at(-1)); // e
+
+    </script>
+</body>
+</html>
