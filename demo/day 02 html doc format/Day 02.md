@@ -12,6 +12,7 @@ Example:
 #### 1-3-2 strong
 + strong 标签与 b 标签都表示粗体，但是 strong 表示强调。
 + 例如，一个单词或短语需要显示的更高调，更响亮...总之比一般的文本更为突出。这里我们就使用 strong 标签在SEO 中的应用，告知搜索引擎我们内容强调的是什么。
+
 Example:
 ```
 <span>这是正常字体</span>
@@ -20,6 +21,7 @@ Example:
 
 #### 1-3-3 i
 + i 标签表示以斜体字体形式展现内容
+
 Example:
 ```
 <span>这是正常字体</span>
@@ -28,6 +30,7 @@ Example:
 
 #### 1-3-4 em
 + em 标签告诉浏览器把其中的文本表示为强调的内容 并以斜体形式展现
+
 Example:
 ```
 <span>这是正常字体</span>
@@ -38,6 +41,7 @@ Example:
 + pre 标题可定义预格式化的文本。
 + 被包围在 pre 标签 元素中的文本通常会保留空格和换行符
 + 而文本也会呈现为等宽字体
+
 Example:
 ```
 <span>这是 span 标签    中间空格将不会被保留</span><br />
@@ -46,6 +50,7 @@ Example:
 
 #### 1-3-6 small
 + small 标签 定义小型文本
+
 Example:
 ```
 <span>这是正常字体</span><br />
@@ -55,6 +60,7 @@ Example:
 #### 1-3-7 sub
 + sub 标签定义下标文本
 + 下标文本将会显示在当前文本流中字符高度的一般为基准线的下方
+
 Example:
 ```
 <span>这是正常字体</span><sub>这是下标文本</sub>
@@ -63,6 +69,7 @@ Example:
 #### 1-3-8 sup
 + sup 标签定义上标文本
 + 上标文本将会显示在当前文本流中字符高度的一般为基准线的上方
+
 Example:
 ```
 <span>这是正常字体</span><sup>这是上标文本</sup>
@@ -77,6 +84,7 @@ Example:
 
 #### 1-3-10 address
 + 加入地址信息，一般地址会和联系方式等东西放在一起，最好是用 div 标签放在同一个模块内
+
 Example:
 ```
 <div>
@@ -86,7 +94,8 @@ Example:
 
 #### 1-3-11 caption
 + 为表格添加标题和摘要
-+ tr 是列，th 是行
++ tr 是行(row)，th 是列(column)，thead 是标头
+
 Example:
 ```
 <table>
