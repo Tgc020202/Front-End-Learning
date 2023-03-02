@@ -45,6 +45,11 @@ Example(Test1.html):
     </body>
 </html>
 ```
+> + thead - 表头，通常用于第一行的主题
+> + tbody - 表身，通常用于第二行的主题
+> + tfoot - 页脚，通常用于填入一些与主题相关的信息
+> + tr - 用于控制行，但是 thead，tbody，tfoot 都自带 tr 的属性，所以当使用这些标签元素的时候，可以不用加 tr
+
 
 #### 3-2 rowspan 跨行合并/colpan 跨列合并
 Example(Test2.html):
