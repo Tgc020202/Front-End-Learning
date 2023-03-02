@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset = "utf-8">
-        <meta name = "viewport" content = "width=device-width,initial-scale=1">
-        <title>table 属性</title>
-    </head>
+    <style type = "text/css">
 
+        /*未访问的链接，和a{}相同且同时存在时会覆盖*/
+        a:link{
+            color:darkblue;
+        }
+
+        /*鼠标移动到超链接上时*/
+        a:hover{
+            text-decoration: underline;
+            color:green;
+        }
+        /*被选定的超链接*/
+        a:active{
+            text-decoration: underline;
+            color: yellow;
+        }
+        /*已访问的超链接*/
+        a:visited{
+            color: lightblue;
+        }
+    </style>
+    </head>
     <body>
-        <table width = "100%" border = "1" style = "text-align: center;" cellspacing = "0">
-            <!-- text-align:center表中文字的格式未居中 -->
-            <thead> <!-- 表头 -->
-                <tr>
-                    <td>主题</td>
-                    <td>主题</td>
-                    <td>主题</td>
-                </tr>
-            </thead>
-            <tbody> <!-- 表身 -->
-                <tr>
-                    <td>主题2</td>
-                    <td>主题2</td>
-                    <td>主题2</td>
-                </tr>
-            </tbody>
-            <tfoot> <!-- 页脚 -->
-                <td>页脚</td>
-                <td>页脚</td>
-                <td>页脚</td>
-            </tfoot>
-        </table>
+        <div>
+            <a href="https://www.youtube.com/watch?v=50VNCymT-Cs" target="_blank">Youtube - Let Me Down Slowly</a>
+        </div>
     </body>
 </html>
