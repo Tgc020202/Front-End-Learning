@@ -22,7 +22,7 @@ Example(Test1.html):
     <body>
         <table width = "100%" border = "1" style = "text-align: center;" cellspacing = "0">
             <!-- text-align:center表中文字的格式未居中 -->
-            <thead> <!-- 表头 -->>
+            <thead> <!-- 表头 -->
                 <tr>
                     <td>主题</td>
                     <td>主题</td>
