@@ -268,29 +268,31 @@ Example(Test3.html):
 
 + input 根据不同的 type 属性，可以变化为多种状态输入方式:
 + input 标签 type 属性值:
-> + input type = "text": 定义供文本输入的单行输入字段
-> + input type = "password": 定义密码字段
-> + input type = "submit": 定义提交表单数据至表单处理程序的按钮
-> + input type = "image": 定义图片提交按钮
-> + input type = "radio": 定义单选按钮
->> + checked: 属性为选中状态，不管值为多少
-> + input type = "checkbox": 定义复选框
->> + checked: 属性为选中状态，不管值为多少
-> + input type = "button": 定义普通按钮
-> + input type = "reset": 定义重置按钮
-> + input type = "file": 定义文件框
-> + <input type = "text" />:定义供文件输入的单行输入字段
-> + <input type = "password" />: 定义密码字段
-> + <input type = "submit" />: 定义提交表单数据至表单处理程序的按钮
-> + <input type = "image" />: 定义图片提交按钮
-> + <input type = "radio" />: 定义单选按钮
->> + checked: 属性为选中状态，不管值为多少
-> + <input type = "checkbox" />: 定义复选框
->> + checked: 属性为选中状态，不管值为多少
-> + <input type = "button" />: 定义普通按钮
-> + <input type = "reset" />: 定义重置按钮
-> + <input type = "file" />: 定义文件框
-> + *placeholder* 表示输入框内的默认值，用户直接输入内容，默认内容会消失。value 属性也可以有默认字体，但是用户需要删除字体才能填写
+> 1 input type = "text": 定义供文本输入的单行输入字段
+> 2 input type = "password": 定义密码字段
+> 3 input type = "submit": 定义提交表单数据至表单处理程序的按钮
+> 4 input type = "image": 定义图片提交按钮
+> 5 input type = "radio": 定义单选按钮
+> > + checked: 属性为选中状态，不管值为多少
+> 6 input type = "checkbox": 定义复选框
+> > + checked: 属性为选中状态，不管值为多少
+> 7 input type = "button": 定义普通按钮
+> 8 input type = "reset": 定义重置按钮
+> 9 input type = "file": 定义文件框
+
++ 调用方法:
+> 1 <input type = "text" />:定义供文件输入的单行输入字段
+> 2 <input type = "password" />: 定义密码字段
+> 3 <input type = "submit" />: 定义提交表单数据至表单处理程序的按钮
+> 4 <input type = "image" />: 定义图片提交按钮
+> 5 <input type = "radio" />: 定义单选按钮
+> 6 <input type = "checkbox" />: 定义复选框
+> 7 <input type = "button" />: 定义普通按钮
+> 8 <input type = "reset" />: 定义重置按钮
+> 9 <input type = "file" />: 定义文件框
+
++ input 标签的tips:
+> + *placeholder* 表示输入框内的默认值，用户直接输入内容，默认内容会消失。而 value 属性也可以有默认字体，但是用户需要删除字体才能填写
 > + input 也是行内元素，需要转换为块级元素才可以设置宽高
 
 Example(Test4.html):
@@ -306,7 +308,7 @@ Example(Test4.html):
                 <input type = "text" name = "username" value = "筱朋友">
             </p>  <!-- value 为默认值 -->
             <p>密 码:
-                <input type = "password" name = "pwd">
+                <input type = "password" name = "pwd" placeholder="abc@xxxx">
             </p>
             <p>按 钮:
                 <input type = "button" value = "普通的按钮"><br>
@@ -343,15 +345,15 @@ Example(Test4.html):
 + button 标签
 > + 定义一个按钮，根据不同的 type 属性展示不同的按钮类型
 > + button 标签 type 属性值:
->> + button: 定义普通按钮
->> + reset: 定义重置按钮
->> + submit: 定义提交按钮
+> > + button: 定义普通按钮
+> > + reset: 定义重置按钮
+> > + submit: 定义提交按钮
 
 + select 标签
 > + 定义可单选或多选下拉菜单，包含若干隔可选项(<option>)
 > + select 标签属性:
->> + size: 规定下拉列表中选项的数目
->> + multiple: 规定可选择多个选项
+> > + size: 规定下拉列表中选项的数目
+> > + multiple: 规定可选择多个选项
     
 Example(Test5.html):
 ```
@@ -367,7 +369,7 @@ Example(Test5.html):
 
         <hr>
         地址:
-        <select multiple = "multiple" size = 2>
+        <select size = 2>
             <option value = "1">雪兰莪</option>
             <option value = "2">吉隆坡</option>
             <option>霹雳</option>
@@ -384,7 +386,9 @@ Example(Test5.html):
     </body>
 </html>
 ```
+> + select 标签里可以设置 size 显示的大小，如果数据的数量比大小多的话就会生成滚轮
     
+
 + 表单通用属性:
 > + name 属性: 规定输入字段名称
 > + value 属性: 规定输入字段的初始值
