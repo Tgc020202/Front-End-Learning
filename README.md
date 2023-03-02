@@ -25,7 +25,7 @@
 |Day 21      | [JS 数据类型 (Datatype)](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2021%20JS%20datatype/Day%2021.md)                         |
 |Day 22      | [JS & DOM](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2022%20JS%20and%20DOM/Day%2022.md)                                     |
 |Day 23      | [JS Random & 闭包](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2023%20JS%20random/Day%2023.md)                                 | 
-|Day 24      | [JS 事件对象 (Event)](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2023%20JS%20random/Day%2023.md)                              |
+|Day 24      | [JS 事件对象 (Event)](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2024%20JS%20Event/Day%2024.md)                                |
 |Day 25      | [JS 逻辑判断语句 Logical Judgement](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2025%20JS%20Logical%20Judgement/Day%2025.md)    |
 |Day 26      | [JS & DOM II](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2026%20JS%20%20and%20DOM%20II/Day%2026.md)                           |
 |Day 27      | [JS DOM Attributes](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2027%20JS%20DOM%20attributes/Day%2027.md)                      |
