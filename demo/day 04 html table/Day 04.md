@@ -115,9 +115,8 @@ Example:
 table,th,td{border: 1px solid blue}
 ```
 
-+ 表格文本对齐针对表格文本，可以对其设置对齐方式:
-> + text-align:设置水平方向对齐方式
-> + vertical-align:设置垂直方向对齐 
++ 表格文本对齐针对表格文本，可以对其设置对齐方式
++ text-align:设置水平方向对齐方式
 > + left : 默认值，水平方向向左对齐
 > + center:水平方居中对齐
 > + right:水平方向右对齐
@@ -150,9 +149,7 @@ Example:
 </html>
 ```
 
-> + 消除边框用: border-collapse:collapse;
-> + 设置奇数项: table tr:nth-child(odd){}
-> + 设置偶数项: table tr:nth-child(even){}
++ 其他设置的功能
 
 Example(Test3.html):
 ```
@@ -235,6 +232,10 @@ Example(Test3.html):
     </body>
 </html>
 ```
+> + 消除边框用: border-collapse:collapse;
+> + 设置奇数项: table tr:nth-child(odd){}
+> + 设置偶数项: table tr:nth-child(even){}
+
 
 ## 4-0 Form 表单
 > + 表单是一个包含单元素的区域，允许用户在表单中(比如:文本域，下拉列表，单选框，复选框等等)输入信息的元素
