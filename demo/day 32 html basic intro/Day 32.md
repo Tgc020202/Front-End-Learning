@@ -174,8 +174,10 @@ Example:
 ```
 
 ## 编辑属性 contenteditable
-+ contenteditable="true"
-+ 可以搭配 style，实行在页面编辑其他元素的属性
++ 写法: contenteditable="true"
+![p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2032%20html%20basic%20intro/p1.PNG)
+
++ 也可以搭配 style，实行在页面编辑其他元素的属性
 
 Example:
 ```
