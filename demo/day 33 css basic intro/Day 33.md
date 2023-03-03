@@ -380,26 +380,387 @@ Example:
 ```
 
 
+## float 浮动
++ 使多个行内元素外的元素可以放置在同一行
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float & overflow:hidden</title>
+    <style>
+        *{padding: 0;margin: 0;}
 
 
+        #l{
+            width: 50%;
+            height: 200px;
+            background-color: black;
+            float: left;
+        }
+
+        #b{
+            /* width 超过父级的宽度就会自动移动去下一行 */
+            /* width: 50.1%; */ 
+            width: 50%;
+            height: 200px;
+            background-color: green;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="l"></div>
+    <div id="b"></div>
+</body>
+</html>
+```
+> + 一个父级的满宽度为 100%，div1 + div2 的宽度 等于 100.1%，那么 div2 就会被移动去下一行
+> + 这就是 float 的功能，可以把块标签放在同一行，当父类的宽度足以容纳元素的时候
+> + 当我们把 div2 的宽度设置为 50%，div1 + div2 的宽度为 100%，所有可以容纳，并放置同一行
+
++ 如果 float 有给予高度，内容一旦超过此高度就会被剪切
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float & overflow:hidden</title>
+    
+    <!-- 一旦给高度了，就会把多余的部分剪切 -->
+    <style>
+        *{padding: 0;margin: 0;}
+
+        #l{
+            width: 500px;
+            border: 5px solid black;
+            margin: 0 auto;
+            overflow: hidden;
+            height: 100px;
+        }
+
+        .title{
+            width: 100%;
+            height: 200px;
+            float: left;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="l">
+        <div class="title"></div>
+    </div>
+</body>
+</html>
+```
+
+## overflow:hidden
++ 不给高度，且自己不给浮动，它会随着内容的浮动撑开
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float & overflow:hidden</title>
+   
+    <!-- overflow:hidden -->
+    <style>
+        *{padding: 0;margin: 0;}
+
+        /* 不给高度 */
+        #l{
+            width: 500px;
+            border: 5px solid black;
+            margin: 0 auto;
+
+            /* 可自行注释下面这个部分，观察边框的差异 */
+            /* float: left;    */
+            
+            /* 会随着内容的浮动撑开 */
+            overflow: hidden;
+        }
+
+        .title{
+            width: 100%;
+            height: 200px;
+            float: left;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="l">
+        <div class="title"></div>
+    </div>
+</body>
+</html>
+```
+
+## overflow:auto/scroll
++ 把多余的剪切，变成滚动条显示
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float & overflow:hidden</title>
+    
+        <!-- overflow:auto + 高度 -->
+        <style>
+            *{padding: 0;margin: 0;}
+    
+            #l{
+                width: 500px;
+                border: 5px solid black;
+                margin: 0 auto;
+                overflow: auto; 
+                height: 200px;
+            }
+    
+            .title{
+                width: 100%;
+                height: 200px;
+                float: left;
+                background-color: red;
+            }
+    
+            .title2{
+                height: 300px;background-color: green;
+            }
+    
+        </style>
+</head>
+<body>
+    <div id="l">
+        <div class="title"></div>
+        <div class="title2"></div>
+    </div>
+</body>
+</html>
+```
+> + 会生成滚动条，用来显示多余的部分
+> > + ![p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p2.PNG)
 
 
+## 行内元素 -> 块元素
++ -display: block;
++ -display: inline-block;
++ -float: left;
++ -position: absolute;
++ -position: fixed;
++ -display: table;
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear</title>
+
+    <style>
+        *{padding: 0;margin: 0;}
+
+        span{
+            width: 100px; height: 100px;
+            background-color: black;
+            -display: block;
+            -display: inline-block;
+            -float: left;
+            -position: absolute;
+            -position: fixed;
+            -display: table;
+        }
+    </style>
+</head>
+<body>
+    <span></span>
+</body>
+</html>
+```
+> + 可以把 css 代码里的 span 标签里，有 - 符号的属性，一旦删了 - 符号，就会激活相对的属性值
+> + span 标签是属于行内元素，所以宽高对它没有效果，因此它并不会显示出来
+> + 但是一旦使用上面这些属性，就可以让它以块元素的形式显现出来
 
 
+## 块状元素 -> 行内元素
++ -display: inline;
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块状元素转行内元素</title>
+
+    <style>
+        *{padding: 0;margin: 0;}
+
+        div{
+            width: 100px;height: 100px;
+            background-color: pink;
+            -display: inline;
+            
+
+        }
+    </style>
+</head>
+<body>
+    <div>大呆呆</div>
+</body>
+</html>
+```
+
+## clear:both
++ 清除浮动(float)
++ 分为四种
+
+1. clear: none;
++ 默认值，允许左右两边的元素都有浮动对象
++ 左浮动
+> + ![p3](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p3.PNG)
++ 右浮动
+> + ![p4](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p4.PNG)
+
+2. clear: left;
++ 不允许左边的元素有浮动对象
++ 左浮动发生变化
+> + ![p5](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p5.PNG)
++ 右浮动保持不变，不受影响
+
+3. clear: right;
++ 不允许右边的元素有浮动对象
++ 左浮动保持不变，不受影响
++ 有浮动发生变化
+> + ![p6](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p6.PNG)
+
+4. clear: both;
++ 不允许任何一边的元素有浮动对象
++ 左浮动发生变化，跟 clear:left 一模一样
++ 右浮动发生变化，跟 clear:right 一模一样
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clear</title>
+    
+        <style>
+            *{padding: 0;margin: 0;}
+
+            body{
+                padding: 10px;
+            }
+            
+            /* 控制浮动的方向 */
+            -div{float: right;}
+            -div{float: left;}
 
 
+            #div1{
+                width: 100px;height: 100px;
+                background-color: pink;
+                border: 2px solid black;
+            }
+            
+            /* div2 用于控制 clear 的方向 */
+            #div2{
+                width: 100px;height: 100px;
+                background-color: rgb(217, 66, 92);
+                border: 2px solid black;
 
+                -clear: none;
+                -clear: left;
+                -clear: right;
+                -clear: both;
+            }
+    
+        </style>
+</head>
+<body>
+    <div id="div1">1</div>
+    <div id="div2">2</div>
+    <div id="div1">3</div>
+    <div id="div2">4</div>
+    <div id="div1">5</div>
+    <div id="div2">6</div>
+    <div id="div1">7</div>
+</body>
+</html>
+```
 
+## css 伪类
++ link - 未访问
++ hover - 触碰
++ active - 点击
++ visited - 已访问
 
++ 通常用来与 a 标签 - 链接搭配
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类</title>
 
+    <style>
 
-
-
-
-
-
-
-
-
+        /* 通常使用在 a 标签 */
+        a:link{
+            color: red;
+        }
+        a:hover{
+            color: blue;
+        }
+        a:active{
+            color: green;
+        }
+        a:visited{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://www.youtube.com/watch?v=clU8c2fpk2s" target="_blank">【Female Sings】Lemon/Kenshi Yonezu (Full Covered by KOBASOLO & Harutya)</a>
+</body>
+</html>
+```
+> + link(还未访问过此链接，如果已经访问过了，就需要删除历史浏览记录，才可以重新触发): 红
+> > + ![p7](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p7.PNG)
+> + hover(鼠标放置在链接上): 蓝
+> > + ![p9](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p9.PNG)
+> + active(鼠标点击链接的时候): 青
+> > + ![p10](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p10.PNG)
+> + visited(已经访问过此链接): 浅蓝
+> > + ![p8](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p8.PNG)
 
