@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absolute Position 绝对定位</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        /* 设置绝对定位 */
+        .div1{
+            width: 50px;height: 50px;
+            background-color: black;
+            position: absolute;
+            left: 50px;top: 50px;
+        }
+
+        /* 设置绝对定位后，设置默认定位 */
+        .div2{
+            width: 50px;height: 50px;
+            background-color: red;
+            position: absolute;
+            left: 50px;top: 50px;
+            position: static;
+        }
+
+        /* 设置绝对定位，但是上下左右的值都是 0 */
+        .div3{
+            background-color: yellow;
+            position: absolute;
+            left: 0;top: 0;right: 0;bottom: 0;
+        }
+
+        /* 设置绝对定位，但是上下左右的值都是 0，且外边距为 auto*/
+        .div4{
+            width: 25px;height: 25px;
+            background-color: green;
+            position: absolute;
+            left: 0;top: 0;right: 0;bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <!-- <div class="div3"></div> -->
+    <div class="div4"></div>
+</body>
+</html>

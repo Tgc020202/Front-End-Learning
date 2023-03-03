@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inherit Position 追随父级的定位</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        body{
+            position: absolute;
+        }
+
+        .div1{
+            width: 25px;height: 25px;
+            background-color: black;
+            float: left;
+            position: inherit;  /*相等于 absolute*/
+            left: 25px;
+        }
+
+        .div2{
+            width: 50px;height: 50px;
+            background-color: green;
+            float: left;
+            position: relative;
+            left: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+</body>
+</html>

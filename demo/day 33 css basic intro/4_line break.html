@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>折行</title>
+    <style>
+        .div1{
+            width: 200px;height: 200px;
+            border: 2px solid black;
+        }
+        .div2{
+            width: 200px;height: 200px;
+            border: 2px solid black;
+            word-wrap: break-word;  /* 文字折行 */
+        }
+        .div3{
+            width: 200px;height: 200px;
+            border: 2px solid black;
+            word-wrap: break-word;  /* 文字折行 */
+            text-align-last: center;    /* 控制最后一行的文字 */
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">1234567890abcdefghijklmnopqrstuvwsyz</div>
+    <div class="div2">1234567890abcdefghijklmnopqrstuvwsyz</div>
+    <div class="div3">1234567890abcdefghijklmnopqrstuvwsyz</div>
+</body>
+</body>
+</html>

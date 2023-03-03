@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>没有定位</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        /* 没有定位的父级 */
+        /* #div1{
+            width: 100px;height: 100px;
+            background-color: yellow;
+        } */
+
+        /* 有定位的父级 */
+        #div1{
+            width: 100px;height: 100px;
+            background-color: yellow;
+            margin-left: 100px;
+            position: relative;
+        }
+
+        #div2{
+            width: 100%;height: 100%;
+            background-color: green;
+            position: absolute;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">我是子级</div>
+    </div>
+</body>
+</html>
