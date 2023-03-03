@@ -330,7 +330,7 @@ Example:
 </html>
 ```
 
->> ![p1]()
+>> ![p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p1.PNG)
 
 
 ## 如果父级没有定位
