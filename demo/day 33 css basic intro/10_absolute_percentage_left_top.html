@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>absolute 与 % 单位 II</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        /*
+            top 正数 - 往下移动     负数 - 往上移动
+            left 正数 - 往右移动     负数 - 往左移动
+        */
+
+        .div1{
+            width: 200px;height: 200px;
+            background-color: black;
+            position: absolute;
+            left: 50%;top: 50%;
+
+            margin-left: -100px;
+            margin-top: -100px;
+        }
+
+        .div1 .div2{
+            width: 50%; height: 50%;
+            background-color: yellow;
+            position: inherit;
+            left:-50%;  /*left:-100px;*/
+            top: -50%;  /*top:-100px;*/
+            
+        }
+
+        .div1 .div3{
+            width: 50%; height: 50%;
+            background-color: green;
+            position: inherit;
+            left:100%;
+            top: -50%; 
+            
+        }
+
+        .div1 .div4{
+            width: 50%; height: 50%;
+            background-color: lightskyblue;
+            position: inherit;
+            left:-50%;
+            top: 100%;
+            
+        }
+
+        .div1 .div5{
+            width: 50%; height: 50%;
+            background-color: pink;
+            position: inherit;
+            left:100%;
+            top: 100%;
+            
+        }
+
+        .x{
+            width: 100%;height: 1px;
+            background-color: red;
+            position: absolute;
+            top: 50%;
+        }
+
+        .y{
+            width: 1px;height: 100%;
+            background-color: red;
+            position: absolute;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 父类 -->
+    <div class="div1">
+        <!-- 左上角 -->
+        <div class="div2">
+            <div class="div2">
+                <div class="div2">
+                    <div class="div2"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 右上角 -->
+        <div class="div3">
+            <div class="div3">
+                <div class="div3">
+                    <div class="div3"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 左下角 -->
+        <div class="div4">
+            <div class="div4">
+                <div class="div4">
+                    <div class="div4"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 右下角 -->
+        <div class="div5">
+            <div class="div5">
+                <div class="div5">
+                    <div class="div5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="x"></div>
+    <div class="y"></div>
+</body>
+</html>

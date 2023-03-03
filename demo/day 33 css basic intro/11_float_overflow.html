@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float & overflow:hidden</title>
+    
+    <!-- float -->
+    <!-- <style>
+        *{padding: 0;margin: 0;}
+        #l{
+            width: 50%;
+            height: 200px;
+            background-color: black;
+            float: left;
+        }
+
+        #b{
+            /* width 超过父级的宽度就会自动移动去下一行 */
+            /* width: 50.1%; */ 
+            width: 50%;
+            height: 200px;
+            background-color: green;
+            float: left;
+        } 
+    </style> -->
+
+
+    <!-- 一旦给高度了，就会把多余的部分剪切 -->
+    <!-- <style>
+        *{padding: 0;margin: 0;}
+
+        #l{
+            width: 500px;
+            border: 5px solid black;
+            margin: 0 auto;
+            overflow: hidden;
+            height: 100px;
+        }
+
+        .title{
+            width: 100%;
+            height: 200px;
+            float: left;
+            background-color: red;
+        }
+
+    </style> -->
+
+
+    <!-- overflow:hidden -->
+    <!-- <style>
+        *{padding: 0;margin: 0;}
+
+        #l{
+            width: 500px;
+            border: 5px solid black;
+            margin: 0 auto;
+
+            /* 可自行注释下面这个部分，观察边框的差异 */
+            /* float: left;    */
+            
+            /* 会随着内容的浮动撑开 */
+            overflow: hidden;
+        }
+
+        .title{
+            width: 100%;
+            height: 200px;
+            float: left;
+            background-color: red;
+        }
+    </style> -->
+
+        <!-- overflow:auto + 高度 -->
+        <style>
+            *{padding: 0;margin: 0;}
+    
+            #l{
+                width: 500px;
+                border: 5px solid black;
+                margin: 0 auto;
+                overflow: auto; 
+                overflow: scroll;
+                height: 200px;
+            }
+    
+            .title{
+                width: 100%;
+                height: 200px;
+                float: left;
+                background-color: red;
+            }
+    
+            .title2{
+                height: 300px;background-color: green;
+            }
+    
+        </style>
+</head>
+<body>
+    <!-- <div id="l"></div>
+    <div id="b"></div> -->
+
+    <!-- <div id="l">
+        <div class="title"></div>
+    </div> -->
+
+    <!-- <div id="l">
+        <div class="title"></div>
+    </div> -->
+
+    <div id="l">
+        <div class="title"></div>
+        <div class="title2"></div>
+    </div>
+</body>
+</html>
