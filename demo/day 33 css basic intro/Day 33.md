@@ -764,3 +764,4 @@ Example:
 > + visited(已经访问过此链接): 浅蓝
 > > + ![p8](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p8.PNG)
 
++ 想要更加了解更多可以去看 [Day 5 CSS 基础语法](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2005%20css%20basic%20syntax/Day%2005.md) 的第一个部分
