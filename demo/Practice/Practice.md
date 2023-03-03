@@ -48,4 +48,4 @@ Answer:
 > + myDiv 是父级，它的定位是绝对定位，所以 childDiv 子级是 inherit(跟随父级的定位)
 > + 子级的宽设置 50% 说明当子级的宽是父级的一半，高度也是一样的意思
 > + top 设置成 100% 说明子级与上面的距离(这里所谓的距离是指父级的上边框至我们创建子级的上边框)相等于 100% 的父级的高度，而 left 则是父级的宽度 
-> + ![practice1_p1]()
+> + ![practice1_p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/Practice/practice1_p1.PNG)
