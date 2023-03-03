@@ -162,6 +162,7 @@ Example:
     <style>
         *{padding: 0;margin: 0;}
 
+        /* 设置绝对定位 */
         .div1{
             width: 50px;height: 50px;
             background-color: black;
@@ -169,22 +170,43 @@ Example:
             left: 50px;top: 50px;
         }
 
+        /* 设置绝对定位后，设置默认定位 */
         .div2{
             width: 50px;height: 50px;
-            background-color: black;
+            background-color: red;
             position: absolute;
             left: 50px;top: 50px;
             position: static;
+        }
+
+        /* 设置绝对定位，但是上下左右的值都是 0 */
+        .div3{
+            background-color: yellow;
+            position: absolute;
+            left: 0;top: 0;right: 0;bottom: 0;
+        }
+
+        /* 设置绝对定位，但是上下左右的值都是 0，且外边距为 auto*/
+        .div4{
+            width: 25px;height: 25px;
+            background-color: green;
+            position: absolute;
+            left: 0;top: 0;right: 0;bottom: 0;
+            margin: auto;
         }
     </style>
 </head>
 <body>
     <div class="div1"></div>
     <div class="div2"></div>
+    <!-- <div class="div3"></div> -->
+    <div class="div4"></div>
 </body>
 </html>
 ```
 > + div2: position static 把 absolute 覆盖掉了
+> + div3: 覆盖全屏，因为没有定宽高
+> + div4: 定了宽高，设置外边距为 auto，元素就会居中 ```margin:auto```
 
 3. relative 相对定位
 + 显示在网页的时候，位置是改变的，但是实际上位置并没有任何变化
@@ -225,6 +247,155 @@ Example:
 
 4. fixed 窗口定位 - IE 6 不兼容
 5. inherit 追随父级的定位
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inherit Position 追随父级的定位</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        body{
+            position: absolute;
+        }
+
+        .div1{
+            width: 25px;height: 25px;
+            background-color: black;
+            float: left;
+            position: inherit;  /*相等于 absolute*/
+            left: 25px;
+        }
+
+        .div2{
+            width: 50px;height: 50px;
+            background-color: green;
+            float: left;
+            position: relative;
+            left: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+</body>
+</html>
+```
+
+
+## % 单位
++ 根据父级去计算
+|单位 %|根据父级的...|
+|-----|-----------|
+|width|width|
+|height|height|
+|margin-left|width|
+|inherit 的 left|width|
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage % 单位</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        #div1{
+            width: 200px;height: 200px;
+            background-color: yellow;
+        }
+
+        #div2{
+            width: 50%;height: 50%;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        我是父级
+        <div id="div2">我是子级</div>
+    </div>
+</body>
+</html>
+```
+
+>> ![p1]()
+
+
+## 如果父级没有定位
++ 子级会去找上一层的父级，直到 window
++ 直到找到有定位的父级，并以它为基础使用 % 单位
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>没有定位</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        /* 没有定位的父级 */
+        /* #div1{
+            width: 100px;height: 100px;
+            background-color: yellow;
+        } */
+
+        /* 有定位的父级 */
+        #div1{
+            width: 100px;height: 100px;
+            background-color: yellow;
+            margin-left: 100px;
+            position: relative;
+        }
+
+        #div2{
+            width: 100%;height: 100%;
+            background-color: green;
+            position: absolute;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">我是子级</div>
+    </div>
+</body>
+</html>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
