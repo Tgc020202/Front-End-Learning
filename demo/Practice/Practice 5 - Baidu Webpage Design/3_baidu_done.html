@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度 Baidu</title>
+
+    <style>
+        *{padding: 0;margin: 0;list-style: none;}
+
+        /* 上面部分 */
+        .topNode{
+            height: 60px;
+        }
+
+        .topNode ul{
+            float: right;
+            height: 100%;
+            line-height: 60px;
+        }
+
+        .topNode ul li{
+            float: left;
+            margin: 0 10px;
+        }
+
+        .topNode ul li a{
+            font-size: 12px;
+            color:#0f0e0f;
+        }
+
+        .topNode ul li a:hover{
+            color: #071a78;
+        }
+        .topNode .topMore{
+            width: 60px;height: 24px;
+            text-align: center;
+            line-height: 24px;
+            font-size: 13px;
+            color: white;
+            background-color: #1076ff;
+
+            margin-top: 18px;
+            margin-left: 14px;
+            margin-right: 12px;
+            float: right;
+        }
+
+        /* 中间部分 */
+        .centerNode{
+            width: 640px;height: 168px;
+            margin: 65px  auto 0;
+            /* 让logo呈现在中央 */
+            text-align: center;
+        }
+
+        .centerNode .searchNode{
+            width: 100%;height: 36px;
+            margin-top: 16px;
+        }
+
+        .centerNode .searchNode .leftNode{
+            width: 539px;height: 34px;
+            border: 1px solid #3286ff;
+            border-right: none;
+            float: left;
+        }
+
+        .centerNode .searchNode .leftNode input{
+            height: 100%;
+            width: 460px;
+            float: left;
+            border: none;
+            outline: none;
+            text-indent: 10px;
+        }
+
+        .centerNode .searchNode .leftNode .audioNode{
+            width: 38px;height: 100%;
+            float: left;
+            text-align: center;
+            margin-top: 6px;
+        }
+
+        .centerNode .searchNode .leftNode .lineNode{
+            width: 1px;height: 14px;
+            background-color: #191919;
+            opacity: 67%;
+            float: left;
+            margin-top: 10px;
+        }
+
+        .centerNode .searchNode .leftNode .cameraNode{
+            width: 40px;height: 100%;
+            float: left;
+            text-align: center;
+            margin-top: 6px;
+        }
+
+        .centerNode .searchNode .rightNode{
+            width: 100px;height: 100%;
+            float: left;
+            background-color: #3286ff;
+            cursor: pointer;
+
+            font-synthesis: 15px;
+            color: white;
+            text-align: center;
+            line-height: 36px;
+        }
+
+        /* 下面的部分 */
+        .bottomNode{
+            width: 100%;height: 201px;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+        }
+
+        .bottomNode .nameNode{
+            font-size: 12px;
+            color: #545454;
+            display: block;
+        }
+
+        .bottomNode ul{
+            height: auto;
+            margin-top: 20px;
+        }
+        .bottomNode ul li{
+            height: 12px;
+            display: inline;
+            margin: 0 12.5px;
+        }
+
+        .bottomNode ul li a{
+            font-size: 12px;
+            color: #91908f;
+        }
+
+        .bottomNode .bottomUL li{
+            font-size: 12px;
+            color:#91908f;
+            margin: 0 2px;
+        }
+        
+        .bottomNode .bottomUL .bottomLast{
+            margin-right: 22px;
+            background: url(images/icon1.png) 
+            no-repeat 98px;
+            padding-right:17px ;
+        }
+
+        .bottomNode .bottomUL .bottomLast2{
+            background: url(images/icon2.png) 
+            no-repeat 159px;
+            padding-right:17px ;
+        }
+    </style>
+</head>
+<body>
+    <!-- 上面的部分 -->
+    <div class="topNode">
+        <div class="topMore">更多产品</div>
+        <ul>
+            <li><a href="#">新闻</a></li>
+            <li><a href="#">hao123</a></li>
+            <li><a href="#">地图</a></li>
+            <li><a href="#">视频</a></li>
+            <li><a href="#">贴吧</a></li>
+            <li><a href="#">学术</a></li>
+            <li><a href="#">登录</a></li>
+            <li><a href="#">设置</a></li>
+        </ul>
+    </div>
+
+    <!-- 中间的部分 -->
+    <div class="centerNode">
+        <a href="#"><img src="images/baidu_icon.png" alt=""></a>
+        <div class="searchNode">
+            <div class="leftNode">
+                <input type="text" name="" id="">
+                <div class="audioNode">
+                    <a href="#"><img src="images/mic_icon.png" alt=""></a>
+                </div>
+                <div class="lineNode"></div>
+                <div class="cameraNode">
+                    <a href="#"><img src="images/camera_icon.png" alt=""></a>
+                </div>
+            </div>
+            <div class="rightNode">百度一下</div>
+        </div>
+    </div>
+
+    <!-- 最后的部分 -->
+    <div class="bottomNode">
+        <img src="images/baidu_qrcode.png" alt="">
+        <span class="nameNode">百度</span>
+        <ul>
+            <li><a href="#">把百度设为首页</a></li>
+            <li><a href="#">关于百度</a></li>
+            <li><a href="#">About Baidu</a></li>
+            <li><a href="#">百度推广</a></li>
+        </ul>
+        <ul class="bottomUL">
+            <li>©2019</li>
+            <li>Baidu</li>
+            <li><a href="#">使用百度前必读</a></li>
+            <li><a href="#">意见反馈</a></li>
+            <li class="bottomLast">京ICP证030173号</li>
+            <li class="bottomLast2">京公网安备11000002000001号</li>
+        </ul>
+    </div>
+
+
+
+</body>
+</html>
