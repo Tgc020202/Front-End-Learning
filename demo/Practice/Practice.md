@@ -48,15 +48,15 @@ Answer:
 > + myDiv 是父级，它的定位是绝对定位，所以 childDiv 子级是 inherit(跟随父级的定位)
 > + 子级的宽设置 50% 说明当子级的宽是父级的一半，高度也是一样的意思
 > + top 设置成 100% 说明子级与上面的距离(这里所谓的距离是指父级的上边框至我们创建子级的上边框)相等于 100% 的父级的高度，而 left 则是父级的宽度 
-> + ![practice1_p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/Practice/practice1_p1.PNG)
+> + ![practice1_p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/Practice/Practice1_KiteEffect/practice1_p1.PNG)
 
 
 #### Practice 2 - 色块布局
-+ ![practice2_p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/Practice/practice2_p1.PNG)
++ ![practice2_p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/Practice/Practice2_ColorBlockDesign/practice2_p1.PNG)
 + 根据图文使用 photoshop 计算像素和色号，做出一模一样的，图文
 
 Answer:
-+ ![practice2_p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/Practice/practice2_p2.PNG)
++ ![practice2_p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/Practice/Practice2_ColorBlockDesign/practice2_p2.PNG)
 ```
 <!DOCTYPE html>
 <html lang="en">
