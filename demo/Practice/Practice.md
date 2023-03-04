@@ -184,7 +184,7 @@ Answer:
 + 可使用 margin 外边距和 position:absolute 绝对定位进行调整位置
 
 Answer:
-+ ![practice3_p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/Practice/Practice%203%20-%20ColorBlockDesign%20II/practice3_p1.PNG)
++ ![practice3_p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/Practice/Practice%203%20-%20ColorBlockDesign%20II/practice3_p2.PNG)
 ```
 <!DOCTYPE html>
 <html lang="en">
