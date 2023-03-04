@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+
+    <style>
+        *{padding: 0;margin: 0;text-decoration: none;}
+
+        html{height:100%}
+        body{
+            background: url(images/background_1.jpg)
+            no-repeat center;
+            background-size: cover;
+            height: 100%;width: 100%;
+        }
+
+        .loginNode{
+            width: 677px;
+            height: 916px;
+            background-color: white;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -458px;
+            margin-left: -338.5px;
+
+            /* 圆角 */
+            border-radius: 10px;
+        }
+
+        .loginNode .loginTopText{
+            font-size: 50px;
+            line-height: 50px;
+            height: 50px;
+            text-align: center;
+            margin-top: 97px;
+        }
+
+        .loginNode .loginUserText{
+            font-size: 18px;
+            line-height: 18px;
+            height: 18px;
+            text-indent: 82px;
+            margin-top: 79px;
+        }
+        
+        .loginNode .loginUserNode{
+            width: 526px;height: 80px;
+            margin: 0 auto;
+            border-bottom: 3px solid #dbdbdb;
+            background: url(images/account.png) 
+            no-repeat 17px 28px;
+        }
+
+        .loginNode .loginUserNode .userInput{
+            height: 100%;
+            width: 468px;
+            float: left;
+            margin-left: 58px;
+            border: none;
+            outline: none;
+            line-height: 80px;
+
+            /* 字体 */
+            font-size: 22px;
+            color: #aeaeae;
+
+        }
+
+        .loginNode .loginPasswordText{
+            font-size: 18px;
+            line-height: 18px;
+            height: 18px;
+            text-indent: 82px;
+            margin-top: 79px;
+        }
+
+        .loginNode .loginPasswordNode{
+            width: 526px;height: 80px;
+            margin: 0 auto;
+            border-bottom: 3px solid #dbdbdb;
+            background: url(images/lock.png) 
+            no-repeat 17px 28px;
+        }
+
+        .loginNode .loginPasswordNode .passwordInput{
+            height: 100%;
+            width: 468px;
+            float: left;
+            margin-left: 58px;
+            border: none;
+            outline: none;
+            line-height: 80px;
+
+            /* 字体 */
+            font-size: 22px;
+            color: #aeaeae;
+        }
+
+        .loginNode .passwordForgot{
+            font-size: 19px;
+            height: 19px;
+            line-height: 19px;
+        }
+
+        .loginNode .passwordForgot a{
+            color:#676767;
+            float: left;
+            margin-left: 507px;
+            margin-top: 4px;
+        }
+
+        .loginNode .loginButton{
+            width: 526px;
+            height: 68px;
+            line-height: 68px;
+            margin: 0 auto;
+            border-radius: 34px;
+            background: url(images/loginbutton.png)
+            no-repeat repeat;
+            margin-top: 49px;
+
+            /* 字体 */
+            text-align: center;
+            font-size: 21px;
+            color: white;
+        }
+
+        .loginNode .loginThree{
+            text-align: center;
+            line-height: 20px;
+
+            /* 字体 */
+            font-size: 19px;
+            color: #9d9e96;
+            margin-top: 68px;
+        }   
+
+        .loginNode .loginOther{
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .loginNode .loginOther img{
+            margin: 0 10px;
+        }
+
+        .loginNode .signup{
+            text-align: center;
+            margin-top: 40px;
+            font-size: 19px;
+            color: #343724;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="loginNode">
+        <div class="loginTopText"><strong>登录</strong></div>
+        <div class="loginUserText">用户名</div>
+        <div class="loginUserNode">
+            <input type="text" name="" placeholder="请输入用户名" class="userInput">
+        </div>
+        <div class="loginPasswordText">密码</div>
+        <div class="loginPasswordNode">
+            <input type="text" name="" placeholder="请输入密码" class="passwordInput">
+        </div>
+
+        <div class="passwordForgot">
+            <a href="#">忘记密码?</a>
+        </div>
+
+        <div class="loginButton">登录</div>
+
+        <div class="loginThree">
+            <div>第三方登录</div>
+        </div>
+
+        <div class="loginOther">
+            <a href="#"><img src="images/wx_icon.png" alt=""></a>
+            <a href="#"><img src="images/ws_icon.png" alt=""></a>
+            <a href="#"><img src="images/fb_icon.png" alt=""></a>
+            <a href="#"><img src="images/ins_icon.png" alt=""></a>
+        </div>
+
+        <div class="signup">
+            <a href="#">立即注册</a>
+        </div>
+    </div>
+</body>
+</html>
