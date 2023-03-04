@@ -175,3 +175,92 @@ Answer:
 </html>
 ```
 > + CSS 部分就算设置属性而已，任何下面 body 的部分就算排列 div 的分成，区分父级子级
+
+
+#### Practice 3 - 色块高级布局
++ opacity 透明度 0 至 1
++ ![practice3_p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/Practice/Practice%203%20-%20ColorBlockDesign%20II/practice3_p1.PNG)
++ 根据图文使用 photoshop 计算像素和色号，做出一模一样的，图文
++ 可使用 margin 外边距和 position:absolute 绝对定位进行调整位置
+
+Answer:
++ ![practice3_p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/Practice/Practice%203%20-%20ColorBlockDesign%20II/practice3_p1.PNG)
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>色块高级布局</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        div{
+            /* 字体 */
+            text-align: center;
+            line-height: 24px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .container{
+            width: 287px;height: 198px;
+            background-color: #ffffcb;
+            border: 1px solid black;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -144.5px;
+
+            /* 透明度 */
+            opacity: 0.5;
+        }
+
+        .banner{
+            width: 273px;height: 24px;
+            background-color: #99cdff;
+            border:1px solid black;
+            margin: 28px 0 0 5px;
+        }
+
+        .content{
+            width: 169px;height: 76px;
+            background-color: #fecccb;
+            border: 1px solid black;
+            margin: 7px 0 0 5px;
+        }
+
+        .link{
+            width: 92px;height: 129px;
+            background-color: #acfcaf;
+            border: 1px solid black;
+            opacity: 0.3;
+            position: absolute;
+            top: 61px;
+            right: 8px;
+        }
+
+        .footer{
+            width: 273px;height: 22px;
+            background-color: #99cdff;
+            border: 1px solid black;
+            margin: 5px 0 0 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner">#banner</div>
+        <div class="content">#content</div>
+        <div class="link">#link</div>
+        <div class="footer">#footer</div>
+    </div>
+</body>
+</html>
+```
+
+
+
