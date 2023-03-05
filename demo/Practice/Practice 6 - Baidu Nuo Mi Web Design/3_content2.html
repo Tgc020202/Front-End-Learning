@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度糯米</title>
+
+    <style>
+        *{padding: 0;margin: 0;list-style: none;text-decoration: none;}
+
+        /* 最上层 */
+        .banner{
+            width: 100%;height: 40px;
+            background-color: #f2f2f2;
+        }
+
+        .banner .banner_content{
+            width: 1217px;
+            height: 100%;
+            margin: 0 auto;
+        }
+
+        .banner .banner_content ul{
+            float: left;
+            height: 100%;
+            line-height: 40px;
+        }
+
+        .banner .banner_content ul li{
+            float: left;
+            font-size: 14px;
+            color: #666666;
+            margin-right: 22px;
+        }
+
+        .banner .banner_content ul li a{
+            text-decoration: none;
+            color: #666666
+        }
+
+        .banner .banner_content ul li a.login{
+            color: #a98239
+        }
+
+        .banner .banner_content .rightNode{
+            float: right;height: 100%;
+        }
+
+        .banner .banner_content .rightNode li{
+            height: 100%;
+            line-height: 40px;
+            float: left;
+            font-size: 14px;
+            color: #666666;
+            margin-left: 22px;
+        }
+
+        .banner .banner_content .rightNode li a{
+            text-decoration: none;
+            color: #828282;
+        }
+
+        .banner .banner_content .rightNode li .down_arrow{
+            background: url(images/down_arrow.png) 
+            no-repeat 60px center;
+            margin-left: 2px;
+            padding-right: 20px;
+        }
+
+        .banner .banner_content .rightNode li.line{
+            height: 14px; width: 2px;
+            background-color: #e2e2e2;
+            margin-top: 14px;
+        }
+
+        /* 第二层 */
+        .topNode{
+            width: 1218px;height: 111px;
+            margin: 0 auto;
+        }
+
+        .topNode .logo{
+            float: left;
+            margin-top: 26px;
+        }
+
+        .topNode .topNode_ln{
+            float: left;
+            width: 67px;
+            height: 17px;
+            line-height: 17px;
+            font-size: 16px;
+            color: #242424;
+            text-indent: 18px;
+            background:url(images/location_pin.png)
+            no-repeat left top;
+            margin-top: 44px;
+            margin-left: 40px;
+        }
+
+        .topNode .topNode_ln a{
+            color: #242424;
+            padding-right: 16px;
+            background: url(images/down_arrow2.png) 
+            no-repeat 36px center;
+        }   
+
+        .topNode .topNode_center{
+            float: left;
+            width: 580px;
+            height: 100%;
+            margin-left: 74px;
+        }
+
+        .topNode .topNode_center .searchNode{
+            width: 100%;height: 41px;
+            float: left;
+            margin-top: 25px;
+        }
+
+        .topNode .topNode_center .searchNode .left{
+            width: 468px;height: 39px;
+            border: 1px solid #dfcca7;
+            border-right: none;
+            float: left;
+        }
+
+        .topNode .topNode_center .searchNode .left .inside_left{
+            width: 467px;height: 37px;
+            border: 1px solid #a97310;
+            border-right: none;
+
+        }
+
+        .topNode .topNode_center .searchNode .left .inside_left input{
+            width: 454px;height: 35px;
+            border: 1px solid #dfcca7;
+            border-right: none;
+            outline: none;
+            margin-left: 12px;
+        }
+
+        .topNode .topNode_center .searchNode .searchTo{
+            width: 110px;height: 100%;
+            float: left;
+            background-color: #c9a156;
+            color: white;
+            line-height: 39px;
+            text-align: center;
+            border-top-right-radius: 1px;
+            border-bottom-right-radius: 1px;
+        }
+
+        .topNode .topNode_center .search_ul{
+            height: 14px;
+            line-height: 14px;
+            margin: 9px 0 0 2px;
+            float: left;
+        }
+
+        .topNode .topNode_center .search_ul li{
+            float: left;
+            margin-left: 17px;
+        }
+
+        .topNode .topNode_center .search_ul li a{
+            color: #adadad;
+            font-size: 14px;
+        }
+
+        .topNode .rightNode_ul{
+            width: 149px;height: 37px;
+            border: 2px solid #f2ebde; 
+            float: left;
+            margin: 25px 0 0 12px;
+            background: #fff8eb;
+        }
+
+        .topNode .rightNode_ul li{
+            height: 100%;
+            width: 48px;
+            float:left;
+        }
+
+        .topNode .rightNode_ul li.t_1{
+            width: 49px;
+        }
+
+        .topNode .rightNode_ul li a{
+            width: 100%;height: 100%;
+            float: left;
+        }
+
+        .topNode .rightNode_ul li.t_1 a{
+            background: url(images/banner1.png) 
+            no-repeat center;
+        }
+        .topNode .rightNode_ul li.t_2 a{
+            background: url(images/banner2.png) 
+            no-repeat center;
+        }
+        .topNode .rightNode_ul li.t_3 a{
+            background: url(images/banner3.png) 
+            no-repeat center;
+        }
+        .topNode .rightNode_ul li.line{
+            height: 23px;width: 2px;
+            margin-top: 7px;
+            background-color: #efe5d1;
+        }
+
+
+        /* 第三层 */
+        .centerNode{
+            width:1218px;
+            height: 430px;
+            margin: 0 auto;
+        }
+
+        .centerNode .leftNode{
+            width: 235px;height: 100%;
+            float: left;
+        }
+
+        .centerNode .rightNode{
+            width: 983px;height: 100%;
+            float: left;
+        }
+
+        .centerNode .leftNode .topNode{
+            height: 44px;
+            width: 100%;
+            background: url(images/top_1_menu_icon.png)
+            no-repeat 198px center,#d2a95f;
+            float: left;
+
+            line-height: 44px;
+            font-size: 17px;
+            color: white;
+            text-indent: 17px;
+
+        }
+
+        .centerNode .leftNode .bottomNode{
+            height: 386px;
+            width: 100%;
+            background: #313131;
+            float: left;
+        }
+
+        .centerNode .leftNode .bottomNode .listNode li{
+            float: left;
+            height: 15px;
+            width: 100%;
+            line-height: 15px;
+            margin-top: 18px;
+            margin-bottom: 15px;
+        }
+
+        .centerNode .leftNode .bottomNode .listNode li .bigText{
+            float: left;
+            color: white;
+            margin-left: 17px;
+        }
+
+        .centerNode .leftNode .bottomNode .listNode li .smallText{
+            float: right;
+            color: #9e9e9e;
+            font-size: 13px;
+            margin-right: 17px;
+        }
+
+        .centerNode .rightNode .listBanner{
+            width: 100%;height: 42px;
+            border-bottom: 2px solid #b89253;
+            float: left;
+        }
+
+        .centerNode .rightNode .listBanner li{
+            float: left;
+            line-height: 42px;
+            height: 100%;
+        }
+
+        .centerNode .rightNode .listBanner li a{
+            padding: 0 30px;
+            color: #141414;
+            float: left;
+            height: 100%;
+        }
+
+        .centerNode .rightNode .listBanner li a.trip{
+            background: url(images/down_arrow.png) 
+            no-repeat 63px center;
+        }
+
+        .centerNode .rightNode .listBanner li a.movie{
+            background: url(images/hot_icon.png) 
+            no-repeat 63px 9px;
+        }
+
+        .centerNode .rightNode .picNode{
+            float: left;
+            width: 100%;
+            height: 374px;
+            margin-top: 12px;
+        }
+
+        .centerNode .rightNode .picNode a{
+            float: left;
+        }
+
+        .centerNode .rightNode .picNode a.pic1{
+            margin-left: 12px;
+        }
+
+        .centerNode .rightNode .picNode a.pic2{
+            margin-left: 12px;
+            margin-bottom: 12px;
+            height: 165px;
+        }
+
+        .centerNode .rightNode .picNode a.pic3{
+            margin-left: 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 最上面的部分 -->
+    <div class='banner'>
+        <div class="banner_content">
+            <ul>
+                <li>Hi! 欢迎来到百度糯米</li>
+                <li><a href="#" class="login">请登录</a></li>
+                <li><a href="#">免费注册</a></li>
+            </ul>
+
+            <ol class="rightNode">
+                <li><a href="#">个人中心</a></li>  
+                <li><a href="#" class="down_arrow">最近浏览</a></li>
+                <li class="line"></li> 
+                <li><a href="#" class="down_arrow">糯米APP</a></li>   
+                <li class="line"></li>      
+                <li><a href="#" class="down_arrow">我是商家</a></li>   
+                <li class="line"></li> 
+                <li><a href="#">帮助中心</a></li> 
+                <li><a href="#">食品安全</a></li>         
+            </ol>
+        </div>
+    </div>
+
+    <!-- 输入内容的部分 -->
+    <div class="topNode">
+        <a href="#">
+            <img src="images/baidunuomi.png" alt="" class="logo">
+        </a>
+        <div class="topNode_ln">
+            <a href="#">北京</a>
+        </div>
+
+        <div class="topNode_center">
+            <div class="searchNode">
+                <div class="left">
+                    <div class="inside_left">
+                        <input type="text" name="" placeholder="搜索商家/地点" id="">
+                    </div>
+                </div>
+                <a href="#" class="searchTo">搜索</a>
+            </div>
+            <ul class="search_ul">
+                <li><a href="#">自助火锅</a></li>
+                <li><a href="#">天鸿广场</a></li>
+                <li><a href="#">中医推拿按摩</a></li>
+                <li><a href="#">化妆</a></li>
+                <li><a href="#">钢琴培训</a></li>
+            </ul>
+        </div>
+        <ul class="rightNode_ul">
+            <li class="t_1"><a href="#"></a></li>
+            <li class="line"></li>
+            <li class="t_2"><a href="#"></a></li>
+            <li class="line"></li>
+            <li class="t_3"><a href="#"></a></li>
+        </ul>
+    </div>
+
+    <!-- 第二个内容部分 -->
+    <div class="centerNode">
+        <div class="leftNode">
+            <div class="topNode">全部分类</div>
+            <div class="bottomNode">
+                <ul class="listNode">
+                    <li>
+                        <span class="bigText">酒店</span>
+                        <span class="smallText">北京/上海/广州</span>
+                    </li>
+                    <li>
+                        <span class="bigText">旅游</span>
+                        <span class="smallText">目的地攻略/行程/计划</span>
+                    </li>
+                    <li>
+                        <span class="bigText">电影</span>
+                        <span class="smallText">看影片/找影院</span>
+                    </li>
+                    <li>
+                        <span class="bigText">休闲娱乐</span>
+                        <span class="smallText">KTV/温泉洗浴</span>
+                    </li>
+                    <li>
+                        <span class="bigText">结婚</span>
+                        <span class="smallText">婚纱摄影/婚庆服务</span>
+                    </li>
+                    <li>
+                        <span class="bigText">生活服务</span>
+                        <span class="smallText">配镜/鲜花</span>
+                    </li>
+                    <li>
+                        <span class="bigText">美食</span>
+                        <span class="smallText">小食/快餐/自助餐/火锅</span>
+                    </li>
+                    <li>
+                        <span class="bigText">丽人</span>
+                        <span class="smallText">美容/美发SPA/美甲</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="rightNode">
+            <ul class="listBanner">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">酒店</a></li>
+                <li><a href="#" class="trip">出行</a></li>
+                <li><a href="#" class="movie">电影</a></li>
+                <li><a href="#">结婚</a></li>
+                <li><a href="#">外卖</a></li>
+            </ul>
+            <div class="picNode">
+                <a href="#" class="pic1"><img src="images/advertisement3.png" alt=""></a>
+                <a href="#" class="pic2"><img src="images/advertisement1.png" alt=""></a>
+                <a href="#" class="pic3"><img src="images/advertisement2.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
