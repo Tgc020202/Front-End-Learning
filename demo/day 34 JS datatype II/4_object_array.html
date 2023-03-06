@@ -1,0 +1,36 @@
+<script>
+    var a = [1,2,3];
+    var b = [1,2,3];
+    var c = new Array(1,2,3);
+
+    console.log(a == b);    // false
+    console.log(a === b);   // false
+    console.log(b == c);    // false
+
+    /*
+        array 数组是对象，对象不能相同，所以全都是 false
+    */
+
+    // 另外的例子 1
+    var e = [1,2,3];
+    var f = e;
+    e.push(1);
+    console.log(f); // 1,2,3,1
+    
+
+    // 另外的例子 2
+    var g = [1,2,3];
+    function h(i){
+        i.push(1);
+    }
+    h(g);
+    console.log(g); // 1,2,3,1
+
+    // 另外的例子 3
+    var j =[1,2,3];
+    function k(l){
+        l = [4,5,6];
+    }
+    k(j);
+    console.log(j); // 1,2,3
+</script>

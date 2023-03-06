@@ -1,0 +1,17 @@
+<script>
+    var a = '123';
+    var b = '123';
+    var b1 = 123;
+    var c =  new String('123');
+    var c1 = new String('123');
+
+    alert(a == b);  //true
+    alert(a === b); //true
+    alert(a == b1);  //true
+    alert(a === b1); //false
+
+    alert(a == c);  //true
+    alert(b === c); //false, b = string, c = object
+    alert(c == c1); //false, 因为所有的对象是不相等的，只有字面量才可能相等
+
+</script>
