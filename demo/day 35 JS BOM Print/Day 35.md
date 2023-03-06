@@ -157,11 +157,167 @@ Example:
 
 
 #### JavaScript 的运算符
+##### 一个等号 = 
++ 赋值
 
+##### 两个等号 == 
++ 等同/等于
++ 两边值类型不同的时候，要先进行类型转换，再比较。
++ 返回 true or false
 
+##### 三个等号
++ 恒等/全等
++ 数据格式必须都一样才会返回 true，不然就是 false
 
+Example:
+```
+<script>
+    // 等于符号
+    var a = 10, b = 15, c = 20;
 
+    alert(a = b);   // 15
+    alert(a == b);  // true
+    alert(a = c);   // 20
+</script>
+```
 
+##### ```++ or --``` 符号
++ ```++ / --``` 放前面就会数值先发生变化
++ ```++ / --``` 放后面就会相反
 
+Example:
+```
+<script>    
+    // ++ 符号
+    var a = 10,b = 10;
 
+    alert(a++); // 先打印，再加一
+    alert(a)    // 变成 11 了
 
+    alert(++b); // 先加一，再打印出来
+
+    // -- 符号
+    var a = 10,b = 10;
+
+    alert(a--); // 先打印，再加一
+    alert(a)    // 变成 11 了
+
+    alert(--b); // 先加一，再打印出来
+</script>
+```
+
+##### ```+= or -= or *= or /= or %=``` 符号
++ ```a += 10``` 相当于 a = a + 10
++ 其他的种类也与 上述例子相同
+
+Example:
+```
+<script>    
+    // +=
+    var a = 10;
+    a += 1;
+    alert(a);   // 11
+
+    // -=
+    var a = 10;
+    a -= 1;
+    alert(a);   // 9
+
+    // *=
+    var a = 10;
+    a *= 10;
+    alert(a);   // 100
+
+    // /=
+    var a = 10;
+    a /= 2;
+    alert(a);   // 5
+
+    // %=
+    var a = 10;
+    a %= 2;
+    alert(a);   // 0
+</script>
+```
+
+##### 字符串与运算符的关系
+
+Example:
+```
+<script>
+    // 用 + 来连接字符串和数值
+    alert(1+'2');   // 12
+
+    // 用 * 来连接字符串和数值
+    alert(1*'2');   // 2
+
+    // 用 - 来连接字符串和数值
+    alert(1-'2');   // -1
+
+    // 用 / 来连接字符串和数值
+    alert(1/'2');   // 0.5
+
+    /* 总结: 除了加法，其他的都可以给字符串和数值进行算法 */
+
+</script>
+```
+
++ 字符串拼接，用 + 号来进行拼接
+
+Example:
+```
+<script>
+    alert(1+'2');   // 12
+    alert('1'+1+'1');   // 111
+    alert('大'+'呆呆');    // 大呆呆
+</script>
+```
+
++ 可将字符串使用 + 法以外的算法，使其变为数值类型
+
+Example:
+```
+<script>
+    alert(1+'2'*3); // 7
+    alert(typeof(1+'2'*3)); // number
+</script>
+```
+
+##### 比较 ```> or < or >= or <=```
++ 返回 true or false
+
+##### JS 的计算
++ 不是特别的精准
++ 有 bug
+
+Example:
+```
+<script>
+    alert(0.2 + 0.2);   // 0.4
+    alert(0.1 + 0.2);   // 0.30000000000000004
+</script>
+```
+
+##### 计算会从左到右进行
+
+Example:
+```
+<script>
+    alert(1 > 2 == false);  // true
+    alert(false === true);  // false
+
+    //   1 > 2 == false -> true
+    //   true === true -> true
+    alert(1 > 2 == false === true); // true
+
+    //   1 > 2 == false -> true
+    //   true (boolean) === true - 1 (number)-> false
+    alert(1 > 2 == false === true - 1); // false
+</script>
+```
+
+##### () 算法
++ 先算小括号里面的，再算外面的
+
+##### 优先级
++ 先算 * / % 才开始计算 + -
