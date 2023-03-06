@@ -1,0 +1,22 @@
+<script>
+
+/*
+    alert(100 < 100.00000000000001)   // true   13 个零
+    alert(100 < 100.000000000000001)  // false  14 个零
+*/
+/*
+    alert(0.2 + 0.2);   // 0.4
+    alert(0.1 + 0.2);   // 0.30000000000000004
+*/
+
+    alert(1 > 2 == false);  // true
+    alert(false === true);  // false
+
+    //   1 > 2 == false -> true
+    //   true === true -> true
+    alert(1 > 2 == false === true); // true
+
+    //   1 > 2 == false -> true
+    //   true (boolean) === true - 1 (number)-> false
+    alert(1 > 2 == false === true - 1); // false
+</script>
