@@ -94,7 +94,7 @@ Example:
 3. 布尔值 Boolean
 4. 函数 Function
 5. 对象 Object
-6. 没格式 Undefined
+6. 没定义 Undefined
 
 Example:
 ```
@@ -196,22 +196,83 @@ Example 2:
 > + 数组 array 的内存地址没有改变，所以例子 3 才不会有变化
 
 
+###### Boolean 布尔值
++ true -> 1
++ false -> 0
+
+Example:
+```
+<script>
+    console.log(true*false == 0);   // 1*0 == 0, true
+</script>
+```
+
+###### Function 函数
++ 函数也有长度 length，也就是它的参数
+形参 - 形式上的参数
+实参 - 实际上的参数
+
+Example:
+```
+<script>
+
+    function show(a,b,c){
+        console.log(show.length);   // 3
+    }
+
+    show(1);
+
+    /*
+        show 函数
+        形式上的参数为 3
+        实际上的参数为 1
+
+        function show(形参){
+            console.log(show.length);
+        }
+
+        show(实参);
+    */
+</script>
+```
 
 
+###### Undefined 没有定义
++ 就是没有定义
+
+Example:
+```
+<script>
+    var a;
+    console.log(typeof a);
 
 
+    console.log(undefined > null);     // false
+    console.log(undefined < null);     // false
+</script>
+```
+> + undefined 和 null 实际上差不多，所以没有大小区分
 
 
+#### this/self
++ 谁发生的事件，就是谁
++ 发生在某个东西下
 
+Example:
+```
+<script>
+    a = 20; // window.a = 20
+    var a = 5;  // window.a = 5
+    this.a = 10;    // window.a = 10
+    window.a = 15;  // window.a = 15
 
+    console.log(a); // 15
 
-
-
-
-
-
-
-
+    console.log(this);
+    console.log(self);
+    console.log(this == self);  // true
+</script>
+```
 
 
 
