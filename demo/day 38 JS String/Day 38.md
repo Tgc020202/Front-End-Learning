@@ -213,7 +213,18 @@ Example:
 </script>
 ```
 
+#### length
++ 返回字符串的长度
 
+Example:
+```
+<script>
+
+    var a = 'superman';
+
+    console.log(a.length);  // 8
+</script>
+```
 
 
 
