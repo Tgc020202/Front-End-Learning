@@ -23,7 +23,7 @@ Example:
 ##### 1.0 Location 地址
 + 可以查看地址 url 信息
 + Location
-![p5](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2028%20JS%20BOM/p5.PNG)
+![p5](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2028%20JS%20BOM/p2.PNG)
 
 ###### 1.1 href
 + 返回或者设置 url 地址
