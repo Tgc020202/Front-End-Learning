@@ -8,6 +8,7 @@
 + HTML 上面 所有的内容都是标签
 + 说明也会有 js 的标签
 + 写了 js 的标签就可以使用 js 的代码运行了
+
 Example:
 ```
 <script></script>
@@ -119,6 +120,7 @@ Example:
 ```
 
 + Special Case
+
 Example:
 ```
 <script>
@@ -224,6 +226,7 @@ Example (错误示范):
 > > + 只有有作用域的位置才会发生变量提升
 
 + 特别事件
+
 Example 1：
 ```
 <script>
