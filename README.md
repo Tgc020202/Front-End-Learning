@@ -46,11 +46,12 @@
 
 
 **新手**
-> 大家好，一起学习吧
-1. Let's start
-2. `https://github.com/Tgc020202`
+1. `https://github.com/Tgc020202`
+2. [练习题 Practice](https://github.com/Tgc020202/Front-End-Learning/tree/main/demo/Practice)
 
-###### 小工具
+
+
+###### Github 小工具
 ```
 git status
 git pull
