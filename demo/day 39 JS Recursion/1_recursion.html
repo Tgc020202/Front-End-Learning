@@ -1,0 +1,42 @@
+<script>
+/*
+    function a(){
+        console.log('haha');
+        a();
+    }
+    a();
+*/
+/*
+    // 使用递归替换(replace)所有字母
+    var input = 'mathematics';
+    var input2 = 'aaaaaaaaaaaaaa';
+
+    function getReplace(str,a,b){
+        if(str.indexOf(a) != -1){
+            str = str.replace(a,b);
+        }
+        else{
+            console.log(str);   // zathezatics
+            return;
+        }
+        getReplace(str,a,b);
+    }
+    getReplace(input,'m','z');
+    getReplace(input2,'a','b');
+*/
+
+    // 使用递归重复拼接字母
+    var input = 'smart';
+
+    function getRepeat(str,repeat_str,times,count){
+        if(count < times){
+            str = str.concat(' ' + repeat_str);
+        }
+        else{
+            console.log(str)
+            return;
+        }
+        getRepeat(str,repeat_str,times,++count);
+    }
+    getRepeat(input,input,5,1);
+</script>
