@@ -55,6 +55,7 @@ Example:
 
 ###### 1.1.6 大于小于 > <
 + 这个只会返回布尔值(true or false)
+
 Example:
 ```
 <script>
@@ -66,6 +67,7 @@ Example:
 
 ###### 1.1.7 大于等于 小于等于 >= <=
 + 这个只会返回布尔值(true or false)
+
 Example:
 ```
 <script>
@@ -79,6 +81,7 @@ Example:
 ###### 1.1.8 | 异或符号(XOR)
 + 位运算
 + 这个是二进制算法符号
+
 Example:
 ```
 <script>
@@ -96,6 +99,7 @@ Example:
 ###### 1.1.9 & 同或符号(XNOR)
 + 位运算
 + 这个是二进制算法符号
+
 Example:
 ```
 <script>
@@ -111,6 +115,7 @@ Example:
 
 ###### 1.1.10 bug
 + 小数点会有 bug
+
 Example:
 ```
 <script>
@@ -130,6 +135,7 @@ Example:
 
 ###### 1.2.1 特性
 + String 加上任何东西都会变成 string
+
 Example:
 ```
 <script>
@@ -162,6 +168,7 @@ Example:
 ###### 1.2.2 下标
 + 可以在 string 里使用下标 -> string[位置]
 + 当位置超出了范围就会等于 undefined
+
 Example:
 ```
 <script>
@@ -178,6 +185,7 @@ Example:
 > + 参数2 - 剪刀第几位，不包含自己
 + substring(参数1)
 > + 从参数1剪到最后
+
 Example:
 ```
 <script>
@@ -188,6 +196,7 @@ Example:
 
 + 方法2: charAt()
 + charAt(参数)
+
 Example:
 ```
 <script>
@@ -198,6 +207,7 @@ Example:
 ###### 1.2.4 大小写的变换
 + 大写: toUpperCase()
 + 小写: toLowerCase()
+
 Example:
 ```
 <script>
@@ -208,6 +218,7 @@ Example:
 
 ###### 1.2.4 字符串拼接 concat
 + concat(参数)
+
 Example:
 ```
 <script>
@@ -225,6 +236,7 @@ Example:
 + 参数1 - 要被替换的内容
 + 参数2 - 是替换的内容
 + 只能换一次，当有两个相同的，就会选择最前面的一个
+
 Example:
 ```
 <script>
@@ -239,6 +251,7 @@ Example:
 + indexOf(参数)
 + 会显示参数的位置
 + 如果没有此参数，就会返回 -1
+
 Example:
 ```
 <script>
@@ -252,6 +265,7 @@ Example:
 + abcdefg
 + 把 abcd 变成大写
 + 把 e 删了
+
 Example：
 ```
 <script>
@@ -266,6 +280,7 @@ Example：
 
 #### 1.3 Boolean 布尔值
 + true 等于 1, false 等于 0
+
 Example:
 ```
 <script>
@@ -279,6 +294,7 @@ Example:
 + 函数有默认的返回值，就是undefined
 + 有东西，但是没定义，也是undefined
 + undefined 相等于 null 是对的
+
 Example:
 ```
 <script>
@@ -286,6 +302,7 @@ Example:
 </script>
 ```
 + null 是从内存里面给清空了
+
 Example：
 ```
 <script>
