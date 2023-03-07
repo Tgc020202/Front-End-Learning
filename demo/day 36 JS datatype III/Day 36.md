@@ -167,3 +167,104 @@ Example:
 ```
 
 #### setInterval
++ 无限执行的定时器
++ 可以跟无限个参数
++ 第一个是函数
++ 第二个是执行的毫秒
++ 第三个是参数
+
+Example:
+```
+<script>
+
+    var a = 10;
+    var b = 20;
+    var c = 100;
+
+    setInterval(function (b, a) {
+        alert(a);
+    }, 1000, a, b);    // 一秒
+
+</script>
+```
+
+#### clearInterval
++ 暂停定时器
++ clearInterval(变量);
+
+Example:
+```
+<script>
+
+    var timer = null;
+    timer = setInterval(function(){
+        console.log(1);
+        onclick = function(){
+            clearInterval(timer);
+        }
+
+    },1);
+
+</script>
+```
+
+
+#### setTimeout
++ 设置定时器
+
+Example:
+```
+<script>
+
+    setTimeout(function(){
+        console.log(1);
+    },2000);    // 两秒后显示
+
+</script>
+```
+
++ 一旦第二个参数给的不正确，在 IE8+ 浏览器中会以 0 毫秒去执行
+
+Example:
+```
+<script>
+    setTimeout(function(){
+        console.log(2);
+    },'tgc');
+</script>
+```
+
++ 定时器会有误差
+> + JS 的特性: 会先把非定时器处理结束在进行定时器内的内容
+
+Example:
+```
+<script>
+    var a;
+    a = 5;
+    setTimeout(function(){
+        a = 10;
+    },0);
+    alert(a);   // 5
+
+    var b;
+    b = 5;
+    setTimeout(function(){
+        b = 10;
+    },-1);
+    alert(b);   // 5
+
+    var c;
+    c = 5;
+    setTimeout(function(){
+        c = 10;
+    },3);
+    alert(c);   // 5
+</script>
+```
+
+#### ScreenLeft
++ 浏览器距离最左边的距离
+
+#### ScreenTop
++ 浏览器距离最上面的距离
