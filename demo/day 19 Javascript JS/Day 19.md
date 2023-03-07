@@ -167,7 +167,7 @@ Example:
     alert(1);
 </script>
 ```
-![错误 2 p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20JS/p1.PNG)
+![错误 2 p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20JS/p2.PNG)
 
 
 #### 1.5 js 的作用域与Function(函数)
@@ -199,7 +199,7 @@ Example (错误示范):
 </script>
 
 ```
-+ ![错误示范 p3](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20JS/p1.PNG)
++ ![错误示范 p3](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20JS/p3.PNG)
 + 报错，因为 b 的变量是属于 tgc函数的，所以无法直接调出来使用
 
 #### 1.6 js 的解析
