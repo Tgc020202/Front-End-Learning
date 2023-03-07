@@ -1,0 +1,39 @@
+<script>
+
+    var a = 10;
+    var b = 20;
+
+    /*
+    // 前面满足，还是会继续往后检查
+    if(a == 10 && b == 20){
+        alert(1);
+    }
+    else{
+        alert(0);
+    }
+
+    // 一旦前面不满足就不往后看了
+    if(a == 100 && b == 20 && a == 10){
+        alert(1);
+    }
+    else{
+        alert(0);
+    }
+    */
+
+
+    // if-else 语句的另一种写法
+    if(window)alert(1); // 1
+
+    window && alert(1); // 1
+
+
+    window && 0 || alert(1);    // true
+    /*  因为前面的 window 是对的，
+        然后继续往后看，0 是错的，但是由于它的后方是 ||
+        因此就会往后继续进行判断，然后就把 1 打印出来了 */
+
+
+    alert(window && false || true? 2:3);    // 2
+    alert((window && false || true? 2:3) && (1?4:5));    // 4
+</script>

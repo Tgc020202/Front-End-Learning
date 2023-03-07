@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>! 符号的运用</title>
+    <style>
+        #myDiv{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        /*
+        // ! 号(不是)的运用
+        alert(true);    // true
+        alert(!true);   // false
+        */
+    
+        /*
+        alert(document.getElementById('myDiv'));    // null，因为 myDiv 的元素还没有完成生成
+        alert(!document.getElementById('myDiv'));    // true
+        */
+
+        onload = function(){
+            /*
+            alert(document.getElementById('myDiv'));    // 显示对象名称，因为已经完成生成
+            alert(!document.getElementById('myDiv'));   // false 
+            */
+
+            /*
+            var oDiv = document.getElementById('myDiv');
+            var oIpt = document.getElementById('ipt');
+            var a = true;
+
+            oIpt.onclick = function(){
+                a = !a;
+                a?oDiv.style.display = 'block':oDiv.style.display = 'none';
+            }
+            */
+        }
+
+        alert(1 != 10);     // true
+        
+
+    </script>
+
+    <input type="button" name="" value="show" id="ipt">
+    <div id="myDiv"></div>
+</body>
+</html>

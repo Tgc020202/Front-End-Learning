@@ -1,0 +1,30 @@
+<script>
+
+    var a = 10;
+    var b = 20;
+
+    /*
+    // 前面对了，就不往后看
+    if(a == 10 || b == 100){
+        alert(1);
+    }
+    else{
+        alert(0);
+    }
+
+    // 前面错了，就一直往后看直到对的为止
+    if(a == 100 || b == 100 || a == 10){
+        alert(1);
+    }
+    else{
+        alert(0);
+    }
+    */
+
+    alert(true || 100); //true
+    alert(false || 100);    // 100
+    alert(a = true || 100); // true
+    alert(a = false || 100);    // 100
+    alert(1?2:3 || 100);    // 2
+
+</script>
