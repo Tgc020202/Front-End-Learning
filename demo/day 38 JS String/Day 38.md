@@ -194,6 +194,7 @@ Example:
 + 替换
 + 第一个参数，要替换的东西
 + 第二个参数，替换成什么东西
++ 只会更改最前面的要替换的字符当里面有很多一样的字符
 
 Example:
 ```
@@ -201,7 +202,13 @@ Example:
 
     var a = 'superman';
 
-    console.log(a.replace('man','woman'));
+    console.log(a.replace('man','woman'));  // superwoman
+
+    var b = 'mathematics';
+    console.log(b.replace('m','z'));    // zathematics
+    
+    var c = 'aaaaaaaaaaaaaaa';
+    console.log(c.replace('a','b'));    // baaaaaaaaaaaaaa
 </script>
 ```
 
