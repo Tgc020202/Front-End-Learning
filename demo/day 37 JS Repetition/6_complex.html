@@ -1,0 +1,41 @@
+<script>
+
+    var f,l = 0;
+    var arr = [1,2,3];
+
+    [0,1,2,3].forEach(function(e){
+        for(var i = 0; i < 5 ; i ++){
+            for(var j = 0; j < 5 ; j ++){
+                while( f < 3 ){ // 出问题
+                    console.log('a');
+                    do{
+                        console.log(i+','+e+','+f+','+l+','+j);
+                        l++;
+                    }while(l<3);
+                    f++;
+                }
+            }
+        }
+    })
+    // 无法打印出来
+
+
+    var f,l = 0;
+    //  问题的所在
+    while(f < 3){
+        do{
+            console.log(1); // 无法打印
+            l ++;
+        }while(l < 3);
+        f ++;
+    }
+
+    // 解决
+    do{
+        console.log(l); // 0,1,2
+        while(f < 3){
+            f ++;
+        }
+        l ++;
+    }while(l < 3);
+</script>

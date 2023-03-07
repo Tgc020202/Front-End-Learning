@@ -1,0 +1,77 @@
+<script>
+
+/*
+    for(var i = 0; i < 10; i ++){
+        alert(i);
+    }
+*/
+/*
+    for(var i = 0; i < 10; i ++){}
+
+    alert(i);   // 10
+*/
+/*
+    // 可以使用逗号设置两个条件
+    // 一旦其中一个完成了，就会停止
+    for(var i = 0;i < 5,i < 3; i ++){
+    }
+    alert(i);   // 3
+*/
+/*
+    // 死循环
+    var i = 0;
+    for(;true;){
+        console.log(i);
+        i++;
+    }
+*/
+/*
+    // 双循环  -> 通常用于 matrix/table
+    for(var i = 0; i < 5; i ++){
+        for(var j = 0; j < 5; j ++){
+            console.log(i+','+j);
+        }
+    }
+*/
+/*
+    var arr = [1,2,3];
+    for(var i in arr){
+        console.log(i); // 0,1,2
+    }
+
+    var arr = [1,2,3];
+    for(var i in arr){
+        console.log(arr[i]); // 1,2,3
+    }
+*/
+/*
+    var string = 'abcde';
+    for(var i in string){
+        console.log(i); // 01,2,3,4
+    }
+
+    var string = 'abcde';
+    for(var i in string){
+        console.log(string.charAt(i));  // a,b,c,d,e
+    }
+
+    // 不兼容，有些浏览器，不支持
+    var string = 'abcde';
+    for(var i in string){
+        console.log(string[i]); // a,b,c,d,e
+    }
+*/
+
+    var json = {
+        'name' : 'tgc',
+        'age': '21',
+        'height':'175'
+    };
+    for(var i in json){
+        console.log(i);     // 'name','age','height'
+    }
+
+    for(var i in json){
+        console.log(json[i]);   // 'tgc','21','175'
+    }
+</script>
