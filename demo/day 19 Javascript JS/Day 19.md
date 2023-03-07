@@ -35,7 +35,7 @@ Example:
     console.log(a);
 </script>
 ```
-+ ![例子](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/p4.PNG)
++ ![p4](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20JS/p4.PNG)
 
 #### 1.3 js 的数据类型
 + js 的核心名为 ECMAScript -> ES
@@ -153,7 +153,7 @@ Example:
     adadas#adsa$()
 </script>
 ```
-![错误 1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/p1.PNG)
+![错误 1 p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20JS/p1.PNG)
 
 ###### 1.4.2 Runtime/Reference Error 运行错误
 + 之前的都执行，就是报错的那一句和那一句之后的都不执行了
@@ -167,7 +167,7 @@ Example:
     alert(1);
 </script>
 ```
-![错误 2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/p2.PNG)
+![错误 2 p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20JS/p1.PNG)
 
 
 #### 1.5 js 的作用域与Function(函数)
@@ -199,7 +199,7 @@ Example (错误示范):
 </script>
 
 ```
-+ ![错误示范](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20I/p3.PNG)
++ ![错误示范 p3](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2019%20Javascript%20JS/p1.PNG)
 + 报错，因为 b 的变量是属于 tgc函数的，所以无法直接调出来使用
 
 #### 1.6 js 的解析
