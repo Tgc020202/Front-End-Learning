@@ -330,7 +330,7 @@ Example:
 </html>
 ```
 
->> ![p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p1.PNG)
+>> ![p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20CSS%20Basic%20Introduction/p1.PNG)
 
 
 ## 如果父级没有定位
@@ -556,7 +556,7 @@ Example:
 </html>
 ```
 > + 会生成滚动条，用来显示多余的部分
-> > + ![p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p2.PNG)
+> > + ![p2](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20CSS%20Basic%20Introduction/p2.PNG)
 
 
 ## 行内元素 -> 块元素
@@ -640,21 +640,21 @@ Example:
 1. clear: none;
 + 默认值，允许左右两边的元素都有浮动对象
 + 左浮动
-> + ![p3](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p3.PNG)
+> + ![p3](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20CSS%20Basic%20Introduction/p3.PNG)
 + 右浮动
-> + ![p4](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p4.PNG)
+> + ![p4](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20CSS%20Basic%20Introduction/p4.PNG)
 
 2. clear: left;
 + 不允许左边的元素有浮动对象
 + 左浮动发生变化
-> + ![p5](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p5.PNG)
+> + ![p5](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20CSS%20Basic%20Introduction/p5.PNG)
 + 右浮动保持不变，不受影响
 
 3. clear: right;
 + 不允许右边的元素有浮动对象
 + 左浮动保持不变，不受影响
 + 有浮动发生变化
-> + ![p6](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p6.PNG)
+> + ![p6](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20CSS%20Basic%20Introduction/p6.PNG)
 
 4. clear: both;
 + 不允许任何一边的元素有浮动对象
@@ -756,12 +756,12 @@ Example:
 </html>
 ```
 > + link(还未访问过此链接，如果已经访问过了，就需要删除历史浏览记录，才可以重新触发): 红
-> > + ![p7](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p7.PNG)
+> > + ![p7](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20CSS%20Basic%20Introduction/p7.PNG)
 > + hover(鼠标放置在链接上): 蓝
-> > + ![p9](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p9.PNG)
+> > + ![p9](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20CSS%20Basic%20Introduction/p9.PNG)
 > + active(鼠标点击链接的时候): 青
-> > + ![p10](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p10.PNG)
+> > + ![p10](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20CSS%20Basic%20Introduction/p10.PNG)
 > + visited(已经访问过此链接): 浅蓝
-> > + ![p8](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20css%20basic%20intro/p8.PNG)
+> > + ![p8](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2033%20CSS%20Basic%20Introduction/p8.PNG)
 
 + 想要更加了解更多可以去看 [Day 5 CSS 基础语法](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2005%20css%20basic%20syntax/Day%2005.md) 的第一个部分
