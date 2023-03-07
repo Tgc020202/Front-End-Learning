@@ -1,0 +1,19 @@
+<script>
+
+    var a = 'SUPERMAN';
+
+    console.log(a.toLowerCase());   // superman
+
+    // 每相隔一个字母变小写
+    var b = '';
+
+    for(var i in a){
+        if(i % 2 == 0){
+            b += a.charAt(i).toLowerCase();
+        }
+        else{
+            b += a.charAt(i);
+        }
+    } 
+    console.log(b); // sUpErMaN
+</script>
