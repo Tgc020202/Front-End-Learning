@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按钮控制 div</title>
+
+    <style>
+        div#myDiv{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 10px 20px 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <button type="" id="btn_width">变宽</button>
+    <button type="" id="btn_height">变高</button>
+    <button type="" id="btn_green">变绿</button>
+    <button type="" id="btn_yellow">变黄</button>
+    <button type="" id="btn_reset">恢复</button>
+    <div id="myDiv"></div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+            当点击按钮就执行相应的命令
+            按钮 : 变宽，变高，变绿，变黄，恢复
+        */
+        btn_width.onclick = function(){
+            myDiv.style.width = '600px';
+        }
+
+        btn_height.onclick = function(){
+            myDiv.style.height = '600px';
+        }
+
+        btn_green.onclick = function(){
+            myDiv.style.background = 'green';
+        }
+
+        btn_yellow.onclick = function(){
+            myDiv.style.background = 'yellow';
+        }
+
+        btn_reset.onclick = function(){
+            myDiv.style.width = '200px';
+            myDiv.style.height = '200px';
+            myDiv.style.background = 'red';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开关交错</title>
+
+    <style>
+        *{padding: 0;margin: 0;}
+        #myDiv{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(71, 71, 71);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            display: none;
+        }
+        #controller{
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+    
+</head>
+<body>
+    <p id="controller">点击打开</p>
+    <div id="myDiv"></div>
+    <!-- JavaScript -->
+    <script>
+        /*
+            当点击字体 '点击打开' 就会生成灰色方块在中央，周围变成灰色
+            同时字体变为 '点击关闭'
+
+            当再点击字体 '点击关闭' 就会把方块取消，周围变回白色
+            同时字体变为 '点击打开'
+        */
+        
+        controller.onclick = function(){
+            if(myDiv.style.display == 'none'){
+                myDiv.style.display = 'block';
+                document.body.style.background = 'rgb(150, 150, 150)';
+                controller.innerHTML = '点击关闭';
+            }
+            else{
+                myDiv.style.display = 'none';
+                document.body.style.background = 'none';
+                controller.innerHTML = '点击打开';
+            }
+        }
+    </script>
+</body>
+</html>
