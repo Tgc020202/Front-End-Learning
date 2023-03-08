@@ -1,0 +1,50 @@
+<script>
+
+    // 字符串 123 去 321
+    var a = '123';
+
+
+    // 把字符串变为数组
+    // 方法一
+    var arr = [];
+    for(var i = 0 ; i< a.length ; i++){
+        arr.push(a.charAt(i));
+    }
+    console.log(arr);
+
+    // 方法二
+    var arr = a.split('');
+    console.log(arr);
+
+
+
+    // 变 321 
+    arr.sort(function(a,b){
+        return b-a;
+    });
+
+    console.log(arr);   // 321
+
+    // 最简单的方法 123 -> 321
+    var answer = a.split('').reverse().join('');
+    console.log(answer);    // 321
+
+
+
+
+    // 把数组变为字符串
+    var newArray = arr.join('');
+    console.log(newArray);
+
+
+
+    // 变 312
+    arr.splice(1,2,1,2);
+    console.log(arr);   // 312
+
+    // 把数组变为字符串
+    newArray = arr.join('');
+    console.log(newArray);
+
+
+</script>

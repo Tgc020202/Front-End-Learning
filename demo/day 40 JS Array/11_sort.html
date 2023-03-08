@@ -1,0 +1,35 @@
+<script>
+
+    var arr = [1,4,2,3];
+    console.log(arr.sort());    // [1,2,3,4]
+
+    var arr = [1400,200,30,4];
+    console.log(arr.sort());    // [1400,200,30,4]
+
+    var arr = [1,4,5,21];
+    console.log(arr.sort());    // [1,21,4,5]
+
+    // 矫正
+    var arr = [14,41,32,23];
+    console.log(arr.sort(function(a,b){
+        return a-b;
+    }));    // [1,2,3,14]
+
+    // 逆序
+    var arr = [1,14,2,3];
+    console.log(arr.sort(function(a,b){
+        return b-a;
+    }));    // [14,3,2,1]
+
+
+    var arr = ['a','c','d','b'];
+    console.log(arr.sort(function(a,b){
+        return a-b;
+    }));    // ['a','c','d','b']
+
+    var arr = ['a','c','d','b'];
+    console.log(arr.sort());    // ['a','b','c','d']
+
+    var arr = ['abc','aab','bcd','bca'];
+    console.log(arr.sort());    // ['aab','abc','bca','bcd']
+</script>
