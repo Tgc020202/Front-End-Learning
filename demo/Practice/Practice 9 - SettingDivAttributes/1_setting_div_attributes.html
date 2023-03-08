@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制 DIV 的属性</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        #oBtn{
+            width: 20px;
+            height: 20px;
+        }
+
+        #oDiv{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <select name="" id="oSelect" >
+            <option value="oWidth">Width</option>
+            <option value="oHeight">Height</option>
+            <option value="oBackground">Background</option>
+        </select>
+        <input type="text" name="" id="oIpt" placeholder="请输入属性值">
+        <button id="oBtn">变</button>
+    </div>
+
+    <div id="oDiv"></div>
+    <!-- JavaScript -->
+    <script>
+        oBtn.onclick = function(){
+            if(oIpt.value == ''){
+                if(oSelect.value == 'oWidth'){
+                    alert("请输入宽度(width)的值，不需要添加 px");
+                }
+                else if(oSelect.value == 'oHeight'){
+                    alert("请输入高度(height)的值，不需要添加 px");
+                }
+                else{
+                    alert("请输入颜色属性值，可以使用任何种类");
+                }
+            }
+            else if(oSelect.value == 'oBackground' || (oIpt.value.charCodeAt() >= 49 && oIpt.value.charCodeAt() <= 57)){
+                if(oSelect.value == 'oWidth'){
+                    oDiv.style.width = oIpt.value +'px';
+                }
+                else if(oSelect.value == 'oHeight'){
+                    oDiv.style.height = oIpt.value +'px';
+                }
+                else{
+                    oDiv.style.background = oIpt.value;
+                }
+            }
+            else{
+                alert("请输入有效的属性值");
+            }
+        }
+    </script>
+</body>
+</html>
