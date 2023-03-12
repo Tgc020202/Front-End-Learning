@@ -1,0 +1,27 @@
+<script>
+    d();    // 弹出 4
+    e();    // 无法弹出
+    var a = function (){
+        alert(1);
+    }
+    a();    // 弹出 1
+
+    function b (){
+        alert(2);   
+    }
+    b();    // 弹出 2
+
+
+    var c = 100;
+    function c (){
+        alert(3);
+    }
+    alert(c);   // 100
+
+
+    function d(){
+        alert(4);
+    }
+
+    var e = function(){alert(5);};
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数里的函数</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+
+/*
+        function show(){
+            return function(){
+                alert(1);
+            }
+        }
+
+        console.log(show);    // 返回函数内容
+
+        console.log(show());    // 返回 return 的内容，也就是另一个函数
+
+        show()();   // 成功被调用出来了
+*/
+/*
+        function AnotherShow(){
+            function show2 (){
+                alert(2);
+            }
+            return show2();
+        }
+        AnotherShow();  // 弹出 2
+*/
+
+        function AnotherShow(){
+            function show2 (){
+                alert(2);
+            }
+            return show2();
+        }
+        alert(AnotherShow());   // 弹出 2，接着弹出 undefined,因为 return 有默认值 = undefined
+    </script>
+</body>
+</html>

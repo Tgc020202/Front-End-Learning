@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设计给按钮执行函数的功能</title>
+</head>
+<body>
+    <input type="button" name="" id="ipt1" value="a">
+    <input type="button" name="" id="ipt2" value="b">
+    <input type="button" name="" id="ipt3" value="c">
+    <!-- JavaScript -->
+    <script>
+        // 函数的各种写法
+
+        function a (){alert(1)}
+        document.getElementById('ipt1').onclick = a;
+
+        
+        document.getElementById('ipt2').onclick = function(){alert(2)};
+
+
+        function c (){
+            return function(){
+                alert(3);
+            }
+        }   
+        document.getElementById('ipt3').onclick = c();
+    </script>
+</body>
+</html>
