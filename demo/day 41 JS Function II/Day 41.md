@@ -314,7 +314,7 @@ Example:
 </script>
 ```
 
-+ 跟多详情可以看回 [Day 29 的笔记](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2029%20JS%20Function%20&%20Web%20function/Day%2029.md)
++ 更多详情可以看回 [Day 29 的笔记](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2029%20JS%20Function%20&%20Web%20function/Day%2029.md)
 
 
 
