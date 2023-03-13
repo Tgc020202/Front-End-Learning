@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Break - 终止循环</title>
+    <title>Continue - 跳过</title>
 </head>
 <body>
-    <input><input><input>
-
     <!-- JavaScript -->
     <script>
-        for(var i = 0;i < 5;i ++){
-            if(i == 2)break;
+        for(var i = 0;i < 5; i ++){
+            if(i == 2)continue;
             alert(i);
         }
-        // 只打印 0, 1而已
+        // 除了 2，其他的数字都打印出来了
     </script>
 </body>
 </html>
