@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetition - for in</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <input type="text" name="" id="">
+    <input type="text" name="" id="">
+
+    <!-- JavaScript -->
+    <script>
+        var ipt = document.getElementsByTagName('input');
+        var arr = [ipt[0],ipt[1],ipt[2]];
+
+        /*
+        for(var i in ipt){  
+            alert(i);
+        }                   // 返回: 0,1,2,length,item,namedItem
+
+        for(var i in arr){  
+            alert(i);
+        }                   // 返回: 0,1,2
+        */
+
+        for(var i in ipt){
+            if(i == 'length' || i == 'item' || i == 'namedItem'){
+                continue;
+            }
+            else{
+                alert(i);
+            }
+        }                   // 返回: 0,1,2
+    </script>
+</body>
+</html>
