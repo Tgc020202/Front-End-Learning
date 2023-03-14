@@ -158,15 +158,56 @@ Example:
 ###### innerHTML 
 + 返回 DOM 的内容
 + 放 = 符号相当于赋予内容
++ 也可以直接使用 id 来调用 innerHTML
 
 Example:
 ```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - InnerHTML</title>
+</head>
+<body>
+    <div id="div1"></div>
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('div1').innerHTML = '<div></div>';    // 赋予内容
+        alert(document.getElementById('div1').innerHTML);     // 返回内容
 
+        div1.innerHTML = '呆呆';
+    </script>
+</body>
+</html>
 ```
 
+###### outerHTML
++ 返回 DOM 的内容和自己的内容
++ 放 = 符号相当于把自己给替换了
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom - outerHTML</title>
+</head>
+<body>
+    <div id="div1"></div>
 
-
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('div1').outerHTML = '<div id="haha"></div>';    // 赋予内容
+        alert(document.getElementById('div1').outerHTML);     // 返回空，因为 div1 被替换成 haha
+    </script>
+</body>
+</html>
+```
 
 
 
