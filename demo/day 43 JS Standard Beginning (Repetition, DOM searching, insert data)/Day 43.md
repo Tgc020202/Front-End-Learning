@@ -154,7 +154,15 @@ Example:
 ```
 
 
+#### DOM
+###### innerHTML 
++ 返回 DOM 的内容
++ 放 = 符号相当于赋予内容
 
+Example:
+```
+
+```
 
 
 
