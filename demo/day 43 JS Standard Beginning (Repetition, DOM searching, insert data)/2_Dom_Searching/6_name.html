@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过名字取得元素</title>
+</head>
+<body>
+    <div name="small">大呆瓜一号</div>
+    <div name="small">大呆瓜二号</div>
+
+    <!-- JavaScript -->
+    <script>
+        var a = document.getElementsByName('small');
+        alert(a[0].innerHTML);
+
+        document.getElementsByName('small')[1].innerHTML = '你好聪明';
+    </script>
+</body>
+</html>

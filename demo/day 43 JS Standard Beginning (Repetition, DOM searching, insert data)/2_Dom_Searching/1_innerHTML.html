@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom</title>
+    <title>DOM - InnerHTML</title>
 </head>
 <body>
+    <div id="div1"></div>
     <!-- JavaScript -->
     <script>
-        document.body.innerHTML = '<div></div>';
-        alert(document.body.innerHTML);
+        document.getElementById('div1').innerHTML = '<div></div>';    // 赋予内容
+        alert(document.getElementById('div1').innerHTML);     // 返回内容
+
+        div1.innerHTML = '呆呆';
     </script>
 </body>
 </html>

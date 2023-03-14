@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Children 子级</title>
+</head>
+<body>
+    <div id="a">
+        <div id="b">
+            <div id="b1"></div>
+            <p id="b2"></p>
+            <div id="b3"></div>
+        </div>
+        <div id="c"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        alert(a.children[0].id);    // b
+        alert(a.children[1].id);    // c
+
+        alert(a.children[0].children[2].id);    // b3
+    </script>
+</body>
+</html>
