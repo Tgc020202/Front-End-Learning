@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成元素</title>
+</head>
+<body>
+    <div id="bigDiv">
+
+    </div>
+    <!-- JavaScript -->
+    <script>
+        var a = document.getElementById('bigDiv');
+        var b = document.createElement('div');
+
+        b.id = 'smallDiv';
+        b.style.cssText = 'width:200px;height:200px;background:green;margin:10px;';
+
+        a.appendChild(b);
+        
+        // 这个新的子节点会插入到父级的最下面
+        var c = document.createElement('div');
+
+        c.id = 'smallDiv2';
+        c.style.cssText = 'width:200px;height:200px;background:black;margin:10px;';
+
+        a.appendChild(c);
+    </script>
+</body>
+</html>

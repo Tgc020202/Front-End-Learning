@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ 添加聊天行的方式</title>
+
+    <style>
+        #message{
+            width: 200px;
+            height: 400px;
+            border: 1px solid black;
+        }
+        #send{
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="message"></div>
+    <textarea name="" id="send" cols="30" rows="10" placeholder="输入框"></textarea>
+    <input type="button" name="" value="发送" id="btn">
+
+    <!-- JavaScript -->
+    <script>
+        btn.onclick = function(){
+            var a = document.createElement('div');
+            a.innerHTML = send.value;
+            message.appendChild(a);
+            send.value = '';
+        }
+    </script>
+</body>
+</html>

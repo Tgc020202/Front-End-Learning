@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标点击</title>
+    <style>
+        #clickme{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        #clickyou{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="clickme"></div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+        // 只触发一次
+        clickme.onclick = function(){
+            alert(1);
+        }
+
+        clickme.onclick = function(){
+            alert(1);
+        }
+        */
+
+        /*
+        // 有问题，解除不了
+        clickme.onclick = function(){
+            alert('傻乎乎的');
+            clickme.onclick = null;
+        }
+        */
+
+        clickme.onclick = function(){
+            alert(1);
+            this.id = 'clickyou';
+        }
+
+    </script>
+</body>
+</html>
