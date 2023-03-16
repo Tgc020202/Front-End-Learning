@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命周期</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        /*
+        // a 在作用域外，无法使用里面的 a
+        onload = function(){
+            var a = 10;
+            alert(a);   // 10
+        }
+        alert(a);   // 没有显示东西
+        */
+
+
+        /*
+        // 使用 setTimeout 延长 a 存活的时间
+        var a = 10;
+        function show(){
+            alert(a);
+        }
+
+        setTimeout(function(){
+            show();
+        },500000000);
+        */
+
+        /*
+        // window 可以让变量变为永远存在
+        window.c = 100;
+
+        setTimeout(function test(){
+            alert(c);   // 100
+        }, 100);
+        */
+
+        // 就算在不同的作用域也可以调用
+        function infinity(){
+            window.d = 100;
+        }
+        function run(){
+            alert(d);
+        }
+        run();
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取出属性</title>
+</head>
+<body>
+    <div id="div1" panda="cute"></div>
+
+    <div id="div2"></div>
+
+
+    <!-- JavaScript -->
+    <script>
+        div2.setAttribute('tgc','heyoo');
+
+
+        // getAttribute
+        alert(div1.panda);  // undefined
+        alert(div1.getAttribute("panda"));  // cute
+        alert(div2.getAttribute("tgc"));  // heyoo
+
+        alert(div2.getAttribute('id')); // div2
+    </script>
+</body>
+</html>
