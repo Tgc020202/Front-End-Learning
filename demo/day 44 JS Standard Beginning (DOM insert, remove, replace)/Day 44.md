@@ -236,7 +236,12 @@ Example:
 
 
 ###### 事件监听
+1. 添加事件监听
 + addEventListener('触发方式',function(){},false);
+
+2. 解除事件监听
++ removeEventListener('触发方式',函数名)
++ 必须要有函数名，才可以使用这个命令
 
 Example:
 ```
@@ -246,7 +251,7 @@ Example:
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>添加事件监听</title>
+    <title>事件监听</title>
     <style>
         #clickme{
             width: 100px;
@@ -260,6 +265,8 @@ Example:
 
     <!-- JavaScript -->
     <script>
+        /* addEventListener */
+        /*
         // 会触发两次
         clickme.addEventListener('click',function(){
             alert(1);
@@ -268,14 +275,28 @@ Example:
         clickme.addEventListener('click',function(){
             alert(1);
         },false);
+
+
+        addEventListener('load',function(){
+            alert('大呆呆');
+        },false);
+
+        addEventListener('load',function(){
+            alert('小呆呆');
+        },false);
+        */
+
+        /* removeEventListener */
+        function a(){
+            alert(1);
+            removeEventListener('click',a);
+        }
+
+        addEventListener('click',a,false);
     </script>
 </body>
 </html>
 ```
-
-
-
-
 
 
 
