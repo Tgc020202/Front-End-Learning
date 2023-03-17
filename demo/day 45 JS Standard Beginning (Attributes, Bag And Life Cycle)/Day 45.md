@@ -175,7 +175,8 @@ Example:
 + 一旦没有使用了就死了(不能使用)
 
 Example:
-`<!DOCTYPE html>
+```
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -227,8 +228,7 @@ Example:
         run();
     </script>
 </body>
-</html>``
-
+</html>
 ```
 
 
