@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义选项卡</title>
+    <style>
+        span{
+            font: 16px 
+            Arial,Helvetica,sans-serif;
+            color: black;
+            padding-left: 50px;
+        }
+        .div1{
+            width: 100px;height: 100px;
+            background: url(images/1.png)
+            no-repeat left top;
+            margin: 10px 0 0 25px;
+            cursor: pointer;
+            padding-left: 50px;
+        }
+        .div2{
+            width: 100px;height: 100px;
+            background: url(images/3.png)
+            no-repeat left top;
+            float: left;
+            margin: 10px 0 0 25px;
+            cursor: pointer;
+        }
+        #arrange{
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <span>1. 你是男生还是女生？</span>
+    <br>
+    <span>(点击图片切换性别)</span>
+    <div id="arrange">
+        <div class="div1"></div>
+    </div>
+    
+
+    
+    <span class="span2">2. 你喜欢什么角色多一些？</span>
+    <br>
+    <span>(越多的图片代表越喜欢)</span>
+    <div id="arrange">
+        <div class="div2"></div>
+        <div class="div2"></div>
+        <div class="div2"></div>
+        <div class="div2"></div>
+        <div class="div2"></div>
+    </div>
+    
+
+    <!-- JavaScript -->
+    <script>
+        var div1 = document.getElementsByClassName('div1');
+        var count = 0;
+
+        div1[0].onclick = function(){
+            if(count%2 == 1){
+                div1[0].style.background = 'url(images/1.png) no-repeat left top';
+            }
+            else{
+                div1[0].style.background = 'url(images/2.png) no-repeat left top';
+            }
+            count ++;
+        }
+
+
+        var div2 = document.getElementsByClassName('div2');
+        var times = [0,0,0,0,0];
+
+        for(var i = 0; i < div2.length ; i++){
+            div2[i].onclick = function(){
+                if(this.classList.contains('new')){
+                    this.style.background = 'url(images/3.png) no-repeat left top';
+                    this.classList.remove('new');
+                }
+                else{
+                    this.style.background = 'url(images/4.png) no-repeat left top';
+                    this.classList.add('new');
+                }
+            }
+        }
+    </script>
+</body>
+</html>

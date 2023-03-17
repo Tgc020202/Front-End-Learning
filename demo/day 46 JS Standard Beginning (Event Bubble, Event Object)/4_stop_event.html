@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取消事件冒泡方法二</title>
+
+    <style>
+        #big{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        #small{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="big">
+        <div id="small"></div>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        // 父级的事件子级也会继承
+        big.onclick = function(){
+            alert('haha');
+        }
+
+        // 取消事件冒泡
+        small.onclick = function(e){
+            var ev = e || event;
+            ev.stopPropagation();
+        }
+    </script>
+</body>
+</html>
