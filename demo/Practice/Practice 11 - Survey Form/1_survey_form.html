@@ -22,6 +22,14 @@
         }
         .div2{
             width: 100px;height: 100px;
+            background: url(images/2.png)
+            no-repeat left top;
+            margin: 10px 0 0 25px;
+            cursor: pointer;
+            padding-left: 50px;
+        }
+        .div3{
+            width: 100px;height: 100px;
             background: url(images/3.png)
             no-repeat left top;
             float: left;
@@ -43,46 +51,51 @@
     
 
     
-    <span class="span2">2. 你喜欢什么角色多一些？</span>
+    <span>2. 你喜欢什么角色多一些？</span>
     <br>
     <span>(越多的图片代表越喜欢)</span>
     <div id="arrange">
-        <div class="div2"></div>
-        <div class="div2"></div>
-        <div class="div2"></div>
-        <div class="div2"></div>
-        <div class="div2"></div>
+        <div class="div3"></div>
+        <div class="div3"></div>
+        <div class="div3"></div>
+        <div class="div3"></div>
+        <div class="div3"></div>
     </div>
     
 
     <!-- JavaScript -->
     <script>
+
         var div1 = document.getElementsByClassName('div1');
-        var count = 0;
 
         div1[0].onclick = function(){
-            if(count%2 == 1){
-                div1[0].style.background = 'url(images/1.png) no-repeat left top';
-            }
-            else{
-                div1[0].style.background = 'url(images/2.png) no-repeat left top';
-            }
-            count ++;
+            div1[0].classList.toggle('div2');
         }
 
 
-        var div2 = document.getElementsByClassName('div2');
-        var times = [0,0,0,0,0];
 
-        for(var i = 0; i < div2.length ; i++){
-            div2[i].onclick = function(){
-                if(this.classList.contains('new')){
+        var div3 = document.getElementsByClassName('div3');
+
+        for(var i = 0; i < div3.length ; i++){
+            div3[i].onclick = function(){
+                if(this.classList.contains('lianyu')){
+                    this.style.background = 'url(images/4.png) no-repeat left top';
+                    this.classList.remove('lianyu');
+                    this.classList.add('yiyong');
+                }
+                else if(this.classList.contains('yiyong')){
+                    this.style.background = 'url(images/5.png) no-repeat left top';
+                    this.classList.remove('yiyong');
+                    this.classList.add('hudie');
+                }
+                else if(this.classList.contains('hudie')){
                     this.style.background = 'url(images/3.png) no-repeat left top';
-                    this.classList.remove('new');
+                    this.classList.remove('hudie');
+                    this.classList.add('lianyu');
                 }
                 else{
                     this.style.background = 'url(images/4.png) no-repeat left top';
-                    this.classList.add('new');
+                    this.classList.add('yiyong');
                 }
             }
         }
