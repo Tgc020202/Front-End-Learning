@@ -7,11 +7,14 @@
     <title>in 的使用</title>
 </head>
 <body>
-    <div id="haha"></div>
 
+    <div id="haha" tgc="wow"></div>
     <!-- JavaScript -->
     <script>
         console.log('id' in document.body); // true
+        console.log('className' in document.body); // true
+        console.log('tgc' in haha); // false
+
     </script>
 </body>
 </html>
