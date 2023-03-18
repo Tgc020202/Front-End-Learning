@@ -36,7 +36,7 @@ Example:
 + 开始找图片，然后下载
 
 Example:
-> ![p1]()
+> ![p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2047%20JS%20Standard%20Beginning%20(bracket%2C%20window%20picture)/Images/p1.PNG)
 
 
 
