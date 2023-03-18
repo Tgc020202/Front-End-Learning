@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标移动到某个单位就会显示其资讯</title>
+    <style>
+        *{padding: 0;margin: 0;text-decoration: none;list-style: none;}
+        .parentDiv{
+            width: 626px;
+            height: 800px;
+            background-color: rgb(26, 196, 151);
+            border: 1px solid black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -400px 0 0 -310px;
+            border-radius: 2%;
+
+            /* text */
+            text-align: center;
+            font-size: 32px;
+            font-weight: border;
+            line-height: 98px;
+        }
+        .parentDiv .childrenDiv{
+            width: 200px;
+            height: 100px;
+            background-color: rgb(8, 200, 63);
+            border: 1px solid black;
+            border-radius: 25%;
+            margin:5px;
+            float: left;
+        }
+        .parentDiv .middlechildrenDiv{
+            width: 200px;
+            height: 100px;
+            background-color: rgb(8, 200, 63);
+            border: 1px solid black;
+            border-radius: 25%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            float: left;
+        }
+        #content{
+            width: 588px;
+            height: 660px;
+            background-color: rgb(24, 175, 137);
+            border: 1px solid black;
+            border-radius: 2%;
+            position: relative;
+            left: 50%;
+            margin-top: 122px;
+            margin-left: -294px;
+        }
+        .parentDiv .childrenDiv li{
+            text-decoration: none;
+        }
+        .hover{
+            color: rgb(13, 102, 198);
+            border-radius: 25%;
+            border: 1px solid black;
+            background-color: rgb(198, 201, 15);
+        }
+        .content div{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="parentDiv">
+        <div class="childrenDiv">
+            <li>JavaScript</li>
+        </div>
+        <div class="middlechildrenDiv">
+            <li>CSS</li>
+        </div>
+        <div class="childrenDiv">
+            <li>HTML</li>
+        </div>
+        <div id="content">
+            <div>我是 JavaScript</div>
+            <div>我是 CSS</div>
+            <div>我是 HTML</div>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        var allLi = document.getElementsByTagName('li');
+        var contentDiv = content.children;
+
+        for(var i = 0 ; i < allLi.length ; i++){
+            allLi[i].setAttribute('count',i);
+        }
+
+        for(var i = 0; i < allLi.length ;i++){
+            allLi[i].onmouseover = function(){
+                for(var j = 0; j < allLi.length ;j++){
+                    allLi[j].className = 'nothing';
+                    contentDiv[j].style.display = 'none';
+                }
+                this.className = 'hover';
+                contentDiv[this.getAttribute('count')].style.display = 'block';
+            }
+        }
+
+
+    </script>
+</body>
+</html>
