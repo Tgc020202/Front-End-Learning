@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机数字且不重复</title>
+    <style>
+        #div1{
+            width: 600px;
+            height: 600px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" name="" value="start" id="btn1">
+    <input type="button" name="" value="stop" id="btn2">
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        var arr = [];
+
+        function random(min,max){
+            return parseInt(Math.random()*(max-min))+min;
+        }
+        
+        var timer = null;
+
+        btn1.onclick = function(){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                arr = [];
+                for(var i = 0 ; true ; i++){
+                    var num = random(9,23);
+
+                    if(arr.indexOf(num) == -1){
+                        arr.push(num);
+                    }
+                    
+                    if(arr.length == 6){
+                        break;
+                    }
+                }
+                document.getElementById('div1').innerHTML = arr;
+            },300);
+        }
+
+        btn2.onclick = function(){
+            clearInterval(timer);
+        }
+    </script>
+</body>
+</html>

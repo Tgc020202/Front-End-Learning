@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比大小</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="text" name="" value="" id="ipt1">
+    <input type="text" name="" value="" id="ipt2">
+    <input type="button" name="" value="Compare" id="btn">
+
+    <!-- JavaScript -->
+    <script>
+        var ipt1 = document.getElementById('ipt1'),
+        ipt2 = document.getElementById('ipt2'),
+        btn = document.getElementById('btn');
+        
+        
+
+        ipt1.onkeydown = function(event){
+            
+            // console.log(event);
+            // 0 -> 48, 9 -> 57, - -> 189
+            if(event.keyCode < 48 || event.keyCode > 57 && event.keyCode != 189){
+                return false;
+            }
+        }
+
+        btn.onclick = function(){
+            if(ipt1.value == '' || ipt2.value == ''){
+                alert('请输入数字在框框');
+            }
+            else if(parseInt(ipt1.value) > parseInt(ipt2.value)){
+                alert(ipt1.value + ' 比较大');
+            }
+            else if(Number(ipt1.value) < Number(ipt2.value)){
+                alert(ipt2.value + ' 比较大');
+            }
+            else{
+                alert("两边相等");
+            }
+        }
+
+    </script>
+</body>
+</html>

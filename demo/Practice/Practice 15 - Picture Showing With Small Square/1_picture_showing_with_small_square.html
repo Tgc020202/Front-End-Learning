@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>各自展示图片</title>
+    <style>
+        *{padding: 0;margin: 0;text-decoration: none;list-style-type: none;}
+        
+        p{
+            background: url(Images/pic1.png) no-repeat;
+        }
+        
+        div#div1{
+            width: 502px;
+            height: 502px;
+            border: 1px solid black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -260px;
+            margin-left: -260px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <input type="button" name="" value="Reset" id="btn">
+    <div id="div1"></div>
+    <!-- JavaScript -->
+    <script>
+
+        function run(){
+            
+            for(var i = 0 ; i < 10 ; i++){
+                for(var j = 0 ; j < 10 ; j++){
+                    var op = document.createElement('p');
+
+                    // 设置属性
+                    op.style.cssText = 'width:50px; height:50px; border:1px solid white; position:absolute;';
+                    op.style.left = 50 * j + 'px';
+                    op.style.top = 50 * i + 'px';
+
+                    // 图片定位
+                    op.style.backgroundPosition = (-j*50) +'px '+ (-i*50) +'px';
+                    op.style.opacity = '0';
+                    
+                    
+                    // 事件触发
+                    op.onmouseover = function(){
+                        this.style.opacity = '1';
+                    }
+
+                    btn.onclick = function(){
+                    }
+
+                    div1.appendChild(op);
+                }
+            }
+        }
+        run();
+
+        btn.onclick = function(){
+            location.reload();
+        };
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评分</title>
+    <style>
+        *{padding: 0;margin: 0;list-style: none;text-decoration: none;}
+
+        li{
+            width: 50px;
+            height: 50px;
+            float: left;
+            margin-left: 10px;
+            margin-top: 25px;
+            opacity: 50%;
+            background: url(Images/star_dark.png)
+            no-repeat 0 center;
+        }
+        div#div1{
+            width: 310px;
+            height: 100px;
+            border: 1px solid black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -155px;
+            margin-top: -50px;
+        }
+        .show{
+            opacity: 100%;
+            background: url(Images/star_bright.png)
+            no-repeat 0 center;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        var allLi = document.getElementsByTagName('li');
+
+        for(var i = 0 ; i < allLi.length ; i++){
+            allLi[i].setAttribute('count',i);
+
+            allLi[i].onmouseover = function(){
+                var j = 1,k = allLi.length - 1;
+                var detectDark = true,detectBright = true;
+
+                // 当前面的星星是暗的，就使添加类名(show)的条件语句无法实行
+                while(j <= this.getAttribute('count')){
+                    if(allLi[j - 1].className == ''){
+                        detectDark = false;
+                    }
+                    j++;
+                }
+
+                // 当后面的星星是亮的，就使删除类名(show)的条件语句无法实行
+                while(k > this.getAttribute('count')){
+                    if(allLi[k].className == 'show'){
+                        detectBright = false;
+                    }
+                    k--;
+                }
+
+                if(this.className == '' && detectDark){
+                    this.className = 'show';
+                }
+                else if(this.className == 'show' && detectBright){
+                    this.className = '';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
