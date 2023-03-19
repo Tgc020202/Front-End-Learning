@@ -8,13 +8,19 @@
 </head>
 <body>
 
-    <div id="haha" tgc="wow"></div>
+    <div id="haha" class="div1" tgc="wow"></div>
     <!-- JavaScript -->
     <script>
+        var a = document.getElementById('haha');
         console.log('id' in document.body); // true
         console.log('className' in document.body); // true
-        console.log('tgc' in haha); // false
+        console.log('class' in a); // false
+        console.log('tgc' in a); // false
+        console.log('id' in a); // true
 
+
+        var attr = a.getAttribute('tgc');
+        console.log('attr' in a);   // false
     </script>
 </body>
 </html>

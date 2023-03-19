@@ -1,0 +1,10 @@
+<script>
+    window.b = 100;
+
+    // 证明预解析会在当前作用域下提前，跟全局没有关系
+    function a(){
+        alert(b);   // undefined
+        var b = 10;
+    }
+    a();
+</script>

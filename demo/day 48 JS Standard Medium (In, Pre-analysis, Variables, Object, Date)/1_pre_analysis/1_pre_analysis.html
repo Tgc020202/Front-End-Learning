@@ -13,6 +13,19 @@
         /* 这个位置有一个隐形的 var = a，所以打印出来的结果是 undefined */
         alert(a);   // undefined
         var a = 10;
+
+        // 证明 b 一开始并就在 window 上
+        console.log('b' in window);   // true
+        console.log(b);     // undefined
+        var b = 10;   // 因为是在 window 创建的变量，所以才会 true
+
+        // 可使用函数将其与 window 隔开
+        onload = function(){
+            // 证明 c 一开始并不在 window 上
+            console.log('c' in window);   // false
+            console.log(c);     // undefined
+            var c = 10;
+        }
     </script>
 </body>
 </html>
