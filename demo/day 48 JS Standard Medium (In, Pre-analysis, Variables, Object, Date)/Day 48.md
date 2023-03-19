@@ -1,11 +1,11 @@
 ## JavaScript - Standard Medium
 
-#### 回收变量的方式
+### 回收变量的方式
 + 设定变量为 null
 + 预解析
 + 对象引用
 
-###### 预解析
+#### 预解析
 + 就是把 var 的变量在这块作用域下提前
 + 变量虽然提前了，但是没有在 window 上
 
@@ -154,7 +154,48 @@ Example 2:
 ```
 > + Example 1 与 Example 2 相当于同一个概念
 
+#### 对象引用
++ 对象两个机制:
+1. 引用
+2. 可以给予私有属性
 
+Example 1(Array 数组对象):
+```
+<script>
+    var a = [1,2,3];
+
+    var b = a;
+    b.push(100);
+
+    console.log(a); // [1,2,3,100]
+</script>
+```
+
+Example 2(Date 时间对象):
+Example:
+```
+<script>
+    var a = new Date();
+
+    var b = a;
+    b.setMonth(2);
+
+    console.log(a.getMonth());  // 2
+</script>
+```
+
+
+Example 3(String 字符对象):
+```
+<script>
+    var a = new String('123');
+
+    var b = a;
+    // 给予私有属性
+    b.a = 10;
+    alert(a.a); // 10
+</script>
+```
 
 
 
@@ -263,7 +304,8 @@ Example:
 </script>
 ```
 
-+ 使用 getTime() 计算时间
+###### getTime()
++ getTime() 是从 1970 年 1 月 1 日 00:00:00 到现在经过的毫秒，相当于时间戳
 
 Example:
 ```
@@ -276,18 +318,176 @@ Example:
     var minute = parseInt(second/60);
     var hour = parseInt(minute/60);
     var day = parseInt(hour/24);
-    var year = parseInt(day/365);
+    var month = parseInt(day/30);
+    var year = parseInt(month/12);
 
     // 重新赋值给最大值以外的
     var second = a % 1000 % 60;
     var minute = a % 1000 % 60 % 60;
     var hour = a % 1000 % 60 % 60 % 24;
-    var day = a % 1000 % 60 % 60 % 24 % 365;
+    var day = a % 1000 % 60 % 60 % 24 % 30;
+    var month = a % 1000 % 60 % 60 % 24 % 30 % 12;
 
 
     console.log('时间 : ' + year + '年' + day + '天' + hour + '时' + minute + '分钟' + second + '秒');
-    
+    // 1970.1.1 00:00:00 全世界统一的时间的开始
 </script>
 ```
+
+###### getFullYear()
++ 返回当前的年数
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getFullYear());   
+</script>
+```
+
+###### getMonth()
++ 返回当前月份
++ 从 0 开始计算
++ 例如，一月就会显示 0
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getMonth());      
+</script>
+```
+
+
+###### getDate()
++ 返回当前日数
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getDate());      
+</script>
+```
+
+
+###### getHours()
++ 返回当前的小时数
++ 24 小时计算
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getHours());      
+</script>
+```
+
+###### getMinutes()
++ 返回当前的分钟
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getMinutes());      
+</script>
+```
+
+###### getSeconds()
++ 返回当前的秒数
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getMinutes());      
+</script>
+```
+
+###### getDay()
++ 返回星期几
++ 0 相当于星期日
++ 1 ~ 6 相当于星期一至六
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getDay());      
+</script>
+```
+
+###### setMonth()
++ 改变月份成当前的 + 或者 - 的多少个月
++ setMonth(月份的数量)
++ 比如，setMonth(0); 
+> + 设置为0，相当于一月份
+
+Example:
+```
+<script>
+    var a = new Date();
+    // 设置月份
+    a.setMonth(5);
+    console.log(a.getMonth());  // 5
+
+    var a = new Date();
+    a.setMonth(24); // 相当于两年
+    // 当前年份为 2023，但是加了24个月，就变成了2025
+    console.log(a.getFullYear());    // 2025
+
+
+    var a = new Date();
+    a.setMonth(-24); // 相当于倒退两年
+    // 当前年份为 2023，但是减去24个月，就变成了2021
+    console.log(a.getFullYear());    // 2023
+
+
+</script>
+```
+
+###### set所有的都有
++ set 结束后，get 就会获取刚刚 set的东西
++ setDate()
+> + 改变日数
++ setTime()
+> + 改变毫秒
++ setFullYear()
+> + 改变年数
++ setHours()
+> + 改变时数
++ setMinutes()
+> + 改变分
++ setSeconds()
+> + 改变秒数
+
+Example:
+```
+<script>
+    var a = new Date();
+    a.setTime(2);
+    a.setFullYear(520);
+    a.setHours(9);
+    a.setMinutes(2);
+    a.setSeconds(3);
+    a.setDate(1314);
+    
+    console.log(a.getTime());
+    console.log(a.getFullYear());
+    console.log(a.getHours());
+    console.log(a.getMinutes());
+    console.log(a.getSeconds());
+    console.log(a.getDate());
+</script>
+```
+
 
 
