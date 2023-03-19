@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>返回时间</title>
+</head>
+<body>
+    <div id="div1"></div>
+    <!-- JavaScript -->
+    <script>
+        // var a = new Date(); // 要把它放进去循环里，如果放置在这里，时间不会实时更新
+
+        setInterval(function(){
+            var a = new Date();
+
+            var year = a.getFullYear();
+            var month = toTwoValues(a.getMonth() + 1);
+            var days = toTwoValues(a.getDate());
+            var hour = toTwoValues(a.getHours());
+            var minute = toTwoValues(a.getMinutes());
+            var second = toTwoValues(a.getSeconds());
+            var day = dayToDay(a.getDay());
+
+            if(hour > 12){
+                hour -= 12;
+            }
+
+            div1.innerHTML = '现在的时间 :'+year+'年 '+month+'月 '+days+'日 '+hour+'时 '+minute+'分 '+second+'秒 '+' 星期'+day;
+        },1000);
+
+        function dayToDay(day){
+            switch(day){
+                case 0:
+                    day = '日';
+                    break;
+                case 1:
+                    day = '一';
+                    break;
+                case 2:
+                    day = '二';
+                    break;
+                case 3:
+                    day = '三';
+                    break;
+                case 4:
+                    day = '四';
+                    break;
+                case 5:
+                    day = '五';
+                    break;
+                case 6:
+                    day = '六';
+                    break;
+            }
+            return day;
+        }
+
+        function toTwoValues(value){
+            if(value < 10 && value >= 0){
+                return '0' + value;
+            }
+            return value;
+        }
+    </script>
+</body>
+</html>

@@ -7,15 +7,17 @@
     var minute = parseInt(second/60);
     var hour = parseInt(minute/60);
     var day = parseInt(hour/24);
-    var year = parseInt(day/365);
+    var month = parseInt(day/30);
+    var year = parseInt(month/12);
 
     // 重新赋值给最大值以外的
     var second = a % 1000 % 60;
     var minute = a % 1000 % 60 % 60;
     var hour = a % 1000 % 60 % 60 % 24;
-    var day = a % 1000 % 60 % 60 % 24 % 365;
+    var day = a % 1000 % 60 % 60 % 24 % 30;
+    var month = a % 1000 % 60 % 60 % 24 % 30 % 12;
 
 
     console.log('时间 : ' + year + '年' + day + '天' + hour + '时' + minute + '分钟' + second + '秒');
-    
+    // 1970.1.1 00:00:00 全世界统一的时间的开始
 </script>

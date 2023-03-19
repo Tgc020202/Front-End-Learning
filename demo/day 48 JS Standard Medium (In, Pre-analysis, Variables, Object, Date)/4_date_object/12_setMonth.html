@@ -1,0 +1,19 @@
+<script>
+    var a = new Date();
+    // 设置月份
+    a.setMonth(5);
+    console.log(a.getMonth());  // 5
+
+    var a = new Date();
+    a.setMonth(24); // 相当于两年
+    // 当前年份为 2023，但是加了24个月，就变成了2025
+    console.log(a.getFullYear());    // 2025
+
+
+    var a = new Date();
+    a.setMonth(-24); // 相当于倒退两年
+    // 当前年份为 2023，但是减去24个月，就变成了2021
+    console.log(a.getFullYear());    // 2023
+
+
+</script>
