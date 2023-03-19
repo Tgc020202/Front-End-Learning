@@ -263,7 +263,8 @@ Example:
 </script>
 ```
 
-+ 使用 getTime() 计算时间
+###### getTime()
++ getTime() 是从 1970 年 1 月 1 日 00:00:00 到现在经过的毫秒，相当于时间戳
 
 Example:
 ```
@@ -276,18 +277,109 @@ Example:
     var minute = parseInt(second/60);
     var hour = parseInt(minute/60);
     var day = parseInt(hour/24);
-    var year = parseInt(day/365);
+    var month = parseInt(day/30);
+    var year = parseInt(month/12);
 
     // 重新赋值给最大值以外的
     var second = a % 1000 % 60;
     var minute = a % 1000 % 60 % 60;
     var hour = a % 1000 % 60 % 60 % 24;
-    var day = a % 1000 % 60 % 60 % 24 % 365;
+    var day = a % 1000 % 60 % 60 % 24 % 30;
+    var month = a % 1000 % 60 % 60 % 24 % 30 % 12;
 
 
     console.log('时间 : ' + year + '年' + day + '天' + hour + '时' + minute + '分钟' + second + '秒');
-    
+    // 1970.1.1 00:00:00 全世界统一的时间的开始
+</script>
+```
+
+###### getFullYear()
++ 返回当前的年数
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getFullYear());   
+</script>
+```
+
+###### getMonth()
++ 返回当前月份
++ 从 0 开始计算
++ 例如，一月就会显示 0
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getMonth());      
 </script>
 ```
 
 
+###### getDate()
++ 返回当前日数
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getDate());      
+</script>
+```
+
+
+###### getHours()
++ 返回当前的小时数
++ 24 小时计算
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getHours());      
+</script>
+```
+
+###### getMinutes()
++ 返回当前的分钟
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getMinutes());      
+</script>
+```
+
+###### getSeconds()
++ 返回当前的秒数
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getMinutes());      
+</script>
+```
+
+###### getDay()
++ 返回星期几
++ 0 相当于星期日
++ 1 ~ 6 相当于星期一至六
+
+Example:
+```
+<script>
+    var a = new Date();
+
+    console.log(a.getDay());      
+</script>
+```
