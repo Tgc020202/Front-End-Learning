@@ -73,7 +73,7 @@
         <span id="allItem">0</span> 件，
         共花费了: RM <span id="totalAmount">0</span>
         <br>
-        其中最贵的商品单价是: RM <span id="highestcost">0</span>
+        其中最贵的商品单价是: RM <span id="max">0</span>
     </div>
     
     <!-- JavaScript -->
@@ -111,7 +111,6 @@
                 var total = 0;
                 var allSpan = parentDiv.getElementsByTagName('span');
 
-
                 for(var j = 0 ; j < allSpan.length ; j++){
                     var cost = Number(allSpan[j].innerHTML.replace('amount: RM',''));
                     total += cost;
@@ -120,6 +119,23 @@
                 var totalAmount = document.getElementById('totalAmount');
                 totalAmount.innerHTML = total;
 
+                // 找出最贵的单价商品
+                var arrMoney = [];
+                var allStrong = document.getElementsByTagName('strong');
+
+                for(var j = 0; j < allStrong.length ; j++){
+                    if(allStrong[j].innerHTML != '0'){
+                        arrMoney.push(Number(allStrong[j].parentNode.getElementsByTagName('em')[0].innerHTML.replace('RM','').replace(' ','')));
+                    }
+                }
+
+                var highest = arrMoney.sort(function(a,b){
+                    return b-a;
+                })[0];
+
+                highest == null && (highest = 0);
+
+                document.getElementById('max').innerHTML = highest;
             }
         }
 

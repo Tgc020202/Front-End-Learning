@@ -110,16 +110,24 @@
                 // 总金额
                 var total = 0;
                 var allSpan = parentDiv.getElementsByTagName('span');
-
+                var maximum = allSpan[0];
+                var highestnumber = 0;
 
                 for(var j = 0 ; j < allSpan.length ; j++){
                     var cost = Number(allSpan[j].innerHTML.replace('amount: RM',''));
+                    if(cost > highestnumber){
+                        maximum = allSpan[j];
+                        highestnumber = cost;
+                    }
                     total += cost;
                 }
 
                 var totalAmount = document.getElementById('totalAmount');
                 totalAmount.innerHTML = total;
 
+                // 找出最贵的商品的单价
+                var highestcost = document.getElementById('highestcost');
+                highestcost.innerHTML = maximum.parentNode.children[3].getElementsByTagName('em')[0].innerHTML.replace('RM','').replace(' ','');
             }
         }
 
