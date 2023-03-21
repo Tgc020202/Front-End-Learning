@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopee</title>
+    <style>
+        *{list-style: none;}
+
+        div{
+        width: 600px;
+        height: 200px;
+        margin: 10px;
+        }
+
+        div li{
+            margin: 10px;
+        }
+
+        div li input{
+            margin: 0 10px;
+        }
+
+        div li p{
+            display: inline;
+            margin: 0 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="parentDiv">
+        <li>
+            <input type="button" name="" value="-">
+            <strong>0</strong>
+            <input type="button" name="" value="+">
+            <p><em>RM 10</em> per box</p>
+            <span>amount: RM 0</span>
+        </li>
+        <li>
+            <input type="button" name="" value="-">
+            <strong>0</strong>
+            <input type="button" name="" value="+">
+            <p><em>RM 15</em> per box</p>
+            <span>amount: RM 0</span>
+        </li>
+        <li>
+            <input type="button" name="" value="-">
+            <strong>0</strong>
+            <input type="button" name="" value="+">
+            <p><em>RM 20</em> per box</p>
+            <span>amount: RM 0</span>
+        </li>
+        <li>
+            <input type="button" name="" value="-">
+            <strong>0</strong>
+            <input type="button" name="" value="+">
+            <p><em>RM 5</em> per box</p>
+            <span>amount: RM 0</span>
+        </li>
+        <li>
+            <input type="button" name="" value="-">
+            <strong>0</strong>
+            <input type="button" name="" value="+">
+            <p><em>RM 3.5</em> per box</p>
+            <span>amount: RM 0</span>
+        </li>
+    </div>
+
+    <!-- 显示总金额 -->
+    <div>
+        商品合计共:
+        <span id="allItem">0</span> 件，
+        共花费了: RM <span id="totalAmount">0</span>
+        <br>
+        其中最贵的商品单价是: RM <span id="highestcost">0</span>
+    </div>
+    
+    <!-- JavaScript -->
+    <script>
+        var allBtn = document.getElementsByTagName('input');
+        var allItem = 0;
+
+        for(var i = 0; i < allBtn.length ;i++){
+            allBtn[i].onclick = function(){
+                var btnValue = this.parentNode.children[1].innerHTML;
+                if(this.value == '+'){
+                    allItem ++;
+                    btnValue ++;
+                }
+                else{
+                    btnValue --;
+
+                    btnValue >= 0 && allItem --;;
+                    btnValue = btnValue <= -1? 0:btnValue;
+                }
+                this.parentNode.children[1].innerHTML = btnValue;
+
+                // 设置小计 amount
+                var oSpan = this.parentNode.children[4];
+                var oEM = this.parentNode.children[3].getElementsByTagName('em')[0].innerHTML.replace('RM','').replace(' ','');
+                var count = btnValue * oEM;
+                oSpan.innerHTML = 'amount: RM ' + count;
+
+                
+                // 计算合计
+                var oAllItem = document.getElementById('allItem');
+                oAllItem.innerHTML = allItem;
+
+                // 总金额
+                var total = 0;
+                var allSpan = parentDiv.getElementsByTagName('span');
+                var maximum = allSpan[0];
+                var highestnumber = 0;
+
+                for(var j = 0 ; j < allSpan.length ; j++){
+                    var cost = Number(allSpan[j].innerHTML.replace('amount: RM',''));
+                    if(cost > highestnumber){
+                        maximum = allSpan[j];
+                        highestnumber = cost;
+                    }
+                    total += cost;
+                }
+
+                var totalAmount = document.getElementById('totalAmount');
+                totalAmount.innerHTML = total;
+
+                // 找出最贵的
+                var highestcost = document.getElementById('highestcost');
+                highestcost.innerHTML = maximum.parentNode.children[3].getElementsByTagName('em')[0].innerHTML.replace('RM','').replace(' ','');
+            }
+        }
+
+
+    </script>
+</body>
+</html>
