@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言板</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            -list-style: none;
+            text-decoration: none;
+        }
+
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+
+        div{
+            width: 800px;
+            height: 600px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -300px;
+            margin-left: -300px;
+        }
+
+        #ol{
+            width: 600px;
+            height: 100px;
+            border: 1px solid black;
+            display: block;
+            overflow:scroll;
+        }
+
+        #ol #oSpan{
+            font-size:18px;
+            line-height: 100px;
+        }
+
+        div #te{
+            width: 600px;
+            height: 100px;
+            border: 1px solid black;
+            display: block;
+            margin: 20px 0;
+        }
+
+        div #oBtn{
+            width: 600px;
+            display: block;
+            margin: 10px 0;
+
+            font-size: 24px;
+            line-height: 50px;
+        }
+
+        .oP{
+            font:12px;
+            line-height: 12px;
+            background-color: rgb(15, 172, 234);
+            border: 1px solid black;
+            width: auto;
+            float: right;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>留言内容</h1>
+        <ol id="ol">
+            <span id="oSpan">请输入想说的内容...</span>
+        </ol>
+        <textarea name="" id="te" cols="30" rows="10" placeholder="请输入留言"></textarea>
+        <br>
+        <input type="button" name="" value="发表留言" id="oBtn">
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        oBtn.onclick = function(){
+            var val = te.value;
+
+            if(!val){
+                alert('请输入内容');
+                return;
+            }
+
+            var oLi = document.createElement('li');
+            oLi.innerHTML = val + '<p class=oP>你确定要删除 ' + val + ' 吗？</p>';
+            oLi.style.margin = '0 20px 0';
+            oSpan.style.display = 'none';
+            ol.appendChild(oLi);
+            te.value = '';
+
+            oLi.onmouseover = function(){
+                this.getElementsByTagName('p')[0].style.display = 'block';
+            }
+            oLi.onmouseout = function(){
+                this.getElementsByTagName('p')[0].style.display = 'none';
+            }
+
+            oLi.onclick = function(){
+                this.parentNode.removeChild(this);
+                ol.getElementsByTagName('li').length == 0 && (oSpan.style.display = 'block');
+            }
+        }   
+    </script>
+</body>
+</html>

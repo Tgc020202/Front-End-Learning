@@ -20,6 +20,7 @@
             border: 2px solid black;
             border-radius: 15px;
             border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
 
             position: absolute;
             top: 50%;
@@ -61,7 +62,7 @@
             height: 78px;
             float: left;
             border: 0px;
-            border-bottom-left-radius: 15px;
+            border-bottom-left-radius: 12px;
         }
 
         div#largeBody div#input button.user1{
@@ -128,39 +129,47 @@
         var pic1 = [];
         var u3 = [];
 
+        
         inputBlank.onkeydown = function(event){
             if(event.keyCode == 13){
-                u1.push(inputBlank.value.replace('\n',''));
-                inputBlank.value = '';
+                inputBlank.value = inputBlank.value.replace('\n','').replace(' ','');
 
-                for(var i = 0; i < u1.length ;i++){
-                    var oUl = document.getElementById('chat');
-                    var oLi = document.createElement('li');
-                    var oDivPic = document.createElement('div');
-                    var oDivIpt = document.createElement('div');
-
-                    oDivPic.style.background = 'url(Images/p'+ Number(Number(user.getAttribute('index')) + 1) +'.png) no-repeat 0 center' ;
-                    oDivPic.style.backgroundSize = '32px';
-                    oDivPic.style.float = 'left';
-                    oDivPic.style.height = '32px';
-                    oDivPic.style.width = '32px';
-
-                    oDivIpt.innerHTML = u1[i];
-                    oDivIpt.style.display = 'inline-block';
-                    oDivIpt.style.height = '32px';
-                    oDivIpt.style.width = '407px';
-                    oDivIpt.style.font = '16px';
-                    oDivIpt.style.lineHeight = '32px';
-                    oDivIpt.style.margin = '0 0 0 20px';
-
-                    oLi.style.margin = '10px';
-
-                    oLi.appendChild(oDivPic);
-                    oLi.appendChild(oDivIpt);
-
-                    oUl.appendChild(oLi);
+                if(inputBlank.value == ''){
+                    console.log('nothing');
                 }
-                u1 = [];
+                else{
+                    u1.push(inputBlank.value);
+                    inputBlank.value = '';
+
+                    for(var i = 0; i < u1.length ;i++){
+                        var oUl = document.getElementById('chat');
+                        var oLi = document.createElement('li');
+                        var oDivPic = document.createElement('div');
+                        var oDivIpt = document.createElement('div');
+
+                        oDivPic.style.background = 'url(Images/p'+ Number(Number(user.getAttribute('index')) + 1) +'.png) no-repeat 0 center' ;
+                        oDivPic.style.backgroundSize = '32px';
+                        oDivPic.style.float = 'left';
+                        oDivPic.style.height = '32px';
+                        oDivPic.style.width = '32px';
+
+                        oDivIpt.innerHTML = u1[i];
+                        oDivIpt.style.display = 'inline-block';
+                        oDivIpt.style.height = '32px';
+                        oDivIpt.style.width = '407px';
+                        oDivIpt.style.font = '16px';
+                        oDivIpt.style.lineHeight = '32px';
+                        oDivIpt.style.margin = '0 0 0 20px';
+
+                        oLi.style.margin = '10px';
+
+                        oLi.appendChild(oDivPic);
+                        oLi.appendChild(oDivIpt);
+
+                        oUl.appendChild(oLi);
+                    }
+                    u1 = [];
+                }
             }
 
         }
