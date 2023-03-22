@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ 聊天框</title>
+    <style>
+        *{
+            padding: 0;margin: 0;list-style-type: none; text-decoration: none;
+        }
+
+        html{
+            height: 100%;
+        }
+
+        div#largeBody{
+            width: 500px;
+            height: 800px;
+            border: 2px solid black;
+            border-radius: 15px;
+            border-bottom-right-radius: 0;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -400px;
+            margin-left: -250px;
+
+            background-color: white;
+        }
+
+        body{
+            background: url(Images/background_1.jpg)
+            no-repeat 0 center;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+        }
+
+        div#largeBody div#chatbox {
+            width: 500px;
+            height: 720px;
+            border-bottom: 2px solid black;
+        }
+
+        div#largeBody div#input{
+            width: 500px;
+            height: 78px;
+            border: 0px;
+            border-bottom-left-radius: 15px;
+        }
+
+        div#largeBody div#input button#user{
+            width: 78px;
+            height: 78px;
+            float: left;
+            border: 0px;
+            border-bottom-left-radius: 15px;
+        }
+
+        div#largeBody div#input button.user1{
+            background: url(Images/p1.png)
+            no-repeat 0 center;
+        }
+
+        div#largeBody div#input button.user2{
+            background: url(Images/p2.png)
+            no-repeat 0 center;
+        }
+
+        div#largeBody div#input button.user3{
+            background: url(Images/p3.png)
+            no-repeat 0 center;
+        }
+
+        div#largeBody div#input #inputBlank{
+            width: 416px;
+            height: 78px;
+            border: 0px;
+            border-left: 2px solid black;
+
+            font-size: 16px;
+            line-height: 78px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="largeBody">
+        <div id="chatbox"></div>
+        <div id="input">
+            <button id="user" class="user1"></button>
+            <textarea id="inputBlank" placeholder="输入框"></textarea>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+    </script>
+</body>
+</html>

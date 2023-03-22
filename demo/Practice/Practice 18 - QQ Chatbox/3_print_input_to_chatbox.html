@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QQ 聊天框</title>
+    <style>
+        *{
+            padding: 0;margin: 0;list-style-type: none; text-decoration: none;
+        }
+
+        html{
+            height: 100%;
+        }
+
+        div#largeBody{
+            width: 500px;
+            height: 800px;
+            border: 2px solid black;
+            border-radius: 15px;
+            border-bottom-right-radius: 0;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -400px;
+            margin-left: -250px;
+
+            background-color: white;
+        }
+
+        body{
+            background: url(Images/background_1.jpg)
+            no-repeat 0 center;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+        }
+
+        div#largeBody div#chatbox {
+            width: 500px;
+            height: 720px;
+            border-bottom: 2px solid black;
+            overflow-y: scroll;
+        }
+
+        div#largeBody div#chatbox #chat{
+            margin-top: 10px;
+        }
+
+        div#largeBody div#input{
+            width: 500px;
+            height: 78px;
+            border: 0px;
+            border-bottom-left-radius: 15px;
+        }
+
+        div#largeBody div#input button#user{
+            width: 78px;
+            height: 78px;
+            float: left;
+            border: 0px;
+            border-bottom-left-radius: 15px;
+        }
+
+        div#largeBody div#input button.user1{
+            background: url(Images/p1.png)
+            no-repeat 0 center;
+        }
+
+        div#largeBody div#input button.user2{
+            background: url(Images/p2.png)
+            no-repeat 0 center;
+        }
+
+        div#largeBody div#input button.user3{
+            background: url(Images/p3.png)
+            no-repeat 0 center;
+        }
+
+        div#largeBody div#input #inputBlank{
+            width: 416px;
+            height: 78px;
+            border: 0px;
+            border-left: 2px solid black;
+
+            font-size: 16px;
+            line-height: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div id="largeBody">
+        <div id="chatbox">
+            <ul id="chat">
+
+            </ul>
+        </div>
+        <div id="input">
+            <button id="user" class="user1" index="0"></button>
+            <textarea id="inputBlank" placeholder="输入框"></textarea>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        user.onclick = function(){
+            if(user.className == ''){
+                user.className = 'user1'
+                user.setAttribute('index',0);
+            }
+            else if(user.className == 'user1'){
+                user.className = 'user2';
+                user.setAttribute('index',1);
+            }
+            else if(user.className == 'user2'){
+                user.className = 'user3';
+                user.setAttribute('index',2);
+            }
+            else if(user.className == 'user3'){
+                user.className = 'user1';
+                user.setAttribute('index',0);
+            }
+        }
+
+        var u1 = [];
+        var pic1 = [];
+        var u3 = [];
+
+        inputBlank.onkeydown = function(event){
+            if(event.keyCode == 13){
+                u1.push(inputBlank.value.replace('\n',''));
+                inputBlank.value = '';
+
+                for(var i = 0; i < u1.length ;i++){
+                    var oUl = document.getElementById('chat');
+                    var oLi = document.createElement('li');
+                    var oDivPic = document.createElement('div');
+                    var oDivIpt = document.createElement('div');
+
+                    oDivPic.style.background = 'url(Images/p'+ Number(Number(user.getAttribute('index')) + 1) +'.png) no-repeat 0 center' ;
+                    oDivPic.style.backgroundSize = '32px';
+                    oDivPic.style.float = 'left';
+                    oDivPic.style.height = '32px';
+                    oDivPic.style.width = '32px';
+
+                    oDivIpt.innerHTML = u1[i];
+                    oDivIpt.style.display = 'inline-block';
+                    oDivIpt.style.height = '32px';
+                    oDivIpt.style.width = '407px';
+                    oDivIpt.style.font = '16px';
+                    oDivIpt.style.lineHeight = '32px';
+                    oDivIpt.style.margin = '0 0 0 20px';
+
+                    oLi.style.margin = '10px';
+
+                    oLi.appendChild(oDivPic);
+                    oLi.appendChild(oDivIpt);
+
+                    oUl.appendChild(oLi);
+                }
+                u1 = [];
+            }
+
+        }
+    </script>
+</body>
+</html>
