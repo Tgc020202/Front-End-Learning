@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瑶骰子</title>
+    <style>
+        #div1{
+            width: 1000px;
+            height: 600px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -300px;
+            margin-left: -500px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+
+    <input type="button" value="更多的骰子" name="" id="">
+    <input type="button" value="摇骰子" name="" id="">
+    <input type="button" value="更少的骰子" name="" id="">
+    <input type="button" value="停" name="" id="">
+    <p>骰子数量: <span id="oSpan">0</span></p>
+    <p>总计: <span id="oSpan2">0</span></p>
+
+    <!-- JavaScript -->
+    <script>
+        var allInput = document.getElementsByTagName('input');
+        var allDice = 0;
+        var timer = null;
+
+        // 加骰子
+        allInput[0].onclick = function(){
+            var allDiv = div1.children;
+            if(allDiv.length < 15){
+                var oDiv = document.createElement('div');
+                var ran = random(1,7);
+                oDiv.innerHTML = '<img src="images/'+ ran +'.png" width=180 height=180>';
+                oDiv.style.margin = '10px';
+                oDiv.style.float = 'left';
+                oDiv.setAttribute('ran',ran);
+                div1.appendChild(oDiv);
+
+                // 计算骰子数量
+                allDice++;
+                oSpan.innerHTML = allDice;
+
+                // 计算总计
+                var allNum = 0;
+                var allDiv = div1.children;
+
+                for(var i = 0 ; i < allDiv.length ; i ++){
+                    allNum += Number(allDiv[i].getAttribute('ran'));
+                }
+                oSpan2.innerHTML = allNum;
+            }
+        }
+
+        // 删骰子
+        allInput[2].onclick = function(){
+            var allDiv = div1.children;
+            if(allDiv.length > 0){
+                div1.removeChild(allDiv[allDiv.length - 1]);
+                allDice--;
+            }
+
+            // 计算总计
+            var allNum = 0;
+            var allDiv = div1.children;
+
+            for(var i = 0 ; i < allDiv.length ; i ++){
+                allNum += Number(allDiv[i].getAttribute('ran'));
+            }
+            oSpan2.innerHTML = allNum;
+        }
+
+        // 摇骰子
+        allInput[1].onclick = function(){
+            clearInterval(timer);
+
+            timer = setInterval(function(){
+                var allDiv = div1.children;
+                for(var i = 0 ; i < allDiv.length ; i ++){
+                    var ran = random(1,7);
+                    allDiv[i].setAttribute('ran',ran);
+                    allDiv[i].children[0].src='Images/' + ran + '.png';
+
+                    // 计算总计
+                    allNum = 0;
+                    var allDiv2 = div1.children;
+
+                    for(var j = 0 ; j < allDiv2.length ; j ++){
+                        allNum += Number(allDiv2[j].getAttribute('ran'));
+                    }
+                    oSpan2.innerHTML = allNum;
+                }
+            },30);
+        }
+
+
+        // 停骰子
+        allInput[3].onclick = function(){
+            clearInterval(timer);
+        }
+
+        function random(min,max){
+            return parseInt(Math.random() * (max - min) + min)
+        }
+
+    </script>
+</body>
+</html>
