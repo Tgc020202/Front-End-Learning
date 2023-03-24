@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: 1px solid black;
+            margin: 10px 10px 10px 0;
+            
+            font-weight: bold;
+        }
+
+        div#div1{
+            width: 200px;
+            height: 50px;
+            background: #fff;
+            border: none;
+        }
+
+        .active{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <a href="#">左</a>
+        <a href="#">右</a>
+        <input type="button" name="" value="1" class="active">
+        <input type="button" name="" value="2">
+        <input type="button" name="" value="3">
+        <div style="display: block;">1</div>
+        <div style="display: none;">2</div>
+        <div style="display: none;">3</div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        var allInput = document.getElementsByTagName('input');
+        var allDiv = div1.getElementsByTagName('div');
+        var allA = document.getElementsByTagName('a');
+        var indexOfDirection = 0;
+        var timer = null;
+
+
+        run();
+        for(var i = 0 ; i < allInput.length ; i++){
+            allInput[i].setAttribute('note',i);
+
+            allInput[i].onclick = function(){
+                clearInterval(timer);
+                for(var j = 0 ; j < allInput.length; j++){
+                    allInput[j].className = '';
+                }
+
+                for(var j = 0 ; j < allDiv.length; j++){
+                    allDiv[j].style.display = 'none';
+                }
+
+                this.className = 'active';
+                allDiv[this.getAttribute('note')].style.display = 'block';
+
+                indexOfDirection = this.getAttribute('note');
+            }
+        }
+
+
+        // 右 正数
+        allA[1].onclick = function(){
+            clearInterval(timer);
+            indexOfDirection++;
+            for(var i = 0 ; i < allDiv.length ; i++){
+                allDiv[i].style.display = 'none';
+                allInput[i].className = '';
+            }
+
+            // 如果 indexOfDirection 大过 0 就 modulus 罢了
+            // 如果效果 0 就乘于 -1，使其变为正数，因为下标不能有负数
+            indexOfDirection =  indexOfDirection > 2 ? 0: indexOfDirection;
+            var num = indexOfDirection;
+            allDiv[num].style.display = 'block';
+            allInput[num].className = 'active';
+        };
+
+        // 左 负数
+        allA[0].onclick = function(){
+            clearInterval(timer);
+            indexOfDirection--;
+            for(var i = 0 ; i < allDiv.length ; i++){
+                allDiv[i].style.display = 'none';
+                allInput[i].className = '';
+            }
+            indexOfDirection =  indexOfDirection < 0 ? 2: indexOfDirection;
+            var num = indexOfDirection;
+            allDiv[num].style.display = 'block';
+            allInput[num].className = 'active';
+        }
+
+        // 往右移动
+        function run(){
+            // 设置循环
+            timer = setInterval(function(){
+                indexOfDirection++;
+                for(var i = 0 ; i < allDiv.length ; i++){
+                    allDiv[i].style.display = 'none';
+                    allInput[i].className = '';
+                }
+
+                // 如果 indexOfDirection 大过 0 就 modulus 罢了
+                // 如果效果 0 就乘于 -1，使其变为正数，因为下标不能有负数
+                indexOfDirection =  indexOfDirection > 2 ? 0: indexOfDirection;
+                var num = indexOfDirection;
+                allDiv[num].style.display = 'block';
+                allInput[num].className = 'active';
+            },500);
+        }
+        
+
+        // 设置暂停
+        div1.onmousemove = function(){
+            clearInterval(timer);
+        }
+
+        div1.onmouseout = function(){
+            clearInterval(timer);
+            setTimeout(run(),1000);
+        }
+    </script>
+</body>
+</html>

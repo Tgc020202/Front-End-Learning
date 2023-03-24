@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日历</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 280px;
+            float: left;
+            border: 1px solid black;
+            margin: 10px;
+        }
+
+        #div2{
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            margin: 10px 0 ;
+        }
+
+        #div3{
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        #div3 span{
+            float: left;
+            width: 40px;
+            height: 100%;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        .prev{
+            float: left;
+            cursor: pointer;
+        }
+
+        .next{
+            float: right;
+            cursor: pointer;
+        }
+
+        #all li{
+            float: left;
+            width: 40px;
+            height: 40px;
+
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #all .weekends{
+            color: red;
+        }
+
+        #all #today{
+            border: 4px solid red;
+            float: left;
+            width: 32px;
+            height: 32px;
+
+            text-align: center;
+            line-height: 32px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- JavaScript -->
+    <script>
+        var innerHtml = [
+        '<div id="div1">',
+            '<div id="div2">',
+                '<span class="prev">prev</span>',
+                '<span id="years">2023</span>',
+                '年',
+                '<span id="months">3</span>',
+                '月',
+                '<span id="days">24</span>',
+                '日',
+                '<span class="next">next</span>',
+                '</div>',
+            '<div id="div3">',
+                '<span>一</span>',
+                '<span>二</span>',
+                '<span>三</span>',
+                '<span>四</span>',
+                '<span>五</span>',
+                '<span style="color:red">六</span>',
+                '<span style="color:red">日</span>',
+                '</div>',
+                '<u id="all"></ul>',
+        '</div>'
+        ];
+
+        var str = innerHtml.join('');
+        document.body.innerHTML = str;
+        
+        var oDate = new Date();
+
+
+        // 得到星期几是这个月的第一天
+        oDate.setMonth(2);  // 2 指的是三月 ,[0,1,2,...,11] = [一,二,三,...,十二]
+        oDate.setDate(1);
+        var FirstDay = oDate.getDay() == 0 ? 7 : oDate.getDay();
+
+        // 得到天数
+        oDate.setMonth(3);
+        oDate.setDate(0);
+        var allDate = oDate.getDate();
+
+        // 总天数
+        var dayLength = allDate + FirstDay - 1;
+
+
+        // i 控制格子的数量
+        // j 控制周末的颜色
+        // k 控制日期的日数
+        for(var i = 0, j = 1, k = 0; i < dayLength ; i++){
+            var oLi = document.createElement('li');
+            if(i >= FirstDay - 1){
+                oLi.innerHTML = Number(k + 1);
+                k++;
+            }
+            else{
+                oLi.innerHTML = ' ';
+            }
+            if(Number(i+1) % 7 == 0 || Number(i+2-j) % 6 == 0 && (j++)){
+                oLi.className = 'weekends';
+            }
+            all.appendChild(oLi);
+        }
+
+
+    </script>
+</body>
+</html>
