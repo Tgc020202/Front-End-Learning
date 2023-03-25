@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建有排序的 DIV</title>
+    <style>
+        *{padding: 0;margin: 0;}
+
+        .div1{
+            width:100px;
+            height:100px;
+            background:green;
+            position:absolute; 
+
+            text-align: center;
+            line-height: 100px;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <input type="button" name="" value="点击生成 DIV" id="oBtn1">
+
+    <!-- JavaScript -->
+    <script>
+        oBtn1.addEventListener('click',function(){
+            this.parentNode.removeChild(this);
+            for(var i = 0 , j = 0; i < 100 ; i++ , j++){
+                var oDiv = document.createElement('div');
+                oDiv.className = 'div1';
+                oDiv.style.left = i * 100 + "px";
+
+                if(i % 2 == 1){
+                    oDiv.style.top = 100 + "px";
+                }
+
+                if(i % 4 == 2){
+                    oDiv.style.top = 200 + "px";
+                }
+                
+                oDiv.innerHTML = i;
+                document.body.appendChild(oDiv);
+            }
+        },false);
+    </script>
+
+</body>
+</html>

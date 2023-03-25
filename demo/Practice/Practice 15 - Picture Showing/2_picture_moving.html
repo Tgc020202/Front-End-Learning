@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图文选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #bigBox{
+            width: 345px;
+            height: 195px;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        #leftUL,#rightUL{
+            width: 80px;
+            position: absolute;
+            top: 10px;
+            left: 2px;
+            margin-right: 3px;
+        }
+
+        #leftUL li,#rightUL li{
+            width: 78px;
+            height: 30px;
+            border: 1px solid black;
+            background: #fff;
+
+            margin-top: 3px;
+            cursor: pointer;
+
+            font-size: 14px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        #rightUL{
+            left: 260px;
+            margin: 0 0 0 3px;
+        }
+
+        #bigImg{
+            width: 175px;
+            height: 175px;
+            position: absolute;
+            top: 10px;
+            left: 85px;
+
+            background-color: #2f7af2;
+            border-radius: 15px;
+        }
+
+        #bigImg img{
+            width: 100%;
+            height: 100%;
+        }
+
+        #bigImg #anime{
+            width: 100%;
+            height: 20px;
+            background: lightskyblue;
+            
+            color: red;
+            text-align: center;
+            line-height: 20px;
+            text-indent: 5px;
+
+            position: absolute;
+            bottom: 3px;
+        }
+
+        #bigImg #animeName{
+            width: 100%;
+            height: 20px;
+            background: pink;
+            
+            color: red;
+            text-align: center;
+            line-height: 20px;
+            text-indent: 5px;
+
+            position: absolute;
+            bottom: 23px;
+        }
+
+        #leftUL .active, #rightUL .active{
+            background: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="bigBox">
+
+        <div id="bigImg">
+            <img src="Images/p0.png" alt="">
+            <div id="anime">动漫角色名</div>
+            <div id="animeName">动漫</div>
+        </div>
+
+        <ul id="leftUL">
+            <li >狂三</li>
+            <li>蝴蝶刃</li>
+            <li>福冈义勇</li>
+            <li>炼狱杏寿郎</li>
+            <li>皮卡丘</li>
+        </ul>
+
+        <ul id="rightUL">
+            <li>祢豆子</li>
+            <li>龙猫</li>
+            <li>拉姆</li>
+            <li>兵长</li>
+            <li>黑崎一护</li>
+        </ul>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        var allLi = document.body.getElementsByTagName('li');
+        var timer = null;
+        var boxTimer = 0;
+
+        var noteI = 0;
+        var Json = {
+            '时崎狂三':'约会大作战',
+            '蝴蝶刃':'鬼灭之刃',
+            '福冈义勇':'鬼灭之刃',
+            '炼狱杏寿郎':'鬼灭之刃',
+            '皮卡丘':'宝可梦',
+            '祢豆子':'鬼灭之刃',
+            '龙猫':'龙猫',
+            '拉姆':'RE.ZERO',
+            '兵长':'进击的巨人',
+            '黑崎一护':'死神'
+        }
+
+        move();
+
+        for(var i = 0; i < allLi.length;i++){
+            allLi[i].setAttribute('index',i);
+
+            allLi[i].onmouseover = function(){
+                for(var i = 0; i < allLi.length ;i++){
+                    allLi[i].className = '';
+                }
+
+                boxTimer = Number(this.getAttribute('index'));
+                this.className = 'active';
+
+                bigImg.children[0].src = 'Images/p'+ this.getAttribute('index') +'.png'
+
+                for(var i in Json){
+                    if(noteI == this.getAttribute('index')){
+                        anime.innerHTML = i;
+                        animeName.innerHTML = Json[i];
+                    }
+                    noteI++;
+                }
+                noteI = 0;
+            }
+        }
+
+        bigBox.onmouseover = function(){
+            clearInterval(timer);
+        }
+
+        bigBox.onmouseout = move;
+
+        function move(){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                for(var i = 0; i < allLi.length ;i++){
+                    allLi[i].className = '';
+                }
+
+                allLi[boxTimer].className = 'active';
+
+                bigImg.children[0].src = 'Images/p'+ allLi[boxTimer].getAttribute('index') +'.png';
+
+
+                for(var i in Json){
+                    if(noteI == allLi[boxTimer].getAttribute('index')){
+                        anime.innerHTML = i;
+                        animeName.innerHTML = Json[i];
+                    }
+                    noteI++;
+                }
+                noteI = 0;
+                boxTimer = boxTimer == 9 ? 0 : boxTimer + 1;
+            },500);
+        }
+    </script>
+    
+</body>
+</html>

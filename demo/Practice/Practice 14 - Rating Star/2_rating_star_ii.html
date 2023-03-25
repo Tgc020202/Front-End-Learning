@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评分</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #rating{
+            width: 142px;
+            height: 28px;
+            margin: 10px auto;
+        }
+
+        /* 左边空 */
+        #rating li{
+            width: 14px;
+            height: 28px;
+            float: left;
+            cursor: pointer;
+            background: url(Images/star_dark2.png)
+            no-repeat 0 0;
+        }
+
+        /* 右边空 */
+        #rating .on{
+            width: 14px;
+            height: 28px;
+            float: left;
+            cursor: pointer;
+            background: url(Images/star_dark2.png)
+            no-repeat -14px 0;
+        }
+
+
+        /* 右边亮 */
+        #rating .on1{
+            width: 14px;
+            height: 28px;
+            float: left;
+            cursor: pointer;
+            background: url(Images/star_bright2.png)
+            no-repeat -14px 0;
+        }
+
+        /* 左边亮 */
+        #rating .re{
+            width: 14px;
+            height: 28px;
+            float: left;
+            cursor: pointer;
+            background: url(Images/star_bright2.png)
+            no-repeat 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="rating">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+            re 左边亮
+            on 右边空
+            on1 右边亮
+            没有类 左边空
+
+        */
+
+        allLi = document.getElementsByTagName('li');
+
+        for(var i = 0 ; i < allLi.length ; i++){
+            if(i % 2 == 1){
+                allLi[i].className = 'on';
+            }
+        }
+
+        for(var i = 0 ; i < allLi.length ; i++){
+            allLi[i].index = i;
+
+            // 鼠标滑过 - 变亮
+            allLi[i].onmouseover = function(){
+                for(var j = 0; j < allLi.length ; j++){
+                    j % 2 == 1 ? allLi[j].className='on':allLi[j].className='';
+                }
+
+                for(var j = 0; j <= this.index ; j++){
+                    j % 2 == 1 ? allLi[j].className='on1':allLi[j].className='re';
+                }
+            }
+
+            // 鼠标出图 - 变暗
+            allLi[i].onmouseout = function(){
+                for(var j = 0; j < allLi.length ; j++){
+                    j % 2 == 1 ? allLi[j].className='on':allLi[j].className='';
+                }
+            }
+
+            // 鼠标点击 - 弹出评价
+            allLi[i].onclick = function(){
+
+                // 清空所有事件
+                for(var j = 0; j < allLi.length ; j++){
+                    allLi[j].onmouseout = null;
+                    allLi[j].onclick = null;
+                    allLi[j].onmouseover = null;
+                }
+
+                alert('感谢您打'+ Number(this.index * 0.5 + 0.5) +'分');
+            }
+        }
+    </script>
+    
+</body>
+</html>
