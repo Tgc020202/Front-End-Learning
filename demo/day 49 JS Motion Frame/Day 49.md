@@ -4,7 +4,7 @@
 + 宽度/高度
 + 计算包含与不包含
 > + width   ✔
-> + margin  X
+> + margin  ❌
 > + padding ✔
 > + border  ✔
 
@@ -12,9 +12,9 @@
 + 宽度/高度
 + 计算包含与不包含
 > + width   ✔
-> + margin  X
+> + margin  ❌
 > + padding ✔
-> + border  X
+> + border  ❌
 
 #### getComputedStyle 取元素的属性值
 + 不兼容于所有浏览器
