@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图文选项卡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #bigBox{
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        #leftUL,#rightUL{
+            width: 80px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #leftUL li,#rightUL li{
+            width: 78px;
+            height: 48.5px;
+            border: 1px solid black;
+            background: #fff;
+
+            cursor: pointer;
+
+            font-size: 14px;
+            text-align: center;
+            line-height: 48px;
+        }
+
+        #rightUL{
+            left: 321px;
+        }
+
+        #bigImg{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 100px;
+
+            background-color: #2f7af2;
+            border-radius: 15px;
+        }
+
+        #bigImg img{
+            width: 100%;
+            height: 100%;
+        }
+
+        #bigImg #anime{
+            width: 100%;
+            height: 20px;
+            background: lightskyblue;
+            
+            color: red;
+            text-align: center;
+            line-height: 20px;
+            text-indent: 5px;
+
+            position: absolute;
+            bottom: 3px;
+        }
+
+        #bigImg #animeName{
+            width: 100%;
+            height: 20px;
+            background: pink;
+            
+            color: red;
+            text-align: center;
+            line-height: 20px;
+            text-indent: 5px;
+
+            position: absolute;
+            bottom: 23px;
+        }
+
+        #leftUL .active, #rightUL .active{
+            background: green;
+        }
+
+    </style>
+</head>
+<body>
+    <input id="nextBtn" type="button" name="" value="下一个动漫">
+    <input id="crossBtn" type="button" name="" value="交叉">
+    <input id="syncBtn" type="button" name="" value="同步">
+    <div id="bigBox">
+
+        <div id="bigImg">
+            <img src="Images/p0.png" alt="">
+        </div>
+
+        <ul id="leftUL">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+
+        <ul id="rightUL">
+            <li>4</li>
+            <li>3</li>
+            <li>2</li>
+            <li class="active">1</li>
+        </ul>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        var arrImg = ['p0.png','p1.png','p8.png','p9.png'];
+
+        leftIndex = 0;
+        rightIndex = 3;
+
+        var allLeftLi = leftUL.children;
+        var allRightLi = rightUL.children;
+
+        
+        var sync = false;
+        crossBtn.onclick = function(){
+            rightIndex = 3 - leftIndex;
+            sync = false;
+        }
+        syncBtn.onclick = function(){
+            sync = true;
+            rightIndex = leftIndex;
+        }
+
+
+        nextBtn.onclick = function(){
+            if(!sync){
+                for(var i = 0; i < allLeftLi.length;i++){
+                    allLeftLi[i].className = '';
+                    allRightLi[i].className = '';
+                }
+                
+                leftIndex = leftIndex == 3 ? -1 : leftIndex;
+                rightIndex = rightIndex == 0 ? 4 : rightIndex;
+
+                allLeftLi[++ leftIndex].className = 'active';
+                allRightLi[-- rightIndex].className = 'active';
+
+                bigImg.children[0].src = 'Images/' + arrImg[leftIndex];
+            }
+            else{
+                for(var i = 0; i < allLeftLi.length;i++){
+                    allLeftLi[i].className = '';
+                    allRightLi[i].className = '';
+                }
+                
+                leftIndex = leftIndex == 3 ? -1 : leftIndex;
+                rightIndex = rightIndex == 3 ? -1 : rightIndex;
+
+                allLeftLi[++ leftIndex].className = 'active';
+                allRightLi[++ rightIndex].className = 'active';
+
+                bigImg.children[0].src = 'Images/' + arrImg[leftIndex];
+            }
+        }
+
+
+        var allLi = document.getElementsByTagName('li');
+
+        for(var i = 0; i < allLi.length;i++){
+            allLi[i].index = i;
+
+            allLi[i].onclick = function(){
+                if(!sync){
+                    for(var i = 0; i < allLi.length;i++){
+                        allLi[i].className = '';
+
+                        if(allLi[i].innerHTML == this.innerHTML){
+                            allLi[i].className = 'active';
+                            
+                            i < 4 ? leftIndex = i : rightIndex = i - 4;
+                            bigImg.children[0].src = 'Images/' + arrImg[leftIndex];
+                        }
+                    }
+                }
+                else{
+                    for(var i = 0; i < allLi.length;i++){
+                        allLi[i].className = '';
+
+                        if(this.index < 4){
+                            leftIndex = this.index;
+                            rightIndex = leftIndex;
+                        }
+                        else{
+                            rightIndex = this.index - 4;
+                            leftIndex = rightIndex;
+                        }
+                        
+                    }
+                    allLeftLi[leftIndex].className = 'active';
+                    allRightLi[rightIndex].className = 'active';
+                    bigImg.children[0].src = 'Images/' + arrImg[leftIndex];
+                }
+            }
+        }
+    </script>
+    
+</body>
+</html>
