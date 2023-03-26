@@ -164,7 +164,56 @@ Example:
 ```
 
 
+#### 对象私有属性
++ 就算没有也不报错
 
 
+#### JSON 
++ 生成 JSON
+
+```
+<script>
+    var json = {
+        'a' : '10',
+        'b' : '20'
+    };
+
+    var json2 = {
+        a : 10,
+        b :'20'
+    }
+</script>
+```
+
+###### stringify 转字符串
+```
+<script>
+    var json = {
+        'a' : '10',
+        'b' : '20'
+    };
+
+    var json2 = {
+        a : 10,
+        b :'20'
+    }
 
 
+    console.log(JSON.stringify(json));  // {"a":"10","b":"20"}
+    console.log(typeof JSON.stringify(json));  // String
+
+
+    console.log(JSON.stringify(json2));  // {"a":10,"b":"20"}
+    console.log(typeof JSON.stringify(json2));  // String
+</script>
+```
+
+###### parse
++ 字符串转 JSON
+
+```
+<script>
+    var json3 = '{"a" : 10,"b" :"20"}';
+    console.log(JSON.parse(json3));  // {a: 10, b: '20'}
+</script>
+```
