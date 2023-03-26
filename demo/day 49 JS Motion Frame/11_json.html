@@ -1,0 +1,24 @@
+<script>
+    var json = {
+        'a' : '10',
+        'b' : '20'
+    };
+
+    var json2 = {
+        a : 10,
+        b :'20'
+    }
+
+
+    console.log(JSON.stringify(json));  // {"a":"10","b":"20"}
+    console.log(typeof JSON.stringify(json));  // String
+
+
+    console.log(JSON.stringify(json2));  // {"a":10,"b":"20"}
+    console.log(typeof JSON.stringify(json2));  // String
+
+    var json3 = '{"a" : 10,"b" :"20"}';
+    console.log(JSON.parse(json3));  // {a: 10, b: '20'}
+
+
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运动框架 - 变宽</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaSript -->
+    <script>
+
+        var w = parseFloat(getStyle(div1,'width'));
+        var timer = null;
+
+        // 使用封装
+        function getStyle(obj,name){
+            if(obj.currentStyle){
+                return obj.currentStyle[name];
+            }
+            else if(getComputedStyle(obj)){
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+
+
+        timer = setInterval(function(){
+            var cur = parseFloat(getStyle(div1,'width'));
+            cur ++;
+            div1.style.width = cur + 'px';
+
+            if(cur == 200){
+                clearInterval(timer);
+            }
+        },30);
+
+    </script>
+    
+</body>
+</html>

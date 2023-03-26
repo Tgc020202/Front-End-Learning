@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运动框架 - 运动框架一</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 100.5px;
+            height: 100px;
+            background-color: red;
+            border: 0px solid black;
+            -filter: alpha(opacity = 30);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaSript -->
+    <script>
+
+        function move (time,obj,attribute,size,speed,fn){
+
+            var timer = null;
+
+            // 使用封装
+            function getStyle(obj,name){
+                if(obj.currentStyle){
+                    return obj.currentStyle[name];
+                }
+                else if(getComputedStyle(obj)){
+                    return getComputedStyle(obj,false)[name];
+                }
+            }
+
+
+            // 循环
+            timer = setInterval(function(){
+                var cur = attribute == 'opacity' ? parseFloat(getStyle(obj,attribute)) : parseInt(getStyle(obj,attribute));
+
+                if(cur == size){
+                    // 当还有函数就会再执行函数
+                    fn && fn();
+
+                    clearInterval(timer);
+                    return;
+                }
+
+                if(attribute == 'opacity'){
+                    cur = cur > size ? cur - speed : cur + speed;
+                }
+                else{
+                    cur = cur > size  ? cur - speed : cur + speed;
+                }
+        
+
+                attribute == 'opacity' ? obj.style[attribute] = cur: obj.style[attribute] = cur + 'px';
+
+            },time);
+        }
+
+        // move(时间,元素id,属性,大小,速度,函数)
+        move(100,div1,"opacity",0,0.1,function(){
+            move(100,div1,'opacity',1,0.2,move(100,div1,'height',300,10,function(){
+                move(30,div1,'height',100,10);
+            }));
+        });
+
+    </script>
+    
+</body>
+</html>
