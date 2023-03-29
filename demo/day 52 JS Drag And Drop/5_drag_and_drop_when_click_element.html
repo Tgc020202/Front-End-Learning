@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        *{margin: 0; padding: 0; list-style-type: none;}
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // 将 onmousemove 和 onmousemove 事件放入 onmousedown 事件里
+        div1.onmousedown = function(){
+            document.onmousemove = function(e){
+                var ev = e || event;
+
+                // 点击 div 元素，div 元素会开始跟着鼠标
+                div1.style.left = ev.clientX + 'px';
+                div1.style.top = ev.clientY + 'px';
+            }
+            
+            document.onmouseup = function(e){
+                // 将 onmousemove 和 onmouseup 事件清空
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+
+    </script>
+</body>
+</html>
