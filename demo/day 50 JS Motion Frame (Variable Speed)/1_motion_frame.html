@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变速运动框架</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <!-- JavaScript -->
+    <script>
+        function getStyle(obj,name){
+            if(obj.currentStyle){
+                return obj.currentStyle[name];
+            }
+            else if(getComputedStyle(obj)){
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+
+        function move(){
+            var w = parseInt(getStyle(div1,"width"));
+            var m = 300;
+
+            var speed = (m - w)/10;
+
+            /* 
+                speed 小于 0，就执行 speed
+                speed 大于 0，就执行 向上取整
+                使其 speed 的最后数值为 0 而没有小数值
+            */
+            speed = speed < 0 ? speed : Math.ceil(speed);
+            console.log(speed);
+            div1.style.width = w + speed + 'px';
+        }
+
+        onclick = move;
+    </script>
+</body>
+</html>

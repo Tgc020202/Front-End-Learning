@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变速运动框架</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <!-- JavaScript -->
+    <script>
+        function getStyle(obj,name){
+            if(obj.currentStyle){
+                return obj.currentStyle[name];
+            }
+            else if(getComputedStyle(obj)){
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+
+        function move(obj,attribute,targetV,time,fn){
+            clearInterval(obj.timer); 
+            obj.timer = setInterval(function(){
+                var w = parseInt(getStyle(obj,attribute));
+                var m = targetV;
+
+                var speed = (m - w)/10;
+
+                speed = speed < 0 ? speed : Math.ceil(speed);
+
+                obj.style[attribute] = w + speed + 'px';
+
+
+                if(speed == 0){
+                    clearInterval(obj.timer);
+                    fn && fn();
+                }
+                
+            },time);
+        }
+
+        move(div1,'width',300,30,function(){});
+
+    </script>
+</body>
+</html>

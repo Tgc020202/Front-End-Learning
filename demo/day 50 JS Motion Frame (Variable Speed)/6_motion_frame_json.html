@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变速运动框架 - JSON</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <!-- JavaScript -->
+    <script>
+        function getStyle(obj,name){
+            if(obj.currentStyle){
+                return obj.currentStyle[name];
+            }
+            else if(getComputedStyle(obj)){
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+
+        function move(obj,opt,time,fn){
+            clearInterval(obj.timer); 
+
+            var json = {};
+            var runArr = [];
+            
+            for(var i in opt){
+                runArr.push(i);
+            }
+
+            obj.timer = setInterval(function(){
+
+                for (var i in opt){
+                    var w = parseInt(getStyle(obj,i));
+                    var m = opt[i];
+
+                    var speed = (m - w)/10;
+
+                    speed = speed < 0 ? speed : Math.ceil(speed);
+
+                    obj.style[i] = w + speed + 'px';
+
+                    if(m == w){
+                        json[i] = true;
+                    }
+                }
+
+                var countArr = []
+                for(var i in json){
+                    countArr.push(i);
+                }
+
+                if(countArr.length == runArr.length){
+                    clearInterval(obj.timer);
+                    fn && fn();
+                    return;
+                }
+            },time);
+        }
+
+
+        move(
+            div1,
+            {
+            "height":300,
+            "width":100,
+            "margin-left":100
+            },
+            30
+        );
+    </script>
+</body>
+</html>
