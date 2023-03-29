@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        *{margin: 0; padding: 0; list-style-type: none;}
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // 将 onmousemove 和 onmousemove 事件放入 onmousedown 事件里
+        div1.onmousedown = function(e){
+            // 避免兼容问题
+            var ev = e || event;
+            
+            // 计算元素内的鼠标与元素的左边框和上边框的距离
+            var t = ev.clientY - div1.offsetTop;  // 上边框至鼠标
+            var l = ev.clientX - div1.offsetLeft; // 左边框至鼠标
+
+            document.onmousemove = function(e){
+                var ev = e || event;
+
+                // 鼠标位置
+                var distanceTop = ev.clientY - l;
+                var distanceLeft = ev.clientX - t;
+
+                // 设置限制最右边和最下边
+                var maxTop = innerHeight - div1.offsetHeight;
+                var maxLeft = innerWidth - div1.offsetWidth;
+
+                // 点击 div 元素，div 元素会开始跟着鼠标
+                // 设置元素的范围
+                distanceTop = distanceTop < 0 ? 0 : distanceTop;
+                distanceTop = distanceTop > maxTop ? maxTop : distanceTop;
+                distanceLeft = distanceLeft < 0 ? 0 : distanceLeft;
+                distanceLeft = distanceLeft > maxLeft ? maxLeft : distanceLeft;
+
+                // 设置鼠标位置
+                div1.style.top = distanceTop + 'px';
+                div1.style.left = distanceLeft + 'px';
+            }
+            
+            document.onmouseup = function(e){
+                // 将 onmousemove 和 onmouseup 事件清空
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+
+    </script>
+</body>
+</html>

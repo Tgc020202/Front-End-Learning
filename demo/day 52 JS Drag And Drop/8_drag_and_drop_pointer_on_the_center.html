@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        *{margin: 0; padding: 0; list-style-type: none;}
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        div1.onmousedown = function(e){
+            var ev = e || event;
+            
+            var t = ev.clientY - div1.offsetTop;
+            var l = ev.clientX - div1.offsetLeft;
+
+            document.onmousemove = function(e){
+                var ev = e || event;
+
+                // 鼠标位置在正中央
+                var distanceTop = ev.clientY - div1.offsetHeight/2;
+                var distanceLeft = ev.clientX - div1.offsetWidth/2;
+
+                var maxTop = innerHeight - div1.offsetHeight;
+                var maxLeft = innerWidth - div1.offsetWidth;
+
+                distanceTop = distanceTop < 0 ? 0 : distanceTop;
+                distanceTop = distanceTop > maxTop ? maxTop : distanceTop;
+                distanceLeft = distanceLeft < 0 ? 0 : distanceLeft;
+                distanceLeft = distanceLeft > maxLeft ? maxLeft : distanceLeft;
+
+                div1.style.top = distanceTop + 'px';
+                div1.style.left = distanceLeft + 'px';
+            }
+            
+            document.onmouseup = function(e){
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+
+    </script>
+</body>
+</html>
