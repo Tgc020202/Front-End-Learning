@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运动框架 - 运动框架一</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 100.5px;
+            height: 100px;
+            background-color: red;
+            border: 0px solid black;
+            -filter: alpha(opacity = 30);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaSript -->
+    <script>
+
+        // 参数改为 opt
+        function move (opt,fn){
+
+            var timer = null;
+
+            // 使用封装
+            function getStyle(obj,name){
+                if(obj.currentStyle){
+                    return obj.currentStyle[name];
+                }
+                else if(getComputedStyle(obj)){
+                    return getComputedStyle(obj,false)[name];
+                }
+            }
+
+
+            // 循环
+            opt.timer = setInterval(function(){
+                var cur = opt.attribute == 'opacity' ? parseFloat(getStyle(opt.obj,opt.attribute)) : parseInt(getStyle(opt.obj,opt.attribute));
+
+                if(cur >= opt.size){
+                    // 当还有函数就会再执行函数
+                    opt.fn && opt.fn();
+
+                    clearInterval(opt.timer);
+                    return;
+                }
+
+                if(opt.attribute == 'opacity'){
+                    cur = cur > opt.size ? cur - opt.speed : cur + opt.speed;
+                }
+                else{
+                    cur = cur > opt.size  ? cur - opt.speed : cur + opt.speed;
+                }
+        
+
+                opt.attribute == 'opacity' ? opt.obj.style[opt.attribute] = cur: opt.obj.style[opt.attribute] = cur + 'px';
+
+            },opt.time);
+        }
+
+        // move(时间,元素id,属性,大小,速度,函数)
+        // move(100,div1,"opacity",0,0.1,function(){
+        //     move(100,div1,'opacity',1,0.2,move(100,div1,'height',300,10,function(){
+        //         move(30,div1,'height',100,10);
+        //     }));
+        // });
+
+
+        // JSON
+        var json = {
+            'time':10,
+            'obj':div1,
+            'attribute':'width',
+            'size':600,
+            'speed':1,
+            'fn':function(){
+                    move({
+                        'time':30,
+                        'obj':div1,
+                        'attribute':'opacity',
+                        'size':0,
+                        'speed':0.1,
+                        'fn':function(){
+                                move({
+                                    'time':30,
+                                    'obj':div1,
+                                    'attribute':'opacity',
+                                    'size':1,
+                                    'speed':0.1,
+                                    'fn':function(){
+                                            move({
+                                                'time':30,
+                                                'obj':div1,
+                                                'attribute':'height',
+                                                'size':600,
+                                                'speed':20
+                                                
+                                            });
+                                        }
+                                });
+                            }
+                    });
+                }
+        }
+
+        console.log(JSON.stringify(json));
+        move(json);
+
+    </script>
+    
+</body>
+</html>
