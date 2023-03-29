@@ -217,3 +217,4 @@ Example:
     console.log(JSON.parse(json3));  // {a: 10, b: '20'}
 </script>
 ```
++ 可以去看看 [HTML 12 的例子](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2049%20JS%20Motion%20Frame/12_simple_motion_frame_via_json.html)
