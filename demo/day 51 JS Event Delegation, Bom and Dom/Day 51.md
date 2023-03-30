@@ -2,6 +2,52 @@
 + 父级把事件给予子级了
 + 事件并不是绑定在元素上面
 
+### 显示子级
++ srcElement
++ target
++ 写法: var iTarget = ev.srcElement || ev.target;
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        document.onclick = function(e){
+            var ev = e || event;
+            var iTarget = ev.srcElement || ev.target;
+
+            console.log(iTarget);   // 打印子级
+        }
+    </script>
+</body>
+</html>
+```
+> + 这里的 document 是父级
+> + 因此显示的是 document 的子级，也就是 html 里的内容
+
 #### srcElement
 + 不兼容于所有的浏览器
 + IE 浏览器不支持
@@ -106,8 +152,9 @@ Example:
 </body>
 </html>
 ```
-> + 当点击了红色方块 (div1) 后，div 的 id 变成 div2 了，当前的 div 元素就不会再有之前的功能了
-
+> + 当点击了红色方块 (div1) 后，div 的 id 变成 div2 了，当前的 div 元素就不会再有之前的事件了
+> + 只要子级有这个元素的话，就会立刻执行
+> + 没有的话，也不会报错
 
 
 ### JavaScript - Bom & Dom
