@@ -18,6 +18,8 @@
         }
 
         #bto{
+            width: 100px;
+            height: 50px;
             float: right;
         }
     </style>
@@ -30,13 +32,15 @@
     <script>
 
         var arrX = [] , arrY = [];
-        arrX.push(0) , arrY.push(0);
 
         div1.onmousedown = function(e){
             var ev = e || event;
             var oSrc = ev.target || ev.srcElement;
             var l = ev.clientX - this.offsetLeft;
             var t = ev.clientY - this.offsetTop;
+
+            arrX.push(0);
+            arrY.push(0);
 
             document.onmousemove = function(e){
                 var ev = e || event;
