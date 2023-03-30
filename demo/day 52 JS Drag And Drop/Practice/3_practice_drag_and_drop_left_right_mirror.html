@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左右交替 - 镜像</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            background-color: black;
+        }
+
+        #le,#ri{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: -100px;
+            top: 300px;
+        }
+
+        #ri{
+            background-color: red;
+            left: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="le"></div>
+        <div id="ri"></div>
+    </div>
+
+    <input type="button" name="" value="回放" id="bto">
+
+    <!-- JavaScript -->
+    <script>
+        
+        var arrX = [] , arrY = [];
+        
+
+        le.onmousedown = function(e){
+            var ev = e || event;
+            var oSrc = ev.target || ev.srcElement;
+            var l = ev.clientX - this.offsetLeft;
+            var t = ev.clientY - this.offsetTop;
+
+            arrX.push(-101);
+            arrY.push(300);
+
+            document.onmousemove = function(e){
+                var ev = e || event;
+                var oSrc = ev.target || ev.srcElement;
+                var distanceTop = ev.clientY - t;
+                var distanceLeft = ev.clientX - l;
+
+                arrX.push(distanceLeft);
+                arrY.push(distanceTop);
+
+                ri.style.top = le.style.top = distanceTop + 'px';
+
+
+                le.style.left = distanceLeft + 'px';
+                ri.style.left = (distanceLeft * (-1)) - 100 + 'px';
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup = null;
+            }
+            return false;
+        }
+
+        var timer = null;
+
+        bto.onclick = function(){
+            clearInterval(timer);
+
+            timer = setInterval(function(){
+                if(arrX.length == 0 && arrY.length == 0){
+                    clearInterval(timer);
+                }
+
+                ri.style.top = le.style.top = arrY.pop() + 'px';
+
+
+                le.style.left = arrX.pop() + 'px';
+                ri.style.left = (arrX.pop() * (-1)) - 100 + 'px';
+            },50);
+        }
+    </script>
+</body>
+</html>

@@ -45,8 +45,8 @@
             document.onmousemove = function(e){
                 var ev = e || event;
                 var oSrc = ev.target || ev.srcElement;
-                var distanceTop = ev.clientY - l;
-                var distanceLeft = ev.clientX - t;
+                var distanceTop = ev.clientY - t;
+                var distanceLeft = ev.clientX - l;
 
 
                 arrX.push(distanceLeft);
