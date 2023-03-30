@@ -373,3 +373,212 @@ Example:
 </html>
 ```
 > + 如果给予没有声明的变量的事件，就会报错
+
++ 事件委托 - target || srcElement
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽与事件委托 - 封装</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        window.onclick = function(e){
+            var ev = e || event;
+            var oSrc = ev.target || ev.srcElement;
+
+            console.log(oSrc);  //   显示所有子级内容
+
+            // 查找到 window 里的子级的 id 为 div1 的
+            if(oSrc.id == 'div1'){
+                alert(1);
+            }
+        }
+    </script>
+</body>
+</html>
+```
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽与事件委托 - 封装</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        
+        div,span{
+            width: 100px;
+            height: 100px;
+            float: left;
+            background-color: red;
+            margin: 50px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div></div>
+    <span></span>
+    <span></span>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <!-- JavaScript -->
+    <script>
+        // 点击到 span 元素，就会变绿
+        window.onclick = function(e){
+            var ev = e || event;
+            var oSrc = ev.target || ev.srcElement;
+
+            console.log(oSrc);  //   显示所有子级内容
+
+            // nodeName - 元素标签的名称
+            if(oSrc.nodeName == 'SPAN'){
+                oSrc.style.background = 'green';
+            }
+        }
+    </script>
+</body>
+</html>
+```
+> + 当点击到 span 元素，就会变绿色
+> + nameNode 用于获取元素标签的名称
+
+
+#### 事件委托和拖拽 - 回放效果
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件委托与拖拽 - 回放效果</title>
+    <style>
+        *{
+            margin: 0;padding: 0;list-style: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: #ccc;
+        }
+
+        #bto{
+            width: 100px;
+            height: 50px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <input type="button" name="" value="回放" id="bto">
+
+    <!-- JavaScript -->
+    <script>
+
+        var arrX = [] , arrY = [];
+
+        div1.onmousedown = function(e){
+            var ev = e || event;
+            var oSrc = ev.target || ev.srcElement;
+            var l = ev.clientX - this.offsetLeft;
+            var t = ev.clientY - this.offsetTop;
+
+            arrX.push(0);
+            arrY.push(0);
+
+            document.onmousemove = function(e){
+                var ev = e || event;
+                var oSrc = ev.target || ev.srcElement;
+                var distanceTop = ev.clientY - l;
+                var distanceLeft = ev.clientX - t;
+
+
+                arrX.push(distanceLeft);
+                arrY.push(distanceTop);
+                console.log('X:' + distanceLeft + '\nY:' + distanceTop);
+
+
+                div1.style.left = distanceLeft + 'px';
+                div1.style.top = distanceTop + 'px';
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup = null;
+            }
+            return false;
+        }
+
+
+
+        var timer = null;
+
+        bto.onclick = function(){
+            clearInterval(timer);
+
+            timer = setInterval(function(){
+                if(arrX.length == 0 && arrY.length == 0){
+                    clearInterval(timer);
+                }
+
+                div1.style.left = arrX.pop() + 'px';
+                div1.style.top = arrY.pop() + 'px';
+            },50);
+        }
+    </script>
+</body>
+</html>
+```
+
