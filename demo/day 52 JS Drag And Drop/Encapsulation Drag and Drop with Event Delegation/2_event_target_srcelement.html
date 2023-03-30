@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽与事件委托 - 封装</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        window.onclick = function(e){
+            var ev = e || event;
+            var oSrc = ev.target || ev.srcElement;
+
+            console.log(oSrc);  //   显示所有子级内容
+
+            // 查找到 window 里的子级的 id 为 div1 的
+            if(oSrc.id == 'div1'){
+                alert(1);
+            }
+        }
+    </script>
+</body>
+</html>

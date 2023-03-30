@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽与事件委托 - 封装</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+
+        #btn{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 100%;
+            left: 100%;
+            margin-top: -100px;
+            margin-left: -100px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div></div>
+    <button id="btn">生成类名</button>
+
+    <!-- JavaScript -->
+    <script>
+        (function(d){
+            d.onmousedown = function(e){
+                var ev = e || event;
+                var oSrc = ev.target || ev.srcElement;
+
+                if(oSrc.className.indexOf('darg') != -1){
+                    var l = ev.clientX - oSrc.offsetLeft;
+                    var t = ev.clientY - oSrc.offsetTop;
+
+                    d.onmousemove = function(e){
+                        var ev = e || event;
+                        var oSrc = ev.target || ev.srcElement;
+
+                        oSrc.style.left = ev.clientX - l + 'px';
+                        oSrc.style.top = ev.clientY - t + 'px';
+                    }
+
+                    d.onmouseup = function(){
+                        d.onmousemove = null;
+                        d.onmouseup = null
+                        btn.style.left = '100%';
+                        btn.style.top = '100%';
+                    }
+                    return false;
+                }
+            }
+        })(document);
+
+
+        btn.onclick = function(){
+            var oDiv = document.getElementsByTagName('div');
+            console.log(oDiv);
+            
+            if(oDiv[0].className == ''){
+                oDiv[0].className = 'darg';
+                btn.innerHTML = '去除类名';
+            }
+            else if(oDiv[0].className == 'darg'){
+                oDiv[0].className = '';
+                btn.innerHTML = '生成类名';
+            }
+        }
+    </script>
+</body>
+</html>
