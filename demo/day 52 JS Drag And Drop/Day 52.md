@@ -1,4 +1,4 @@
-JavaScript - 拖拽 Drag and Drop
+## JavaScript - 拖拽 Drag and Drop
 + 改变(Position)属性的 left 和 top
 + 用到了的事件: onmousedown(鼠标点击), onmousemove(鼠标持续点击并移动), onmouseup(鼠标松开)
 + 用到了事件的属性: clientX, clientY
@@ -78,3 +78,298 @@ Example(基本的拖拽):
 </body>
 </html>
 ```
+
+#### 事件委托与拖拽 - 封装
++ 普通的事件给予方法，只要给予节点事件，那么这个节点就算更换了绑定时的名字，它的事件依旧存在.
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽与事件委托 - 封装</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // 依旧可以弹出 1，虽然 id 依然显示 div2
+        div1.onclick = function(){
+            alert(1)
+        }
+        div1.id = 'div2';
+    </script>
+</body>
+</html>
+```
+> + div 的 id 从 div1 变为 div2，但是 div1 给予的事件依旧可以触发
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽与事件委托 - 封装</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // 依旧可以弹出 1，虽然 id 依然显示 div2
+        // div1.onclick = function(){
+        //     alert(1)
+        // }
+        // div1.id = 'div2';
+
+        // 这个1就不行了
+        div1.onclick = function(){
+            div1.id = 'div2';
+        }
+    </script>
+</body>
+</html>
+```
+> + 通过触发事件更改 div 的 id，会使 div1 给予的事件被清空
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽与事件委托 - 封装</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // 依旧可以弹出 1，虽然 id 依然显示 div2
+        // div1.onclick = function(){
+        //     alert(1)
+        // }
+        // div1.id = 'div2';
+
+        // 这个1就不行了
+        // div1.onclick = function(){
+        //     div1.id = 'div2';
+        // }
+
+        // 会报错，因为 div2 还未被定义
+        div2.onclick = function(){
+            alert(1)
+        }
+        div1.id = 'div2';
+    </script>
+</body>
+</html>
+```
+> + 因为 onclick 事件是在定义 div1 的元素的 id 为 div2 之前
+> + 因此导致了当 onclikc 事件触发了，却找不到 div2 的情况
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽与事件委托 - 封装</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // 依旧可以弹出 1，虽然 id 依然显示 div2
+        // div1.onclick = function(){
+        //     alert(1)
+        // }
+        // div1.id = 'div2';
+
+        // 这个1就不行了
+        // div1.onclick = function(){
+        //     div1.id = 'div2';
+        // }
+
+        // 会报错，因为 div2 还未被定义
+        // div2.onclick = function(){
+        //     alert(1)
+        // }
+        // div1.id = 'div2';
+
+        // 这样就可以触发了
+        div1.id = 'div2';
+        div2.onclick = function(){
+            alert(1)
+        }
+    </script>
+</body>
+</html>
+```
+> + 先定义 div2 就可以触发事件了
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽与事件委托 - 封装</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // 依旧可以弹出 1，虽然 id 依然显示 div2
+        // div1.onclick = function(){
+        //     alert(1)
+        // }
+        // div1.id = 'div2';
+
+        // 这个1就不行了
+        // div1.onclick = function(){
+        //     div1.id = 'div2';
+        // }
+
+        // 会报错，因为 div2 还未被定义
+        // div2.onclick = function(){
+        //     alert(1)
+        // }
+        // div1.id = 'div2';
+
+        // 这样就可以触发了
+        // div1.id = 'div2';
+        // div2.onclick = function(){
+        //     alert(1)
+        // }
+
+        // 给予没有声明的变量的时间，就会报错
+        div3.onclick = function(){
+            alert(1)
+        }
+        div1.id = 'div3';
+    </script>
+</body>
+</html>
+```
+> + 如果给予没有声明的变量的事件，就会报错
