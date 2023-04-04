@@ -55,7 +55,7 @@
             var l = ev.clientX - this.offsetLeft;
             var t = ev.clientY - this.offsetTop;
 
-            arrX.push(-101);
+            arrX.push(-100);
             arrY.push(300);
 
             document.onmousemove = function(e){
@@ -93,8 +93,8 @@
                 ri.style.top = le.style.top = arrY.pop() + 'px';
 
 
-                le.style.left = arrX.pop() + 'px';
-                ri.style.left = (arrX.pop() * (-1)) - 100 + 'px';
+                le.style.left = (arrX.pop()) + 'px';
+                ri.style.left = (arrX.pop() * (-1)) - 99 + 'px';
             },50);
         }
     </script>
