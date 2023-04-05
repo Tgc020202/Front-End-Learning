@@ -567,12 +567,12 @@ Example:
 ![字体图文解析](p13)
 
 ###### 强调
-+ text muted: 提示，浅灰色
-+ text-primary: 主要，蓝色
-+ text-success: 成功，浅绿色
-+ text-info: 通知信息，浅蓝色
-+ text-warning: 警告，黄色
-+ text-danger: 危险，褐色
++ text muted: 提示，浅灰色(#999)
++ text-primary: 主要，蓝色(#428bca)
++ text-success: 成功，浅绿色(#3c763d)
++ text-info: 通知信息，浅蓝色(#31708f)
++ text-warning: 警告，黄色(#8a6d3b)
++ text-danger: 危险，褐色(#a94442)
 
 
 Example:
@@ -606,11 +606,203 @@ Example:
 ![图文解析](p14)
 
 
+###### 对齐效果 alignment
++ text-left: 左对齐 (被设为默认，且适用于 Bootstrap 3)
++ text-right: 右对齐 (适用于 Bootstrap 3)
++ text-justify: 两端对齐 (适用于 Bootstrap 3)
++ text-center: 居中对齐
++ text-start: 左对齐
++ text-end: 右对齐
++ style="text-align: justify;": 两端对齐
+
+Example(Bootstrap 5):
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>对齐效果</title>
+</head>
+<body>
+    <div class="container">
+        <!-- 对齐效果 -->
+        <p class="text-left">我是左对齐</p>
+        <p class="text-right">我是右对齐</p>
+        <p class="text-start">我是左对齐</p>
+        <p class="text-end">我是右对齐</p>
+        <p class="text-center">我是居中对齐</p>
+        <p class="text-justify">
+            我是两端对齐,我是很长很长很长很长很,
+            长很长很长很长很长很长很长很长很长很长,
+            很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的段落
+        </p>
+        <p style="text-align: justify;">
+            我是两端对齐,我是很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的段落
+        </p>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![文字解析](p15)
 
 
+#### 列表
++ 无序列表: ul
++ 有序列表: ol
++ 定义列表: dl
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>初始列表</title>
+</head>
+<body>
+    <div class="container">
+        无序列表
+        <ul>
+            <li>1</li>
+            <li>2</li>
+        </ul>
+        有序列表
+        <ol>
+            <li>1</li>
+            <li>2</li>
+        </ol>
+        定义列表
+        <dl>
+            <dt>标题1</dt>
+            <dd>说明1</dd>
+            <dt>标题2</dt>
+            <dd>说明2</dd>
+        </dl>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![列表](p16)
+
+###### 去点列表
++ 顾名思义，就是没有点的列表
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>去点列表</title>
+</head>
+<body>
+    <div class="container">
+        无序列表
+        <ul class="list-unstyled">
+            <li>1</li>
+            <li>2</li>
+        </ul>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+![去点列表](p17)
+
+###### 内联列表
++ 使其在同一个水平线上
++ 写法: list-inline 和 list-inline-item
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>内联列表</title>
+</head>
+<body>
+    <div class="container">
+        <ul class="list-inline">
+            <li class="list-inline-item">1</li>
+            <li class="list-inline-item">2</li>
+            <li class="list-inline-item">3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![内联列表](p18)
 
 
+#### 自定义列表 - 内联列表 {待更新}
++ 写法: dl-horizontal (只能在 Bootstrap 3 使用)
++ 平时可以通过，写法: list-group list-group-horizontal
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>自定义列表 - 内联列表</title>
+</head>
+<body>
+    <div class="container">
+        <dl class="dl-horizontal">
+            <dt>标题1</dt>
+            <dd>说明1</dd>
+            <dt>标题2</dt>
+            <dd>说明2</dd>
+        </dl>
+
+        <dl class="list-group list-group-horizontal">
+            <dt class="list-group-item">标题1</dt>
+            <dt class="list-group-item">标题2</dt>
+        </dl>
+
+        <dl class="list-group list-group-horizontal">
+            <dd class="list-group-item">说明1</dd>
+            <dd class="list-group-item">说明2</dd>
+        </dl>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
 
 
 
