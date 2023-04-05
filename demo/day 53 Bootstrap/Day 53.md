@@ -69,10 +69,10 @@
 </html>
 ```
 
-#### window 调用其他设备
+### window 调用其他设备
 ![window 参考图](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p1.png)
 
-#### 布局容器
+#### 布局容器 - container
 
 ![布局与视图的大小](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p5.png)
 
@@ -481,9 +481,48 @@ Example:
 ![列嵌套图文解析](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p11.png)
 
 
+#### 排版
+###### 标题
++ 与 HTML 相仿，使用标签 h1 至 h6
++ bootstrap 对 h1 至 h6 的效果进行了覆盖
++ bootstrap 提供了对应的类名，为不是标题元素的元素可以设置标题元素的样式
++ 可以在标题内使用其他的副标题
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>Header 标题</title>
+</head>
+<body>
+    <div class="container">
+        <h1>标题一</h1>
+        <h2>标题二</h2>
+        <h3>标题三</h3>
 
+        <!-- 使非标题的元素拥有标题元素的属性 -->
+        <div class="h1">我是标题一</div>
 
+        <!-- 在标题内增添副标题 -->
+        <h1>大标题<small>副标题</small></h1>
 
+        <!-- 在标题内添加元素并设置其类名为small -->
+        <h1>大标题<span class="small">副标题</span></h1>
 
+        <!-- 使用非标题的同时，增添副标题 -->
+        <div class="h1">大标题<small>副标题</small></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![例子](p12)
 
