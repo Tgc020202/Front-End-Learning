@@ -525,7 +525,7 @@ Example:
 </html>
 ```
 
-![例子](p12)
+![例子](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p12.png)
 
 ###### 段落
 + 与 HTML 相仿，使用标签 p
@@ -564,7 +564,7 @@ Example:
 </html>
 ```
 
-![字体图文解析](p13)
+![字体图文解析](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p13.png)
 
 ###### 强调
 + text muted: 提示，浅灰色(#999)
@@ -603,7 +603,7 @@ Example:
 </html>
 ```
 
-![图文解析](p14)
+![图文解析](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p14.png)
 
 
 ###### 对齐效果 alignment
@@ -650,7 +650,7 @@ Example(Bootstrap 5):
 </html>
 ```
 
-![文字解析](p15)
+![文字解析](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p15.png)
 
 
 #### 列表
@@ -696,7 +696,7 @@ Example:
 </html>
 ```
 
-![列表](p16)
+![列表](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p16.png)
 
 ###### 去点列表
 + 顾名思义，就是没有点的列表
@@ -726,7 +726,7 @@ Example:
 </body>
 </html>
 ```
-![去点列表](p17)
+![去点列表](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p17.png)
 
 ###### 内联列表
 + 使其在同一个水平线上
@@ -760,7 +760,7 @@ Example:
 </html>
 ```
 
-![内联列表](p18)
+![内联列表](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p18.png)
 
 
 #### 自定义列表 - 内联列表 {待更新}
