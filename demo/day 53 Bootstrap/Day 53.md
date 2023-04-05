@@ -484,6 +484,7 @@ Example:
 #### 排版
 ###### 标题
 + 与 HTML 相仿，使用标签 h1 至 h6
++ hr 标签用于生成百分百宽度的横线，用于分隔内容
 + bootstrap 对 h1 至 h6 的效果进行了覆盖
 + bootstrap 提供了对应的类名，为不是标题元素的元素可以设置标题元素的样式
 + 可以在标题内使用其他的副标题
@@ -525,4 +526,95 @@ Example:
 ```
 
 ![例子](p12)
+
+###### 段落
++ 与 HTML 相仿，使用标签 p
++ lead 可以用于突出强调内容
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>Paragraph 段落</title>
+</head>
+<body>
+    <div class="container">
+        <p>我是段落</p>
+
+        <!-- lead -->
+        <p class="lead">
+            我是加了 lead 的段落，
+            <b>加粗内容</b>，
+            <strong>加粗内容二</strong>，
+            <small>缩小内容</small>，
+            <em>斜体内容</em>
+        </p>
+
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![字体图文解析](p13)
+
+###### 强调
++ text muted: 提示，浅灰色
++ text-primary: 主要，蓝色
++ text-success: 成功，浅绿色
++ text-info: 通知信息，浅蓝色
++ text-warning: 警告，黄色
++ text-danger: 危险，褐色
+
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>强调</title>
+</head>
+<body>
+    <div class="container">
+        <!-- 强调效果 -->
+        <div class="text-muted">.text-muted: 提示，浅灰色</div>
+        <div class="text-primary">.text-primary: 主要，蓝色</div>
+        <div class="text-success">.text-success: 成功，浅绿色</div>
+        <div class="text-info">.text-info: 通知信息，浅蓝色</div>
+        <div class="text-warning">.text-warning: 警告，黄色</div>
+        <div class="text-danger">.text-danger: 危险，褐色</div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![图文解析](p14)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
