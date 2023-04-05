@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>栅格网格系统 - 列排序</title>
+</head>
+<body>
+    <!-- 布局容器 -->
+    <div class="container" style="background: thistle;">
+        <!-- 行元素 -->
+        原本
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-0" style="background: lightblue;">第一</div>
+            <div class="col-4 order-1" style="background: lightcoral;">第二</div>
+            <div class="col-4 order-2" style="background: lightgreen;">第三</div>
+        </div>
+
+        对比第一
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-last" style="background: lightblue;">第一</div>
+            <div class="col-4 order-first" style="background: lightcoral;">第二</div>
+            <div class="col-4 order-0" style="background: lightgreen;">第三</div>
+        </div>
+
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-last" style="background: lightblue;">第一</div>
+            <div class="col-4 order-0" style="background: lightcoral;">第二</div>
+            <div class="col-4 order-first" style="background: lightgreen;">第三</div>
+        </div>
+
+        对比最后
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-last" style="background: lightblue;">第一</div>
+            <div class="col-4 order-first" style="background: lightcoral;">第二</div>
+            <div class="col-4 order-12" style="background: lightgreen;">第三</div>
+        </div>
+
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-12" style="background: lightblue;">第一</div>
+            <div class="col-4 order-last" style="background: lightcoral;">第二</div>
+            <div class="col-4 order-first" style="background: lightgreen;">第三</div>
+        </div>
+        
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>

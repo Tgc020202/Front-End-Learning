@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>列嵌套</title>
+</head>
+<body>
+    <!-- 布局容器 -->
+    <div class="container" style="background: thistle;">
+        <!-- 行元素 -->
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4" style="background: lightblue;">
+                <!-- 内嵌套 -->
+                <div class="row text-center" style="border: 1px solid black;">
+                    <!-- 列元素 -->
+                    <div class="col-4" style="background: lightgoldenrodyellow;">4</div>
+                    <div class="col-4" style="background: lightgray;">4</div>
+                </div>
+            </div>
+
+            <div class="col-4" style="background: lightcoral;">
+                <!-- 内嵌套 -->
+                <div class="row text-center" style="border: 1px solid black;">
+                    <!-- 列元素 -->
+                    <div class="col-2" style="background: lightgoldenrodyellow;">2</div>
+                    <div class="col-2" style="background: lightgray;">2</div>
+                </div>
+            </div>
+
+            <div class="col-4" style="background: lightgreen;">
+                <!-- 内嵌套 -->
+                <div class="row text-center" style="border: 1px solid black;">
+                    <!-- 列元素 -->
+                    <div class="col-3" style="background: lightgoldenrodyellow;">3</div>
+                    <div class="col-3" style="background: lightgray;">3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
