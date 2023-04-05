@@ -70,11 +70,11 @@
 ```
 
 #### window 调用其他设备
-![window 参考图](p1)
+![window 参考图](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p1.png)
 
 #### 布局容器
 
-![布局与视图的大小](p5)
+![布局与视图的大小](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p5.png)
 
 ###### container
 + 会有固定的宽度，左右两侧会有空间
@@ -158,7 +158,7 @@ Example:
 </html>
 ```
 
-![形成对比](p2)
+![形成对比](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p2.png)
 
 #### 栅格网格系统
 + 会随着屏幕或视窗(viewport)尺寸的增加
@@ -167,7 +167,7 @@ Example:
 + 可放置内容在布局中
 + 通过容器定义大小，常见平分为 12 份 (也有平分 24 份以及 32 份的)
 
-![栅格图文解析](p3)
+![栅格图文解析](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p3.png)
 > + md: 中等屏
 > + xs: 超小屏
 > + sm: 小屏
@@ -200,7 +200,7 @@ Example:
 </body>
 </html>
 ```
-![图文解析](p4)
+![图文解析](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p4.png)
 > + 切记要保证屏幕/视图的大小
 
 
@@ -242,9 +242,9 @@ Example:
 
 ###### col 的好处
 
-![没有被压缩](p6)
+![没有被压缩](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p6.png)
 
-![被压缩后的差别](p7)
+![被压缩后的差别](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p7.png)
 > + 当屏幕的大小改变，只要不超过 12 列，col 指定的列不会被影响，
 
 
@@ -299,7 +299,191 @@ Example:
 </html>
 ```
 
-![图文显示](p8)
+![图文显示](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p8.png)
+
+
+###### 列排序 order / pull and push
++ 改变列的序列或位置
++ 写法 : order-排序的级别
++ 排序的级别可以以数值的方式来定义，一个使用 first 或者 last
++ pull and push 只适用于 bootstrap 3，bootstrap 3 以上的都无法使用
++ 写法 : col-push-移动的列组合数 和 col-pull-移动的列组合数
++ pull 往前，push 往后
+
+Example(order):
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>栅格网格系统 - 列排序</title>
+</head>
+<body>
+    <!-- 布局容器 -->
+    <div class="container" style="background: thistle;">
+        <!-- 行元素 -->
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-0" style="background: lightblue;">4列</div>
+            <div class="col-4 order-0" style="background: lightcoral;">4列</div>
+            <div class="col-4 order-0" style="background: lightgreen;">4列</div>
+        </div>
+
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-3" style="background: lightblue;">4列</div>
+            <div class="col-4 order-2" style="background: lightcoral;">4列</div>
+            <div class="col-4 order-1" style="background: lightgreen;">4列</div>
+        </div>
+
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-last" style="background: lightblue;">4列</div>
+            <div class="col-4 order-first" style="background: lightcoral;">4列</div>
+            <div class="col-4 order-5" style="background: lightgreen;">4列</div>
+        </div>
+        
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![图文显示](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p9.png)
+
++ order-first 与 order-0 都是相同的，但是 first 的级别比数值的级别高
++ order-last 与 order-12 都是相同的，但是 last 的级别比数值的级别高
++ 当数值相同，就会选择最前面的为优先
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>栅格网格系统 - 列排序</title>
+</head>
+<body>
+    <!-- 布局容器 -->
+    <div class="container" style="background: thistle;">
+        <!-- 行元素 -->
+        原本
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-0" style="background: lightblue;">第一</div>
+            <div class="col-4 order-1" style="background: lightcoral;">第二</div>
+            <div class="col-4 order-2" style="background: lightgreen;">第三</div>
+        </div>
+
+        对比第一
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-last" style="background: lightblue;">第一</div>
+            <div class="col-4 order-first" style="background: lightcoral;">第二</div>
+            <div class="col-4 order-0" style="background: lightgreen;">第三</div>
+        </div>
+
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-last" style="background: lightblue;">第一</div>
+            <div class="col-4 order-0" style="background: lightcoral;">第二</div>
+            <div class="col-4 order-first" style="background: lightgreen;">第三</div>
+        </div>
+
+        对比最后
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-last" style="background: lightblue;">第一</div>
+            <div class="col-4 order-first" style="background: lightcoral;">第二</div>
+            <div class="col-4 order-12" style="background: lightgreen;">第三</div>
+        </div>
+
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4 order-12" style="background: lightblue;">第一</div>
+            <div class="col-4 order-last" style="background: lightcoral;">第二</div>
+            <div class="col-4 order-first" style="background: lightgreen;">第三</div>
+        </div>
+        
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![图文显示](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p10.png)
+
+###### 列嵌套
++ 每个列里面可以嵌套多 12 个列
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>列嵌套</title>
+</head>
+<body>
+    <!-- 布局容器 -->
+    <div class="container" style="background: thistle;">
+        <!-- 行元素 -->
+        <div class="row text-center" style="border: 1px solid black;">
+            <!-- 列元素 -->
+            <div class="col-4" style="background: lightblue;">
+                <!-- 内嵌套 -->
+                <div class="row text-center" style="border: 1px solid black;">
+                    <!-- 列元素 -->
+                    <div class="col-4" style="background: lightgoldenrodyellow;">4</div>
+                    <div class="col-4" style="background: lightgray;">4</div>
+                </div>
+            </div>
+
+            <div class="col-4" style="background: lightcoral;">
+                <!-- 内嵌套 -->
+                <div class="row text-center" style="border: 1px solid black;">
+                    <!-- 列元素 -->
+                    <div class="col-2" style="background: lightgoldenrodyellow;">2</div>
+                    <div class="col-2" style="background: lightgray;">2</div>
+                </div>
+            </div>
+
+            <div class="col-4" style="background: lightgreen;">
+                <!-- 内嵌套 -->
+                <div class="row text-center" style="border: 1px solid black;">
+                    <!-- 列元素 -->
+                    <div class="col-3" style="background: lightgoldenrodyellow;">3</div>
+                    <div class="col-3" style="background: lightgray;">3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![列嵌套图文解析](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p11.png)
+
+
+
+
+
 
 
 
