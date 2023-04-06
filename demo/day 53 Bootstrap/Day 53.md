@@ -763,7 +763,7 @@ Example:
 ![内联列表](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p18.png)
 
 
-#### 自定义列表 - 内联列表 {待更新}
+###### 自定义列表 - 内联列表 {待更新}
 + 写法: dl-horizontal (只能在 Bootstrap 3 使用)
 + 平时可以通过，写法: list-group list-group-horizontal
 
@@ -803,6 +803,316 @@ Example:
 </body>
 </html>
 ```
+
+#### 代码风格
++ 单行内联代码: <code></code>
++ 多行块代码: <pre></pre>
++ 显示用户输入代码: <kbd></kbd>
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>代码风格</title>
+</head>
+<body>
+    <div class="container">
+        <code>
+            this is a simple code use code
+            this is a simple code use code
+        </code>
+        <code>this is a simple code use code</code>
+
+        <pre>
+            this is a simple code use pre
+            this is a simple code use pre
+        </pre>
+        <pre>this is a simple code use pre</pre>
+
+        <kbd>
+            this is a simple code use kbd
+            this is a simple code use kbd
+        </kbd>
+        <kbd>this is a simple code use kbd</kbd>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![代码风格](p19)
+
+###### 快捷键效果
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>代码风格 - 快捷键的效果</title>
+</head>
+<body>
+    <div class="container">
+        <p>使用<kbd>ctrl</kbd>+<kbd>s</kbd>进行保存</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![按键风格](p20)
+
+
+###### 显示 HTML 代码
++ `&lt;` 替代 `<`
++ `&gt;` 替代 `>`
++ 比如: `<h1></h1>` -> `&lt;h1&gt; &lt;/h1&gt;`
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>代码风格 - HTML 格式</title>
+</head>
+<body>
+    <div class="container">
+        <pre>
+            &lt;h2&gt;你好，一起学习 bootstrap&lt;/h2&gt;
+        </pre>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![HTML 格式](p21)
+
+
+###### 滚动条 
++ 写法: .pre-scrollable(适用于 Bootstrap3)
++ 写法: .overflow-auto
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>代码风格 - 滚动条</title>
+</head>
+<body>
+    <div class="container">
+        <pre class="pre-scrollable overflow-auto list-unstyled">
+            <li>1..................</li>
+            <li>2..................</li>
+            <li>3..................</li>
+            <li>4..................</li>
+            <li>5..................</li>
+            <li>6..................</li>
+            <li>7..................</li>
+            <li>8..................</li>
+            <li>9..................</li>
+            <li>10.................</li>
+            <li>11.................</li>
+            <li>12.................</li>
+            <li>13.................</li>
+            <li>14.................</li>
+            <li>15.................</li>
+            <li>16.................</li>
+            <li>17.................</li>
+            <li>18.................</li>
+            <li>19.................</li>
+            <li>20.................</li>
+            <li>21.................</li>
+            <li>22.................</li>
+            <li>23.................</li>
+            <li>24.................</li>
+        </pre>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+####  表格样式
++ 基础表格:
+> + table
++ 附加样式表格:
+> + table-striped: 斑马线表格
+> + table-bordered: 带边框表格
+> + table-hover: 鼠标触碰高亮表格
+> + table-condensed: 紧凑型表格
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表格样式</title>
+</head>
+<body>
+    普通表格
+    <table>
+        <tr class="table-active">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr class="table-danger">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr class="table-success">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+    </table>
+
+    <hr><br>
+    基础表格
+    <table class="table">
+        <tr class="table-active">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr class="table-danger">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr class="table-success">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+    </table>
+
+    <hr><br>
+    斑马线表格
+    <table class="table table-striped">
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+    </table>
+
+    <hr><br>
+    带边框表格
+    <table class="table table-bordered">
+        <tr class="table-active">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr class="table-danger">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr class="table-success">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+    </table>
+
+    <hr><br>
+    鼠标触碰高亮表格
+    <table class="table table-hover">
+        <tr class="table-active">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr class="table-danger">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr class="table-success">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+    </table>
+
+    <hr><br>
+    紧凑型表格
+    <table class="table table-responsive">
+        <tr class="table-active">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr class="table-danger">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr class="table-success">
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+    </table>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![各种表格样式](p22)
+
+###### 颜色
+
+
+
+
+
 
 
 
