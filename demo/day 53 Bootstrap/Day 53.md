@@ -1595,15 +1595,65 @@ Example:
 
 
 ###### 按钮大小
++ btn-lg: 大
++ btn-sm: 小
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>按钮的大小</title>
+</head>
+<body>
+    <button class="btn btn-primary">普通大小按钮</button>
+    <hr>
+    <button class="btn btn-primary btn-lg">大按钮</button>
+    <hr>
+    <button class="btn btn-primary btn-sm">小按钮</button>
 
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
 
+![图文展示](p32)
 
+###### 按钮禁用
++ disabled="disabled"
++ 使其的 onclick 事项无法触发，甚至导致其按钮无法点击
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>按钮禁用</title>
+</head>
+<body>
+    <button class="btn btn-primary">按钮</button>
+    <hr>
+    <button class="btn btn-primary" onclick="alert('hello')">弹出 hello 按钮</button>
+    <hr>
+    <button class="btn btn-primary" onclick="alert('hello')" disabled="disabled">被禁用的按钮1</button>
+    <hr>
+    <button class="btn btn-primary disabled" onclick="alert('hello')">被禁用的按钮2</button>
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
 
-
-
-
+![图文展示](p31)
 
 
 
