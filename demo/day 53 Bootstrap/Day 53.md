@@ -1656,8 +1656,281 @@ Example:
 ![图文展示](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p31.png)
 
 
+#### 导航 navigation
++ 需添加以下类名在每个要跳转的选项的元素里
+> + .nav-item: 添加为 navigation 的 item
+> + .nav-link: 赋予链接
+> + .active: 使其显示触发状态
+
+###### 标签式导航
++ .nav-tabs
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>导航 - 标签式导航</title>
+</head>
+<body>
+    <p>标签式导航</p>
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a href="#" class="nav-link active">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+    </ul>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![标签式导航](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p33.png)
+
+###### 胶囊式导航
++ .nav-pills
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>导航 - 胶囊式导航</title>
+</head>
+<body>
+    <p>胶囊式导航</p>
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link active">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">导航</a></li>
+    </ul>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![胶囊式导航](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p34.png)
 
 
+###### 面包屑导航
++ .breadcrumb
++ .breadcrumb-item: 添加为 breadcrumb 的 item
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>导航 - 面包屑导航</title>
+</head>
+<body>
+    <p>面包屑导航</p>
+    <ul class="nav breadcrumb">
+        <a href="" class="breadcrumb-item active">导航</a>
+        <a href="" class="breadcrumb-item">导航</a>
+        <a href="" class="breadcrumb-item">导航</a>
+        <a href="" class="breadcrumb-item">导航</a>
+        <a href="" class="breadcrumb-item">导航</a>
+        <a href="" class="breadcrumb-item">导航</a>
+        <a href="" class="breadcrumb-item">导航</a>
+        <a href="" class="breadcrumb-item">导航</a>
+    </ul>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![面包屑导航](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p35.png)
+
+###### 分页导航
++ .pagination
++ .page-item: 添加为 pagination 的 item
++ .page-link: 赋予链接
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>导航 - 分页导航</title>
+</head>
+<body>
+    <p>分页导航</p>
+    <ul class="pagination">
+        <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
+        <li class="page-item"><a href="#" class="page-link">1</a></li>
+        <li class="page-item active"><a href="#" class="page-link">2</a></li>
+        <li class="page-item"><a href="#" class="page-link">3</a></li>
+        <li class="page-item"><a href="#" class="page-link">4</a></li>
+        <li class="page-item"><a href="#" class="page-link">5</a></li>
+        <li class="page-item"><a href="#" class="page-link">6</a></li>
+        <li class="page-item"><a href="#" class="page-link">7</a></li>
+        <li class="page-item"><a href="#" class="page-link">8</a></li>
+        <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
+    </ul>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![分页导航](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p36.png)
 
 
+###### 翻页导航(适用于 Bootstrap3)
++ .pager
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>导航 - 翻页导航</title>
+</head>
+<body>
+    <p>翻页导航</p>
+    <ul class="pager">
+        <li><a href="#" class="">上一页</a></li>
+        <li><a href="#" class="">下一页</a></li>
+    </ul>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+
+#### 下拉菜单(update later)
++ 
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <script src=""></script>
+    <title>下拉菜单</title>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            运动
+            <!-- 下拉箭头 -->
+        <span class="caret"></span>
+        </button>
+
+        <!-- 下拉菜单 -->
+        <ul class="dropdown-menu">
+            <li><a href="#" class="dropdown-header">羽球</a></li>
+            <li><a href="#" class="dropdown-item active">篮球</a></li>
+            <li><a href="#" class="dropdown-item disabled">足球</a></li>
+            <li><a href="#" class="dropdown-item">网球</a></li>
+            <li><a href="#" class="dropdown-item">桌球</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a href="#" class="dropdown-header">铅球</a></li>
+        </ul>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+
+###### 模态框
++ 
+
+Example:
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <title>模态框</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">打开模态框</button>
+    <button class="btn btn-primary" id="btn">打开模态框</button>
+
+    <!-- 模态框 -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+        <div class="modal-content">
+    
+            <!-- 模态框头部 -->
+            <div class="modal-header">
+            <h4 class="modal-title">模态框标题</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+    
+            <!-- 模态框内容 -->
+            <div class="modal-body">
+            模态框内容..
+            </div>
+    
+            <!-- 模态框底部 -->
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+            </div>
+    
+
+            <script>
+                // 绑定按钮的点击事件
+                $('#btn').click(function(){
+                    // 打开模态框
+                    $('#myModal').modal('show');
+                });
+            </script>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+![模态框](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p37.png)
