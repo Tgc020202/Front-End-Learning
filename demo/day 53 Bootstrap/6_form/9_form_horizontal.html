@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表单布局 - 水平表单</title>
+</head>
+<body>
+    <form action="" class="container" role="form">
+        <h2 class="h2" style="text-align: center;">用户信息表</h2>
+
+        <!-- input -->
+        <!--
+            mt : margin-top
+            mb : margin-bottom 
+        -->
+        <div class="row mt-2 mb-2">
+            <label for="email" class="col-2">邮箱</label>
+            <div class="col-10">
+                <input type="email" name="" value="" class="form-control" placeholder="请输入邮箱">
+            </div>
+        </div>
+
+        <div class="row mt-2 mb-2">
+            <label for="password" class="col-2">密码</label>
+            <div class="col-10">
+                <input type="password" name="" value="" class="form-control" placeholder="请输入密码">
+            </div>
+        </div>
+
+        <!-- checkbox -->
+        <div class="row mt-2 mb-2">
+            <label for="info" class="col-2">爱好</label>
+            <div class="col-auto">
+                <label for="" class="form-check-inline"><input type="checkbox" name="hobby" value="">唱歌</label>
+                <label for="" class="form-check-inline"><input type="checkbox" name="hobby" value="">跳舞</label>
+                <label for="" class="form-check-inline"><input type="checkbox" name="hobby" value="">下棋</label>
+                <label for="" class="form-check-inline"><input type="checkbox" name="hobby" value="">羽球</label>
+                <label for="" class="form-check-inline"><input type="checkbox" name="hobby" value="">篮球</label>
+            </div>
+        </div>
+
+        <!-- select -->
+        <div class="row mt-2 mb-2">
+            <label for="country" class="col-2">国家</label>
+            <div class="col-10">
+                <select class="form-control text-center">
+                    <option value="">请选择国家</option>
+                    <option value="">马来西亚</option>
+                    <option value="">中国</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- textarea -->
+        <div class="row mt-2 mb-4">
+            <label for="info" class="col-2">简介</label>
+            <div class="col-10">
+                <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+            </div>
+        </div>
+
+        <!-- button -->
+        <div class="row mt-2 mb-2">
+            <button class="btn btn-primary">提交</button>
+        </div>
+    </form>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
