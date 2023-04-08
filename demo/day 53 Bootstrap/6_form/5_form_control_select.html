@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表单的样式 - select</title>
+</head>
+<body>
+    <!-- 普通 -->
+    <select style="background-color: blue;">
+        <option value="">羽球</option>
+        <option value="">篮球</option>
+        <option value="">足球</option>
+    </select>
+    <br>
+    
+    <!-- 独占一行 -->
+    <select class="form-control" style="background-color: green;">
+        <option value="">羽球</option>
+        <option value="">篮球</option>
+        <option value="">足球</option>
+    </select>
+    <br>
+
+    <hr>
+
+    <!-- 可设定 row 和 col 控制 input 的宽 -->
+    <div class="row">
+        <div class="col-3">
+            <!-- normal size -->
+            <select class="form-control" style="background-color: red;">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+            <br>
+            <!-- large size -->
+            <select class="form-control form-control-lg" style="background-color: orange;">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+            <br>
+            <!-- small size -->
+            <select class="form-control form-control-sm" style="background-color: yellow;">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-3">
+            <!-- normal size -->
+            <select class="form-control" style="background-color: red;" multiple="multiple">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+            <br>
+            <!-- large size -->
+            <select class="form-control form-control-lg" style="background-color: orange;" multiple="multiple">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+            <br>
+            <!-- small size -->
+            <select class="form-control form-control-sm" style="background-color: yellow;" multiple="multiple">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>

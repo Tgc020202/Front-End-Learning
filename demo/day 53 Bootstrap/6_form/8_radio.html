@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表单的样式 - radio</title>
+</head>
+<body>
+    <!-- 普通 -->
+    <input type="radio" name="sex" value="">男
+    <input type="radio" name="sex" value="">女
+
+    <!-- 使用 bootstrap 样式 -->
+    <!-- 垂直显示 -->
+    <div class="row">
+        <div class="col-3">
+            <div class="form-switch">
+                <label for=""><input type="radio" name="sex" value="">男</label>
+            </div>
+            <div class="form-switch">
+                <label for=""><input type="radio" name="sex" value="">女</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 水平显示 -->
+    <div class="row">
+        <div class="col-3">
+            <label for="" class="form-switch"><input type="radio" name="sex" value="">男</label>
+            <label for="" class="form-switch"><input type="radio" name="sex" value="">女</label>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>

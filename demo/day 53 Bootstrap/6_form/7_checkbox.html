@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表单的样式 - checkbox</title>
+</head>
+<body>
+    <!-- 普通 -->
+    <input type="checkbox" name="hobby" value="">唱歌
+    <input type="checkbox" name="hobby" value="">跳舞
+    <input type="checkbox" name="hobby" value="">下棋
+
+    <!-- 使用 bootstrap 样式 -->
+    <!-- 垂直显示 -->
+    <div class="row">
+        <div class="col-3">
+            <div class="form-check-label">
+                <label for=""><input type="checkbox" name="hobby" value="">唱歌</label>
+            </div>
+            <div class="form-check-label">
+                <label for=""><input type="checkbox" name="hobby" value="">跳舞</label>
+            </div>
+            <div class="form-check-label">
+                <label for=""><input type="checkbox" name="hobby" value="">下棋</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 水平显示 -->
+    <div class="row">
+        <div class="col-4">
+            <label for="" class="form-check-inline"><input type="checkbox" name="hobby" value="">唱歌</label>
+            <label for="" class="form-check-inline"><input type="checkbox" name="hobby" value="">跳舞</label>
+            <label for="" class="form-check-inline"><input type="checkbox" name="hobby" value="">下棋</label>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
