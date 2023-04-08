@@ -1108,6 +1108,497 @@ Example:
 ![各种表格样式](p22)
 
 ###### 颜色
+![各种颜色样式](p23)
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表格样式 - 颜色</title>
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>table</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            <tr class="table-primary">
+                <th>table-primary</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            <tr class="table-secondary">
+                <th>table-secondary</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            <tr class="table-success">
+                <th>table-success</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            <tr class="table-danger">
+                <th>table-danger</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            <tr class="table-warning">
+                <th>table-warning</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            <tr class="table-info">
+                <th>table-info</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            <tr class="table-light">
+                <th>table-light</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+            <tr class="table-dark">
+                <th>table-dark</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+            </tr>
+        </table>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+
+##### 表单样式
++ .form-control
+> + input
+> + select
+> + textarea
+
+Example(普通样式):
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表单的基本样式</title>
+</head>
+<body>
+    <input type="text" name="" id="">
+    <br>
+    <select>
+        <option value="">请选择国家</option>
+        <option value="">马来西亚</option>
+        <option value="">中国</option>
+        <option value="">印度尼西亚</option>
+    </select>
+    <br>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <br>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+###### 文本框 input
++ .form-control: 普通大小
++ .form-control-lg: 大
++ .form-control-sm: 小
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表单的样式 - input</title>
+</head>
+<body>
+    <!-- 普通 -->
+    <input type="text" name="" id="" style="background-color: blue;">
+    <br>
+    
+    <!-- 独占一行 -->
+    <input type="text" name="" id="" class="form-control" style="background-color: green;">
+    <br>
+
+    <hr>
+
+    <!-- 可设定 row 和 col 控制 input 的宽 -->
+    <div class="row">
+        <div class="col-3">
+            <!-- normal size -->
+            <input type="text" name="" id="" class="form-control" style="background-color: red;">
+            <br>
+            <!-- large size -->
+            <input type="text" name="" id="" class="form-control form-control-lg" style="background-color: orange;">
+            <br>
+            <!-- small size -->
+            <input type="text" name="" id="" class="form-control form-control-sm" style="background-color: yellow;">
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![观察长宽](p24)
+
+###### 下拉框 select
++ .form-control: 普通大小
++ .form-control-lg: 大
++ .form-control-sm: 小
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表单的样式 - select</title>
+</head>
+<body>
+    <!-- 普通 -->
+    <select style="background-color: blue;">
+        <option value="">羽球</option>
+        <option value="">篮球</option>
+        <option value="">足球</option>
+    </select>
+    <br>
+    
+    <!-- 独占一行 -->
+    <select class="form-control" style="background-color: green;">
+        <option value="">羽球</option>
+        <option value="">篮球</option>
+        <option value="">足球</option>
+    </select>
+    <br>
+
+    <hr>
+
+    <!-- 可设定 row 和 col 控制 input 的宽 -->
+    <div class="row">
+        <div class="col-3">
+            <!-- normal size -->
+            <select class="form-control" style="background-color: red;">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+            <br>
+            <!-- large size -->
+            <select class="form-control form-control-lg" style="background-color: orange;">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+            <br>
+            <!-- small size -->
+            <select class="form-control form-control-sm" style="background-color: yellow;">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-3">
+            <!-- normal size -->
+            <select class="form-control" style="background-color: red;" multiple="multiple">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+            <br>
+            <!-- large size -->
+            <select class="form-control form-control-lg" style="background-color: orange;" multiple="multiple">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+            <br>
+            <!-- small size -->
+            <select class="form-control form-control-sm" style="background-color: yellow;" multiple="multiple">
+                <option value="">羽球</option>
+                <option value="">篮球</option>
+                <option value="">足球</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![观察长宽](p25)
+
+###### 文本域 textarea
++ .form-control: 普通大小
++ .form-control-lg: 大
++ .form-control-sm: 小
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表单的样式 - textarea</title>
+</head>
+<body>
+    <!-- 普通 -->
+    <textarea name="" id="" cols="10" rows="2" style="background-color: blue;"></textarea>
+    <br>
+    
+    <!-- 独占一行 -->
+    <textarea name="" id="" cols="10" rows="2" class="form-control" style="background-color: green;"></textarea>
+    <br>
+
+    <hr>
+
+    <!-- 可设定 row 和 col 控制 input 的宽 -->
+    <div class="row">
+        <div class="col-3">
+            <!-- normal size -->
+            <textarea name="" id="" cols="10" rows="2"  class="form-control" style="background-color: red;"></textarea>
+            <br>
+            <!-- large size -->
+            <textarea name="" id="" cols="10" rows="2" class="form-control form-control-lg" style="background-color: orange;"></textarea>
+            <br>
+            <!-- small size -->
+            <textarea name="" id="" cols="10" rows="2"  class="form-control-sm" style="background-color: yellow;"></textarea>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![观察长宽](p26)
+
+###### 复选框 checkbox
++ 垂直显示
+> + 透过 div 元素
+> + 需要赋予 div 元素 .form-check-label
+
++ 水平显示
+> + 透过 label 元素
+> + 需要赋予 label 元素 .form-check-inline
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表单的样式 - checkbox</title>
+</head>
+<body>
+    <!-- 普通 -->
+    <input type="checkbox" name="hobby" value="">唱歌
+    <input type="checkbox" name="hobby" value="">跳舞
+    <input type="checkbox" name="hobby" value="">下棋
+
+    <!-- 使用 bootstrap 样式 -->
+    <!-- 垂直显示 -->
+    <div class="row">
+        <div class="col-3">
+            <div class="form-check-label">
+                <label for=""><input type="checkbox" name="hobby" value="">唱歌</label>
+            </div>
+            <div class="form-check-label">
+                <label for=""><input type="checkbox" name="hobby" value="">跳舞</label>
+            </div>
+            <div class="form-check-label">
+                <label for=""><input type="checkbox" name="hobby" value="">下棋</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 水平显示 -->
+    <div class="row">
+        <div class="col-4">
+            <label for="" class="form-check-inline"><input type="checkbox" name="hobby" value="">唱歌</label>
+            <label for="" class="form-check-inline"><input type="checkbox" name="hobby" value="">跳舞</label>
+            <label for="" class="form-check-inline"><input type="checkbox" name="hobby" value="">下棋</label>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![图文详解](p27)
+
+###### 单选框 radio
++ 垂直显示
+> + 透过 div 元素
+> + 需要赋予 div 元素 .form-switch
+
++ 水平显示
+> + 透过 label 元素
+> + 需要赋予 label 元素 .form-switch
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>表单的样式 - radio</title>
+</head>
+<body>
+    <!-- 普通 -->
+    <input type="radio" name="sex" value="">男
+    <input type="radio" name="sex" value="">女
+
+    <!-- 使用 bootstrap 样式 -->
+    <!-- 垂直显示 -->
+    <div class="row">
+        <div class="col-3">
+            <div class="form-switch">
+                <label for=""><input type="radio" name="sex" value="">男</label>
+            </div>
+            <div class="form-switch">
+                <label for=""><input type="radio" name="sex" value="">女</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 水平显示 -->
+    <div class="row">
+        <div class="col-4">
+            <label for="" class="form-switch"><input type="radio" name="sex" value="">男</label>
+            <label for="" class="form-switch"><input type="radio" name="sex" value="">女</label>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+![图文详解](p28)
+
+
+#### 按钮 button
++ bootstrap 美化了原本的按钮
++ .btn
+
+![按钮的种类](p28)
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>按钮</title>
+</head>
+<body>
+    <button class="">without bootstrap</button>
+    <button class="btn">normal btn</button>
+    <button class="btn btn-danger">btn-danger</button>
+    <button class="btn btn-primary">btn-primary</button>
+    <button class="btn btn-info">btn-info</button>
+    <button class="btn btn-success">btn-success</button>
+    <button class="btn btn-default">btn-default</button>
+    <button class="btn btn-warning">btn-warning</button>
+    <button class="btn btn-link">btn-link</button>
+    <button class="btn btn-dark">btn-dark</button>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+###### .btn 不单单局限于 button 元素
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstraptools/css/bootstrap.min.css" rel="stylesheet">
+    <title>按钮</title>
+</head>
+<body>
+    <button class="btn btn-primary">button 按钮元素</button>
+    <hr>
+    <a href="" class="btn btn-primary">a 链接元素</a>
+    <hr>
+    <span class="btn btn-primary">span 元素</span>
+    <hr>
+    <div class="btn btn-primary">div 元素</div>
+
+    <!-- JavaScript -->
+    <script src="bootstraptools/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+![图文展示](p30)
+
+
+###### 按钮大小
+
+
+
+
 
 
 
