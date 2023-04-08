@@ -847,7 +847,7 @@ Example:
 </html>
 ```
 
-![代码风格](p19)
+![代码风格](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p19.png)
 
 ###### 快捷键效果
 
@@ -873,7 +873,7 @@ Example:
 </html>
 ```
 
-![按键风格](p20)
+![按键风格](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p20.png)
 
 
 ###### 显示 HTML 代码
@@ -905,7 +905,7 @@ Example:
 </html>
 ```
 
-![HTML 格式](p21)
+![HTML 格式](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p21.png)
 
 
 ###### 滚动条 
@@ -1105,10 +1105,10 @@ Example:
 </html>
 ```
 
-![各种表格样式](p22)
+![各种表格样式](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p22.png)
 
 ###### 颜色
-![各种颜色样式](p23)
+![各种颜色样式](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p23.png)
 
 Example:
 ```
@@ -1270,7 +1270,7 @@ Example:
 </html>
 ```
 
-![观察长宽](p24)
+![观察长宽](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p24.png)
 
 ###### 下拉框 select
 + .form-control: 普通大小
@@ -1364,7 +1364,7 @@ Example:
 </html>
 ```
 
-![观察长宽](p25)
+![观察长宽](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p25.png)
 
 ###### 文本域 textarea
 + .form-control: 普通大小
@@ -1413,7 +1413,7 @@ Example:
 </html>
 ```
 
-![观察长宽](p26)
+![观察长宽](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p26.png)
 
 ###### 复选框 checkbox
 + 垂直显示
@@ -1472,7 +1472,7 @@ Example:
 </html>
 ```
 
-![图文详解](p27)
+![图文详解](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p27.png)
 
 ###### 单选框 radio
 + 垂直显示
@@ -1525,14 +1525,14 @@ Example:
 </body>
 </html>
 ```
-![图文详解](p28)
+![图文详解](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p28.png)
 
 
 #### 按钮 button
 + bootstrap 美化了原本的按钮
 + .btn
 
-![按钮的种类](p28)
+![按钮的种类](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p29.png)
 
 Example:
 ```
@@ -1591,7 +1591,7 @@ Example:
 </html>
 ```
 
-![图文展示](p30)
+![图文展示](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p30.png)
 
 
 ###### 按钮大小
@@ -1622,7 +1622,7 @@ Example:
 </html>
 ```
 
-![图文展示](p32)
+![图文展示](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p32.png)
 
 ###### 按钮禁用
 + disabled="disabled"
@@ -1653,7 +1653,7 @@ Example:
 </html>
 ```
 
-![图文展示](p31)
+![图文展示](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2053%20Bootstrap/Images/p31.png)
 
 
 
