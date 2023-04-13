@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <style>
+        li{
+            list-style: none;
+        }
+
+        a{
+            text-decoration: none;
+            color: #000;
+            display: block;
+        }
+
+        #div1{
+            width: 290px;
+            height: 20px;
+            border: 1px solid #fe6601;
+            padding: 5px;
+            line-height: 20px;
+            margin: 20px auto 0;
+        }
+
+        #ul1{
+            margin: 0 auto;
+            width: 260px;
+            line-height: 20px;
+            border: 1px solid #fe6601;
+            display: none;
+        }
+
+        #ul1 li a{
+            padding: 5px;
+        }
+
+        #ul1 li a:hover{
+            background: #fe6601;
+            color: #fff;
+        }
+
+        #ul1 li a.active{
+            background: #fe6601;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <ul id="ul1">
+        <li><a href="#">宋体</a></li>
+        <li><a href="#">黑体</a></li>
+        <li><a href="#">楷体</a></li>
+        <li><a href="#">微软雅黑体</a></li>
+        <li><a href="#">新宋体</a></li>
+        <li><a href="#">仿宋</a></li>
+    </ul>
+
+    <!-- JavaScript -->
+    <script>
+        var allLi = ul1.children;
+
+        div1.onclick = function(e){
+            var ev = e || event;
+            ev.cancelBubble = true;
+            ul1.style.display = 'block';
+        }
+
+        // ul1.onclick = function(){
+        //     ul1.style.display = 'none';
+        // }
+
+        document.onclick = function(){
+            ul1.style.display = 'none';
+        }
+
+        for(var i = 0; i < allLi.length ;i++){
+            allLi[i].onclick = function(){
+                div1.innerHTML = this.children[0].innerHTML;
+
+                for(var i = 0; i < allLi.length ;i++){
+                    allLi[i].children[0].className = '';
+                }
+                this.children[0].className = 'active';
+            }
+        }
+
+    </script>
+</body>
+</html>

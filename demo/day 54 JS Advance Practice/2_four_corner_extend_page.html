@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>四角拉伸</title>
+    <style>
+        #div1{
+            width: 500px;
+            height: 300px;
+            background-color: #ccc;
+            position: absolute;
+            left: 200px;
+            top: 100px;
+        }
+
+        #div1 .rb{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        #div1 .lt{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+        }
+
+        #div1 .r{
+            width: 20px;
+            height: 100%;
+            background-color: yellow;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        #div1 .b{
+            width: 100%;
+            height: 20px;
+            background-color: yellow;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        #div1 .rt{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 2;
+        }
+
+        #div1 .lb{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        #div1 .l{
+            width: 20px;
+            height: 100%;
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <span class="rb" id="rb"></span>
+        <span class="lt" id="lt"></span>
+        <span class="r"></span>
+        <span class="b"></span>
+        <span class="rt" id="rt"></span>
+        <span class="lb" id="lb"></span>
+        <span class="l"></span>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+
+        // Right Bottom
+        rb.onmousedown = function(e){
+            var ev = e || event;
+            // 得到 div1 与屏幕的边框的距离
+            var l = ev.clientX - this.offsetLeft;
+            var t = ev.clientY - this.offsetTop;
+
+            document.onmousemove = function(e){
+                var ev = e || event;
+                // 得到鼠标在 div1 里的确切位置
+                var needL =  ev.clientX - l;
+                var needT = ev.clientY - t;
+
+                // 保证 div1 的大小为 50x50
+                needL = needL < 50 ? 50 : needL;
+                needT = needT < 50 ? 50 : needT;
+
+                // 设置 rb 与 div1 的边框的距离
+                rb.style.left = needL + 'px';
+                rb.style.top = needT + 'px';
+
+                // 设置 div1 的宽高，切记加上 rb 的宽高
+                div1.style.width = needL + rb.offsetWidth + 'px';
+                div1.style.height = needT + rb.offsetHeight + 'px';
+
+                // 设置其他角落的位置，避免跑位
+                rt.style.left = div1.offsetWidth - rt.offsetWidth + 'px';
+                rt.style.top = 0 + 'px';
+                lt.style.left = 0 + 'px';
+                lt.style.top = 0 + 'px';
+                lb.style.left = 0 + 'px';
+                lb.style.top = div1.offsetHeight - lb.offsetHeight + 'px';
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup = null;
+            }
+
+            return false;
+        }
+
+        // Left Bottom
+        lb.onmousedown = function(e){
+            var ev = e || event;
+            // 得到 div1 与屏幕的边框的距离
+            var l = ev.clientX - this.offsetLeft;
+            var t = ev.clientY - this.offsetTop;
+
+            // 创建旧的 div1 与屏幕的边框的距离，方便后面做对比
+            var oldL = this.offsetLeft;
+            var oldT = this.offsetTop;
+
+            // 创建旧的 div1 的宽高和位置属性，方便后面做对比
+            var oldDivW = div1.offsetWidth;
+            var oldDivL = div1.offsetLeft;
+            var oldDivH = div1.offsetHeight;
+            var oldDivT = div1.offsetTop;
+
+            document.onmousemove = function(e){
+                var ev = e || event;
+                // 得到鼠标在 div1 里的确切位置
+                var needL =  ev.clientX - l;
+                var needT = ev.clientY - t;
+
+                // 确保 div1 的高度为 50，不需要 needL，因为 lb 与 div1 的左边框的距离必须为 0
+                needT = needT < 50 ? 50 : needT;
+
+                // 得到当前 div1 与屏幕的左边框的距离
+                var nowL = needL - oldL;
+
+                // 设置 lb 当前的位置，左边必须永远为 0，只有高度会改变
+                lb.style.left = 0 + 'px';
+                lb.style.top = needT + 'px';
+
+                // 设置 div1 的宽高
+                var newWidth = oldDivW - nowL;
+                newWidth = newWidth < 50 ? 50 : newWidth;
+                div1.style.width = newWidth + 'px';
+                div1.style.height = needT + lb.offsetHeight + 'px';
+
+                // 设置 div1 距离屏幕的左边框的长度
+                div1.style.left = oldDivL + nowL + 'px';
+
+                // 设置其他角落的位置，避免跑位
+                lt.style.left = 0 + 'px';
+                lt.style.top = 0 + 'px';
+                rt.style.left = div1.offsetWidth - rt.offsetWidth + 'px';
+                rt.style.top = 0 + 'px';
+                rb.style.left = div1.offsetWidth - rb.offsetWidth + 'px';
+                rb.style.top = div1.offsetHeight - rb.offsetHeight + 'px';
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup = null;
+            }
+
+            return false;
+        }
+
+        // Right Top
+        rt.onmousedown = function(e){
+            var ev = e || event;
+            var l = ev.clientX - this.offsetLeft;
+            var t = ev.clientY - this.offsetTop;
+
+            var lastT = this.offsetTop;
+            var oldDivT = div1.offsetTop;
+            var oldDivH = div1.offsetHeight;
+
+            document.onmousemove = function(e){
+                var ev = e || event;
+                var needL =  ev.clientX - l;
+                var needT = ev.clientY - t;
+                var newneedT = needT - lastT;
+
+                needL = needL < 50 ? 50 : needL;
+                needT = needT < 50 ? 50 : needT;
+
+                rt.style.left = needL + 'px';
+                rt.style.bottom = 0 + 'px';
+
+                div1.style.width = needL + rt.offsetWidth + 'px';
+                div1.style.top = oldDivT + newneedT + 'px';
+
+                var newHeight = oldDivH - newneedT;
+                newHeight = newHeight < 50 ? 50 : newHeight;
+                div1.style.height = newHeight + 'px';
+
+                rb.style.left = div1.offsetWidth - rb.offsetWidth + 'px';
+                rb.style.top = div1.offsetHeight - rb.offsetHeight + 'px';
+                lt.style.left = 0 + 'px';
+                lt.style.top = 0 + 'px';
+                lb.style.left = 0 + 'px';
+                lb.style.top = div1.offsetHeight - lb.offsetHeight + 'px';
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup = null;
+            }
+
+            return false;
+        }
+
+        // Left Top
+        lt.onmousedown = function(e){
+            var ev = e || event;
+            var l = ev.clientX - this.offsetLeft;
+            var t = ev.clientY - this.offsetTop;
+
+            var oldL = this.offsetLeft;
+            var oldDivW = div1.offsetWidth;
+            var oldDivL = div1.offsetLeft;
+            var oldDivH = div1.offsetHeight;
+
+            var oldT = this.offsetTop;
+            var oldDivT = div1.offsetTop;
+
+            document.onmousemove = function(e){
+                var ev = e || event;
+                var needL =  ev.clientX - l;
+                var needT = ev.clientY - t;
+
+                var nowL = needL - oldL;
+                var nowT = needT - oldT;
+
+                var newWidth = oldDivW - nowL;
+                newWidth = newWidth < 50 ? 50 : newWidth;
+                div1.style.width = newWidth + 'px';
+                div1.style.left = oldDivL + nowL + 'px';
+
+                var newHeight = oldDivH - nowT;
+                newHeight = newHeight < 50 ? 50 : newHeight;
+                div1.style.height = newHeight + 'px';
+                div1.style.top = oldDivT + nowT + 'px';
+
+                lt.style.left = 0 + 'px';
+                lt.style.top = 0 + 'px';
+
+
+                rt.style.left = div1.offsetWidth - rt.offsetWidth + 'px';
+                rt.style.top = 0 + 'px';
+                rb.style.left = div1.offsetWidth - rb.offsetWidth + 'px';
+                rb.style.top = div1.offsetHeight - rb.offsetHeight + 'px';
+                lb.style.left = 0 + 'px';
+                lb.style.top = div1.offsetHeight - lb.offsetHeight + 'px';
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup = null;
+            }
+
+            return false;
+        }
+    </script>
+</body>
+</html>
