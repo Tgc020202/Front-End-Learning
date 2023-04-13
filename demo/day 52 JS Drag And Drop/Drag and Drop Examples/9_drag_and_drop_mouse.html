@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        #container{
+            width: 700px;
+            height: 500px;
+            border: 1px solid #000;
+
+            margin: 60px auto 10px;
+            position: relative;
+        }
+
+        #container div{
+            position: absolute;
+            border: 1px dashed #000;
+        }
+
+        p{
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <p>可以在上方的方框中任意拉出方块</p>
+    
+    <!-- JavaScript -->
+    <script>
+        container.onmousedown = function(e){
+            var ev = e || event;
+            var l = ev.clientX - this.offsetLeft;
+            var t = ev.clientY - this.offsetTop;
+
+            var oDiv = document.createElement('div');
+            
+            oDiv.style.left = l + 'px';
+            oDiv.style.top = t + 'px';
+
+            this.appendChild(oDiv);
+
+
+            var oldLeft = oDiv.offsetLeft;
+            var oldTop = oDiv.offsetTop;
+
+            document.onmousemove = function(e){
+                var ev = e || event;
+                var newL = ev.clientX - container.offsetLeft;
+                var newT = ev.clientY - container.offsetTop;
+
+                newL = newL < 0 ? 0 : newL;
+                newT = newT < 0 ? 0 : newT;
+                newL = newL > 700 ? 699 : newL;
+                newT = newT > 500 ? 499 : newT;
+
+                var divNeedL = newL - l;
+                var divNeedT = newT - t;
+
+                if(divNeedT > 0 && divNeedL > 0){
+                    oDiv.style.width = divNeedL + 'px';
+                    oDiv.style.height = divNeedT + 'px';
+                }
+                else if(divNeedT < 0 && divNeedL < 0){
+                    oDiv.style.height = -divNeedT + 'px';
+                    oDiv.style.top = oldTop + divNeedT + 'px';
+                    
+                    oDiv.style.width = -divNeedL + 'px';
+                    oDiv.style.left = oldLeft + divNeedL + 'px';
+                }
+                else if(divNeedT < 0){
+                    oDiv.style.height = -divNeedT + 'px';
+                    oDiv.style.top = oldTop + divNeedT + 'px';
+
+                    oDiv.style.width = divNeedL + 'px';
+                }
+                else if(divNeedL < 0){
+                    oDiv.style.width = -divNeedL + 'px';
+                    oDiv.style.left = oldLeft + divNeedL + 'px';
+
+                    oDiv.style.height = divNeedT + 'px';
+                }
+
+                // console.log('出现的 div 的宽度为:' + newL + '\n出现的 div 的高度为:'+newT);
+            }
+
+            document.onmouseup = function(){
+                oDiv.style.transition = '1s all ease';
+                oDiv.style.borderStyle = 'solid';
+                oDiv.style.background = 'rgb(' + Number(Math.random() * 256) + ',' + Number(Math.random() * 256) + ',' + Number(Math.random() * 256) + ')';
+
+                document.onmousemove = document.onmouseup = null;
+            }
+        }
+    </script>
+</body>
+</html>
