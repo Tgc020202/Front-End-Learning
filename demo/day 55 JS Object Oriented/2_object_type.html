@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        var a = String('123');
+        console.log(a);
+
+        var b = Array(1,2,3);
+        console.log(b);
+
+        var c = Date();
+        console.log(c);
+
+        console.log(typeof a,typeof b,typeof c);    // string, object, string
+
+        // 给 dom 元素添加 new(实例化)
+        var a = new String('123');
+        console.log(a);
+
+        var c = new Date();
+        console.log(c);
+
+        console.log(typeof a,typeof b,typeof c);    // object, object, object
+    </script>
+</body>
+</html>

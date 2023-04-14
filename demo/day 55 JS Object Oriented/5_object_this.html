@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this 指向</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        function show(){
+            var a = new Object();
+
+            a.b = 20;
+            return a;
+        }
+
+        console.log(show());    // object Object
+        console.log(show().b);  // 20
+
+
+
+        function show2(){
+            var a = new Object();
+
+            a.b = 20;
+            a.c = function(){
+                this.d = 40;
+            }
+            a.c();
+            return a;
+        }
+
+        console.log(show2().d);    // 40
+    </script>
+</body>
+</html>

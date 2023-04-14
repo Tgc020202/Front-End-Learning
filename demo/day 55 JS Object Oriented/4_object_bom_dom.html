@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象 this 的指向</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        // 实例化之前
+        var a = function(){
+            alert(this);
+        }
+        a();  // object Window
+
+
+        // 实例化之后
+        new a();    // object Object
+
+
+        // Next Example
+        var a = new String(123);
+
+        a.b = 20;
+        a.c = function(){
+            alert(this);
+        }
+        console.log(a.b);   // 20
+        a.c();  // 1,2,3
+    </script>
+</body>
+</html>
