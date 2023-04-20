@@ -76,3 +76,40 @@ Example:
 > + 实例化之后 this 就指向实例化对象
 > + 没实例化之前 this 永远就指向 window
 + Dom
+> + this 永远指向发生事件的源头
+
+Example：
+```
+<script>
+    /* this 的指向*/
+    var a = function(){
+        alert(this);
+    }
+
+    // Bom
+    // 实例化之后 this 就指向实例化对象
+    // 没实例化之前 this 永远就指向 window
+    new a();    // object Object
+
+    // Dom
+    // this 永远指向发生事件的源头
+    a();    // object Window
+
+
+</script>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
