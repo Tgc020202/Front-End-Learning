@@ -148,6 +148,7 @@ Example:
 + 函数是一种 object
 + 它可以引用机制，也可赋予私有属性
 + 任何的函数都可以使用 call
++ 函数的参数，还有 arguments 都是引用
 
 
 ##### call
@@ -229,6 +230,135 @@ Example:
     alert(new show3().a + new show3().c);   // 45
 </script>
 ```
+
+
+##### apply 
++ 它的第一个参数就是 apply 之前的函数的 this
++ 跟 call 的差别在它只有两个参数
+
+Example:
+```
+<script>
+    // apply 写法
+    function show(){
+        alert(this);
+    }
+    show.apply(1);
+</script>
+```
+
+Example(跟 call 的差别):
+```
+<script>
+    // 只有两个参数
+    function show(){
+        alert(this);
+    }
+    show.apply(1,[],2); // 弹出 1 ，但是 2 没有作用
+</script>
+```
+
+Example(报错，无法运行):
+```
+<script>
+    // 只有两个参数
+    function show(x){
+        alert(x);
+    }
+    show.apply(1,2); //报错，因为 2 不是对象
+</script>
+```
+
++ 对第二个参数放置对象就不会报错了
++ 写法: 函数名.apply(this,对象);
+Example(改正):
+```
+<script>
+    // 只有两个参数
+    function show(x){
+        alert(x);
+    }
+    // 改正
+    show.apply(1,new String('2')); // 2
+</script>
+```
+
++ 正确写法 : 函数名.apply(this,函数的参数且必须是对象类);
+Example:
+```
+<script>
+    /*
+        函数名.apply(this,函数的参数且必须是对象类);
+    */
+    function show(x){
+        alert(this);    // 1
+        alert(x);       // 2
+    }
+    show.apply(1,new String('2'));
+</script>
+```
+
+###### apply 搭配数组
++ 数组是一个对象
++ 写法 : 函数名.apply(this,数组);
++ apply 的第一个参数为 this 对象
++ 在数组里:
+> + 第一个对应的函数里的第一个形参
+> + 接着往后执行
+
+Example:
+```
+<script>
+    /*
+        函数名.apply(this,数组);
+    */
+    function show(x,y,z){
+        alert(this);    // 1
+        alert(x);       // 1
+        alert(y);       // 2
+        alert(z);       // 3
+    }
+    show.apply(1,[1,2,3,4,5]);
+</script>
+```
+
+
+##### prototype
++ 最原始的原型
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
