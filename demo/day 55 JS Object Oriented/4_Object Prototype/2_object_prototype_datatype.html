@@ -1,0 +1,31 @@
+<script>
+    // String 字符串
+    String.prototype.text = function(){
+        alert(this);
+    };
+    "123".text();   // 123
+
+    // Number 数字
+    Number.prototype.num = function(){
+        alert(this);
+    };
+    var a = 123;
+    a.num();   // 123
+
+    // Function 函数
+    Function.prototype.func = function(){
+        alert("我是函数");
+    };
+    function b(){};
+    b.func();   // 我是函数
+
+    // Object 对象
+    Object.prototype.obj1 = function(){
+        alert("我是对象");
+    };
+    // 万物皆可对象
+    [].obj1();   // 我是对象
+    new Date.obj1();   // 我是对象
+    new String.obj1();   // 我是对象
+    Function.obj1();   // 我是对象
+</script>

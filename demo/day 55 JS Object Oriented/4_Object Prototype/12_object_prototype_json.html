@@ -1,0 +1,31 @@
+<script>
+    var json = {};
+
+    json.a = function(){
+        alert(1);
+    }
+
+    json['b'] = function(){
+        alert(2);
+    }
+
+    json.a();   // 1
+    json.b();   // 2
+</script>
+
+
+
+<script>
+    var json = {};
+    var c = 'kkk';
+
+    json.a = function(){
+        alert(1);
+    }
+
+    json[c] = function(){
+        alert(2);
+    }
+
+    json.kkk();   // 2
+</script>

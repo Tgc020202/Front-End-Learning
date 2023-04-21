@@ -1,0 +1,83 @@
+<script>
+    function a(){
+        this.m = 10;
+    };
+
+    a.prototype = {
+        's':function(){return this.m + 5;}
+    };
+
+    function b (){
+        a.call(this);
+    }
+
+    b.prototype = a. prototype;
+
+    alert(new b().s());  // 15
+</script>
+
+
+<script>
+    this.m = 15;
+    function a(){
+        this.m = 10;
+    };
+
+    a.prototype = {
+        's':function(){return this.m + 5;}
+    };
+
+    // 加入参数
+    function b (x){
+        a.call(this);
+    }
+
+    b.prototype = a. prototype;
+
+    alert(new b(this.m).s());  // 15
+</script>
+
+
+<script>
+    this.m = 15;
+    // 加入参数
+    function a(m){
+        this.m = 10;
+    };
+
+    a.prototype = {
+        's':function(){return this.m + 5;}
+    };
+
+    // 加入参数
+    function b (x){
+        a.call(this,x);
+    }
+
+    b.prototype = a. prototype;
+
+    alert(new b(this.m).s());  // 15
+</script>
+
+
+<script>
+    this.m = 15;
+    // 加入参数
+    function a(m){
+        // 赋予 m 值
+        this.m = m;
+    };
+
+    a.prototype = {
+        's':function(){return this.m + 5;}
+    };
+
+    // 加入参数
+    function b (x){
+        a.call(this,x);
+    }
+
+    b.prototype = a. prototype;
+
+    alert(new b(this.m).s());  // 20
+</script>

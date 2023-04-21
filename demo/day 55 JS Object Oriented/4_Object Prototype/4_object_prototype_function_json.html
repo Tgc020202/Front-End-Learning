@@ -1,0 +1,32 @@
+<script>
+    // 普通的函数原型链写法
+    function tgc(){
+
+    }
+
+    tgc.prototype.wxx = function(){
+        alert("luv u");
+    };
+
+    tgc.prototype.xxx = function(){
+        alert("ermmmm");
+    };
+
+    new tgc().wxx();    // luv u
+    new tgc().xxx();    // ermmmm
+</script>
+
+<script>
+    // JSON 模式
+    function tgc(){
+
+    }
+
+    tgc.prototype = {
+        'wxx':function(){alert("luv u");},
+        'xxx':function(){alert("ermmmm");}
+    };
+
+    new tgc().wxx();    // luv u
+    new tgc().xxx();    // ermmmm
+</script>

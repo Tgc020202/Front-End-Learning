@@ -1,0 +1,17 @@
+<script>
+    var json = {
+        'a':function(){this.b = 10},
+        'b':1
+    }
+    alert(json.b);   // 1
+</script>
+
+
+<script>
+    var json = {
+        'a':function(){this.b = 10},
+        'b':1
+    }
+    json.a();
+    alert(json.b);   // 10
+</script>

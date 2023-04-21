@@ -1,0 +1,29 @@
+<script>
+    var json = {
+        'a':function(){alert(this);}
+    }
+    json.a();   // object Object
+</script>
+
+
+<script>
+    function a(){alert(1);}
+    alert(a);   // function a(){alert(1);}
+</script>
+
+
+<script>
+    var json = {
+        'a':function(){alert(this.a);}
+    }
+    json.a();   // function(){alert(this.a);}
+</script>
+
+
+<script>
+    // 会一直循环执行 alert 自己
+    var json = {
+        'a':function(){alert(this.a());}
+    }
+    json.a();   // error
+</script>

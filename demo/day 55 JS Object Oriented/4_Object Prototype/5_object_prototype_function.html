@@ -1,0 +1,40 @@
+<script>
+    function tgc(){
+        this.a = 1;
+        this.b = 2;
+    }
+
+    function wxx(){
+        tgc.call(this);
+    }
+
+    tgc.prototype = {
+        'a1':function(){alert(this.a + this.b);},
+        'b2':function(){alert(2);},
+        'c3':function(){alert(3);}
+    }
+
+    wxx.prototype = tgc.prototype;
+    new wxx().a1(); // 3
+</script>
+
+<script>
+    function tgc(){
+        this.a = 1;
+        this.b = 2;
+    }
+
+    // 如果 wxx 函数没有 call tgc 函数的变量
+    function wxx(){
+        // tgc.call(this);
+    }
+
+    tgc.prototype = {
+        'a1':function(){alert(this.a + this.b);},
+        'b2':function(){alert(2);},
+        'c3':function(){alert(3);}
+    }
+
+    wxx.prototype = tgc.prototype;
+    new wxx().a1(); // NaN
+</script>

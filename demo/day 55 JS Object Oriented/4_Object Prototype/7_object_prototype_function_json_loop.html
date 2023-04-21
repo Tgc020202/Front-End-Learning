@@ -1,0 +1,22 @@
+<script>
+    function tgc(){
+        this.a = 1;
+        this.b = 2;
+    }
+
+    function wxx(){
+        tgc.call(this);
+    }
+
+    tgc.prototype = {
+        'a1':function(){alert(this.a + this.b);},
+        'b2':function(){alert(2);},
+        'c3':function(){alert(3);}
+    }
+
+    for(var i in tgc.prototype){
+        wxx.prototype[i] = tgc.prototype[i];
+    }
+
+    new wxx().a1(); // 3
+</script>

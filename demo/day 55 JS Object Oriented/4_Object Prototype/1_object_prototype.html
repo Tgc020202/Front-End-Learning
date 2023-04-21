@@ -1,4 +1,10 @@
 <script>
     alert(window.constructor);  // function Window() { [native code] }
     alert(Object.constructor);  // function Function() { [native code] }
+
+    Array.prototype.tgc = function(){
+        alert(this);
+    };
+    [1,2,3].tgc();   // 1,2,3
+
 </script>
