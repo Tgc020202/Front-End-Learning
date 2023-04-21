@@ -1,0 +1,22 @@
+<script>
+    var a = {};
+    function show(){
+        a.s = a.c + 20;
+    }
+
+    function show2(a){
+        a.c = 10;
+        a.s = 20;
+
+        show.apply(this,arguments);
+        // alert(arguments[0].s);  // 30
+
+        this.k = a;
+        this.k.b = 100;
+    }
+    alert(a.b); // undefined
+
+    alert(new show2(a).k == a); // true
+
+    alert(a.b); // 100，因为上一行的代码实例化了 show 函数
+</script>

@@ -1,0 +1,10 @@
+<script>
+    /*
+        函数名.apply(this,函数的参数且必须是对象类);
+    */
+    function show(x){
+        alert(this);    // 1
+        alert(x);       // 2
+    }
+    show.apply(1,new String('2'));
+</script>

@@ -33,6 +33,18 @@
         }
 
         console.log(show2().d);    // 40
+
+
+        var a = function(){
+            this.a = 10;
+            this.b = 20;
+            this.c = function(){
+                alert(this.a);
+                // 因为没有实例化，所以会默认多弹出 undefined
+            }
+        }
+
+        alert(new a().c());    // 10
     </script>
 </body>
 </html>

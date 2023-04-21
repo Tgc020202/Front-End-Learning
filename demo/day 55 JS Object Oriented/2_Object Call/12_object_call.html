@@ -1,0 +1,13 @@
+<script>
+    var a = [5],b = 10,c = 15;
+    function show(x,y,z){
+        alert(x == a);  // true
+        show2.call(this,x,y,z);
+    }
+
+    function show2(a,b,c){
+        alert(a);   // 5
+    }
+
+    new show(a,b,c);
+</script>

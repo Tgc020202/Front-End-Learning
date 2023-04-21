@@ -1,0 +1,17 @@
+<script>
+    function a(){
+        this.b = 10;
+        this.c = 20;
+        function d(){
+            this.c = 100;
+        }
+        this.e = new d();
+    }
+
+    function b(){
+        a.call(this);   // 相当于设置 b = a
+    }
+
+    alert(new b().b);   // 10
+    alert(new b().e.c);   // 100
+</script>

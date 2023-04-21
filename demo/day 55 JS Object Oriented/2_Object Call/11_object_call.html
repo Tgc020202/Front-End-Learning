@@ -1,0 +1,7 @@
+<script>
+    function show(){
+        return this + 1;
+    }
+
+    alert(show.call(show.call(show.call(show.call(1)))));   // 5
+</script>

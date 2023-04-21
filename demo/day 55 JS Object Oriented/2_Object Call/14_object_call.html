@@ -1,0 +1,12 @@
+<script>
+    var a = [5];
+    function show(y){
+        y.c = 10;
+    }
+
+    function show2(x){
+        show.call(this,x);
+    }
+    new show2(a);
+    alert(a.c);
+</script>

@@ -1,0 +1,10 @@
+<script>
+    /*
+        函数名.apply(this,数组);
+    */
+    function show(x,y,z){
+        // 都是相等的，因为一旦数组的值改变，函数的形参就会改变，arguments也会跟着变化
+        alert(z == arguments[2]);       // true
+    }
+    show.apply(1,[1,2,[3],4,5]);
+</script>

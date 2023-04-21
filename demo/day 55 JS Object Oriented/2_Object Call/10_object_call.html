@@ -1,0 +1,18 @@
+<script>
+    function show(){
+        this.a = 20;
+        this.c = 25;
+    }
+
+    function show2(){
+        this.a = 25;
+        this.c = 30;
+        show.call(this);
+    }
+
+    function show3(){
+        show2.call(this);
+    }
+
+    alert(new show3().a + new show3().c);   // 45
+</script>

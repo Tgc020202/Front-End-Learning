@@ -1,0 +1,19 @@
+<script>
+    // 只有两个参数
+    function show(){
+        alert(this);
+    }
+    show.apply(1,[],2); // 弹出 1 ，但是 2 没有作用
+</script>
+
+<script>
+    // 只有两个参数
+    function show(x){
+        alert(x);
+    }
+    // show.apply(1,2); //报错，因为 2 不是对象
+
+    // 改正
+    show.apply(1,new String('2')); // 2
+</script>
+

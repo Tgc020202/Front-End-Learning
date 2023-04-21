@@ -1,0 +1,18 @@
+<script>
+    var a = [5],b = 10,c = 15;
+    function show(x,y,z){
+        show2.call(this,x,y,z);
+    }
+
+    function show2(a,b,c){
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    // 可以取得出来
+    alert(new show(a,b,c).c);   // 15
+
+    // 因为这个属于赋予私有属性
+    alert(new show(a,b,c).a == a);   // true
+</script>

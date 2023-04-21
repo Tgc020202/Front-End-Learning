@@ -1,0 +1,30 @@
+<script>
+    var a = 10;
+    a.b = 20;
+    alert(a.b); // undefined
+
+    var a = new Number(10);
+    a.b = 20;
+    alert(a.b); // 20
+
+
+    var a = function(){
+        this.a = 10;
+        this.a.a = 30;
+    }
+
+    alert(new a().a);    // 10
+    /* 因为没有实例化，所以显示不了 */
+    alert(new a().a.a)  // undefined
+
+
+    
+    var a = function(){
+        // 在函数里实例化 a
+        this.a = new Number(10);
+        this.a.a = 30;
+    }
+
+    alert(new a().a);    // 10
+    alert(new a().a.a)  // 30
+</script>   

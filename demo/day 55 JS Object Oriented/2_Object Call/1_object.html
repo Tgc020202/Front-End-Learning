@@ -1,0 +1,14 @@
+<script>
+    /*
+        只要是对象就不相等
+        除非是引用的
+    */
+    var a = [1,2,3];
+    var b = a;
+    var c = [1,2,3];
+    var d = new Array(1,2,3);
+
+    console.log(a == b);    // True
+    console.log(a == c);    // False
+    console.log(a == d);    // False
+</script>

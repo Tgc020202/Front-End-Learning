@@ -1,0 +1,12 @@
+<script>
+    /*
+        函数名.apply(this,数组);
+    */
+    function show(x,y,z){
+        alert(this);    // 1
+        alert(x);       // 1
+        alert(y);       // 2
+        alert(z);       // 3
+    }
+    show.apply(1,[1,2,3,4,5]);
+</script>
