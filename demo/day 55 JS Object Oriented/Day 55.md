@@ -323,29 +323,243 @@ Example:
 ```
 
 
-##### prototype
+##### 原型链 prototype
 + 最原始的原型
++ 给原型加方法
+
+Example:
+```
+<script>
+    Array.prototype.tgc = function(){
+        alert(this);
+    };
+    [1,2,3].tgc();   // 1,2,3
+</script>
+```
+
++ 可以使用其他的数据类型连接原型链
+
+Example:
+```
+<script>
+    // String 字符串
+    String.prototype.text = function(){
+        alert(this);
+    };
+    "123".text();   // 123
+
+    // Number 数字
+    Number.prototype.num = function(){
+        alert(this);
+    };
+    var a = 123;
+    a.num();   // 123
+
+    // Function 函数
+    Function.prototype.func = function(){
+        alert("我是函数");
+    };
+    function b(){};
+    b.func();   // 我是函数
+</script>
+```
+
++ 如果给 object 连接原型链，那么所有的原型都等于连接了这个原型链
+
+Example:
+```
+<script>
+    // Object 对象
+    Object.prototype.obj1 = function(){
+        alert("我是对象");
+    };
+    // 万物皆可对象
+    [].obj1();   // 我是对象
+    new Date.obj1();   // 我是对象
+    new String.obj1();   // 我是对象
+    Function.obj1();   // 我是对象
+</script>
+```
+
++ 也可以用 JSON 方法赋予
+
+Example:
+```
+<script>
+    // 普通的函数原型链写法
+    function tgc(){
+
+    }
+
+    tgc.prototype.wxx = function(){
+        alert("luv u");
+    };
+
+    tgc.prototype.xxx = function(){
+        alert("ermmmm");
+    };
+
+    new tgc().wxx();    // luv u
+    new tgc().xxx();    // ermmmm
+</script>
+
+<script>
+    // JSON 模式
+    function tgc(){
+
+    }
+
+    tgc.prototype = {
+        'wxx':function(){alert("luv u");},
+        'xxx':function(){alert("ermmmm");}
+    };
+
+    new tgc().wxx();    // luv u
+    new tgc().xxx();    // ermmmm
+</script>
+```
+
+###### prototype 的继承方法
++ 放等号(=)
+> + 好处简单
+> + 坏处不精准，如果没有赋予变量，但是函数还是会照常执行(NaN)
+
+Example:
+```
+<script>
+    function tgc(){
+        this.a = 1;
+        this.b = 2;
+    }
+
+    function wxx(){
+        tgc.call(this);
+    }
+
+    tgc.prototype = {
+        'a1':function(){alert(this.a + this.b);},
+        'b2':function(){alert(2);},
+        'c3':function(){alert(3);}
+    }
+
+    wxx.prototype = tgc.prototype;
+    new wxx().a1(); // 3
+</script>
+
+<script>
+    function tgc(){
+        this.a = 1;
+        this.b = 2;
+    }
+
+    // 如果 wxx 函数没有 call tgc 函数的变量
+    function wxx(){
+        // tgc.call(this);
+    }
+
+    tgc.prototype = {
+        'a1':function(){alert(this.a + this.b);},
+        'b2':function(){alert(2);},
+        'c3':function(){alert(3);}
+    }
+
+    wxx.prototype = tgc.prototype;
+    new wxx().a1(); // NaN
+</script>
+```
+
++ 更精准的可以用自己的想要的方法等于别人的方法
+
+Example:
+```
+<script>
+    function tgc(){
+        this.a = 1;
+        this.b = 2;
+    }
+
+    function wxx(){
+        tgc.call(this);
+    }
+
+    tgc.prototype = {
+        'a1':function(){alert(this.a + this.b);},
+        'b2':function(){alert(2);},
+        'c3':function(){alert(3);}
+    }
+
+    wxx.prototype.a1 = tgc.prototype.a1;
+    new wxx().a1(); // 3
+</script>
+```
+> + 比如 : `wxx.prototype.a1 = tgc.prototype.a1;`
 
 
++ for in 也可以继承
+
+Example:
+```
+<script>
+    function tgc(){
+        this.a = 1;
+        this.b = 2;
+    }
+
+    function wxx(){
+        tgc.call(this);
+    }
+
+    tgc.prototype = {
+        'a1':function(){alert(this.a + this.b);},
+        'b2':function(){alert(2);},
+        'c3':function(){alert(3);}
+    }
+
+    for(var i in tgc.prototype){
+        wxx.prototype[i] = tgc.prototype[i];
+    }
+
+    new wxx().a1(); // 3
+</script>
+```
+
++ 使用实例化继承
+
+Example:
+```
+<script>
+    function tgc(){
+        this.a = 1;
+        this.b = 2;
+    }
+
+    function wxx(){
+        tgc.call(this);
+    }
+
+    tgc.prototype = {
+        'a1':function(){alert(this.a + this.b);},
+        'b2':function(){alert(2);},
+        'c3':function(){alert(3);}
+    }
+
+    wxx.prototype = new tgc();
+
+    new wxx().a1(); // 3
+</script>
+```
+> + 比如 : `wxx.prototype = new tgc();`
 
 
+##### 函数运行自己不加括号，就会返回自己
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Example:
+```
+<script>
+    function a(){alert(1);}
+    alert(a);   // function a(){alert(1);}
+</script>
+```
 
 
 
