@@ -1,0 +1,35 @@
+<script>
+    function a(){
+        this.f = this.c;
+    }
+
+    function b(){
+        a.call(this);
+    }
+
+    a.prototype.c = function(){
+        alert(1);
+    }
+    new b().c();
+</script>
+
+
+<script>
+    function a(){
+        this.f = this.c;
+    }
+
+    /* 不用 call */
+    // function b(){
+    //     a.call(this);
+    // }
+
+    a.prototype.c = function(){
+        alert(1000);
+    }
+    
+    /* 用继承 */
+    b.prototype = a.prototype;
+
+    new b().c();
+</script>

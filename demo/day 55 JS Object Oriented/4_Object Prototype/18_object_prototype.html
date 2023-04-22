@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型链练习</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        input {
+            cursor: pointer;
+        }
+
+        .active {
+            background-color: #ccc;
+        }
+
+        #tab div {
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tab">
+        <input type="button" name="" value="按钮" class="active">
+        <input type="button" name="" value="按钮">
+        <input type="button" name="" value="按钮">
+        <div style="display: block;">aaaaaaaaaaaaaaaaaaaaa</div>
+        <div>bbbbbbbbbbbbbbbbbbbbb</div>
+        <div>ccccccccccccccccccccc</div>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        function TabNode(node) {
+            var _this = this;
+            this.node = node;
+
+            // 声明的东西
+            // this.allInput = node.getElementsByTagName('input');
+            // this.allDiv = node.getElementsByTagName('div');
+            this.varNode(node);
+
+            // Event 基础事件
+            this.tabEvent(_this);
+
+            // 定时器模块
+            this.Interval && this.IntervalSet(_this);
+        }
+        TabNode.prototype = {
+            "varNode": function (node) {
+                this.allInput = node.Node.getElementsByTagName('input');
+                this.allDiv = node.Node.getElementsByTagName('div');
+                this.Interval = node.Interval;
+                this.Interval && (this.setInter = null,this.setIndex = 0);
+            },
+            "tabEvent": function (_this) {
+                for (var i = 0; i < this.allInput.length; i++) {
+                    this.allInput[i].index = i;
+                    this.allInput[i].onclick = function () {
+                        for (var i = 0; i < _this.allInput.length; i++) {
+                            _this.allInput[i].className = '';
+                            _this.allDiv[i].style.display = "none";
+                        }
+                        this.className = 'active';
+                        _this.allDiv[this.index].style.display = "block";
+                    }
+                }
+            },
+            "IntervalSet":function(_this){
+                clearInterval(this.setInter);
+                this.setInter = setInterval(function(){
+                    _this.setIndex++;
+                    if(_this.setIndex == _this.allInput.length){
+                        _this.setIndex = 0;
+                    }
+
+                    for (var i = 0; i < _this.allInput.length; i++) {
+                        _this.allInput[i].className = '';
+                        _this.allDiv[i].style.display = "none";
+                    }
+                    _this.allInput[_this.setIndex].className = 'active';
+                    _this.allDiv[_this.setIndex].style.display = "block";
+
+                },this.node.IntervalTime)
+            }
+        };
+
+        /*
+            1.外面的元素
+            2.实现循环
+            3.控制速度
+        */
+        // new TabNode(document.getElementById('tab'));
+        new TabNode({
+            Node:document.getElementById('tab'),
+            Interval:true,
+            IntervalTime:1000
+        })
+    </script>
+</body>
+
+</html>

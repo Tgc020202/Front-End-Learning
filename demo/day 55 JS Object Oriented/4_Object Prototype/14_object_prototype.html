@@ -1,0 +1,38 @@
+<script>
+    function a(){
+        this.f = 10;
+    }
+
+    a.prototype.l = function(){
+        alert(this.f);
+    }
+
+    new a().l();    // 10
+</script>
+
+<script>
+    function a(){
+        this.f = 100;
+        // 将原型链的私有属性拿来使用
+        this.l();
+    }
+
+    a.prototype.l = function(){
+        alert(this.f);
+    }
+
+    new a();    // 100
+</script>
+
+<script>
+    function a(){
+        this.f = 100;
+        // 将原型链的私有属性拿来使用
+        alert(this.lll);
+    }
+
+    // 数据类型
+    a.prototype.lll = 1000;
+
+    new a();    // 1000
+</script>

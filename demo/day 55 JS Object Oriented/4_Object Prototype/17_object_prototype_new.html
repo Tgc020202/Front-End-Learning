@@ -1,0 +1,22 @@
+<script>
+    //  能拿到所有 prototype 的数据类型和私有属性
+    function a(){
+        this.aaa = 100;
+    }
+
+    function b(){
+        this.bbb = 10;
+    }
+
+    a.prototype = {
+        'a':function(){alert(1);},
+        'b':function(){alert(2);},
+        'c':function(){alert(3);}
+    }
+    
+    /* 用继承 */
+    b.prototype = new a();
+
+    new b().c();    // 3
+    alert(new b().aaa);    // 100
+</script>
