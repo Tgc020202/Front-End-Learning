@@ -122,28 +122,6 @@ Example:
 </script>
 ```
 
-##### Constructor
-+ 找到所有东西的原型函数
-
-Example:
-```
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constructor</title>
-</head>
-<body>
-    <script>
-        // 找到所有东西的原型函数
-        alert(alert.constructor);   // function Function() { [native code] }
-    </script>
-</body>
-</html>
-```
-
 ##### Function 函数
 + 函数是一种 object
 + 它可以引用机制，也可赋予私有属性
@@ -325,7 +303,7 @@ Example:
 
 ##### 原型链 prototype
 + 最原始的原型
-+ 给原型加方法
++ 给原型添加数据类型
 
 Example:
 ```
@@ -419,6 +397,104 @@ Example:
 </script>
 ```
 
++ 原型链里的方法支持原型上的所有的私有属性
+
+Example:
+```
+<script>
+    function a(){
+        this.f = 10;
+    }
+
+    a.prototype.l = function(){
+        alert(this.f);
+    }
+
+    new a().l();    // 10
+</script>
+```
+
++ 原型链的方法也可以当作其私有属性去用
+
+Example:
+```
+<script>
+    function a(){
+        this.f = 100;
+        // 将原型链的私有属性拿来使用
+        this.l();
+    }
+
+    a.prototype.l = function(){
+        alert(this.f);
+    }
+
+    new a();    // 100
+</script>
+```
+
++ 给原型添加数据类型
+
+Example:
+```
+<script>
+    function a(){
+        this.f = 100;
+        // 将原型链的私有属性拿来使用
+        alert(this.lll);
+    }
+
+    // 数据类型
+    a.prototype.lll = 1000;
+
+    new a();    // 1000
+</script>
+```
+
+###### call 和 apply 取不到 prototype 的私有属性/方法
+
+Example:
+```
+<script>
+    function a(){
+        this.f = this.c;
+    }
+
+    function b(){
+        a.call(this);
+    }
+
+    a.prototype.c = function(){
+        alert(1);
+    }
+    new b().c();    // 取不了
+</script>
+```
+> + 解决方法就是使用继承方法
+
+Example:
+```
+<script>
+    function a(){
+        this.f = this.c;
+    }
+
+    /* 不用 call */
+    // function b(){
+    //     a.call(this);
+    // }
+
+    a.prototype.c = function(){
+        alert(1000);
+    }
+    
+    /* 用继承 */
+    b.prototype = a.prototype;
+
+    new b().c();
+</script>
+```
+
 ###### prototype 的继承方法
 + 放等号(=)
 > + 好处简单
@@ -495,7 +571,8 @@ Example:
 > + 比如 : `wxx.prototype.a1 = tgc.prototype.a1;`
 
 
-+ for in 也可以继承
++ JSON + for in 也可以继承
+> + 只能拿到 prototype 的数据类型，拿不到私有属性
 
 Example:
 ```
@@ -523,7 +600,36 @@ Example:
 </script>
 ```
 
+Example:
+```
+<script>
+    //  只能拿到 prototype 的数据类型，拿不到私有属性
+    function a(){
+        this.aaa = 100;
+    }
+
+    function b(){
+        this.bbb = 10;
+    }
+
+    a.prototype = {
+        'a':function(){alert(1);},
+        'b':function(){alert(2);},
+        'c':function(){alert(3);}
+    }
+    
+    /* 用继承 */
+    for(var i in a.prototype){
+        b.prototype[i] = a.prototype[i];
+    }
+
+    new b().c();    // 3
+    alert(new b().aaa);    // undefined
+</script>
+```
+
 + 使用实例化继承
+> + 能拿到所有 prototype 的数据类型和私有属性
 
 Example:
 ```
@@ -550,6 +656,32 @@ Example:
 ```
 > + 比如 : `wxx.prototype = new tgc();`
 
+Example:
+```
+<script>
+    //  能拿到所有 prototype 的数据类型和私有属性
+    function a(){
+        this.aaa = 100;
+    }
+
+    function b(){
+        this.bbb = 10;
+    }
+
+    a.prototype = {
+        'a':function(){alert(1);},
+        'b':function(){alert(2);},
+        'c':function(){alert(3);}
+    }
+    
+    /* 用继承 */
+    b.prototype = new a();
+
+    new b().c();    // 3
+    alert(new b().aaa);    // 100
+</script>
+```
+
 
 ##### 函数运行自己不加括号，就会返回自己
 
@@ -561,7 +693,27 @@ Example:
 </script>
 ```
 
+##### Constructor 看原型
++ 找到所有东西的原型函数
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor</title>
+</head>
+<body>
+    <script>
+        // 找到所有东西的原型函数
+        alert(alert.constructor);   // function Function() { [native code] }
+    </script>
+</body>
+</html>
+```
 
 
 
