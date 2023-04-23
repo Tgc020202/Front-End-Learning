@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>使方块叠在一起</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+            line-height: 100px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+        }
+
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-left: 223px;
+            margin-top: 147px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">我要合体</div>
+    <div id="div2"></div>
+
+    <!-- JavaScript -->
+    <script>
+        div1.onmousedown = function(e){
+            var ev = e || event;
+            var _this = this;
+            var l = ev.clientX - this.offsetLeft;
+            var t = ev.clientY - this.offsetTop;
+
+            document.onmousemove = function(e){
+                var ev = e || event;
+                _this.style.left = ev.clientX - l + 'px';
+                _this.style.top = ev.clientY - t + 'px';
+
+                if(_this.offsetLeft == div2.offsetLeft && _this.offsetTop == div2.offsetTop){
+                    alert("我们合体了");
+                    document.onmousemove = null;
+                }
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup = null;
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

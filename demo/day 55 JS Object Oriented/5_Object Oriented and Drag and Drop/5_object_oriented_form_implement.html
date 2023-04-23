@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面向对象拖拽封装的实现</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div"></div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+            1. 将全部变量变为私有属性
+            2. 将他们变为 prototype
+            3. 添加 JSON
+        */
+        
+
+        function Drag(dom,opt) {
+            this.dom = dom;
+            var _this = this;
+
+            this.left = opt.left;
+            this.top = opt.top;
+            this.right = opt.right;
+            this.bottom = opt.bottom;
+            this.resize = opt.resize;
+
+            _this.resize && _this.DragResize();
+
+
+            this.dom.onmousedown = function (e) {
+                _this.DragMouseDown(e);
+                _this.DragMouseMove(e);
+                _this.DragMouseEnd();
+                
+                return false;
+            }
+        }
+
+        Drag.prototype = {
+            'DragMouseMove':function(e){
+                var _this = this;
+                document.onmousemove = function(e){
+                    _this.ev = e || event;
+                    _this.needLeft = _this.ev.clientX - _this.l;
+                    _this.needTop = _this.ev.clientY - _this.t;
+                    _this.maxLeft = innerWidth - _this.dom.offsetWidth;
+                    _this.maxTop = innerHeight - _this.dom.offsetHeight;
+
+                    !_this.left && (_this.needLeft = _this.needLeft < 0 ? 0 : _this.needLeft);
+                    !_this.top && (_this.needTop = _this.needTop < 0 ? 0 : _this.needTop);
+                    !_this.right && (_this.needLeft = _this.needLeft > _this.maxLeft ? _this.maxLeft : _this.needLeft);
+                    !_this.bottom && (_this.needTop = _this.needTop > _this.maxTop ? _this.maxTop : _this.needTop);
+                    
+                    _this.dom.style.left =  _this.needLeft + 'px';
+                    _this.dom.style.top = _this.needTop + 'px'; 
+                } 
+            },
+            'DragMouseEnd':function(){
+                document.onmouseup = function () {
+                    document.onmousemove = document.onmouseup = null;
+                }
+            },
+            'DragMouseDown':function(e){
+                this.ev = e || event;
+                this.l = this.ev.clientX - this.dom.offsetLeft;
+                this.t = this.ev.clientY - this.dom.offsetTop;
+            },
+            'DragResize':function(){
+                var _this = this;
+                onresize = function(){
+                    if((_this.dom.offsetLeft + _this.dom.offsetWidth) > innerWidth){
+                        _this.dom.style.left = innerWidth - _this.dom.offsetWidth + 'px';
+                    }
+                }
+            }
+        };
+
+        new Drag(div,{
+            'left':false,
+            'top':false,
+            'bottom':false,
+            'right':false,
+            'resize':true
+        });
+    </script>
+</body>
+
+</html>

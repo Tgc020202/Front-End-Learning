@@ -26,6 +26,10 @@
             background-color: #ccc;
             display: none;
         }
+
+        #tab{
+            float: left;
+        }
     </style>
 </head>
 
@@ -38,6 +42,7 @@
         <div>bbbbbbbbbbbbbbbbbbbbb</div>
         <div>ccccccccccccccccccccc</div>
     </div>
+
     <!-- JavaScript -->
     <script>
         function TabNode(node) {
@@ -53,8 +58,11 @@
             this.tabEvent(_this);
 
             // 定时器模块
-            this.Interval && this.IntervalSet(_this);
+            this.Interval && this.IntervalSet(_this),this.CancelInterval(_this);
+            
         }
+
+        // JSON 的形式去写原型链
         TabNode.prototype = {
             "varNode": function (node) {
                 this.allInput = node.Node.getElementsByTagName('input');
@@ -72,7 +80,16 @@
                         }
                         this.className = 'active';
                         _this.allDiv[this.index].style.display = "block";
+                        _this.node.Interval && (_this.setIndex = this.index);
                     }
+                }
+            },
+            "CancelInterval":function(_this){
+                this.node.Node['onmouseover'] = function(){
+                    clearInterval(_this.setInter);
+                }
+                this.node.Node['onmouseout'] = function(){
+                    _this.IntervalSet(_this);
                 }
             },
             "IntervalSet":function(_this){
@@ -90,7 +107,8 @@
                     _this.allInput[_this.setIndex].className = 'active';
                     _this.allDiv[_this.setIndex].style.display = "block";
 
-                },this.node.IntervalTime)
+                },this.node.IntervalTime);
+
             }
         };
 

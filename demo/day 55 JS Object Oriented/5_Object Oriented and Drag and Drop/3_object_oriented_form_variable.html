@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面向对象拖拽封装的实现</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div"></div>
+
+    <!-- JavaScript -->
+    <script>
+        /*
+            1. 将全部变量变为私有属性
+        */
+        new Drag(div);
+
+        function Drag(dom) {
+            this.dom = dom;
+            var _this = this;
+
+            this.dom.onmousedown = function (e) {
+                _this.ev = e || event;
+                _this.l = _this.ev.clientX - dom.offsetLeft;
+                _this.t = _this.ev.clientY - dom.offsetTop;
+
+                document.onmousemove = function (e) {
+                    _this.ev = e || event;
+                    _this.dom.style.left = _this.ev.clientX - _this.l + 'px';
+                    _this.dom.style.top = _this.ev.clientY - _this.t + 'px';
+                }
+
+                document.onmouseup = function () {
+                    document.onmousemove = document.onmouseup = null;
+                }
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
