@@ -715,7 +715,44 @@ Example:
 </html>
 ```
 
+##### 性能测试方法
++ 使用时间对象 new Date() 检测速度(性能)
 
+Example:
+```
+<script>
+    // 利用时间来检测速度
+    var lastTime = new Date().getTime();
+    for(var i = 0; i < 100000 ; i++){
+        var a = document.body;
+        var b = a;
+    }
+    var nowTime = new Date().getTime();
+    alert(nowTime - lastTime);
+</script>
+
+<script>
+    // 性能高，用时短
+    var lastTime = new Date().getTime();
+    for(var i = 0; i < 100000 ; i++){
+        var a = String("123");
+        var b = a;
+    }
+    var nowTime = new Date().getTime();
+    alert(nowTime - lastTime);
+</script>
+
+<script>
+    // 性能低，用时长
+    var lastTime = new Date().getTime();
+    for(var i = 0; i < 100000 ; i++){
+        var a = new String("123");
+        var b = a;
+    }
+    var nowTime = new Date().getTime();
+    alert(nowTime - lastTime);
+</script>
+```
 
 
 
