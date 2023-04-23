@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>返回顶部</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper{
+            height: 2000px;
+            background-color: yellow;
+            position: relative;
+        }
+
+        #toTop{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 100px;
+            width: 100px;
+            line-height: 100px;
+            text-align: center;
+            cursor: pointer;
+            background-color: red;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <span id="toTop">回到顶部</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        toTop.onclick = function(){
+            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+
+            var t = null;
+            clearInterval(t);
+            t = setInterval(function(){
+                if(scrollTop <= 0){
+                    clearInterval(t);
+                }
+                scrollTop -= 5;
+                document.body.scrollTop = scrollTop;
+                document.documentElement.scrollTop = scrollTop;
+            },5);
+        }
+    </script>
+</body>
+</html>
