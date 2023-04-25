@@ -140,5 +140,10 @@ Example:
 </html> 
 ```
 
+#### 用原生方法写 Jquery
 
+Example:
+```
+
+```
 
