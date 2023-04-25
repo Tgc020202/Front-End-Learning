@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style 的覆盖</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <!-- JavaScript -->
+    <script>
+        setInterval(function(){
+            var time = 1000;
+            // 一开始的样式 - 设置宽高背景
+            setTimeout(function(){
+                div1.style.width = '100px';
+                div1.style.height = '100px';
+                div1.style.background = 'red';
+            },time);
+
+            // 覆盖后的样式 - 设置宽高背景
+            setTimeout(function(){
+                div1.style.cssText = "width:200px;height:200px;background:yellow;";
+            },2*time);
+
+            // 二次覆盖后的样式 - 设置背景而已
+            setTimeout(function(){
+                div1.style.cssText = "background:green;";   // 因为没有设置宽高的值，一旦被覆盖了就没有宽高了
+            },3*time);
+        },3500);
+    </script>
+</body>
+</html>

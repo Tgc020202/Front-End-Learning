@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除子元素元素 - 软删除 remove</title>
+
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 1px solid black;
+            margin: 10px;
+        }
+
+        #box2{
+            background-color: yellow;
+        }
+
+        #box3{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        <span id="message">我是一号</span>
+    </div>
+
+    <div id="box2">
+        <span id="message">我是二号</span>
+    </div>
+
+    <div id="box3">
+        <span id="message">我是三号</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 父元素一旦被删除，其子元素也会消失
+        // box1.remove();
+
+        // 可以通过使用 parentNode 将全部元素删了
+        // box3.parentNode.remove();
+
+        // 可以通过使用 parentNode，再使用 children将其元素删了
+        box3.parentNode.children[0].remove();   // 通过 box3 删了 box1
+    </script>
+</body>
+</html>
