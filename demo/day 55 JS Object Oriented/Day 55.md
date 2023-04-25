@@ -754,14 +754,218 @@ Example:
 </script>
 ```
 
+#### toString 
++ 以字符串的形式打印出来
++ 所有的内置数据类型都有 toString() 的方法
++ 内置数据类型:
+> + Array, String, Number, Boolean, Function, Object
+> + Null, undefined, Date, NaN, RegExp, Arguments, ...
+
+Example:
+```
+<script>
+    // toString()
+
+    var a = new Number(123);
+
+    alert(a.toString());    // 123
+</script>
+```
+
++ 使用原型链(prototype)找出数据类型
+
+Example:
+```
+<script>
+    console.log(Object.prototype.toString.call(1));     // object Number
+    console.log(Object.prototype.toString.call("tgc")); // object String
+    console.log(Object.prototype.toString.call(new Date())); // object Date
+    console.log(Object.prototype.toString.call(new Array(1,2,3))); // object Array
+    console.log(Object.prototype.toString.call(NaN));   // object Number
+    console.log(Object.prototype.toString.call(null));  // object Null
+</script>
+```
+
+##### Symbol
++ 它不是对象，它是独一无二的
++ 但是它有一些对象的属性
+
+Example:
+```
+<script>
+    // symbol 不是对象
+    alert(typeof Symbol());   // symbol
+
+    alert(Symbol() == Symbol());    // false
+</script>
+```
 
 
+#### 运算
+##### `~`
++ `~` 符号 : -(数字) - 1
+
+Example:
+```
+<script>
+    // ~
+    alert(~4);  // -(4) - 1 = -5
+    alert(function(a){return -a - 1}(4));    // -5
+</script>
+```
+
++ 字符串会被转为数字类型才开始计算
+
+Example:
+```
+<script>
+    // String
+    alert(~'5');    // -6
+</script>
+```
+
++ 不是正常对的数字会返回 0 再计算
+
+Example:
+```
+<script>
+    alert(~('9' + undefined));  // -1，因为 ('9' + undefined) 变为 0
+    
+    // NaN
+    alert(~NaN);    // -1
+</script>
+```
+
+##### `>>` 和 `<<`
++ 以二进制的方式计算
++ 从 x 数值开始以二进制的方式计算在 y 的位置的值
++ 写法: (x >> y) 或者 (x << y)
++ 例子: (32 >> 1) 从 32 开始以二进制的方式减少，计算在第 1 个位置的值，也就相等于 16
++ 例子: (32 << 1) 从 32 开始以二进制的方式增加，计算在第 1 个位置的值，也就相等于 64
+
+Example:
+```
+<script>
+    // >> 和 <<
+    // 二进制: 0 1 2 4 8 16 32 64 128 256 ...
+
+    // >> 从左去右依次排列，以大到小的方式排列
+    // 例子: 32 的 xx
+    // 0 32 16 8 4 2 1 0 后面都是 0
+    alert(32 >> -1); // 0，负数都是 0
+    alert(32 >> 0); // 32
+    alert(32 >> 1); // 16
+    alert(32 >> 2); // 8
+    alert(32 >> 3); // 4
+    alert(32 >> 4); // 2
+    alert(32 >> 5); // 1
+    alert(32 >> 6); // 0
+    alert(32 >> 7); // 0
 
 
+    // << 从左去右依次排列，以小到大的方式排列
+    // 例子: 2 的 xx
+    // 0 2 4 8 16 32 64 ...
+    alert(2 << -1);  // 0，负数都是 0
+    alert(2 << 0);  // 2
+    alert(2 << 1);  // 4
+    alert(2 << 2);  // 8
+    alert(2 << 3);  // 16
+    alert(2 << 4);  // 32
+</script>
+```
 
+##### `|`
++ 从二进制里找，只要任何一方有 1 的值，就添加 1
 
+Example:
+```
+<script>
+    // | 从二进制里找，只要任何一方有 1 的值，就添加 1
+    /*
+                            128  64  32  16  8   4   2   1
+                        3 =  0   0   0   0   0   0   1   1
+                        2 =  0   0   0   0   0   0   1   0
+        把有 1 值的位置放 1:  0   0   0   0   0   0   1   1 
+                    答案  :  3
+    */
+    alert(3|2); // 3
 
+    /*
+                            128  64  32  16  8   4   2   1
+                        13=  0   0   0   0   1   1   0   1
+                        9 =  0   0   0   0   1   0   0   1
+        把有 1 值的位置放 1:  0   0   0   0   1   1   0   1 
+                    答案  :  13
+    */
+    alert(13|9);    // 13
 
+    /*
+                             128  64  32  16  8   4   2   1
+                        15 =  0   0   0   0   1   1   1   1
+              99 + 3 = 102 =  0   1   1   0   0   1   1   0
+        把有 1 值的位置放 1 :  0   1   1   0   1   1   1   1 = 111
+                    答案  :  111
+    */
+    alert(~(15|99+3));    // -(111) - 1 = -112
+</script>
+```
 
+##### `|`
++ 从二进制里找，需要双方都有 1 的值，才可以添加 1
 
+Example:
+```
+<script>
+    // & 从二进制里找，需要双方都有 1 的值，才可以添加 1
+    /*
+                            128  64  32  16  8   4   2   1
+                        3 =  0   0   0   0   0   0   1   1
+                        2 =  0   0   0   0   0   0   1   0
+    把双方有 1 值的位置放 1:  0   0   0   0   0   0   1   0 
+                    答案  :  2
+    */
+    alert(3&2); // 2
 
+    /*
+                            128  64  32  16  8   4   2   1
+                        13=  0   0   0   0   1   1   0   1
+                        9 =  0   0   0   0   1   0   0   1
+    把双方有 1 值的位置放 1:  0   0   0   0   1   0   0   1 
+                    答案  :  9
+    */
+    alert(13&9);    // 9
+
+    /*
+                             128  64  32  16  8   4   2   1
+                        15 =  0   0   0   0   1   1   1   1
+              99 + 3 = 102 =  0   1   1   0   0   1   1   0
+    把双方有 1 值的位置放 1 : 0   0   0   0   0   1   1   0 = 6
+                    答案  :  6
+    */
+    alert(~(15&99+3));    // -(6) - 1 = -7
+</script>
+```
+
+##### `e`
++ 写法: 数值e(数字10的数量)
++ 例子: 1e2 = 100，因为有两个 10，10 * 10 = 100，然后再乘以 1 = 100
++ 例子: 2e2 = 100，因为有两个 10，10 * 10 = 100，然后再乘以 2 = 200
+
+Example:
+```
+<script>
+    // e 
+
+    alert(1e0); // 1
+    alert(1e1); // 10
+    alert(1e2); // 100
+    alert(1e3); // 1000
+    alert(1e4); // 10000
+    alert(1e5); // 100000
+    alert(1e6); // 1000000
+
+    alert(2e3); // 2000
+
+</script>
+```
