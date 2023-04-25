@@ -6,11 +6,11 @@
 + Jquery2.x.x 不兼容 IE6，IE7，IE8。
 + Jquery3.x.x 兼容 IE6，IE7，IE8 以及增添了许多 ES6 的东西，也兼容了移动端，容量特别大。
 
-+ ![Jquery 的安装网址](https://jquery.com/download/)
-+ ![Jquery 的学习网址](https://jquery.cuishifeng.cn/)
-+ ![Jquery 的 CDN 网址](https://releases.jquery.com/jquery/)
++ [Jquery 的安装网址](https://jquery.com/download/)
++ [Jquery 的学习网址](https://jquery.cuishifeng.cn/)
++ [Jquery 的 CDN 网址](https://releases.jquery.com/jquery/)
 
-+ 本次学习用的是旧的版本 Jquery1.9.1 ![复制代码进去新的文件夹](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2056%20Jquery/jquery-1.9.1.min.js)
++ 本次学习用的是旧的版本 Jquery1.9.1 [复制代码进去新的文件夹](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2056%20Jquery/jquery-1.9.1.min.js)
 
 
 #### `$` 符号
