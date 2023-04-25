@@ -14,9 +14,9 @@
 
 
 #### `$` 符号
-+ 
++ function(e,t){return new b.fn.init(e,t,r)}
 
-#### extend 添加接口
+#### $.extend 添加接口
 + 拓展功能
 + 里边可以传一个 JSON
 + 使用 `$` 符号将其调用
@@ -57,4 +57,88 @@ Example:
 </body>
 </html> 
 ```
+
+#### $.fn.extend 添加一个方法接口
++ 与 extend 的差别在于，它可以放置参数
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery - fn.extend 的用途</title>
+
+    <style>
+        .m{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <!-- JavaScript -->
+    <script>
+        // $('div').addClass('m');
+
+        $.fn.extend({
+            'tgc' : function(){
+                console.log(this);  // 这个 this 是一个数组
+                // this[0].className = 'm';
+
+                // 也可以使用 Jquery 的方法
+                $(this).addClass('m');
+            }
+        });
+        
+        // 可放置参数 'div'
+        $('div').tgc(); // this 指向 div 了
+    </script>
+</body>
+</html> 
+```
+
+#### error 报错
++ Jquery 不可以用原生的接口
++ 原生不可以用 Jquery 的接口
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery - fn.extend 的用途</title>
+
+    <style>
+        .m{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <!-- JavaScript -->
+    <script>
+        // Jquery 不能用原生的接口
+        $('div').className('m');    // 报错
+
+        // 原生不可以用 Jquery 的接口
+        document.getElementById('div')[0].addClass('m');    // 报错
+    </script>
+</body>
+</html> 
+```
+
+
 
