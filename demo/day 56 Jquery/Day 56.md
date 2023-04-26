@@ -9,8 +9,10 @@
 + [Jquery 的安装网址](https://jquery.com/download/)
 + [Jquery 的学习网址](https://jquery.cuishifeng.cn/)
 + [Jquery 的 CDN 网址](https://releases.jquery.com/jquery/)
++ [Jquery Color 的 CDN 网址](https://releases.jquery.com/color/)
 
 + 本次学习用的是旧的版本 Jquery1.9.1 [复制代码进去新的文件夹](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2056%20Jquery/jquery-1.9.1.min.js)
++ Jquery Color [复制代码进去新的文件夹](https://github.com/jquery/jquery-color/blob/main/jquery.color.js)
 
 
 #### `$` 符号
