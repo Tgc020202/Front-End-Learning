@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多图片展示效果</title>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+    <script type="text/javascript" src="jquery.easing.js"></script>
+    <style>
+        * { padding: 0; margin: 0; }
+        li { list-style: none; }
+        body { background: #eee; }
+        img { border: none; }
+
+        ul { width: 330px; padding: 0 0 10px 10px; border: 10px solid #ccc; zoom:1; background: #f6f6f6; margin: 50px auto 0; }
+        ul:after { content: '\20'; display: block; clear: both; }
+        li { width: 100px; height:100px; margin: 10px 10px 0 0; float: left; display: inline; position: relative; }
+        img { width: 100px; height:100px; display: block; }
+
+    </style>
+</head>
+</head>
+<body>
+    <ul>
+        <li><img src="Images/p1.png" alt="pic1"></li>
+        <li><img src="Images/p2.png" alt="pic2"></li>
+        <li><img src="Images/p3.png" alt="pic3"></li>
+        <li><img src="Images/p4.png" alt="pic4"></li>
+        <li><img src="Images/p5.png" alt="pic5"></li>
+        <li><img src="Images/p6.png" alt="pic6"></li>
+        <li><img src="Images/p7.png" alt="pic7"></li>
+        <li><img src="Images/p8.png" alt="pic8"></li>
+        <li><img src="Images/p9.png" alt="pic9"></li>
+    </ul>
+    <!-- JavaScript -->
+    <script>
+        // z-index 控制最顶部
+        var z = 999;
+
+        $('li').on({
+            'mouseenter':function(){
+                z++;
+                $(this).find('img').animate({
+                    'width':'200px',
+                    'height':'200px',
+                    'marginLeft':'-50px',
+                    'marginTop':'-50px'
+                },1000)
+                $(this).css('zIndex',z)
+            },
+            'mouseleave':function(){
+                $(this).find('img').animate({
+                    'width':'100px',
+                    'height':'100px',
+                    'marginLeft':'0px',
+                    'marginTop':'0px'
+                },1000)
+            }
+        })
+    </script>
+</body>
+</html>

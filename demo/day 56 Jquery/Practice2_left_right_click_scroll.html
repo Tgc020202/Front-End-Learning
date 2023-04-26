@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左右点击滚动条 Tab 面板</title>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+    <script type="text/javascript" src="jquery.easing.js"></script>
+    <style>
+        * { padding: 0; margin: 0; }
+        li { list-style: none; }
+        img { border: none; }
+
+        body { background: #ecfaff; }
+
+        .box { width: 470px; height: 150px; overflow: hidden; position: relative; margin: 150px auto 0; background: #ccc; }
+        .box ol { position: absolute; left: 200px; bottom: 5px; z-index: 2; }
+        .box ol li { float: left; margin-right: 3px; display: inline; cursor: pointer; background: #fcf2cf; border: 1px solid #f47500; padding: 2px 6px; color: #d94b01; font-family: arial; font-size: 12px; }
+        .box .active { padding: 3px 8px; font-weight: bold; color: #ffffff; background: #ffb442; position: relative; bottom: 2px; }
+
+        .box ul { position: absolute; top: 0; left: 0; z-index: 1; }
+        .box ul li { width: 470px; height: 150px; float: left; }
+        .box ul img { float: left; width: 470px; height: 150px; }
+
+        .box p { width: 20px; height: 20px; line-height: 20px; font-family: arial; color: #fff; text-align: center; font-weight: bold; background: #333; border: 1px solid #ccc; position: absolute; top: 60px; z-index: 2; cursor: pointer; }
+        .box .prev { left: 10px; }
+        .box .next { right: 10px; }
+
+    </style>
+</head>
+</head>
+<body>
+    <div class="box" id="play">
+        <p class="prev"><<</p>
+        <p class="next">>></p>
+        <ol>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+        <ul style="width:2350px;">
+            <li><a href="#"><img src="Images/p0.png" alt=""></a></li>
+            <li><a href="#"><img src="Images/p1.png" alt=""></a></li>
+            <li><a href="#"><img src="Images/p2.png" alt=""></a></li>
+            <li><a href="#"><img src="Images/p3.png" alt=""></a></li>
+            <li><a href="#"><img src="Images/p4.png" alt=""></a></li>
+        </ul>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        var Index = 0;
+        $('ul').width($('ul > li').eq(0).width()*$('ul > li').length);
+
+        $('.next').on({
+            'click':function(){
+                Index++;
+                if(Index == $('ol > li').length)Index = 0;
+                $('ol > li').removeClass('active');
+                $('ol > li').eq(Index).addClass('active');
+
+                $('ul').stop().animate({
+                    'left':-Index * $('ul > li').eq(0).width()
+                },1000);
+            },
+            'mousedown':function(){
+                return false;
+            }
+        })
+
+        $('.prev').on({
+            'click':function(){
+                Index--;
+                if(Index == -1)Index = $('ol > li').length - 1;
+                $('ol > li').removeClass('active');
+                $('ol > li').eq(Index).addClass('active');
+
+                $('ul').stop().animate({
+                    'left':-Index * $('ul > li').eq(0).width()
+                },1000);
+            },
+            'mousedown':function(){
+                return false;
+            }
+        })
+
+        $('ol > li').on({
+            'mouseover':function(){
+                $('ol > li').removeClass('active');
+                $(this).addClass('active');
+                Index = $(this).index();
+                $('ul').stop().animate({
+                    'left':-$(this).index() * $('ul > li').eq(0).width()
+                },1000);
+            }
+        })
+
+
+        setInterval(function(){
+                Index++;
+                if(Index == $('ol > li').length)Index = 0;
+                $('ol > li').removeClass('active');
+                $('ol > li').eq(Index).addClass('active');
+
+                $('ul').stop().animate({
+                    'left':-Index * $('ul > li').eq(0).width()
+                },1000);
+            },2000);
+    </script>
+</body>
+</html>

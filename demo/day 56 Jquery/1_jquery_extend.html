@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一次使用 Jquery - $</title>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        alert($);   // function(e,t){return new b.fn.init(e,t,r)}
+
+
+        $.extend({
+            'tgc':function(){
+                alert("我是 tgc 函数");
+            },
+            'wxx':function(){
+                return Math.random();
+            }
+        });
+
+        $.tgc();    // 我是 tgc 函数
+        alert($.wxx()); // 随机数
+    </script>
+</body>
+</html> 

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 封装 Jquery 的原理</title>
+    <style>
+        .m{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+
+            margin: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="div"></div>
+    <div class="div"></div>
+    <div class="div"></div>
+    <div id="div"></div>
+
+    <!-- JavaScript -->
+    <script>
+        function Jquery(obj){
+            this.ele = obj.charAt(0);
+            this.arr = [];
+            switch(this.ele){
+                case '.':
+                    var all = document.getElementsByTagName('*');
+                    for(var i = 0; i < all.length ;i++){
+                        if(all[i].className.indexOf(obj.substring(1)) != -1){
+                            this.arr.push(all[i]);
+                        }
+                    }
+                    break;
+                case '#':
+                    this.arr.push(document.getElementById(obj.substring(1)));
+                    break;
+                default:
+                    var all = document.getElementsByTagName(obj);
+                    for(var i = 0; i < all.length ;i++){
+                        this.arr.push(all[i]);
+                    }
+                    break;
+            }
+        };
+
+        Jquery.prototype = {
+            'addClass':function(s){
+                for(var i = 0; i < this.arr.length ;i++){
+                    this.arr[i].className = s;
+                }
+            }
+        }
+
+        function $(string){
+            return new Jquery(string);
+        }
+
+        // $('#div').addClass('m');
+        // $('.div').addClass('m');
+        $('div').addClass('m');
+    </script>
+</body>
+</html>

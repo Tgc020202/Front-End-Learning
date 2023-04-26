@@ -5,10 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>拖拽自定义滚动条 - In process</title>
+    <style>
+        #div1 {width:600px; height:20px; background:#CCC; position:relative; margin:10px auto;}
+        #div2 {width:80px; height:20px; background:red; position:absolute; left:0; top:0;}
+        #div3 {width:600px; height:400px; border:1px solid black; position:relative; overflow:hidden;}
+        #div4 {position:absolute; left:0; top:0;}
+    </style>
 </head>
 <body>
     <div id="div1">
         <div id="div2"></div>
+    </div>
+    <div id="div3">
+        <div id="div4">
+            <div style="height: 100px;width: 600px;background-color: yellow;">halo</div>
+            <div style="height: 100px;width: 600px;background-color: green;">你是谁</div>
+            <div style="height: 100px;width: 600px;background-color: lightblue"></div>
+            <div style="height: 100px;width: 600px;background-color: red;"></div>
+            <div style="height: 100px;width: 600px;background-color: white;"></div>
+            <div style="height: 100px;width: 600px;background-color: black;"></div>
+        </div>
     </div>
 
     <!-- JavaScript -->
@@ -19,7 +35,21 @@
 
             document.onmousemove = function(e){
                 var ev = e || event;
-                div2.style.left = ev.clientX - l + 'px';
+                var needL = ev.clientX - l;
+                var maxL = div1.offsetWidth - div2.offsetWidth;
+                var maxT = div4.offsetHeight - div3.offsetHeight;
+
+                // console.log(maxT);
+                // console.log(div2.offsetLeft / maxL);
+                div4.style.top = -maxT * (div2.offsetLeft / maxL) + 'px';
+                // console.log(div4.style.top);
+                
+                needL = needL < 0 ? 0 : needL;
+                needL = needL > maxL ? maxL : needL;
+
+                div2.style.left = needL + 'px';
+
+
             }
 
             document.onmouseup = function(){

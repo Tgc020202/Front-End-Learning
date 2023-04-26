@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate 运动方法的方式拓展</title>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+    <script type="text/javascript" src="jquery.easing.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body,html{
+            height: 100%;
+            background-color: yellow;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        #div3{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #div4{
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+
+    <!-- JavaScript -->
+    <script>
+        $('body').animate({
+            'backgroundColor':'green'
+        },3000);
+
+        $('#div1').animate({
+            'width':'400px'
+        },3000,'swing');
+
+        $('#div2').animate({
+            'width':'400px'
+        },3000,'linear');
+
+        $('#div3').animate({
+            'width':'400px'
+        },3000,'easeInOutElastic');
+
+        $('#div4').animate({
+            'width':'400px'
+        },3000,'easeInBounce');
+    </script>
+</body>
+</html>

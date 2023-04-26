@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery - fn.extend 的用途</title>
+
+    <style>
+        .m{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <!-- JavaScript -->
+    <script>
+        // Jquery 不能用原生的接口
+        $('div').className('m');    // 报错
+
+        // 原生不可以用 Jquery 的接口
+        document.getElementById('div')[0].addClass('m');    // 报错
+    </script>
+</body>
+</html> 
