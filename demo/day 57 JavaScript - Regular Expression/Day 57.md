@@ -41,6 +41,7 @@ Example：
 </script>
 ```
 
+###### i
 + 放置 i 在后方，可以使其不区分大小写，来进行搜寻
 + 写法: 变量名.search(/要查找的字符串/i);
 
@@ -66,7 +67,167 @@ Example:
 </script>
 ```
 
+###### d - digit 转义
++ 把原本的意义给出转变了
++ 写法: 变量名.search(/\d/);
++ 所有的数字 0-9
 
+Example:
+```
+<script>
+    var a = 'abcgiloVeyoug520haha';
+
+    alert(a.search(/\d/));   // 13
+</script>
+```
+
+###### 集合 [数值]
++ 写法: 变量名.search(/[范围]/);
+> + 范围可以是 0 到 9 之间的数字，或者是 a 到 z 之间的字母
+
+Example:
+```
+<script>
+    var a = 'abcgiloVeyoug520haha';
+
+    alert(a.search(/[0-5]/));   // 13
+    alert(a.search(/[0-3]/));   // 14
+
+    alert(a.search(/[a-z]/));   // 0
+</script>
+```
+
++ 可以设置两个范围
++ 写法: 变量名.search(/[数字范围字母范围]/);
+
+Example:
+```
+<script>
+    var a = 'abcde123fghijkl';
+
+    alert(a.search(/[0-5]/));   // 5
+    alert(a.search(/[d-z0-9]/));   // 3
+</script>
+```
+> + 开始搜索直到其中一个条件达成，就会直接打印出当前结果
+
+###### match
++ 它会以数组的方式返回符合它条件的数据
++ 写法: 变量名.match(/要查找的字符串/);
+
+Example:
+```
+<script>
+    var a = 'abcde123fghijkl';
+
+    alert(a.match(/[0-5]/));    // 5
+    alert(a.match(/[c-z]/i));   // c
+</script>
+```
+
+###### g - group
++ 代表全部
++ 写法: 变量名.match(/要查找的字符串/g);
+
+Example:
+```
+<script>
+    var a = 'abcde123fghijkl';
+
+    alert(a.match(/[0-5]/));    // 5
+    alert(a.match(/[c-z]/g));   // c,d,e,f,g,h,i,j,k,l
+</script>
+```
+
+###### 在正则中 {} 大括号
++ 限制正则条件的的长度
++ 写法: 变量名.match(/要查找的字符串{量词}/g);
+
+Example:
+```
+<script>
+    // 大括号
+    var a = 'abcde123fghijkl';
+
+    alert(a.match(/[0-5]/));    // 5
+    alert(a.match(/[c-z]/g));   // c,d,e,f,g,h,i,j,k,l
+    alert(a.match(/[c-z]{2}/g));   // cd,fg,hi,jk
+</script>
+```
+
++ 贪婪法制
+> + 只要符合多个的量词，会优先匹配最多的
+> + {量词1,量词2}
+> > + 量词2 可以不写 {1,}，就会代表无限长度
+> > + 量词2 永远大过量词1，否则会报错
+
+Example:
+```
+<script>
+    // 大括号
+    var a = 'abcde123fghijkl';
+
+    alert(a.match(/[0-5]/));    // 5
+    alert(a.match(/[c-z]/g));   // c,d,e,f,g,h,i,j,k,l
+    alert(a.match(/[c-z]{2}/g));   // cd,fg,hi,jk
+    alert(a.match(/[c-z]{1,2}/g));   // cd,e,fg,hi,jk,l
+    alert(a.match(/[c-z]{1,}/g));   // cde,fghijkl
+    // alert(a.match(/[c-z]{3,1}/g));   // error
+</script>
+```
+
+###### 快捷键
++ `+` 符号代表 {1,}
++ `?` 符号代表 {0,1}，如果不符合就会变为空
++ `*` 符号代表 {0,}，如果不符合就会变为空
+
+Example:
+```
+<script>
+    var a = 'abcde123fghijkl';
+
+    alert(a.match(/[c-z]{1,}/g));   // cde,fghijkl
+    alert(a.match(/[c-z]+/g));   // cde,fghijkl
+    alert(a.match(/[c-z]?/g));   // ,,c,d,e,,,,f,g,h,i,j,k,l,
+    alert(a.match(/[8-9]?/g));   // ,,,,,,,,,,,,,,,
+    alert(a.match(/[c-z]*/g));   // ,,cde,,,,fghijkl,
+    
+</script>
+```
+
++ 搭配 d 
+
+Example:
+```
+<script>
+    var a = 'abc123def12ghi2';
+
+    // d 找出数字
+    // + {1,}
+    // g 打印全部
+    alert(a.match(/\d+/g));   // 123,12,2
+</script>
+```
+
+###### w - word
++ 相当于 [a-zA-Z0-9_]
++ 所有的东西都会变为 word，但是一些特殊符号是不会有反应的
+
+Example:
+```
+<script>
+    var a = 'abc123DEf_12ghi2';
+
+    // w {a-zA-Z0-9_}
+    // + {1,}
+    // g 打印全部
+    alert(a.match(/\w+/g));   // abc123DEf_12ghi2
+
+    // 特殊符号
+    var a = 'abc%123DEf/_12*ghi2';
+    alert(a.match(/\w+/g));   // abc,123DEf,_12,ghi2
+</script>
+```
 
 
 
