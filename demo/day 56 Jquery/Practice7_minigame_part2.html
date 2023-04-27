@@ -25,6 +25,7 @@
             width: 100px;
             height: 100px;
             position: absolute;
+            left: 100px;
             bottom: 50%;
             background-color: green;
         }
@@ -51,11 +52,11 @@
                 if(!t)return;
                 t = false;
                 $('#dragon').stop().animate({
-                    'top':30
-                },300,function(){
+                    'bottom':'700px'
+                },800,function(){
                     $('#dragon').stop().animate({
-                        'top':200
-                    },600,function(){
+                        'bottom':'50%'
+                    },900,function(){
                         t = true;
                         return;
                     });
