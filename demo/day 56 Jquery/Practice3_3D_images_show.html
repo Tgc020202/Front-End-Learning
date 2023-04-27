@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 图片展示效果</title>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+    <script type="text/javascript" src="jquery.easing.js"></script>
+    <style>
+        * { padding: 0; margin: 0; }
+        li { list-style: none; }
+        body { background: #444; }
+        img { border: none; }
+        #znsRotatePic { width: 900px; height: 380px; margin: 80px auto 0; position: relative; background: #000 url(images/bg.jpg); overflow: hidden; }
+        #znsRotatePic li { width: 250px; height: 340px; position: absolute; text-align: center; }
+        #znsRotatePic li span { width: 200px; height: 100px; overflow: hidden; position: absolute; bottom: 0; left: 20px;
+            background:url('images/shade.png') !important;
+            background:none;
+            filter:none!important;
+            filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/shade.png',sizingMethod='images');
+        }
+        #znsRotatePic img { position: relative; }
+        #znsRotatePic .pic1 { top: 20px; left: 77px; }
+        #znsRotatePic .pic1 img {top:20px;}
+        #znsRotatePic .pic2 { top: 55px; left: 336px; }
+        #znsRotatePic .pic3 { top: 20px; left: 595px; }
+        #znsRotatePic .pic3 img {top:20px;}
+        #znsRotatePic .unactive {filter: alpha(opacity=20); opacity: 0.2;}
+    </style>
+</head>
+<body>
+    <ul id="znsRotatePic">
+        <li class="pic1"><a href="#"><img src="Images/p1.png" alt="" class="unactive" height="100" width="100"></a><span></span></li>
+        <li class="pic2"><a href="#"><img src="Images/p2.png" alt="" height="200" width="200"></a><span></span></li>
+        <li class="pic3"><a href="#"><img src="Images/p3.png" alt="" class="unactive" height="100" width="100"></a><span></span></li>
+    </ul>
+
+    <!-- JavaScript -->
+    <script>
+        var PosX = [];
+        var PosY = [];
+        var EleW = [];
+        var EleH = [];
+        var ClassNameArr = [];
+        var opa = [];
+        $('a').attr('href','javascript:;');
+
+
+        for(var i = 0 ; i < $('li').length ; i++){
+            PosX.push($('li').eq(i).css('left'));
+            PosY.push($('li').eq(i).css('top'));
+            EleW.push($('li img').eq(i).css('width'));
+            EleH.push($('li img').eq(i).css('height'));
+            opa.push($('li img').eq(i).css('opacity'));
+
+            ClassNameArr.push($('li')[i].className);
+        }
+
+        // 取得所有 li 的 left 和 top 值
+        console.log(PosX);
+        console.log(PosY);
+        console.log(EleW);
+        console.log(EleH);
+        console.log(opa);
+        console.log(ClassNameArr);
+
+        $('body').on({
+            'click': function(){
+                PosX.push(PosX.shift());
+                PosY.push(PosY.shift());
+                EleW.push(EleW.shift());
+                EleH.push(EleH.shift());
+                opa.push(opa.shift());
+
+                ClassNameArr.push(ClassNameArr.shift());
+
+                for(var i = 0 ; i < $('li').length ; i++){
+                    $('li').eq(i).stop().animate({
+                        'left':PosX[i],
+                        'top':PosY[i]
+                    },500);
+
+                    $('li img').eq(i).stop().animate({
+                        'width':EleW[i],
+                        'height':EleH[i],
+                        'opacity':opa[i]
+                    },500);
+                    
+                    $('li')[i].className = ClassNameArr[i];
+                }
+            }
+        },'.pic1');
+
+        $('body').on({
+            'click': function(){
+                alert('wow');
+            }
+        },'.pic2');
+
+        $('body').on({
+            'click': function(){
+                PosX.unshift(PosX.pop());
+                PosY.unshift(PosY.pop());
+                EleW.unshift(EleW.pop());
+                EleH.unshift(EleH.pop());
+                opa.unshift(opa.pop());
+
+                ClassNameArr.unshift(ClassNameArr.push());
+
+                for(var i = 0 ; i < $('li').length ; i++){
+                    $('li').eq(i).stop().animate({
+                        'left':PosX[i],
+                        'top':PosY[i]
+                    },500);
+
+                    $('li img').eq(i).stop().animate({
+                        'width':EleW[i],
+                        'height':EleH[i],
+                        'opacity':opa[i]
+                    },500);
+
+                    $('li')[i].className = ClassNameArr[i];
+                }
+            }
+        },'.pic3');
+    </script>
+</body>
+</html>

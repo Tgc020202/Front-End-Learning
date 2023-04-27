@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 图片展示效果</title>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+    <script type="text/javascript" src="jquery.easing.js"></script>
+    <style>
+        /* CSS Document */
+
+        * { padding: 0; margin: 0; }
+        li { list-style: none; }
+        img { border: none; }
+        body { background: #ececec; padding-top: 50px; }
+
+        #automatic { width: 970px; height: 344px; position: relative; margin: 90px auto; overflow: -hidden; }
+
+        .prev_div { width: 130px; height: 72px; position: absolute; top: 128px; left: 92px; z-index: 5; background: red; filter: alpha(opacity=0); opacity: 0; cursor: pointer; }
+        .next_div { width: 130px; height: 72px; position: absolute; top: 128px; right: 92px; z-index: 5; background: red; filter: alpha(opacity=0); opacity: 0; cursor: pointer; }
+
+        #automatic .prev { width: 120px; height: 72px; position: absolute; top: 108px; left: 72px; z-index: 4; }
+        #automatic .prev .ico { width: 76px; height: 112px; position: absolute; top: 0; left: 0; background: url(images/prev.png); }
+        #automatic .prev .ico1 { width: 76px; height: 112px; position: absolute; top: 0; left: 0; background: url(images/prev_1.png); z-index: 2; filter: alpha(opacity=0); opacity: 0; }
+        #automatic .prev .txt { width: 106px; height: 112px; position: absolute; top: 0; left: 65px; background: url(images/prev_txt.png) no-repeat; filter: alpha(opacity=0); opacity: 0; }
+
+        #automatic .next { width: 120px; height: 72px; position: absolute; top: 108px; right: 72px; z-index: 4; }
+        #automatic .next .ico { width: 76px; height: 112px; position: absolute; top: 0; right: 0; background: url(images/next.png) no-repeat; }
+        #automatic .next .ico1 { width: 76px; height: 112px; position: absolute; top: 0; right: 0px; background: url(images/next_1.png) no-repeat; z-index: 2; filter: alpha(opacity=0); opacity: 0; }
+        #automatic .next .txt { width: 106px; height: 112px; position: absolute; top: 0; right: 65px; background: url(images/next_txt.png) no-repeat; filter: alpha(opacity=0); opacity: 0; }
+
+        #automatic ul { width: 970px; height: 344px; position: absolute; top: 0; left: 0; z-index: 1; }
+        #automatic li { position: absolute; }
+
+        #automatic .line { border: 4px solid #fff; width: 270px; height: 270px; position: absolute; top: 0; left: 50%; margin-left: -135px; z-index: 3; }
+
+        #automatic .pos_0 { top: -104px; left: 0; z-index: 1; filter: alpha(opacity=0); opacity: 0; }
+        #automatic .pos_1 { top: 104px; left: 0; z-index: 2; filter: alpha(opacity=60); opacity: 0.6; }
+        #automatic .pos_2 { top: 43px; left: 50px; z-index: 3; filter: alpha(opacity=80); opacity: 0.8; }
+        #automatic .pos_3 { top: 0; left: 355px; z-index: 4;}
+        #automatic .pos_4 { top: 43px; right: 50px; z-index: 3; filter: alpha(opacity=80); opacity: 0.8; }
+        #automatic .pos_5 { top: 104px; right: 0; z-index: 2; filter: alpha(opacity=60); opacity: 0.6; }
+        #automatic .pos_6 { top: -104px; right: 0; z-index: 1; filter: alpha(opacity=0); opacity: 0; }
+
+        #footer { width: 970px; height: 30px; text-align: center; padding-top: 50px; margin: 0 auto; }
+        #footer a { color: #930; font-family: arial; font-size: 15px; text-decoration: none; border-bottom: 1px dotted #930; }
+        #footer a:hover { border-bottom: 1px solid #930; }
+    </style>
+</head>
+<body>
+    <div id="automatic">
+        <div class="prev_div"></div>
+        <a href="#" class="prev">
+            <span class="ico1"></span>
+            <span class="ico"></span>
+            <span class="txt"></span>
+        </a>
+        <div class="next_div"></div>
+        <a href="#" class="next">
+            <span class="ico1"></span>
+            <span class="ico"></span>
+            <span class="txt"></span>
+        </a>
+        <div class="line"></div>
+        <ul>
+            <li class="pos_0">
+                <a href="#">
+                    <img src="Images/p0.png" alt="pic0" width="270">
+                </a>
+            </li>
+            <li class="pos_1">
+                <a href="#">
+                    <img src="Images/p1.png" alt="pic1" width="270">
+                </a>
+            </li>
+            <li class="pos_2">
+                <a href="#">
+                    <img src="Images/p2.png" alt="pic2" width="270">
+                </a>
+            </li>
+            <li class="pos_3">
+                <a href="#">
+                    <img src="Images/p3.png" alt="pic3" width="270">
+                </a>
+            </li>
+            <li class="pos_4">
+                <a href="#">
+                    <img src="Images/p4.png" alt="pic4" width="270">
+                </a>
+            </li>
+            <li class="pos_5">
+                <a href="#">
+                    <img src="Images/p5.png" alt="pic5" width="270">
+                </a>
+            </li>
+            <li class="pos_6">
+                <a href="#">
+                    <img src="Images/p6.png" alt="pic6" width="270">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        var tgc = {
+            'left':[],
+            'top':[],
+            'z':[],
+            'opa':[],
+            'w':[],
+            'h':[]
+        }
+
+        var allLi = $('ul > li');
+
+        for(var i = 0 ; i < allLi.length ; i++){
+            tgc.left.push(allLi.eq(i).css('left'));
+            tgc.top.push(allLi.eq(i).css('top'));
+            tgc.z.push(allLi.eq(i).css('zIndex'));
+            tgc.opa.push(allLi.eq(i).css('opacity'));
+            tgc.w.push(allLi.eq(i).css('width'));
+            tgc.h.push(allLi.eq(i).css('height'));
+        }
+
+        for(var i = 0 ; i < allLi.length ; i++){
+            allLi.eq(i).css({
+                'width':tgc.w[i],
+                'height':tgc.h[i]
+            })
+        }
+            
+        $('img').width('100%');
+
+        console.log(tgc);
+
+        var t = true;
+        $('.prev_div').click(function(){
+            if(!t)return;
+            tgc.left.push(tgc.left.shift());
+            tgc.top.push(tgc.top.shift());
+            tgc.z.push(tgc.z.shift());
+            tgc.opa.push(tgc.opa.shift());
+            tgc.w.push(tgc.w.shift());
+            tgc.h.push(tgc.h.shift());
+
+            for(var i = 0 ; i < allLi.length ; i++){
+                allLi.eq(i).css({
+                    'zIndex':tgc.z[i]
+                })
+                allLi.eq(i).stop().animate({
+                    'left':tgc.left[i],
+                    'top':tgc.top[i],
+                    'zIndex':tgc.z[i],
+                    'opacity':tgc.opa[i],
+                    'width':tgc.w[i],
+                    'height':tgc.h[i]
+                },300,function(){
+                    t = true;
+                });
+            }
+        });
+
+    </script>
+</body>
+</html>

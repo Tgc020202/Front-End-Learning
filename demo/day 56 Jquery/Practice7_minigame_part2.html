@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery - google 小恐龙</title>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+    <script type="text/javascript" src="jquery.easing.js"></script>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        
+        .line{
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            top: 50%;
+            background-color: black;
+        }
+
+        #dragon{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: 50%;
+            background-color: green;
+        }
+
+        .cactus{
+            left: 100%;
+            width: 20px;
+            background-color: black;
+            position: absolute;
+            bottom : 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="line"></div>
+    <div id="dragon"></div>
+    <!-- JavaScript -->
+    <script>
+
+        var t = true;
+
+        $(document).on({
+            'click':function(){
+                if(!t)return;
+                t = false;
+                $('#dragon').stop().animate({
+                    'top':30
+                },300,function(){
+                    $('#dragon').stop().animate({
+                        'top':200
+                    },600,function(){
+                        t = true;
+                        return;
+                    });
+                });
+            }
+        })
+
+        var s = $('<div class="cactus"></div>')
+        s.appendTo('body');
+        s.css('height','90px');
+        $(s).stop().animate({
+            'left':'0%'
+        },3000,'linear');
+
+        setInterval(tgc,30,dragon,s[0]);
+
+        function tgc(dragon,obstacle){
+            var div2r = dragon.offsetLeft + dragon.offsetWidth;
+            var div2b = dragon.offsetTop + dragon.offsetHeight;
+            var div2l = dragon.offsetLeft;
+            var div2t = dragon.offsetTop;
+
+            var div1l = obstacle.offsetLeft;
+            var div1t = obstacle.offsetTop;
+            var div1r = obstacle.offsetLeft + obstacle.offsetWidth;
+            var div1b = obstacle.offsetTop + obstacle.offsetHeight;
+
+            if(div2r > div1l && div2b > div1t && div2l < div1r && div2t < div1b){
+                console.log('gameover');
+            }
+        }
+
+        // div2.onmousedown = function(e){
+        //     var ev = e || event;
+        //     var l = ev.clientX - this.offsetLeft;
+        //     var t = ev.clientY - this.offsetTop;
+
+        //     document.onmousemove = function(e){
+        //         var ev = e || event;
+        //         var div2r = div2.offsetLeft + div2.offsetWidth;
+        //         var div2b = div2.offsetTop + div2.offsetHeight;
+        //         var div2l = div2.offsetLeft;
+        //         var div2t = div2.offsetTop;
+
+        //         var div1l = div1.offsetLeft;
+        //         var div1t = div1.offsetTop;
+        //         var div1r = div1.offsetLeft + div1.offsetWidth;
+        //         var div1b = div1.offsetTop + div1.offsetHeight;
+
+        //         if(div2r > div1l && div2b > div1t && div2l < div1r && div2t < div1b){
+        //             div2.style.background = 'lightblue';
+        //         }
+        //         else{
+        //             div2.style.background = 'green';
+        //         }
+
+        //         // console.log({
+        //         //     1:div2r > div1l,
+        //         //     2:div2b > div1t,
+        //         //     3:div2l < div1r,
+        //         //     4:div2t < div1b
+        //         // });
+
+        //         div2.style.left = ev.clientX - l + 'px';
+        //         div2.style.top = ev.clientY - t + 'px';
+        //     }
+
+        //     document.onmouseup = function(){
+        //         document.onmousemove = document.onmouseup = null;
+        //     }
+        //     return false;
+        // }
+    </script>
+</body>
+</html>

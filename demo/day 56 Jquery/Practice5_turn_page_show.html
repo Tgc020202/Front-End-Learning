@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery - 翻页动态显示模块效果</title>
+    c
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .zns{
+            width: 600px;
+            height: 300px;
+            border: 1px solid black;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -150px 0 0 -300px;
+        }
+
+        .zns ul{
+            float: left;
+            position: relative;
+            width: 100%;
+        }
+
+        .zns ul li{
+            float: left;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background-color: #ccc;
+            margin: 22px 0 0 38px;
+        }
+
+        .zns ol{
+            float: left;
+            display: -webkit-box;
+            -webkit-box-pack: center;
+            width: 100%;
+            margin-top: 11px;
+        }
+
+        .zns ol li{
+            width: 30px;
+            height: 30px;
+
+            text-align: center;
+            line-height: 30px;
+            background-color: yellow;
+
+            margin-right: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="zns">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+        <ol>
+            <li>1</li>
+            <li>2</li>
+        </ol>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // 转定位
+        $('.zns ul').height($('.zns ul').height());
+        var aLi = $('.zns ul li');
+        var arrX = [];
+        var arrY = [];
+
+        for(var i = 0 ; i < aLi.length; i++){
+            aLi.eq(i).css({
+                'left':aLi[i].offsetLeft,
+                'top':aLi[i].offsetTop
+            })
+            arrX.push(aLi[i].offsetLeft);
+            arrY.push(aLi[i].offsetTop);
+        }
+
+        aLi.css({
+            'margin':0,
+            'position':'absolute'
+        })
+
+
+        var index = 0;
+        var timer = null;
+
+        $('ol li').click(function(){
+            var t = $('ol')[0].offsetTop;
+            var l = this.offsetLeft;
+
+            timer = setInterval(function(){
+                if(index == $('ul li').length){
+                    clearInterval(timer);
+                    return;
+                }
+                aLi.eq(index).animate({
+                    'top':t,
+                    'left':l,
+                    'width':0,
+                    'height':0,
+                    'opacity':0
+                },500);
+                index++;
+            },300);
+
+            setTimeout(function(){
+                timer = setInterval(function(){
+                    if(index == -1){
+                        clearInterval(timer);
+                        index = 0;
+                        return;
+                    }
+                    aLi.eq(index).animate({
+                        'top':arrY[index],
+                        'left':arrX[index],
+                        'width':100,
+                        'height':100,
+                        'opacity':1
+                    },500);
+                    index--;
+                },300);
+            },2000)
+        });
+    </script>
+</body>
+</html>

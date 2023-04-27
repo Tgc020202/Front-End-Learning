@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery - google 小恐龙跳跃碰撞效果的概念</title>
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="jquery.color.js"></script>
+    <script type="text/javascript" src="jquery.easing.js"></script>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            position: absolute;
+            left: 400px;
+            top: 300px;
+        }
+
+        #div2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <!-- JavaScript -->
+    <script>
+        div2.onmousedown = function(e){
+            var ev = e || event;
+            var l = ev.clientX - this.offsetLeft;
+            var t = ev.clientY - this.offsetTop;
+
+            document.onmousemove = function(e){
+                var ev = e || event;
+                var div2r = div2.offsetLeft + div2.offsetWidth;
+                var div2b = div2.offsetTop + div2.offsetHeight;
+                var div2l = div2.offsetLeft;
+                var div2t = div2.offsetTop;
+
+                var div1l = div1.offsetLeft;
+                var div1t = div1.offsetTop;
+                var div1r = div1.offsetLeft + div1.offsetWidth;
+                var div1b = div1.offsetTop + div1.offsetHeight;
+
+                if(div2r > div1l && div2b > div1t && div2l < div1r && div2t < div1b){
+                    div2.style.background = 'lightblue';
+                }
+                else{
+                    div2.style.background = 'green';
+                }
+
+                // console.log({
+                //     1:div2r > div1l,
+                //     2:div2b > div1t,
+                //     3:div2l < div1r,
+                //     4:div2t < div1b
+                // });
+
+                div2.style.left = ev.clientX - l + 'px';
+                div2.style.top = ev.clientY - t + 'px';
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = document.onmouseup = null;
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
