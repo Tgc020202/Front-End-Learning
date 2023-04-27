@@ -1,0 +1,12 @@
+<script>
+    var a = 'abcgiloveyoughaha';
+
+    alert(a.indexOf('g'));  // 3
+    alert(a.search(/g/));   // 3
+
+    var b = a.substring(a.indexOf('g') + 1);
+    alert(b.indexOf('g') + a.indexOf('g'));  // 11
+
+    var c = a.substring(a.search(/g/) + 1);
+    alert(c.search(/g/) + a.search(/g/));  // 11
+</script>

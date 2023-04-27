@@ -1,0 +1,12 @@
+<script>
+    var a = 'abc123DEf_12ghi2';
+
+    // w {a-zA-Z0-9_}
+    // + {1,}
+    // g 打印全部
+    alert(a.match(/\w+/g));   // abc123DEf_12ghi2
+
+    // 特殊符号
+    var a = 'abc%123DEf/_12*ghi2';
+    alert(a.match(/\w+/g));   // abc,123DEf,_12,ghi2
+</script>

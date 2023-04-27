@@ -1,0 +1,21 @@
+<script>
+    var a = 'tgc is me';
+
+    // 查找
+    alert(a.search(/e/));   // 8
+</script>
+
+<script>
+    // 查找不到
+    var a = 'tgc is me';
+    alert(a.search(/x/));   // -1
+</script>
+
+<script>
+    // 不区分大小写
+    var a = 'TGC IS ME';
+    alert(a.search(/e/));   // -1
+
+    // 放置 i 在后方，使其不区分大小写
+    alert(a.search(/e/i));   // 8
+</script>

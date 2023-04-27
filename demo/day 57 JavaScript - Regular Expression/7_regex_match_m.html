@@ -1,0 +1,31 @@
+<script>
+    var a = 'abcde123fghijkl';
+
+    // alert(a.match(/[0-5]/));    // 5
+    // alert(a.match(/[c-z]/g));   // c,d,e,f,g,h,i,j,k,l
+</script>
+
+
+<script>
+    // 大括号
+    // var a = 'abcde123fghijkl';
+
+    // alert(a.match(/[0-5]/));    // 5
+    // alert(a.match(/[c-z]/g));   // c,d,e,f,g,h,i,j,k,l
+    // alert(a.match(/[c-z]{2}/g));   // cd,fg,hi,jk
+    // alert(a.match(/[c-z]{1,2}/g));   // cd,e,fg,hi,jk,l
+    // alert(a.match(/[c-z]{1,}/g));   // cde,fghijkl
+    // // alert(a.match(/[c-z]{3,1}/g));   // error
+</script>
+
+
+<script>
+    var a = 'abcde123fghijkl';
+
+    alert(a.match(/[c-z]{1,}/g));   // cde,fghijkl
+    alert(a.match(/[c-z]+/g));   // cde,fghijkl
+    alert(a.match(/[c-z]?/g));   // ,,c,d,e,,,,f,g,h,i,j,k,l,
+    alert(a.match(/[8-9]?/g));   // ,,,,,,,,,,,,,,,
+    alert(a.match(/[c-z]*/g));   // ,,cde,,,,fghijkl,
+    
+</script>
