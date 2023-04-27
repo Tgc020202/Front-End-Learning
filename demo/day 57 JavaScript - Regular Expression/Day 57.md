@@ -229,10 +229,22 @@ Example:
 </script>
 ```
 
+###### `^` - caret 脱字符
++ 又被称为非或者是`不是`
++ 只有在正则里面叫非
 
+Example:
+```
+<script>
+    var a = 'abc123DEf_12ghi2';
 
-
-
+    // ^ 非
+    // [0-9] 0 到 9 之间的数字
+    // + {1,}
+    // g 全部
+    alert(a.match(/[^0-9]+/g));   // abc,DEf_,ghi
+</script>
+```
 
 
 
