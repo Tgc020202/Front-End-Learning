@@ -246,6 +246,75 @@ Example:
 </script>
 ```
 
+###### replace 替换
++ 写法: 变量名.replace(/被代替/,替换成);
+
+Example:
+```
+<script>
+    var a = '作业一和作业二和作业三和作业四';
+
+    alert(a.replace(/和/,''));  // 作业一作业二和作业三和作业四
+
+
+    // replace 替换
+    // g 全部
+    alert(a.replace(/和/g,''));  // 作业一作业二作业三作业四
+</script>
+```
+
++ 将数字给替换了
+> + 写法: 变量名.replace(/\d/,'');
+
+Example:
+```
+<script>
+    var a = 'abcd123efgh34ij';
+
+    // replace 替换
+    // d 数字
+    // g 全部
+    alert(a.replace(/\d/g,''));  // abcdefghij
+</script>
+```
+
++ 也可替换为函数
+
+Example:
+```
+<script>
+    var a = 'abcd123efgh34ij';
+
+    // replace 替换
+    // d 数字
+    // g 全部
+    alert(a.replace(/\d/g,function(i){
+        // alert(i);
+    }));
+
+    // 替换成 [变]
+    alert(a.replace(/\d/g,function(i){
+        return ('变');  // abcd变变变efgh变变ij
+    }));
+</script>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
