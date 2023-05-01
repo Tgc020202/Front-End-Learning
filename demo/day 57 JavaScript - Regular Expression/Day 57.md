@@ -366,6 +366,138 @@ Example:
 </html>
 ```
 
+#### test 匹配
++ 
+
+Example:
+```
+<script>
+    // test 匹配
+    var password = 'a-abc:8';
+    var detect = /[a-z]{1}-{1}[a-z]{3}:{1}\d{1}/g;
+
+    alert(detect.test(password));   // true
+</script>
+```
+
+##### 特别的符号
+> + 需要添加 `\`符号
+> + 例子: `.`符号 -> `\.`
+
+Example:
+```
+<script>
+    // 特别的符号的匹配 要添加 \
+    var password = 'a.abc*8';
+    var detect = /[a-z]{1}\.{1}[a-z]{3}\*{1}\d{1}/g;
+
+    alert(detect.test(password));   // true
+</script>
+```
+
+##### 搭配 ^ 做匹配
++ 头部
++ 会从头部进行判断匹配，如果头部正确，就会直接返回正确
+
+Example:
+```
+<script>
+    // 复杂化匹配
+    var account1 = 'abc123...abc123';
+    var account2 = 'abc...abc123';
+    var account3 = 'abc...abc';
+    
+    var detect = /[a-z]+\d+/g;
+
+    // 会检测最前端和最后端，只要有一方是符合条件的就会返回正确
+    console.log(detect.test(account1));   // true
+    console.log(detect.test(account2));   // true
+    console.log(detect.test(account3));   // false
+</script>
+
+<script>
+    // 复杂化匹配，加上 ^ 符号
+    var account1 = 'abc123...abc123';
+    var account2 = 'abc...abc123';
+    var account3 = 'abc...abc';
+    var account4 = 'abc123...abc';
+    
+    // 加上 ^ 符号
+    var detect = /^[a-z]+\d+/g;
+
+    // 会从头部检测，如果头部正确，就会直接返回正确
+    console.log(detect.test(account1));   // true
+    console.log(detect.test(account2));   // false
+    console.log(detect.test(account3));   // false
+    console.log(detect.test(account4));   // true
+</script>
+```
+
+##### 搭配 $ 做匹配
++ 尾部
++ 会从尾部进行判断匹配，如果尾部正确，就会直接返回正确
+
+Example(Progress):
+```
+<script>
+    // 复杂化匹配，加上 $ 符号
+    var account1 = 'abc123...abc123';
+    var account2 = 'abc...abc123';
+    var account3 = 'abc...abc';
+    var account4 = 'abc123...abc';
+    
+    // 加上 $ 符号
+    var detect = /[a-z]+\d+$/g;
+
+    // 会从尾部检测，如果尾部正确，就会直接返回正确
+    console.log(detect.test(account1));   // true
+    console.log(detect.test(account2));   // true
+    console.log(detect.test(account3));   // false
+    console.log(detect.test(account4));   // false
+</script>
+```
+
+###### 在正则中 () 括号
++ 括号相当于大集合
+
+Example:
+```
+<script>
+    var a = 'a1b2c3d4';
+    var re = /([a-z]{1}\d{1}){2}/g;
+    alert(re.test(a));  // true
+
+
+    var re2 = /([a-z]{1}\d{1}){1,3}/g;
+    alert(a.match(re2));  // a1b2c3,d4
+</script>
+```
+
+###### s - space
++ 空格
+
+Example:
+```
+<script>
+    var a = ' ';
+    var b = ' tgc';
+    var c = 'tgc';
+
+    alert(/\s/.test(a));    // true
+    alert(/\s/.test(b));    // true
+    alert(/\s/.test(c));    // false
+</script>
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
