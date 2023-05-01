@@ -479,19 +479,36 @@ Example:
 Example:
 ```
 <script>
-    var a = ' ';
-    var b = ' tgc';
-    var c = 'tgc';
+    var a = 'tgc tgc';
+    var b = '';
+    var c = '  ';
 
-    alert(/\s/.test(a));    // true
-    alert(/\s/.test(b));    // true
-    alert(/\s/.test(c));    // false
+    alert(/^\s/g.test(a));    // false，前面有空
+    alert(/^[^\s]/g.test(a));    // true，前面不能有空
+    alert(/[^\s]/g.test(a));    // true，不是空
+
+    alert(/[^\s]/g.test(b));    // false，不是空
+    alert(/[^\s]/g.test(c));    // false，不是空
 </script>
 ```
+> + 切记 `/[^\s]/g.test(a)` 检测的是字符串里边是否存在不是空格的元素，一旦发现存在不是空格的元素，就会直接返回正确，并不是检测字符串里边是否有空格元素。
 
+###### 所有中文的集合
++ [\u4e00-\u9fa5]
++ 写法: /[\u4e00-\u9fa5]+/g;
 
+Example:
+```
+<script>
+    var a = '123123213213';
+    var b = '一二三';
 
+    var re = /[\u4e00-\u9fa5]+/g;
 
+    alert(re.test(a));  // false
+    alert(re.test(b));  // true
+</script>
+```
 
 
 
