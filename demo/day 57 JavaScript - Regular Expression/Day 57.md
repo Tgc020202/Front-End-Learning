@@ -299,10 +299,72 @@ Example:
 </script>
 ```
 
+###### 在正则里的 | 符号
++ 代表或
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>禁语</title>
+</head>
+<body>
+    我帅
+    我好呆
+    我好可爱
+    我是大傻逼
+    我最漂亮
 
+    <!-- JavaScript -->
+    <script>
+        var a = document.body.innerHTML;
+        document.body.innerHTML = a.replace(/漂亮|帅|逼/g,function(x){
+            var m = '';
+            for(var i = 0 ; i < x.length ; i++){
+                m += '*';
+            }
+            return m;
+        });
+    </script>
+</body>
+</html>
+```
 
+###### 在正则里的 . 符号
++ 代表所有
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让所有字变成有颜色</title>
+</head>
+<body>
+    <div id="div1">今天是5月1日劳动日，但是我还要上课!!!今天是5月1日劳动日，但是我还要上课!!!今天是5月1日劳动日，但是我还要上课!!!
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        var val = div1.innerHTML;
+
+        // 找出全部
+        // alert(val.match(/./g));
+
+        div1.innerHTML = val.replace(/./g,function(x){
+            return '<span style="color:rgb('+ parseInt(Math.random() * 256) + ',' + parseInt(Math.random() * 256) + ',' + parseInt(Math.random() * 256) + '")>'+ x +'</span>';
+        })
+    </script>
+</body>
+</html>
+```
 
 
 
