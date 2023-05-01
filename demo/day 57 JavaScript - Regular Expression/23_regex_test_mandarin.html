@@ -1,0 +1,9 @@
+<script>
+    var a = '123123213213';
+    var b = '一二三';
+
+    var re = /[\u4e00-\u9fa5]+/g;
+
+    alert(re.test(a));  // false
+    alert(re.test(b));  // true
+</script>

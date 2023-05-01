@@ -10,8 +10,13 @@
 
 <script>
     var a = 'tgc tgc';
+    var b = '';
+    var c = '  ';
 
     alert(/^\s/g.test(a));    // false，前面有空
-    alert(/[^\s]/g.test(a));    // false，没有空
     alert(/^[^\s]/g.test(a));    // true，前面不能有空
+    alert(/[^\s]/g.test(a));    // true，不是空
+
+    alert(/[^\s]/g.test(b));    // false，不是空
+    alert(/[^\s]/g.test(c));    // false，不是空
 </script>

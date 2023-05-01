@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则匹配练习</title>
+</head>
+<body>
+    <div>
+        <input type="text" name="" value="" placeholder="账户名" id="user">
+        <input type="button" name="" value="确认" id="btn_username">
+    </div>
+    <div>
+        <input type="password" name="" value="" placeholder="密码" id="password">
+        <input type="button" name="" value="确认" id="btn_password">
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+
+        /*
+            用户: 数字，字母，下划线 [6 - 20]
+            密码: 数字，字母，下划线 [三个必须要有][6 - 10 个位数]
+            提取所有 数字和一个字母的两位数 例如: 1a 2b 3c 4d ...
+        */
+        var password = document.getElementById('password');
+        var username = document.getElementById('user');
+
+        // 账号
+        btn_username.onclick = function(){
+            var b = user.value;
+            if(b.length >= 6 && b.length <= 20){
+                if(/\d/g.test(b)){
+                    if(/[a-zA-Z]/g.test(b)){
+                        if(/_/g.test(b)){
+                            alert('账户名输入正确!');
+                        }
+                        else{
+                            alert('您输入的账户名里面没有下划线，请重新输入账户名!');
+                        }
+                    }
+                    else{
+                        alert('您输入的账户名里面没有字母，请重新输入账户名!');
+                    }
+                }
+                else{
+                    alert('您输入的账户名里面没有数字，请重新输入账户名!');
+                }
+            }
+            else if(b.length < 6){
+                alert('你的账户名小于 6 个位数了，请保持账户名在 6 至 20 个位里，谢谢!');
+            }
+            else{
+                alert('你的账户名大于 20 个位数了，请保持账户名在 6 至 20 个位里，谢谢!');
+            }
+        }
+
+        // 密码
+        btn_password.onclick = function(){
+            var a = password.value;
+            if(a.length >= 6 && a.length <= 10){
+                if(/\d/g.test(a)){
+                    if(/[a-zA-Z]/g.test(a)){
+                        if(/_/g.test(a)){
+                            alert('密码输入正确!');
+                        }
+                        else{
+                            alert('您输入的密码里面没有下划线，请重新输入密码!');
+                        }
+                    }
+                    else{
+                        alert('您输入的密码里面没有字母，请重新输入密码!');
+                    }
+                }
+                else{
+                    alert('您输入的密码里面没有数字，请重新输入密码!');
+                }
+            }
+            else if(a.length < 6){
+                alert('你的密码小于 6 个位数了，请保持密码在 6 至 10 个位数里，谢谢!');
+            }
+            else{
+                alert('你的密码大于 10 个位数了，请保持密码在 6 至 10 个位数里，谢谢!');
+            }
+        }
+    </script>
+
+</body>
+</html>
