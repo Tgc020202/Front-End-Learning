@@ -1,0 +1,16 @@
+<script>
+    // var a = 'tgc';
+    // var b = 'xyz';
+    // var re = /[tab][gde][cfg]/g;
+
+    // alert(re.test(a));  // true
+    // alert(re.test(b));  // false
+</script>
+
+<script>
+    var a = 'tgcabcxyz';
+    var re = /([tax][gby][cfz]){1,2}/g;
+
+    alert(a.match(re));  // tgcabc,xyz
+</script>
+

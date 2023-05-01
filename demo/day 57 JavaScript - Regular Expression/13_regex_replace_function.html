@@ -1,0 +1,15 @@
+<script>
+    var a = 'abcd123efgh34ij';
+
+    // replace 替换
+    // d 数字
+    // g 全部
+    alert(a.replace(/\d/g,function(i){
+        alert(i);
+    }));
+
+    // 替换成 [变]
+    alert(a.replace(/\d/g,function(i){
+        return ('变');  // abcd变变变efgh变变ij
+    }));
+</script>

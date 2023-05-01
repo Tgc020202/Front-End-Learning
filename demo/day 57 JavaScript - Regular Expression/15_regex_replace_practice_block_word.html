@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>禁语</title>
+</head>
+<body>
+    我帅
+    我好呆
+    我好可爱
+    我是大傻逼
+    我最漂亮
+
+    <!-- JavaScript -->
+    <script>
+        var a = document.body.innerHTML;
+        document.body.innerHTML = a.replace(/漂亮|帅|逼/g,function(x){
+            var m = '';
+            for(var i = 0 ; i < x.length ; i++){
+                m += '*';
+            }
+            return m;
+        });
+    </script>
+</body>
+</html>

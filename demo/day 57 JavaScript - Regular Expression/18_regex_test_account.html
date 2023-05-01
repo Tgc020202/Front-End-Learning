@@ -1,0 +1,35 @@
+<script>
+    // // 匹配账号
+    // var account1 = '22222';
+    // /*
+    //     假设最低 = 5
+    //     假设最高 = 10
+    //     0 不能放第一
+    //     只能是数字
+    // */
+    // var detect = /^[1-9]{1}[0-9]{4,9}$/g;
+    
+    // console.log(detect.test(account1));   // true
+</script>
+
+<script>
+    // 匹配马来西亚电话号码 +60
+    var account1 = '+6012-3456789';
+    var account2 = '+6011-23456789';
+    var account3 = '+8612-3456789';
+
+    var detect = /^\+{1}[6]{1}[0]{1}[1]{1}[0-9]{1}-{1}[0-9]{7,8}$/g;
+    
+    console.log(detect.test(account1));   // true
+    console.log(detect.test(account3));   // false
+    console.log(detect.test(account2));   // true
+
+    // 检测只有数值 1234 在后端四个数的手机号
+    var account1 = '+6012-3401234';
+    var account2 = '+6012-3456789';
+
+    var detect = /^\+{1}[6]{1}[0]{1}[1]{1}[0-9]{1}-{1}[0-9]{3,4}[1-4]{4}$/g;
+    
+    console.log(detect.test(account1));   // true
+    console.log(detect.test(account2));   // false
+</script>

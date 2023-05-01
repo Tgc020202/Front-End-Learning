@@ -1,0 +1,63 @@
+<script>
+    // // test 匹配
+    // var password = 'a-abc:8';
+    // var detect = /[a-z]{1}-{1}[a-z]{3}:{1}\d{1}/g;
+
+    // alert(detect.test(password));   // true
+</script>
+
+<script>
+    // // 特别的符号的匹配 要添加 \
+    // var password = 'a.abc*8';
+    // var detect = /[a-z]{1}\.{1}[a-z]{3}\*{1}\d{1}/g;
+
+    // alert(detect.test(password));   // true
+</script>
+
+<script>
+    // // 复杂化匹配
+    // var account1 = 'abc123...abc123';
+    // var account2 = 'abc...abc123';
+    // var account3 = 'abc...abc';
+    
+    // var detect = /[a-z]+\d+/g;
+
+    // // 会检测最前端和最后端，只要有一方是符合条件的就会返回正确
+    // console.log(detect.test(account1));   // true
+    // console.log(detect.test(account2));   // true
+    // console.log(detect.test(account3));   // false
+</script>
+
+<script>
+    // // 复杂化匹配，加上 ^ 符号
+    // var account1 = 'abc123...abc123';
+    // var account2 = 'abc...abc123';
+    // var account3 = 'abc...abc';
+    // var account4 = 'abc123...abc';
+    
+    // // 加上 ^ 符号
+    // var detect = /^[a-z]+\d+/g;
+
+    // // 会从头部检测，如果头部正确，就会直接返回正确
+    // console.log(detect.test(account1));   // true
+    // console.log(detect.test(account2));   // false
+    // console.log(detect.test(account3));   // false
+    // console.log(detect.test(account4));   // true
+</script>
+
+<script>
+    // 复杂化匹配，加上 $ 符号
+    var account1 = 'abc123...abc123';
+    var account2 = 'abc...abc123';
+    var account3 = 'abc...abc';
+    var account4 = 'abc123...abc';
+    
+    // 加上 $ 符号
+    var detect = /[a-z]+\d+$/g;
+
+    // 会从尾部检测，如果尾部正确，就会直接返回正确
+    console.log(detect.test(account1));   // true
+    console.log(detect.test(account2));   // true
+    console.log(detect.test(account3));   // false
+    console.log(detect.test(account4));   // false
+</script>

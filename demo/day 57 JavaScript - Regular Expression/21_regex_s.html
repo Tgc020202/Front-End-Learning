@@ -1,0 +1,17 @@
+<script>
+    // var a = ' ';
+    // var b = ' tgc';
+    // var c = 'tgc';
+
+    // alert(/\s/.test(a));    // true
+    // alert(/\s/.test(b));    // true
+    // alert(/\s/.test(c));    // false
+</script>
+
+<script>
+    var a = 'tgc tgc';
+
+    alert(/^\s/g.test(a));    // false，前面有空
+    alert(/[^\s]/g.test(a));    // false，没有空
+    alert(/^[^\s]/g.test(a));    // true，前面不能有空
+</script>

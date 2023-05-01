@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>让所有字变成有颜色</title>
+    <style>
+        span{
+            transition: 0.1 all ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">今天是5月1日劳动日，但是我还要上课!!!今天是5月1日劳动日，但是我还要上课!!!今天是5月1日劳动日，但是我还要上课!!!
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        var val = div1.innerHTML;
+
+        // 找出全部
+        // alert(val.match(/./g));
+
+        div1.innerHTML = val.replace(/./g,function(x){
+            return '<span style="color:rgb('+ parseInt(Math.random() * 256) + ',' + parseInt(Math.random() * 256) + ',' + parseInt(Math.random() * 256) + '")>'+ x +'</span>';
+        })
+
+        setInterval(function(){
+            var allSpan = document.getElementsByTagName('span');
+            for(var i = 0; i < allSpan.length ;i++){
+                allSpan[i].style.color = 'rgb('+ parseInt(Math.random() * 256) + ',' + parseInt(Math.random() * 256) + ',' + parseInt(Math.random() * 256) + ')';
+            }
+        },100);
+    </script>
+</body>
+</html>
