@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋转立方体 </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -100px;
+
+            transform: perspective(800px);
+            -transition: 1s transform ease;
+            /* 需要父级有 3D，其子级才能支持 Z 轴 */
+            transform-style: preserve-3d;
+        }
+
+        #div1:active{
+            transform: perspective(800px) rotateX(270deg) rotateY(270deg);
+        }
+
+        #div2{
+            width: 100%;
+            height: 100%;
+            background-color: red;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            transform: translateZ(100px);
+        }
+
+        #div3{
+            width: 100%;
+            height: 100%;
+            background-color: green;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            transform: translateZ(-100px);
+        }
+
+        #div4{
+            width: 100%;
+            height: 100%;
+            background-color: yellow;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            transform: rotateY(90deg) translateZ(-100px);
+        }
+
+        #div5{
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            transform: rotateY(-90deg) translateZ(-100px);
+        }
+
+        #div6{
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            transform: rotateX(-90deg) translateZ(-100px);
+        }
+
+        #div7{
+            width: 100%;
+            height: 100%;
+            background-color: orange;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 从中央进行缩放 -->
+    <div id="div1">
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+        <div id="div5"></div>
+        <div id="div6"></div>
+        <div id="div7"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        var a = 0;
+
+        // 设置定时器，使其循环旋转
+        setInterval(function(){
+            a++;
+            div1.style.transform = 'perspective(800px) rotateX(' + a + 'deg) rotateY(' + a + 'deg)';
+        },10);
+    </script>
+</body>
+</html>

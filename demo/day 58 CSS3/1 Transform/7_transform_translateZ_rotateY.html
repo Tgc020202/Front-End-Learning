@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 - transform : TranslateZ 和 RotateY </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+
+            transform: perspective(800px) rotateY(60deg);
+            transition: 1s transform ease;
+            /* 需要父级有 3D，其子级才能支持 Z 轴 */
+            transform-style: preserve-3d;
+        }
+
+        #div2{
+            width: 100%;
+            height: 100%;
+            background-color: red;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            z-index: 999;
+            transform: translateZ(30px);
+        }
+
+        #div3{
+            width: 100%;
+            height: 100%;
+            background-color: yellow;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            z-index: 999;
+
+            /* translateZ 和 rotate 的位置会有不同影响 */
+            /* transform: translateZ(-30px) rotate(-90deg); */
+            transform: rotate(-90deg) translateZ(-30px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 从中央进行缩放 -->
+    <div id="div1">
+        <div id="div2"></div>
+        <div id="div3"></div>
+    </div>
+</body>
+</html>

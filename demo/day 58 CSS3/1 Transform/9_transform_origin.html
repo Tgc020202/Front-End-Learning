@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 - transform : Origin</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            transform: perspective(800px);
+            -transition: 1s transform ease;
+            
+            /* 设置中心点在左边 */
+            /* transform-origin: top center; */
+            /* transform-origin: bottom center; */
+            /* transform-origin: right center; */
+            transform-origin: left center;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+        }
+
+        #div1:active{
+            transform: rotateY(-180deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <!-- JavaScript -->
+    <script>
+        var a = 0;
+        setInterval(function(){
+            a++;
+            div1.style.transform = 'perspective(800px) rotateY(' + a + 'deg)';
+        },10);
+    </script>
+</body>
+</html>

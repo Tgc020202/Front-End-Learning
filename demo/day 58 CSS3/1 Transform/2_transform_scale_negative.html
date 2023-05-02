@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 - transform : Scale 负数</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: url(Images/p0.png) no-repeat;
+            background-size: cover;
+            transition: 1s transform ease;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+        }
+
+        #div1:active{
+            /* transform: scale(2,2); */
+            /* transform: scaleX(2); */
+            /* transform: scaleY(2); */
+
+            transform: scaleX(-1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 从中央进行缩放 -->
+    <div id="div1"></div>
+</body>
+</html>
