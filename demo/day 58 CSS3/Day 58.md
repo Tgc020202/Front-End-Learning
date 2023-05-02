@@ -3,11 +3,11 @@
 2. CSS2 - fixed
 3. CSS3 - transform/transition/...
 
-#### CSS3
+### CSS3
 + IE 10 不兼容
 + CSS3 有手机上的 GPU 加速，所以比较不会卡
 
-##### transition 过渡
+#### transition 过渡
 + CSS3 动画
 
 ##### transform - 2D 动画
@@ -328,19 +328,386 @@ Example:
 </html>
 ```
 
+Example(小项目: 旋转立方体):
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 - transform : 3D </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
 
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: black;
 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -100px;
 
+            transform: perspective(800px);
+            -transition: 1s transform ease;
+            /* 需要父级有 3D，其子级才能支持 Z 轴 */
+            transform-style: preserve-3d;
+        }
 
+        #div1:active{
+            transform: perspective(800px) rotateX(270deg) rotateY(270deg);
+        }
 
+        #div2{
+            width: 100%;
+            height: 100%;
+            background-color: red;
 
+            position: absolute;
+            top: 0;
+            left: 0;
 
+            transform: translateZ(100px);
+        }
 
+        #div3{
+            width: 100%;
+            height: 100%;
+            background-color: green;
 
+            position: absolute;
+            top: 0;
+            left: 0;
 
+            transform: translateZ(-100px);
+        }
 
+        #div4{
+            width: 100%;
+            height: 100%;
+            background-color: yellow;
 
+            position: absolute;
+            top: 0;
+            left: 0;
 
+            transform: rotateY(90deg) translateZ(-100px);
+        }
 
+        #div5{
+            width: 100%;
+            height: 100%;
+            background-color: blue;
 
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            transform: rotateY(-90deg) translateZ(-100px);
+        }
+
+        #div6{
+            width: 100%;
+            height: 100%;
+            background-color: pink;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            transform: rotateX(-90deg) translateZ(-100px);
+        }
+
+        #div7{
+            width: 100%;
+            height: 100%;
+            background-color: orange;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 从中央进行缩放 -->
+    <div id="div1">
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+        <div id="div5"></div>
+        <div id="div6"></div>
+        <div id="div7"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        var a = 0;
+
+        // 设置定时器，使其循环旋转
+        setInterval(function(){
+            a++;
+            div1.style.transform = 'perspective(800px) rotateX(' + a + 'deg) rotateY(' + a + 'deg)';
+        },10);
+    </script>
+</body>
+</html>
+```
+
+##### transform-origin
++ 设置中心点(透视点)
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 - transform : Origin</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: black;
+            transform: perspective(800px);
+            transition: 1s transform ease;
+            
+            /* 设置中心点在左边 */
+            transform-origin: left center;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+        }
+
+        #div1:active{
+            transform: rotateY(-180deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>
+```
+
+#### 选择器
+##### `>`
++ 选择子级的所有第一层
++ 写法: 父级>第一级的子级元素{}
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 ></title>
+    <style>
+        #div1>div{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div></div>
+    </div>
+</body>
+</html>
+```
+
+##### `+`
++ 兄弟选择，相邻的第一个就会被选择，如有就给值，没有就不给
++ 写法: 元素名+元素{}
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 +</title>
+    <style>
+        #div1+div{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div></div>
+    </div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div2"></div>
+</body>
+</html>
+```
+> + 只有第一个 div2 变成黑色
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 +</title>
+    <style>
+        /* 把 div 换成 span */
+        #div1+span{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div></div>
+    </div>
+    <div id="div2"></div>
+    <span></span>
+    <span></span>
+    <div id="div3"></div>
+    <div id="div2"></div>
+</body>
+</html>
+```
+> + 什么都没有显示，因为 span 不是 div1 之后的第一个元素
+
+##### `~`
++ 下面的所有的要找的元素都会选择
++ 写法: 元素名~元素{}
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 ~</title>
+    <style>
+        #div1~span{
+            width: 100px;
+            height: 100px;
+            float: left;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div></div>
+    </div>
+    <div id="div2"></div>
+    <span></span>
+    <span></span>
+    <div id="div3"></div>
+</body>
+</html>
+```
+> + 所有的 span 都会变黑色
+
+##### `*`
++ 代表全部
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 混合</title>
+    <style>
+        #div1~.a>*{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background-color: black;
+        }
+
+        #div1~.a>span{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div></div>
+    </div>
+    <div id="div2"></div>
+    <span></span>
+    <span class="a">
+        <div></div>
+        <span></span>
+        <span></span>
+        <div></div>
+        <div></div>
+    </span>
+    <div id="div3"></div>
+</body>
+</html>
+```
 
