@@ -711,3 +711,379 @@ Example:
 </html>
 ```
 
+##### `:not`
++ 代表除了
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 :not</title>
+    <style>
+        body>:not(div){
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <span></span>
+    <div></div>
+    <div></div>
+    <span></span>
+    <span></span>
+    <span></span>
+    <div></div>
+</body>
+</html>
+```
+> + 除了 div 元素，其他的元素都变成黑色
+
+##### `[]`
++ 写法: [iTarget]
++ 代表属性选择器
++ 通过属性进行选择
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 []</title>
+    <style>
+        /* [tgc]{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        } */
+
+        div[tgc],span[tgc]{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <span></span>
+    <div tgc></div>
+    <div wxx></div>
+    <span xxx></span>
+    <span tgc></span>
+    <span></span>
+    <div></div>
+</body>
+</html>
+```
+> + div 元素有 tgc 属性的会变成黑色
+> + span 元素有 tgc 属性的会变成黑色
+
+##### `$=`
++ 写法: [iTarget$='name']
++ 代表末尾必须是name值的属性的元素
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 $=</title>
+    <style>
+        [xxx$='aaa']{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <span></span>
+    <div tgc></div>
+    <div wxx></div>
+    <span xxx="bbb ccc aaa"></span>
+    <span tgc></span>
+    <span></span>
+    <div></div>
+</body>
+</html>
+```
+> + 在所有元素里，拥有 xxx 属性的，而且有末尾的属性值为 aaa 的元素变成黑色
+
+##### `^=`
++ 写法: [iTarget^='name']
++ 代表开头必须是name值的属性的元素
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 ^=</title>
+    <style>
+        [xxx^='bbb']{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <span></span>
+    <div tgc></div>
+    <div wxx></div>
+    <span xxx="bbb ccc aaa"></span>
+    <span tgc></span>
+    <span></span>
+    <div></div>
+</body>
+</html>
+```
+> + 在所有元素里，拥有 xxx 属性的，而且有开头的属性值为 bbb 的元素变成黑色
+
+##### `=`
++ 写法: [iTarget='name']
++ 代表必须是name值的属性的元素
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 =</title>
+    <style>
+        [xxx='bbb']{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <span></span>
+    <div tgc></div>
+    <div wxx></div>
+    <span xxx="bbb ccc aaa"></span>
+    <span tgc></span>
+    <span></span>
+    <div></div>
+    <div xxx="bbb"></div>
+    <div xxx></div>
+</body>
+</html>
+```
+> + 在所有元素里，拥有 xxx 属性的，而且只有 bbb 一个属性值的元素变成黑色
+
+##### `*=`
++ 写法: [iTarget*='name']
++ 代表只要内容有这个属性的值就会被选择
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 *=</title>
+    <style>
+        [xxx*='bbb']{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <span></span>
+    <div tgc></div>
+    <div wxx></div>
+    <span xxx="asdasdbbb ccc aaa"></span>
+    <span tgc></span>
+    <span></span>
+    <div></div>
+</body>
+</html>
+```
+> + 在所有元素里，拥有 xxx 属性的，而且只要有 bbb 的属性值的出现，元素变成黑色
+
+##### `first-child`
++ 写法: 元素:first-child
++ 选第一个
++ 代表只要是当前元素且在第一位的，就会被选择
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 first-child</title>
+    <style>
+        div:first-child{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <span></span>
+    <div id="div1">
+        <span></span>
+    </div>
+    <div id="div2">
+        <div></div>
+        <span></span>
+    </div>
+</body>
+</html>
+```
+> + div2 元素里的第一个 div 元素变成黑色
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 first-child</title>
+    <style>
+        /* div:first-child{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        } */
+
+        body div:first-child{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+    </div>
+    <div id="div2">
+        <div></div>
+        <span></span>
+    </div>
+</body>
+</html>
+```
+> + body 下的 div1 的 div 元素变为黑色
+> + body 下个 div2 的第一个子级 div 元素变为黑色
+
+##### `last-child`
++ 写法: 元素:last-child
++ 选最后一个
++ 代表只要是当前元素且在最后一位的，就会被选择
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 last-child</title>
+    <style>
+        div:last-child{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <span></span>
+    <div id="div1">
+        <span></span>
+        <div></div>
+    </div>
+    <div id="div2">
+        <span></span>
+    </div>
+    <div id="div3">
+        <div></div>
+        <span></span>
+    </div>
+</body>
+</html>
+```
+> + div1 元素里的最后一个 div 元素变成黑色
+> + div3 元素里的子级元素没有变色，因为它的 div 元素不是最后一个元素
+
+##### `nth-child`
++ 写法: 父级>元素:nth-child()
++ 选第几个
++ 代表当前 n 位置的元素是想要获取的元素，就会被选择
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 nth-child</title>
+    <style>
+        body>span:nth-child(2){
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <span id="span1"></span>
+    <div id="div2">
+        <div></div>
+        <span></span>
+    </div>
+    <span id="span2"></span>
+</body>
+</html>
+```
+> + span1 元素变成黑色
+> + 因为 span1 是 body 元素的第二个子级
+
+
+
+
