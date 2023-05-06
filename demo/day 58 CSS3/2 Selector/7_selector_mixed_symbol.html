@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择器 :not 和 ~</title>
+    <style>
+        /* body>:not(div){
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        } */
+
+        body>:not(div)~div{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <span></span>
+    <div></div>
+    <div></div>
+    <span></span>
+    <span></span>
+    <span></span>
+    <div></div>
+</body>
+</html>

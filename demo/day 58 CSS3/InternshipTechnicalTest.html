@@ -1,0 +1,183 @@
+<!-- <div>
+  SELECT tb1.name
+  FROM employees tb1
+  LEFT JOIN sales tb2
+  ON tb1.id = tb2.employeeId
+  WHERE tb2.value IS NULL;
+</div> -->
+
+<!-- <div>
+  SELECT tb1.id, tb2.name, COALESCE(tb3.name, NULL)
+  FROM tasks tb1
+  JOIN employees tb2 ON tb1.authorid = tb2.id
+  LEFT JOIN employees tb3 ON tb1.assigneeId = tb3.id
+</div> -->
+
+<!-- <div>
+  INSERT INTO retired (id, name)
+  SELECT id, name
+  FROM employee
+  WHERE retired = 'Y';
+</div> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function update(progressBarId, increase) {
+      var progressBar = document.getElementById(progressBarId);
+      var value = progressBar.value;
+      let max = progressBar.max;
+      let newValue = value + increase;
+      if (newValue >= max) {
+        progressBar.value = max;
+        return true;
+      } else {
+        progressBar.value = newValue;
+        return false;
+      }
+    }
+  
+    // Example case. 
+    document.body.innerHTML = `<progress id="loading-bar" value="0" max="100"></progress>`;
+    console.log(update("loading-bar", 50)); // should return false and loading-bar's value should be 50.
+    console.log(update("loading-bar", 50)); // should return true and loading-bar's value should be 100.
+  </script>
+</body>
+</html> -->
+
+<!-- <script>
+  function areas(r, a) {
+    var inside = r ** 2 / 2 * (a * Math.PI / 180 - Math.sin(a * Math.PI / 180));
+    var outside = Math.PI * r ** 2 - inside;
+    return [inside, outside];
+  }
+
+  let [inside, outside] = areas(10, 90);
+  console.log(inside + " " + outside); // outputs "28.53981633974483 285.6194490192345"
+
+</script> -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Shirts</title>
+  </head>
+  <body>
+	<form>
+      <label for="shirt-order-size">Number of shirts to order:</label>
+      <input id="shirt-order-size" max="100" min="5" type="number" step="5" required/>
+	    <input type="submit" />
+    </form>
+  </body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Upload form</title>
+  </head>
+  <body>
+    <form id="uploader">
+      <label for="file-upload">Select one or more files to upload:</label>
+      <input type="file" id="file-upload" name="files" accept=".pdf" multiple required>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Paragraph editor</title>
+  </head>
+  <body>
+    <p id="editor" contenteditable="true" title="Click for editing" spellcheck="true" lang="en">
+      Hello, I should be editable if you click on me!
+    </p>
+    
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Share button</title>    
+    <style type="text/css">
+      /* image URL: 
+         https://bit.ly/37iuXZy */
+      /* insert your CSS solution here */
+      .share-button {
+        width: 48px;
+        height: 48px;
+        background-image: url(https://bit.ly/37iuXZy) no-repeat;
+        position: fixed;
+        top: 50px;
+        left: 0;
+      }
+    </style>    
+  </head>
+  <body>
+    <a class="share-button" href="#"></a>
+    <p style="margin-left: 75px; height: 1000px;">Text...</p>
+    <p style="margin-left: 75px; height: 1000px;">Text...</p>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Loading</title>
+    <style>
+        #loading-container {
+          position: absolute;
+          left: calc(50% - 25px);
+          top: 30%;
+        }
+
+        #loading-icon {
+          position: absolute;
+          top: 30px;
+          width: 50px;
+          height: 50px;
+          background-color: black;
+          animation: loading-animation 3s infinite;
+        }
+
+        @keyframes loading-animation {
+            /* Write your CSS solution here (do not edit the surrounding HTML) */
+            0%{
+              transform: rotate(0deg);
+              background-color: red;
+            }
+            50%{
+              transform: rotate(360deg);
+              background-color: orange;
+            }
+            100%{
+              transform: rotate(720deg);
+              background-color: red;
+            }
+          }
+    </style>
+  </head>
+  <body>
+    <div id="loading-container">
+      Loading
+      <span id="loading-icon"></span>
+    </div>
+  </body>
+</html>-->
