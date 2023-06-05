@@ -1,0 +1,14 @@
+<script>
+    let json = '{"employees":['+
+    '{"firstname":"John", "Age":50},'+
+    '{"firstname":"Ali", "Age":40},'+
+    '{"firstname":"Emily", "Age":8}]}';
+    // convert string to json 
+    let json_obj = JSON.parse(json);
+    // access to object inside json
+    console.log(json_obj[0]);   // undefined
+    for(var i = 0; i < json_obj["employees"].length ; i++){
+        console.log(json_obj["employees"][i]["firstname"]);
+        console.log(json_obj["employees"][i]["Age"]);
+    }
+</script>
