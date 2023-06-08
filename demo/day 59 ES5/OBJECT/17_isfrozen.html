@@ -1,0 +1,27 @@
+<script>
+    var json = {"key":"tgc"};
+    console.log(Object.isFrozen(json)); // false
+
+    Object.preventExtensions(json);
+    console.log(Object.isFrozen(json)); // false
+
+    Object.seal(json);
+    console.log(Object.isFrozen(json)); // false
+
+    Object.freeze(json);
+    console.log(Object.isFrozen(json)); // true
+</script>
+
+<script>
+    var json = {"key":"tgc"};
+    console.log(Object.isFrozen(json)); // false
+
+    // 使其不能拓展
+    Object.preventExtensions(json);
+    // 使其不能添加，删除和更改
+    Object.defineProperty(json,"key",{
+        writable:false,
+        configurable:false,
+    });
+    console.log(Object.isFrozen(json)); // true
+</script>

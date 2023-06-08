@@ -1,0 +1,27 @@
+<script>
+    function tgc(){}
+
+    Object.defineProperty(tgc.prototype,"hehe",{
+        value:function(){
+            alert(1);
+        },
+        writable:false
+    });
+
+    // 相同
+    /*
+    tgc.prototype = {
+        "hehe":function(){
+            alert(1);
+        }
+    }
+    */
+
+    // 修改无效
+    tgc.prototype.hehe = function(){
+        alert(2);
+    }
+
+    new tgc().hehe();   // 弹出 1
+</script>
+

@@ -1,0 +1,13 @@
+<script>
+    function tgc(){
+        this.a = 20;
+    }
+
+    tgc.prototype = {
+        b:30,
+        c:40
+    }
+
+
+    console.log(Object.keys(new tgc()));    // a
+</script>

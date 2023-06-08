@@ -1,0 +1,29 @@
+<script>
+    var json = {};
+    console.log(Object.isSealed(json)); // false
+
+    Object.preventExtensions(json);
+    console.log(Object.isSealed(json)); // true
+    
+</script>
+
+<script>
+    // 里面一旦有值，preventExtensions 就会允许 delete，然后就不满足 seal 了
+    var json = {"key":"tgc"};
+
+    Object.preventExtensions(json);
+    console.log(Object.isSealed(json)); // false
+
+</script>
+
+<script>
+    // 可以使用 defineProperty 来解决
+    var json = {"key":"tgc"};
+
+    Object.preventExtensions(json);
+    Object.defineProperty(json,"key",{
+        configurable:false
+    });
+    console.log(Object.isSealed(json)); // true
+
+</script>

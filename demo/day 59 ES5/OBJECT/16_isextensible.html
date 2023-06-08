@@ -1,0 +1,10 @@
+<script>
+    var json = {};
+
+    // 未设置任何东西
+    console.log(Object.isExtensible(json)); // true
+
+    // 使 json 不可拓展
+    Object.seal(json);
+    console.log(Object.isExtensible(json)); // false
+</script>

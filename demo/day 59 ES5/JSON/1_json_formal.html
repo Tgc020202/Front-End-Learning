@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES5 - JSON</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        /*
+        // 错误写法
+        var json = {
+            a:10
+        };
+        console.log(json);  // {a: 10}
+        */
+
+        /*
+        // 正确写法
+        var json = {
+            "a":10
+        };
+        console.log(json);  // {a: 10}
+        */
+
+        // 正确写法
+        var json = new Object();
+        json.a = 10;
+        console.log(json);  // {a: 10}
+    </script>
+</body>
+</html>

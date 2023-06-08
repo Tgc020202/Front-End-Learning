@@ -1,0 +1,23 @@
+<script>
+    var json = {};
+
+    Object.defineProperty(json,'key',{
+        value:'tgc',
+        writable:false,
+        enumerable:false,
+        configurable:false
+    });
+
+    json.key = "wow";
+    console.log(json);  // tgc
+</script>
+
+<script>
+    var json = {"key":"wxx"};
+
+    Object.defineProperty(json,'key',{
+        value:'tgc'
+    });
+
+    console.log(json);  // tgc
+</script>

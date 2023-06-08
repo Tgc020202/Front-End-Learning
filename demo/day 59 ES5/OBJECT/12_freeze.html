@@ -1,0 +1,17 @@
+<script>
+    var json = {
+        a:20,
+        b:30
+    }
+
+    Object.freeze(json);
+
+    // 更改无效
+    json.a = 100;
+    // 删除无效
+    delete json.b;
+    // 添加无效
+    json.c = 1000;
+
+    console.log(json);  // 20,30
+</script>

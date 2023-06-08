@@ -1,0 +1,23 @@
+<script>
+    var o = Object.create(null,{
+        a:{
+            'value':20,
+            'writable':false,
+            'enumerable':false,
+            'configurable':true
+        }
+    });
+
+    console.log(o.a);   // 20
+
+    // writable = false, 所以不能改变
+    o.a = 30;
+    console.log(o.a);   // 20
+
+    // enumerable = false, 所以不能以枚举的方式显示
+    Object.keys(o); // []
+
+    // configurable = true, 所以可以删除对象的属性
+    delete o.a;
+    console.log(o.a);   // undefined
+</script>

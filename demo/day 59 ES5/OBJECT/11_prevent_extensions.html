@@ -1,0 +1,14 @@
+<script>
+    var json = {
+        a:20
+    }
+
+    Object.preventExtensions(json);
+    // 添加无效
+    json.b = 30;
+    console.log(json);  // a:20
+
+    // 删除有效
+    delete json.a;
+    console.log(json);  // 
+</script>

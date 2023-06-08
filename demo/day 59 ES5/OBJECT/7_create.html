@@ -1,0 +1,17 @@
+<script>
+    function tgc1(){
+
+    };
+    function tgc2(){
+
+    };
+
+    tgc1.prototype.a = 100;
+    tgc2.prototype.f = 30;
+
+    // 另类的继承
+    tgc1.prototype = Object.create(tgc2.prototype);
+
+    console.log(new tgc1().f);  // 30
+    console.log(new tgc2().a);  // undefined
+</script>

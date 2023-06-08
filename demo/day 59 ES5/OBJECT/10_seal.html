@@ -1,0 +1,39 @@
+<script>
+    function tgc(){
+    };
+
+    Object.seal(tgc.prototype);
+    tgc.prototype.a = 30;
+
+    console.log(new tgc().a);   // undefined
+</script>
+
+
+<script>
+    function tgc(){
+    };
+
+    Object.seal(tgc.prototype);
+
+    // 重新赋值
+    tgc.prototype = {
+        a:30
+    }
+
+    console.log(new tgc().a);   // 30
+</script>
+
+
+<script>
+    var json = {
+        a:20
+    }
+    
+    Object.seal(json);
+    // 重新赋值
+    json = {
+        b:100
+    }
+
+    console.log(json);   // b:100
+</script>

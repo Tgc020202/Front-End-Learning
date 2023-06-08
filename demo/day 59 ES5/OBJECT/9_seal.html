@@ -1,0 +1,22 @@
+<script>
+    var json = {
+        a:10,
+        b:20
+    };
+
+    // 密封
+    Object.seal(json);
+
+    // 添加无效
+    json.c = 30;
+    console.log(json);  // 10, 20
+
+    // 删除无效
+    delete json.a;
+    console.log(json);  // 10, 20
+
+    // 更改有效
+    json.a = 1000;
+    console.log(json);  // 1000, 20
+    
+</script>

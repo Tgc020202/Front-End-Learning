@@ -1,0 +1,11 @@
+<script>
+    var string = '{"a":10}';
+    JSON.parse(string,function(key,value){
+        console.log(key,value); // a 10
+    })
+
+    var string = '{"a":10,"b":20,"c":30}';
+    JSON.parse(string,function(key,value){
+        console.log(key,value);
+    })
+</script>
