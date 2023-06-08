@@ -317,18 +317,282 @@ Example:
 </script>
 ```
 
+#### Object - seal
++ 密封，封条
++ 对象不可以拓展，不能往里面放入新的属性
++ configurable 都变成 false
+
+Example:
+```
+<script>
+    var json = {
+        a:10,
+        b:20
+    };
+
+    // 密封
+    Object.seal(json);
+
+    // 添加无效
+    json.c = 30;
+    console.log(json);  // 10, 20
+
+    // 删除无效
+    delete json.a;
+    console.log(json);  // 10, 20
+
+    // 更改有效
+    json.a = 1000;
+    console.log(json);  // 1000, 20
+</script>
+```
+
+Example(进阶用法):
+```
+<script>
+    function tgc(){
+    };
+
+    Object.seal(tgc.prototype);
+    tgc.prototype.a = 30;
+
+    console.log(new tgc().a);   // undefined
+</script>
 
 
+<script>
+    function tgc(){
+    };
+
+    Object.seal(tgc.prototype);
+
+    // 重新赋值
+    tgc.prototype = {
+        a:30
+    }
+
+    console.log(new tgc().a);   // 30
+</script>
 
 
+<script>
+    var json = {
+        a:20
+    }
+    
+    Object.seal(json);
+    // 重新赋值
+    json = {
+        b:100
+    }
 
+    console.log(json);   // b:100
+</script>
+```
+> + 一旦重新赋值，seal 的效果就会失效
 
+#### Object - preventExtensions
++ 不可拓展了
++ 与 seal 类似，但是 configurable 是 true
++ 与 seal 一样，一旦重新赋值，它的效果就会失效
 
+Example:
+```
+<script>
+    var json = {
+        a:20
+    }
 
+    Object.preventExtensions(json);
+    // 添加无效
+    json.b = 30;
+    console.log(json);  // a:20
 
+    // 删除有效
+    delete json.a;
+    console.log(json);  // 
+</script>
+```
 
+#### Object - freeze
++ 结冰，冻结
++ 对象不可以拓展，不能往里面添加新的属性
++ configurable 所有的都是 false
++ writable 所有的都是 false
++ 一旦重新赋值，它的效果就会失效
 
+Example:
+```
+<script>
+    var json = {
+        a:20,
+        b:30
+    }
 
+    Object.freeze(json);
+
+    // 更改无效
+    json.a = 100;
+    // 删除无效
+    delete json.b;
+    // 添加无效
+    json.c = 1000;
+
+    console.log(json);  // 20,30
+</script>
+```
+
+#### Object - defineProperty
++ Object.defineProperty(对象,属性,修改或者添加的值);
++ 方法会直接在一个对象上定义一个新的属性，或者修改一个对象的现有属性，并且返回这个对象
+
+Example:
+```
+<script>
+    var json = {};
+
+    Object.defineProperty(json,'key',{
+        value:'tgc',
+        writable:false,
+        enumerable:false,
+        configurable:false
+    });
+
+    json.key = "wow";
+    console.log(json);  // tgc
+</script>
+
+<script>
+    var json = {"key":"wxx"};
+
+    Object.defineProperty(json,'key',{
+        value:'tgc'
+    });
+
+    console.log(json);  // tgc
+</script>
+```
+
+Example(进阶):
+```
+<script>
+    function tgc(){}
+
+    Object.defineProperty(tgc.prototype,"hehe",{
+        value:function(){
+            alert(1);
+        },
+        writable:false
+    });
+
+    // 相同
+    /*
+    tgc.prototype = {
+        "hehe":function(){
+            alert(1);
+        }
+    }
+    */
+
+    // 修改无效
+    tgc.prototype.hehe = function(){
+        alert(2);
+    }
+
+    new tgc().hehe();   // 弹出 1
+</script>
+```
+
+#### Object - isSealed
++ 只会返回 true 或 false
++ true : 无法在对象中修改现有的属性的特性，且无法向对象中添加新属性
++ false : 其他的
+
+Example:
+```
+<script>
+    var json = {};
+    console.log(Object.isSealed(json)); // false
+
+    Object.preventExtensions(json);
+    console.log(Object.isSealed(json)); // true
+    
+</script>
+
+<script>
+    // 里面一旦有值，preventExtensions 就会允许 delete，然后就不满足 seal 了
+    var json = {"key":"tgc"};
+
+    Object.preventExtensions(json);
+    console.log(Object.isSealed(json)); // false
+
+</script>
+
+<script>
+    // 可以使用 defineProperty 来解决
+    var json = {"key":"tgc"};
+
+    Object.preventExtensions(json);
+    Object.defineProperty(json,"key",{
+        configurable:false
+    });
+    console.log(Object.isSealed(json)); // true
+
+</script>
+```
+
+#### Object - isExtensible
++ 判断对象是否可拓展，如果不能拓展就返回 false，否则就返回 true
+
+Example:
+```
+<script>
+    var json = {};
+
+    // 未设置任何东西
+    console.log(Object.isExtensible(json)); // true
+
+    // 使 json 不可拓展
+    Object.seal(json);
+    console.log(Object.isExtensible(json)); // false
+</script>
+```
+
+#### Object - isFrozen
++ 只会返回 true 或 false
++ true : 无法在对象中修改现有的属性的特性，且无法向对象中添加新属性(configurable = false)，且不能修改属性的内容(writable = false)
++ false : 其他的
+
+Example:
+```
+<script>
+    var json = {"key":"tgc"};
+    console.log(Object.isFrozen(json)); // false
+
+    Object.preventExtensions(json);
+    console.log(Object.isFrozen(json)); // false
+
+    Object.seal(json);
+    console.log(Object.isFrozen(json)); // false
+
+    Object.freeze(json);
+    console.log(Object.isFrozen(json)); // true
+</script>
+
+<script>
+    var json = {"key":"tgc"};
+    console.log(Object.isFrozen(json)); // false
+
+    // 使其不能拓展
+    Object.preventExtensions(json);
+    // 使其不能添加，删除和更改
+    Object.defineProperty(json,"key",{
+        writable:false,
+        configurable:false,
+    });
+    console.log(Object.isFrozen(json)); // true
+</script>
+```
 
 
 
