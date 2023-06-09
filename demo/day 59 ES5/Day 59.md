@@ -594,6 +594,164 @@ Example:
 </script>
 ```
 
+#### Object - hasOwnProperty
++ 确定某个对象是否具有指定的一个属性
++ 有就返回 true，没有就返回 false
++ 实例化对象
++ 与 in 是有区别的
+
+Example:
+```
+<script>
+    var json ={
+        a:"tgc"
+    };
+
+    console.log('a' in json);   // true
+    console.log(json.hasOwnProperty('a'));  //true
+</script>
+```
+
++ 实例化
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="tgc">
+    <script>
+        // 区别
+        console.log('className' in document.body);  // true
+        console.log(document.body.hasOwnProperty('className')); // false
+    </script>
+
+    <script>
+        function tgc(){};
+        tgc.prototype = {
+            a:10
+        }
+        console.log('a' in tgc.prototype);  // true
+        console.log(tgc.prototype.hasOwnProperty('a')); // true
+    </script>
+
+    <script>
+        var a = new String('aaa');
+        console.log(String.prototype.hasOwnProperty('split')); // true
+    </script>
+</body>
+</html>
+```
+
+#### Object - setPrototypeOf
++ `_proto_`
++ 设置对象的原型链
++ Object.setPrototypeOf(子对象,父对象);
++ 继承 - 儿子继承父亲的，父亲不能拿儿子的
+
+Example:
+```
+<script>
+    var obj1 = {
+        x:1
+    };
+    var obj2 = {
+        y:1
+    };
+    Object.setPrototypeOf(obj1,obj2);
+    console.log(obj1);
+    console.log(obj1.y);    // 1
+    console.log(obj2.x);    // undefined
+</script>
+```
+
+Example(给函数使用继承):
+```
+<script>
+    function tgc(){};
+    tgc.prototype = {
+        a:function(){
+            alert(1);
+        }
+    }
+
+    function tgc2(){};
+    /*
+    // 普通的继承方法
+    tgc2.prototype = new tgc();
+    console.log(new tgc2().a);  // function(){alert(1);}
+    */
+    
+    // 使用 setPrototypeOf
+    Object.setPrototypeOf(tgc2.prototype,tgc.prototype);
+    console.log(new tgc2().a);  // function(){alert(1);}
+</script>
+```
+
+### ES5 - 严格模式
+1. 消除一堆 JS 上的静默错误，通过改变他们来抛出错误。
+2. 严格模式修复了 JS 引擎执行优化的错误。严格模式可以让 JS 允许的速度更快。
+3. 严格模式金钟了 ES 的未来的版本可能会定义的一些语言。
+4. IE8 以前的版本不兼容了。
+
+#### 严格模式的使用方法
++ 就是在需要严格模式之前，写上 'use strict';
++ 没有 var 的变量不认为是全局变量，必须严谨添加 window，使其变为全局变量
+
+Example:
+```
+<script>
+    // window
+    // var 不写 var，就会默认 window的
+    // var a = 10;
+    a = 10; // window.a = 10;
+    alert(a);   // 弹出 10
+</script>
+
+<script>
+    // 使用 use strict
+    'use strict';
+    b = 10;
+    alert(b);   // error, b is not defined
+</script>
+
+<script>
+    // 使用 use strict
+    // 解决方法
+    'use strict';
+    window.b = 10;
+    alert(b);   // 弹出 10
+</script>
+```
+
++ window 的知识点
+Example:
+```
+<script>
+    window = 1;
+    console.log(window);
+</script>
+
+<script>
+    'use strict';
+    window = 1;
+    console.log(window);    // Cannot set property window of #<Window> which has only a getter
+</script>
+```
+
+
+
+
+
+
+
+
+
 
 
 
