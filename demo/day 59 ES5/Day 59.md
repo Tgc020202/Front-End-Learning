@@ -17,7 +17,7 @@
 3. key 是双引号
 4. 缩写形式 - new Object()
 5. JSON 的属性
-+ ![p1]()
++ ![p1](https://github.com/Tgc020202/Front-End-Learning/blob/main/demo/day%2059%20ES5/JSON/Images/P1.png)
 
 Example:
 ```
@@ -701,7 +701,7 @@ Example(给函数使用继承):
 
 #### 严格模式的使用方法
 + 就是在需要严格模式之前，写上 'use strict';
-+ 没有 var 的变量不认为是全局变量，必须严谨添加 window，使其变为全局变量
+1. 没有 var 的变量不认为是全局变量，必须严谨添加 window，使其变为全局变量
 
 Example:
 ```
@@ -729,7 +729,10 @@ Example:
 </script>
 ```
 
-+ window 的知识点
+2. 严格会引起静默失效
++ 有一些永恒的变量是不允许赋值的
+> + 例子: window, top, NaN
+
 Example:
 ```
 <script>
@@ -744,9 +747,235 @@ Example:
 </script>
 ```
 
++ writable，configurable，enumerable 也都不允许赋值
 
+Example 1:
+```
+<script>
+    // 严格模式会提醒，已经无法更改了，所以没必要写更改的代码
+    'use strict';
+    var json = {};
+    Object.defineProperty(json,"tgc",{
+        value:'18',
+        writable:false
+    });
+    json.tgc = 20;
+    console.log(json.tgc);  // error
+</script>
+```
 
+Example 2:
+```
+<script>
+    'use strict';
+    var json = {tgc:20};
+    Object.preventExtensions(json);
+    json.a = 30;
+    console.log(json);  // error
+</script>
+```
 
+3. 试图删除不可删除的属性，也会报错(在非严格模式下，不会奇效，但也不会报错)
+
+Example:
+```
+<script>
+    // 非严格模式
+    delete Object.prototype;
+</script>
+
+<script>
+    // 严格模式
+    'use strict';
+    delete Object.prototype;    // error
+</script>
+```
+
+4. 属性更规整了，不允许出现不规整的属性赋值
+
+Example:
+```
+<script>
+    // 非严格模式
+    false.true = 1;
+    null.true = 1;
+    (222).k = 1;
+</script>
+
+<script>
+    // 严格模式
+    'use strict';
+    false.true = 1; // Cannot create property 'true' on boolean 'false'
+    null.true = 1;  // Cannot set properties of null (setting 'true')
+    (222).k = 1;    // Cannot create property 'k' on number '222'
+    // error
+</script>
+```
+
+5. 增加了一写关键字(eval, arguments)，不允许赋值
+
+Example:
+```
+<script>
+    var eval = 1;
+</script>
+
+<script>
+    'use strict';
+    // var arguments = 1;
+    var eval = 1;   // error, Unexpected eval or arguments in strict mode
+</script>
+```
+
+6. 函数内的正确参数使用
+
+Example:
+```
+<script>
+    function tgc(a,a,c){
+        console.log(a+b+c);
+    };
+    // 显示错误 : 找不到 b
+    tgc(1,2,3); //  b is not defined at tgc
+</script>
+
+<script>
+    function tgc(a,a,c){
+        'use strict';
+        console.log(a+b+c);
+    };
+    // 显示错误 : a 参数重复了
+    tgc(1,2,3); // Duplicate parameter name not allowed in this context
+</script>
+```
+
+### ES5 - Array 数组拓展
+
+#### Array - Every
++ 检测数组的所有元素是否符合条件，如果符合就返回 true，否则就返回 false
+
+Example:
+```
+<script>
+    var arr = [1,2,3];
+    arr.every(function(x){
+        console.log(x); // 1
+    });
+
+    arr.every(function(x){
+        console.log(x); // 1,2,3
+        return x;   // true,true,true,false
+    });
+
+    arr.every(function(x){
+        console.log(x); // 1,2
+        return x<=1;    // true,false
+    });
+</script>
+```
+
+#### Array - Some
++ 检测数组的所有元素是否符合条件，只要一个符合就返回 true，除非都不符合就返回 false
++ 一旦条件满足就不继续往下看了
+
+Example:
+```
+<script>
+    var arr = [1,2,3];
+    arr.some(function(x){
+        console.log(x); // 1,2,3
+    });
+
+    // Example 1
+    arr.some(function(x){
+        console.log(x); // 1
+        return x<=1;
+    });
+
+    console.log(arr.some(function(x){
+        return x<=1;    // true
+    }));
+
+    // Example 2
+    arr.some(function(x){
+        console.log(x); // 1,2
+        return x>=2;    // true
+    });
+
+    console.log(arr.some(function(x){
+        return x>=2;    // true
+    }));
+
+</script>
+```
+
+#### Array - Filter
++ 过滤
++ 检测所有的元素，通过你的 return 过滤条件，过滤出一个新的数组
+
+Example:
+```
+<script>
+    var arr1 = [1,2,3,'4','5',null];
+    var arr2 = [];
+
+    for(var i = 0 ; i < arr1.length; i++){
+        typeof arr1[i] == 'number' && arr2.push(arr1[i]);
+    }
+    console.log(arr2);  // 1,2,3
+</script>
+
+<script>
+    var arr1 = [1,2,3,'4','5',null];
+
+    var arr2 = arr1.filter(function(x){
+        return typeof x == 'number';
+    });
+    console.log(arr2);  // 1,2,3
+</script>
+```
+
+#### Array - Foreach
++ 参数是一个函数，函数里面的参数有三个值
+> + 第一个值分别对应的数组的每一个值
+> + 第二个是索引值
+> + 第三个是数组的本身
+
+Example:
+```
+<script>
+    var arr = [1,2,3];
+    arr.forEach(function(x,y,z){
+        console.log(x,y,z);
+    });
+
+    arr.forEach(function(x,y,z){
+        // x = 数值
+        // y = 索引值
+        // z = 数组本身
+        console.log(x == z[y]);
+    });
+</script>
+```
+
+#### Array - Map
++ 参数是一个函数，函数里面的参数有三个值
+> + 第一个值分别对应的数组的每一个值
+> + 第二个是索引值
+> + 第三个是数组的本身
++ 与 forEach 不同的地方在于，他会返回一个新数组
++ 可以通过 return 来操作新数组的内容
+
+Example:
+```
+<script>
+    var arr = ['tgc','help','wxx'];
+    var arr2 = arr.map(function(x){
+        return x.toUpperCase();
+    });
+    console.log(arr2);  // ['TGC','HELP','WXX']
+</script>
+```
 
 
 
