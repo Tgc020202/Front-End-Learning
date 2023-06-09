@@ -1,0 +1,29 @@
+<script>
+    // var 是变量
+    var a = 10;
+    var a = function(){};
+
+    // let 不允许重复声明
+    let b = 10;
+    // let b = function();  // 会报错
+    b = function(){};   // 但可以重新赋值
+
+
+    // 块作用域
+    {}
+
+/*
+    // var 和 let 例子做对比
+    // var
+    for(var i = 0; i < 10;i++){}
+    console.log(i); // 10
+    // let
+    for(let j = 0; j < 10;j++){}
+    console.log(j); // error, j is not defined
+*/
+
+    // const 真正的常量，不允许重复声明，也不允许重新赋值
+    const c = 10;
+    // c = 1000;    // 会报错
+    console.log(c); // 10
+</script>
