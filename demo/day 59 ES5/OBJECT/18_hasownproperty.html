@@ -1,0 +1,39 @@
+<script>
+    var json ={
+        a:"tgc"
+    };
+
+    console.log('a' in json);   // true
+    console.log(json.hasOwnProperty('a'));  //true
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="tgc">
+    <script>
+        // 区别
+        console.log('className' in document.body);  // true
+        console.log(document.body.hasOwnProperty('className')); // false
+    </script>
+
+    <script>
+        function tgc(){};
+        tgc.prototype = {
+            a:10
+        }
+        console.log('a' in tgc.prototype);  // true
+        console.log(tgc.prototype.hasOwnProperty('a')); // true
+    </script>
+
+    <script>
+        var a = new String('aaa');
+        console.log(String.prototype.hasOwnProperty('split')); // true
+    </script>
+</body>
+</html>

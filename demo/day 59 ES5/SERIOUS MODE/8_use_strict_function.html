@@ -1,0 +1,16 @@
+<script>
+    function tgc(a,a,c){
+        console.log(a+b+c);
+    };
+    // 显示错误 : 找不到 b
+    tgc(1,2,3); //  b is not defined at tgc
+</script>
+
+<script>
+    function tgc(a,a,c){
+        'use strict';
+        console.log(a+b+c);
+    };
+    // 显示错误 : a 参数重复了
+    tgc(1,2,3); // Duplicate parameter name not allowed in this context
+</script>

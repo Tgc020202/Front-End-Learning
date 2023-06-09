@@ -1,0 +1,13 @@
+<script>
+    var arr = [1,2,3];
+    arr.forEach(function(x,y,z){
+        console.log(x,y,z);
+    });
+
+    arr.forEach(function(x,y,z){
+        // x = 数值
+        // y = 索引值
+        // z = 数组本身
+        console.log(x == z[y]);
+    });
+</script>

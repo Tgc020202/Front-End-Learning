@@ -1,0 +1,19 @@
+<script>
+    function tgc(){};
+    tgc.prototype = {
+        a:function(){
+            alert(1);
+        }
+    }
+
+    function tgc2(){};
+    /*
+    // 普通的继承方法
+    tgc2.prototype = new tgc();
+    console.log(new tgc2().a);  // function(){alert(1);}
+    */
+    
+    // 使用 setPrototypeOf
+    Object.setPrototypeOf(tgc2.prototype,tgc.prototype);
+    console.log(new tgc2().a);  // function(){alert(1);}
+</script>

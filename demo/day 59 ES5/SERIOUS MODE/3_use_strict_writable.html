@@ -1,0 +1,11 @@
+<script>
+    // 严格模式会提醒，已经无法更改了，所以没必要写更改的代码
+    'use strict';
+    var json = {};
+    Object.defineProperty(json,"tgc",{
+        value:'18',
+        writable:false
+    });
+    json.tgc = 20;
+    console.log(json.tgc);  // error
+</script>

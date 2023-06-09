@@ -1,0 +1,22 @@
+<script>
+    // window
+    // var 不写 var，就会默认 window的
+    // var a = 10;
+    a = 10; // window.a = 10;
+    alert(a);   // 弹出 10
+</script>
+
+<script>
+    // 使用 use strict
+    'use strict';
+    b = 10;
+    alert(b);   // error, b is not defined
+</script>
+
+<script>
+    // 使用 use strict
+    // 解决方法
+    'use strict';
+    window.b = 10;
+    alert(b);   // 弹出 10
+</script>

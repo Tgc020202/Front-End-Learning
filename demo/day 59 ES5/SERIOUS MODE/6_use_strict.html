@@ -1,0 +1,15 @@
+<script>
+    // 非严格模式
+    false.true = 1;
+    null.true = 1;
+    (222).k = 1;
+</script>
+
+<script>
+    // 严格模式
+    'use strict';
+    false.true = 1; // Cannot create property 'true' on boolean 'false'
+    null.true = 1;  // Cannot set properties of null (setting 'true')
+    (222).k = 1;    // Cannot create property 'k' on number '222'
+    // error
+</script>
