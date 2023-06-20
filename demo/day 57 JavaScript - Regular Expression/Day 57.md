@@ -120,7 +120,7 @@ Example:
 <script>
     var a = 'abcde123fghijkl';
 
-    alert(a.match(/[0-5]/));    // 5
+    alert(a.match(/[0-5]/));    // 1
     alert(a.match(/[c-z]/i));   // c
 </script>
 ```
@@ -134,7 +134,7 @@ Example:
 <script>
     var a = 'abcde123fghijkl';
 
-    alert(a.match(/[0-5]/));    // 5
+    alert(a.match(/[0-5]/));    // 1
     alert(a.match(/[c-z]/g));   // c,d,e,f,g,h,i,j,k,l
 </script>
 ```
@@ -149,7 +149,7 @@ Example:
     // 大括号
     var a = 'abcde123fghijkl';
 
-    alert(a.match(/[0-5]/));    // 5
+    alert(a.match(/[0-5]/));    // 1
     alert(a.match(/[c-z]/g));   // c,d,e,f,g,h,i,j,k,l
     alert(a.match(/[c-z]{2}/g));   // cd,fg,hi,jk
 </script>
@@ -167,7 +167,7 @@ Example:
     // 大括号
     var a = 'abcde123fghijkl';
 
-    alert(a.match(/[0-5]/));    // 5
+    alert(a.match(/[0-5]/));    // 1
     alert(a.match(/[c-z]/g));   // c,d,e,f,g,h,i,j,k,l
     alert(a.match(/[c-z]{2}/g));   // cd,fg,hi,jk
     alert(a.match(/[c-z]{1,2}/g));   // cd,e,fg,hi,jk,l
@@ -300,7 +300,7 @@ Example:
 ```
 
 ###### 在正则里的 | 符号
-+ 代表或
++ 代表'或'
 
 Example:
 ```
@@ -335,7 +335,7 @@ Example:
 ```
 
 ###### 在正则里的 . 符号
-+ 代表所有
++ 代表'所有'
 
 Example:
 ```
@@ -367,7 +367,7 @@ Example:
 ```
 
 #### test 匹配
-+ 
++ 通常用于检测邮箱地址或者密码
 
 Example:
 ```
