@@ -120,7 +120,7 @@ Example:
 <script>
     var a = 'abcde123fghijkl';
 
-    alert(a.match(/[0-5]/));    // 5
+    alert(a.match(/[0-5]/));    // 1
     alert(a.match(/[c-z]/i));   // c
 </script>
 ```
