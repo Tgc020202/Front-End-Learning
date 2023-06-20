@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>charCodeAt and fromCharCode</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        // 打印所有中文字
+        let mandarin = '';
+        for(let i = 0x4e00; i < 0x9fa5 ;i++){
+            // console.log(i);
+            name += String.fromCharCode(i);
+        }
+        // console.log(name.length);
+        document.body.innerHTML = name;
+    </script>
+</body>
+</html>
