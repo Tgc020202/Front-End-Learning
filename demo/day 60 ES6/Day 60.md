@@ -633,4 +633,136 @@ Example:
 </script>
 ```
 
+### 块级作用域
++ 块级作用域可以解决密封问题
 
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块级作用域t</title>
+</head>
+<body>
+    <input type="button" name="" value="1">
+    <input type="button" name="" value="2">
+    <input type="button" name="" value="3">
+
+    <!-- JavaScript -->
+    <script>
+        let allInput = document.getElementsByTagName('input');
+        //for(var i = 0; i < 3 ;i++){
+            /*
+            allInput[i].onclick = function(){
+                alert(i);   // 3
+            }
+            */
+            
+            /*
+            (function(x){
+                allInput[x].onclick = function(){
+                    alert(x);
+                }
+            })(i);
+            */
+        //}
+
+        // 把 var 变为 let，块级作用域
+        for(let i = 0; i < 3 ;i++){
+            allInput[i].onclick = function(){
+                alert(i);   // 3
+            }
+        }
+        
+    </script>
+</body>
+</html>
+```
+
+
+### 结构赋值
++ 只要结构相同就可以赋值
+
+Example:
+```
+<script>
+    // 结构赋值
+
+    // var a = 10;
+    // var b = 20;
+    // var c = 30;
+
+    let [a,b,c] = [10,20,30];
+    let [d,[e,f],g] = [40,[50,60],70];
+
+    console.log(a); // 10
+    console.log(d,e,f,g);   // 40 50 60 70
+</script>
+```
+
+#### array 的结构赋值
++ `[数组值对应数组值]`
+
+Example:
+```
+<script>
+    show = (arr=[10,20,30,40]) => {
+        let [b,c,d,e] = arr;
+        console.log(b,c,d,e);
+    };
+
+    show(); // 10,20,30,40
+</script>
+```
+
+#### json 的结构赋值
++ `{key 对应 key, value 对应 value}`
+
+Example:
+```
+<script>
+    var json = {
+        'a':20,
+        'b':30
+    };
+
+    let {a,b} = json;
+
+    console.log(a,b);   // 20 30
+</script>
+```
+
+### bind -> call
++ 任何函数都可以用 call，调用自己
++ 第一个参数: 就是函数的 this
++ 第二个参数之后: 就是函数的形参
++ ES5 的方法
++ 与 call 类似，但是 bind 不会调用自己
+
+Example:
+```
+<script>
+    function show(){
+        console.log(this);
+    }
+
+    // console.log(show.bind(1));
+    show.bind(1)(); // 1
+
+
+    /*
+        call 和 bind 的区别
+        call 不需要 括号便可以调用: call();
+        bind 需要括号来执行: bind()();
+    */
+
+
+    function show1(x,y,z){
+        console.log(x,y);
+    }
+    show1.bind(1,2)(1); // x = 2,y = 1
+    // 先进行前面直到结束才进行后面的形参
+</script>
+```
