@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块级作用域t</title>
+    <style>
+        input.active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" name="" value="1">
+    <input type="button" name="" value="2">
+    <input type="button" name="" value="3">
+
+    <!-- JavaScript -->
+    <script>
+        let allInput = document.getElementsByTagName('input');
+        for(let i = 0; i < allInput.length ;i++){
+            allInput[i].onclick = function(){
+                // console.log(i);
+                [...document.querySelectorAll('input')].find((x,y)=>{
+                    allInput[y].className = '';
+                })
+                allInput[i].className = 'active';
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<script>
+    function show(){
+        console.log(this);
+    }
+
+    // console.log(show.bind(1));
+    show.bind(1)(); // 1
+
+
+    /*
+        call 和 bind 的区别
+        call 不需要 括号便可以调用: call();
+        bind 需要括号来执行: bind()();
+    */
+
+
+    function show1(x,y,z){
+        console.log(x,y);
+    }
+    show1.bind(1,2)(1); // x = 2,y = 1
+    // 先进行前面直到结束才进行后面的形参
+</script>

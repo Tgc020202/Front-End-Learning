@@ -1,0 +1,11 @@
+<script>
+    function show(){
+        console.log(this + 10); // this = 1
+    }
+    show.call(1);   // 11
+
+
+    setTimeout.call(window,() => {
+        alert.call(window,10000);
+    },1000);
+</script>

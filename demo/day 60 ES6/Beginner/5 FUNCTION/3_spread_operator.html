@@ -1,0 +1,58 @@
+<script>
+    // 拓展运算符 ...
+    function show(...x){
+        console.log(x);
+    }
+    show(1,2,3,4);  // Array type
+
+    function show1(){
+        console.log(arguments);
+    }
+    show1(1,2,3,4); // Arguments type
+
+    function show2(...x){
+        x.push(5);
+        console.log(x);
+    }
+    show2(1,2,3,4); // Array type
+
+    /*
+    function show3(){
+        arguments.push(5);
+        console.log(arguments);
+    }
+    show3(1,2,3,4); // error, arguments 不能 push
+    */
+
+
+    function show4(y,...x){
+        console.log(x);
+    }
+    show4(1,2,3,4); // 2,3,4
+
+
+    // 一个参数只取一个值，剩余的会变成数组
+    function show5(y=[10,100,1000],...x){
+        console.log(x);
+    }
+    show5(1,2,3,4); // 2,3,4
+
+    /*
+    // 只有前面可以放参数，不可放置在后面
+    function show6(...x,y){
+        console.log(x);
+    }
+    show6(1,2,3,4); // error
+    */
+
+
+    // 变为一个数组
+    var a = [1];
+    var b = [2];
+    var c = [3];
+
+    var d = a.concat(b.concat(c));
+    console.log(d); // [1,2,3]
+    // 使用拓展运算符
+    console.log([...a,...b,...c]);  // [1,2,3]
+</script>

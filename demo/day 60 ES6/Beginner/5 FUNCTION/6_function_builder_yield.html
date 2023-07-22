@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数</title>
+</head>
+<body>
+    <!-- JavaScript -->
+    <script>
+        // 生成器函数 - yield
+        function* show(){
+            yield function(){
+                console.log(1);
+            }
+            yield function(){
+                console.log(2);
+            }
+            yield () => {
+                document.body.style.background = 'black';
+            }
+
+            return 100; // 不会返回
+        }
+        
+        // console.log(show().next());
+        var k = show();
+        // k.next().value();   // 1
+        // k.next().value();   // 2
+
+        document['onclick'] = () => {
+            k.next().value();
+        }
+    </script>
+</body>
+</html>

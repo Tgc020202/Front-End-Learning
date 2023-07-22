@@ -1,0 +1,33 @@
+<script>
+    var json = {};
+
+    // console.log(json);
+
+    /*
+    json = {
+        a(){
+            console.log(1);
+        }
+    };
+    json.a();   // 1
+    */
+
+    json = {
+        set tgc(x){
+            console.log(x);
+        },
+        get tgc(){
+            // console.log(2);
+            return {
+                get wxx(){
+                    console.log(3);
+                }
+            }
+        }
+    };
+
+    // json.tgc;
+    // json.tgc = 1;
+    json.tgc.wxx;
+
+</script>

@@ -1,0 +1,17 @@
+<script>
+    var run = {
+        'ok':1,
+        'data':{
+            'top':[1,2,3],
+            'center':[4,5,6]
+        },
+        'mis':'request'
+    };
+
+    let {ok,data,mis} = run;
+    if(ok == 1 && mis == 'request'){
+        console.log('success');
+        console.log('Top:',data.top);
+        console.log('Center:',data.center);
+    };
+</script>
