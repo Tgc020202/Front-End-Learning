@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>例子</title>
+    <style>
+        input.active{
+            background-color: red;
+        }
+        #box > div{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            display: none;
+        }
+        #box > div:first-of-type{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="button" name="" value="1" class="active">
+        <input type="button" name="" value="2">
+        <input type="button" name="" value="3">
+        <div>aaaaa</div>
+        <div>bbbbb</div>
+        <div>ccccc</div>
+    </div>
+
+    <script>
+        class tab{
+            constructor(x){
+                this.node = document.getElementById(x);
+                this.allInput = this.node.getElementsByTagName('input');
+                this.allDiv = this.node.getElementsByTagName('div');
+                this.init();
+            }
+            init(){
+                for(let i = 0;i < this.allInput.length;i++){
+                    this.allInput[i].onclick = function(){
+                        this.hide();
+                        this.show(i);
+                    }.bind(this);
+                }
+            }
+            hide(){
+                for(let i = 0;i < this.allInput.length;i++){
+                    this.allInput[i].className = '';
+                    this.allDiv[i].style.display = 'none';
+                }
+            }
+            show(index){
+                this.allDiv[index].style.display = 'block';
+                this.allInput[index].className = 'active';
+            }
+        }
+        new tab('box');
+    </script>
+</body>
+</html>

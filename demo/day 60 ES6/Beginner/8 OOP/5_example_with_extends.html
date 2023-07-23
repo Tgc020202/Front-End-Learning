@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>例子 + extends</title>
+    <style>
+        input.active{
+            background-color: red;
+        }
+        #box > div{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            display: none;
+        }
+        #box > div:first-of-type{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="button" name="" value="1" class="active">
+        <input type="button" name="" value="2">
+        <input type="button" name="" value="3">
+        <div>aaaaa</div>
+        <div>bbbbb</div>
+        <div>ccccc</div>
+    </div>
+
+    <script>
+        class tab{
+            constructor(x){
+                this.node = document.getElementById(x);
+                this.allInput = this.node.getElementsByTagName('input');
+                this.allDiv = this.node.getElementsByTagName('div');
+                this.index = 0;
+                this.init();
+            }
+            init(){
+                for(let i = 0;i < this.allInput.length;i++){
+                    this.allInput[i].onclick = function(){
+                        this.hide();
+                        this.show(i);
+                    }.bind(this);
+                }
+            }
+            hide(){
+                for(let i = 0;i < this.allInput.length;i++){
+                    this.allInput[i].className = '';
+                    this.allDiv[i].style.display = 'none';
+                }
+            }
+            show(index){
+                this.allDiv[index].style.display = 'block';
+                this.allInput[index].className = 'active';
+            }
+        }
+
+
+        // 实现自动播放
+        class autoTab extends tab{
+            constructor(x){
+                super(x);
+            }
+            autoPlay(){
+                var _this = this;
+
+                /*
+                    function 分为普通函数和箭头函数
+                    1. function 函数名(){}
+                    2. 函数名 = () => {}
+
+                    箭头函数里的 this 会指向父类，而普通函数会指向 window
+                    所以安全起见还是放一个 var _this = this;
+                */
+
+                setInterval(() => {
+                    _this.index ++;
+                    _this.index = _this.index == _this.allInput.length ? 0 : _this.index;
+                    _this.hide();
+                    _this.show(_this.index);
+                },1000);
+            }
+        }
+        new autoTab('box').autoPlay();
+        
+    </script>
+</body>
+</html>

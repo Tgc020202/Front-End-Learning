@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 继承</title>
+</head>
+<body>
+    <script>
+        class show{
+            constructor(l){
+                this.x = l;
+            }
+            m(){
+                alert(this.x);
+            }
+        };
+
+        // new show(1).m();
+
+        class tgc extends show{
+            constructor(l){
+                // 继承 show(父类)
+                super(l);
+            }
+        };
+
+        new tgc(100).m();   // 弹出 100
+    </script>
+</body>
+</html>

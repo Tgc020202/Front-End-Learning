@@ -1,0 +1,43 @@
+<script>
+    // // 之前的原型链
+    // function show(){
+    //     console.log(1);
+    // }
+
+    // var c = show;
+    // new c();
+
+    // console.log(c);
+    // console.log(c.prototype);
+
+    // show.prototype.a = function(){
+    //     alert(1000);
+    // }
+
+    // var b = new show();
+    // b.a();    // 弹出 1000
+</script>
+
+<script>
+    // ES6的原型链
+    class a{
+        constructor(){
+            this.x = 10;
+            console.log(this.x);
+        }
+    };
+    new a();    // 10
+</script>
+
+<script>
+    class b{
+        constructor(x,y,z){
+            console.log(x,y,z);
+        }
+        tgc(){
+            console.log(520);
+        }
+    };
+    new b(10,[1,2,3],{a:300});  // 10 [1, 2, 3] {a: 300}
+    new b().tgc();  // 520
+</script>

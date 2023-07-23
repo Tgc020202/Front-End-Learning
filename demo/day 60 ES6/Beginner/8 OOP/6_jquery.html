@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 里的 jquery</title>
+    <style>
+        input.active{
+            background-color: red;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            margin: 10px;
+        }
+        .tgc{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div class="div1"></div>
+    <div class="div1 tgc"></div>
+
+    <script>
+        class jquery{
+            constructor(obj=''){
+                this.obj = obj;
+                this.allNode = [];
+                switch(this.obj.charAt(0)){
+                    case '#':
+                        this.allNode.push(document.getElementById(this.obj.substring(1)));
+                        // console.log(this.allNode);
+                        break
+                    case '.':
+                        this.myObj = document.getElementsByClassName(this.obj.substring(1));
+                        for(let i=0;i < this.myObj.length;i++){
+                            this.allNode.push(this.myObj[i]);
+                        }
+                        // console.log(this.allNode);
+                        break;
+                    
+                }
+            }
+
+            addClass(Class){
+                for(let i = 0;i < this.allNode.length;i ++){
+                    this.allNode[i].classList.add(Class);
+                }
+            }
+
+            removeClass(Class){
+                for(let i = 0;i < this.allNode.length;i ++){
+                    this.allNode[i].classList.remove(Class);
+                }
+            }
+
+            css(json){
+                for(let i = 0; i < this.allNode.length;i++){
+                    for(let j in json){
+                        this.allNode[i]['style'][j] = json[j];
+                    }
+                }
+            }
+        }
+
+        function $(obj){
+            return new jquery(obj);
+        }
+
+        // $('.div1').addClass('tgc');
+
+        div1.onclick = function(){
+            // $('.div1').addClass('tgc');
+            // $('.div1').removeClass('tgc');
+            $('.div1').css({
+                'width':'300px',
+                'height':'100px',
+                'transition':'1s',
+                'background':'green'
+            });
+        }
+    </script>
+</body>
+</html>

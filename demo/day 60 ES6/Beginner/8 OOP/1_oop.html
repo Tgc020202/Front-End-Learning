@@ -1,0 +1,29 @@
+<script>
+    // 精准查询类的种类
+    console.log([1,2,3,4].constructor());
+
+    // 查找原型链
+    console.log(Array.prototype);
+
+    // toString 和 call
+    console.log(Object.prototype.toString.call(1)); // [object Number]
+    console.log(Object.prototype.toString.call([])); // [object Array]
+    console.log(Object.prototype.toString.call('')); // [object String]
+    console.log(Object.prototype.toString.call(null)); // [object Null]
+    console.log(Object.prototype.toString.call({})); // [object Object]
+
+    // split
+    var a = ['abcdefgh'];
+    console.log(String.prototype.split.call(a));    // ['abcdefgh']
+
+    // join
+    console.log(Array.prototype.join.call('abcde')); // a,b,c,d,e
+
+    // json 也可以使用
+    var json = {
+        a:20,
+        b:30
+    };
+
+    console.log(String.prototype.substring.call(json,'a')); // object Object
+</script>
