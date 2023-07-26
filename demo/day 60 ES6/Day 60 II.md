@@ -796,6 +796,157 @@ Example:
 ```
 
 
+### Promise
++ 它是一个对象(Object)
++ 类似于一个事件，有成功或失败
++ 只要触发一个，函数就直接完成自己的任务
++ 写法:
+```
+one 只执行一次
+then(成功的函数,失败的函数)
+// 另一种写法
+then(成功的函数).catch(失败的函数)
+```
+
+Example:
+```
+<script>
+    /*
+    new Promise(function(Resolved,Rejected){
+        // Resolved();
+        // Rejected();
+    }).then(function(){
+        alert('success');
+    },function(){
+        alert('failed');
+    });
+    */
+
+    // 另一种写法
+    new Promise(function(Resolved,Rejected){
+        // Resolved();
+        // Rejected();
+    }).then(function(){
+        alert('success');
+    }).catch(function(){
+        alert('failed');
+    });
+</script>
+```
+
++ Promise 的厉害之处，就是可以无限的回掉
+
+Example:
+```
+<script>
+    new Promise(function(Resolved,Rejected){
+        Resolved('hahaha');
+        // Rejected();
+    }).then(function(x){
+        alert(x);
+        return 'who';
+    }).then(function(x){
+        alert(x);
+        return 'you';
+    }).then(function(x){
+        alert(x);
+    });
+</script>
+```
+> + 回掉了三次
+> + 第一次弹出 hahaha
+> + 第二次弹出 who
+> + 第三次弹出 you
+
++ catch 了之后也还可以回掉
+
+Example:
+```
+<script>
+    new Promise((succ,error)=>{
+        error('haha')
+    }).then(()=>{}).catch((x)=>{
+        console.log(x);
+        return 'is you';
+    }).then((x)=>{
+        console.log(x);
+    });
+</script>
+```
+
+#### throw
++ 抛出异常，表示出大事了，不执行之后的代码了
++ 之后的代码将不再执行
+
+Example:
+```
+<script>
+    // throw 'tgc rich';
+
+    console.warn('tgc rich');
+
+    console.error('tgc rich');
+</script>
+```
+
++ console.warn() 警告，不会终止运行
++ console.error() 报错，给自己知道，不会终止运行
+
+
+#### race
++ 竞速方法
++ 拿来做比较
++ 只看第一个 Promise，成功就是成功，失败就是失败
+
+Example:
+```
+<script>
+    Promise.race([new Promise((succ,error)=>{
+        // succ('12345');
+        setTimeout(succ,1000,'1');
+    }),new Promise((succ,error)=>{
+        // succ('abcde');
+        setTimeout(succ,1200,'2');
+    }),new Promise((succ,error)=>{
+        // succ('11111');
+        setTimeout(succ,1400,'3');
+    })]).then((x)=>{
+        console.log(x);
+    }),()=>{
+
+    };
+</script>
+```
+
+#### all
++ 要不然就是全胜，要不然就是失败
+
+Example:
+```
+<script>
+    Promise.all([new Promise((succ,error)=>{
+        // succ();
+        // setTimeout(succ,1000);
+        setTimeout(succ,1000,'11111');
+    }),new Promise((succ,error)=>{
+        // succ();
+        // setTimeout(succ,2000);
+        setTimeout(succ,1000,'22222');
+    }),new Promise((succ,error)=>{
+        // succ();
+        // setTimeout(succ,3000);
+        setTimeout(succ,1000,'33333');
+    })]).then((x)=>{
+        console.log(x); // 打印出 ['11111', '22222', '33333']
+    }).catch(()=>{
+        console.log(2);
+    });
+</script>
+```
+
+
+
+
 
 
 
