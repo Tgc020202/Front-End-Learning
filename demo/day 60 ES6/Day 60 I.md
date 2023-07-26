@@ -766,3 +766,226 @@ Example:
     // 先进行前面直到结束才进行后面的形参
 </script>
 ```
+
+### 面向对象 Object Oriented
+#### constructor
++ 可以精准的知道类的种类
+
+Example:
+```
+<script>
+    // 精准查询类的种类
+    console.log([1,2,3,4].constructor());
+
+    // 查找原型链
+    console.log(Array.prototype);
+</script>
+```
+
+#### toString + call
++ 可以通过 toString 和 call 打印出当前的种类
+
+Example:
+```
+<script>
+    // toString 和 call
+    console.log(Object.prototype.toString.call(1)); // [object Number]
+    console.log(Object.prototype.toString.call([])); // [object Array]
+    console.log(Object.prototype.toString.call('')); // [object String]
+    console.log(Object.prototype.toString.call(null)); // [object Null]
+    console.log(Object.prototype.toString.call({})); // [object Object]
+</script>
+```
+
+#### split
++ 字符串转数组
++ 写法:
+
+Example:
+```
+<script>
+    // split
+    var a = ['abcdefgh'];
+    console.log(String.prototype.split.call(a));    // ['abcdefgh']
+
+    // join
+    console.log(Array.prototype.join.call('abcde')); // a,b,c,d,e
+
+    // json 也可以使用
+    var json = {
+        a:20,
+        b:30
+    };
+
+    console.log(String.prototype.substring.call(json,'a')); // object Object
+</script>
+```
+
+#### 原型链 prototype
++ 写法: new 函数名();
+
+Example:
+```
+<script>
+    // 原型链
+    function show(){
+        console.log(1);
+    }
+
+    var c = show;
+    new c();
+
+    console.log(c);
+    console.log(c.prototype);
+
+    show.prototype.a = function(){
+        alert(1000);
+    }
+
+    var b = new show();
+    b.a();    // 弹出 1000
+</script>
+```
+
+#### ES6 里的类 class
++ 写法: 类名{}
+
+Example:
+```
+<script>
+    // ES6的原型链
+    class a{
+        constructor(){
+            this.x = 10;
+            console.log(this.x);
+        }
+    };
+    new a();    // 10
+</script>
+```
+
+#### ES6 里的继承 extends
++ 概念: 孩子继承父亲的所有财产，但是孩子本身的财产，不会继承给父亲
+
+Example:
+```
+    <script>
+        class show{
+            constructor(l){
+                this.x = l;
+            }
+            m(){
+                alert(this.x);
+            }
+        };
+
+        // new show(1).m();
+
+        class tgc extends show{
+            constructor(l){
+                // 继承 show(父类)
+                super(l);
+            }
+        };
+
+        new tgc(100).m();   // 弹出 100
+    </script>
+```
+
+#### ES6 里的 jquery
+
+Example:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 里的 jquery</title>
+    <style>
+        input.active{
+            background-color: red;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            margin: 10px;
+        }
+        .tgc{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div class="div1"></div>
+    <div class="div1 tgc"></div>
+
+    <script>
+        class jquery{
+            constructor(obj=''){
+                this.obj = obj;
+                this.allNode = [];
+                switch(this.obj.charAt(0)){
+                    case '#':
+                        this.allNode.push(document.getElementById(this.obj.substring(1)));
+                        // console.log(this.allNode);
+                        break
+                    case '.':
+                        this.myObj = document.getElementsByClassName(this.obj.substring(1));
+                        for(let i=0;i < this.myObj.length;i++){
+                            this.allNode.push(this.myObj[i]);
+                        }
+                        // console.log(this.allNode);
+                        break;
+                    
+                }
+            }
+
+            addClass(Class){
+                for(let i = 0;i < this.allNode.length;i ++){
+                    this.allNode[i].classList.add(Class);
+                }
+            }
+
+            removeClass(Class){
+                for(let i = 0;i < this.allNode.length;i ++){
+                    this.allNode[i].classList.remove(Class);
+                }
+            }
+
+            css(json){
+                for(let i = 0; i < this.allNode.length;i++){
+                    for(let j in json){
+                        this.allNode[i]['style'][j] = json[j];
+                    }
+                }
+            }
+        }
+
+        function $(obj){
+            return new jquery(obj);
+        }
+
+        // $('.div1').addClass('tgc');
+
+        div1.onclick = function(){
+            // $('.div1').addClass('tgc');
+            // $('.div1').removeClass('tgc');
+            $('.div1').css({
+                'width':'300px',
+                'height':'100px',
+                'transition':'1s',
+                'background':'green'
+            });
+        }
+    </script>
+</body>
+</html>
+```
+
+
+
+
+
