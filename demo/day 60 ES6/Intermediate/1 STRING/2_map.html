@@ -1,0 +1,22 @@
+<script>
+    let arr = [1,2,3];
+    arr.find((x,y,z) => {
+        console.log(x,y,z);
+    });
+
+    arr.findIndex((x,y,z) => {
+        console.log(x,y,z);
+    });
+
+    arr.map((x,y,z) => {
+        console.log(x,y,z);
+    });
+
+    // 差别
+    // map 返回数组
+    var a = arr.map((x,y,z) => {
+        console.log(x,y,z);
+    });
+    console.log(a);
+
+</script>

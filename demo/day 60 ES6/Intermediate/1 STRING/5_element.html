@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签模版</title>
+    <style>
+        .outNode>div{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .outNode>div:first-of-type{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var jsonData = {
+            'topValue':['tgc','wxx','abc','hehe'],
+            'bottomValue':['smart','lazy','rich']
+        };
+
+        createNode = json => `<div class='outNode'>
+            ${json.topValue.map((v)=>`<input type = button value=${v}>`).join('')}
+            ${json.bottomValue.map((v)=>`<div>${v}</div>`).join('')}
+        </div>`;
+        console.log(createNode(jsonData));
+
+        document.body.innerHTML = createNode(jsonData);
+
+    </script>
+</body>
+</html>

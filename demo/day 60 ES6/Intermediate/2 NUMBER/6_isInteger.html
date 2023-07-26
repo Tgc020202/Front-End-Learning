@@ -1,0 +1,22 @@
+<script>
+    var a = 1.0000;
+    var b = 1.0001;
+    var c = '1';
+
+    console.log(Number.isInteger(a));   // true
+    console.log(Number.isInteger(b));   // false
+    console.log(Number.isInteger(c));   // false
+
+    var d = '1';
+
+    for(let i = 0;;i++){
+        var e = Number(1+'.'+d);
+
+        if(Number.isInteger(e)){
+            console.log(i);
+            break;
+        }
+        d = 0 + d;
+    };
+    // 15 + 1 个位数后就不支持了
+</script>

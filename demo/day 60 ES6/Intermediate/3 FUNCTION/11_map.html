@@ -1,0 +1,46 @@
+<script>
+    var mapNode = new Map();
+    console.log(mapNode);
+
+    // set
+    mapNode.set('tgc','rich');
+    console.log(mapNode);
+
+    mapNode.set('hah','wow');
+    console.log(mapNode);
+
+    /*
+    // 不能存同样的 key，会覆盖
+    mapNode.set('tgc','best');
+    console.log(mapNode);
+
+
+    // get 
+    console.log(mapNode.get('tgc'));    // best
+
+    // 可以与对象搭配
+    mapNode.set(window,function(){alert(1);});
+    mapNode.get(window)();
+    
+
+    mapNode.set(true,'good');
+    console.log(mapNode.get(true)); // good
+
+    // has
+    console.log(mapNode.has('tgc')); // true
+
+    // delete
+    mapNode.delete('tgc');
+    console.log(mapNode); 
+
+    // clear
+    mapNode.clear();
+    console.log(mapNode);
+    */
+
+    // for of
+    for(let [k,v] of mapNode){
+        console.log(k,v);
+    }
+    
+</script>

@@ -1,0 +1,10 @@
+<script>
+    // 可以用于去重
+    var arr = [1,2,3,4,5];
+    var arr2 = [2,3,5,6,7,7,8];
+
+    var set = new Set([...arr,...arr2]);
+    var arr3 = [...set];
+
+    console.log(arr3);   // [1,2,3,4,5,6,7,8]
+</script>

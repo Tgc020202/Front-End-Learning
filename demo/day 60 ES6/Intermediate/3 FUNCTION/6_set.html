@@ -1,0 +1,48 @@
+<script>
+    var set = new Set();
+    // console.log(Set.prototype);
+
+    // add
+    set.add(1);
+    set.add(2);
+    set.add(3);
+    set.add(4);
+
+    console.log(set);   // 1,2,3,4
+
+    // 禁止重复
+    set.add(4);
+    set.add(4);
+    set.add(4);
+    set.add(4);
+
+    console.log(set);   // 1,2,3,4
+
+    // has
+    console.log(set.has(1));    // true
+    console.log(set.has(2));    // true
+    console.log(set.has(3));    // true
+    console.log(set.has(4));    // true
+    console.log(set.has(5));    // false
+
+    // size
+    console.log(set.size);  // 4
+
+    // key - value
+    console.log(set.keys());  // 1,2,3,4
+    console.log(set.values());  // 1,2,3,4
+
+    // for of
+    for(var i of set.keys()){
+        console.log(i); // 1,2,3,4
+    }
+
+    // delete
+    console.log(set.delete(4)); // true
+    console.log(set);   // 1,2,3
+
+    // clear
+    console.log(set.clear());   // undefined
+    console.log(set);   // size = 0
+
+</script>

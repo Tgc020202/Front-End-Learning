@@ -1,0 +1,32 @@
+<script>
+    /*
+    // IE 不支持
+    document.addEventListener('click',function(){
+        alert(1);
+    });
+
+    // 只有 IE 支持
+    document.attachEvent('onclick',function(){
+        alert(2);
+    });
+    */
+
+    // 解决方法
+    function addEvent(obj,event,fn){
+        /*
+        if(obj.attachEvent){
+            obj.attachEvent('on'+event,fn);
+        }
+        else{
+            obj.addEventListener(event,fn);
+        }
+        */
+        
+        'attachEvent' in window ? obj.attachEvent('on'+event,fn):obj.addEventListener(event,fn);
+    }
+    console.log('attachEvent' in window);   // false
+    console.log('addEventListener' in window);  // true
+    addEvent(document,'click',function(){
+        alert(1);
+    });
+</script>

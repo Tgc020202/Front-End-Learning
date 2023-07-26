@@ -1,0 +1,41 @@
+<script>
+    // 字符串模版
+    var string = `abc`;
+    console.log(string);    // abc
+
+    // 添加
+    // Number
+    var a = 10;
+    var string = `abc${a}`;
+    console.log(string);    // abc10
+
+    // JSON
+    var json = {
+        f:20
+    };
+    var string = `abc${a}${json.f}`;
+    console.log(string);    // abc1020
+
+    // 函数 - 字符模版可以传函数
+    function show(n){
+        return n;
+    };
+    // 无参函数
+    var string = `show a number: ${show()}`;
+    console.log(string);    // show a number: undefined
+
+    // 有参函数
+    var string = `show a string: ${show(2)}`;
+    console.log(string);    // show a number: 2
+
+    // 函数里有 JSON
+    function show2(){
+        var json = {
+            a:100,
+            b:200
+        };
+        return json;
+    };
+    var string = `show a number: ${show2().a}`;
+    console.log(string);    // show a number: 100
+</script>

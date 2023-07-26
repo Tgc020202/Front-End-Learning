@@ -1,0 +1,23 @@
+<script>
+    // JSON 转 map
+    var json = {
+        'tgc':20,
+        'aaa':21,
+        'bbb':'good',
+        'abc':'15'
+    };
+
+    var mapNode = new Map();
+    for(var i in json){
+        mapNode.set(i,json[i]);
+    }
+    console.log(mapNode);
+
+
+    // map 转 JSON
+    var json2 = {};
+    for(let [k,v] of mapNode){
+        json2[k] = v;
+    }
+    console.log(json2);
+</script>
